@@ -1,0 +1,209 @@
+/* --------------------------------------------
+   < 1200px viewport
+-------------------------------------------- */			
+				
+@media (max-width: 1200px) {
+
+	body{border-top:2px solid #C9214B;}
+	#header, #menu ul, #wrapPromocion, #content, #wrapFooter, #deco span, #conInt, #conCon, #fotGa, .strongWrap, #conImp, #conSol, #conVir{margin:0 auto; width:100%;}
+	 #map{width:100%; margin:20px 0;}
+	 #map ul, .strongWrap{padding:0 10px; width:95%;}
+	 #ubi{margin-top:20px;}
+	 .titWrap{font-size: 1.8em; margin-bottom: 10px; padding:0 10px;}
+	#content{position: relative;}
+	#conInt{background:url(../graphics/bck-rightbar.png) right top repeat-y; position:relative;}
+	
+	#logo{float:left; width:100%; text-align:center;}
+	#tel{width:100%; height:41px; text-align:center; margin:10px 0 30px; background:url(../graphics/telefono-mobile.png) center top no-repeat;}
+	#number{margin-left:135px; font-size:1.8em; color:#333;}
+	#menu li{float:left; width:100%; border-bottom:1px solid #ccc; border-top:1px solid #fff; margin-top: 0px;}
+	#menu li a{float:left; width:100%; text-align:center; font-size:.9em; text-transform:uppercase; padding:14px 0;}
+	#promocion{float:left; width:100%; text-align:center; padding-top: 15px;}
+	#promocion img{margin-bottom:20px;}
+	#promocion a{float:none; border-radius:5px; background-color:#c9214b; height:32px; padding:6px 10px 8px; margin:0;}
+
+	.secMobile{background:url(../graphics/bck-menu.png) right center repeat-x; float:left; width:100%; text-align:center; margin:30px 0 20px;}
+	.wrapMobile{float:left; padding:0 20px;}
+	.mainTit{padding:2px 0 10px 30px; font-size: 1.4em; color:#333; }
+	#servInd li{float:left; width:97%; text-align:center;}
+	#servInd li img{width:100%;}
+	#servInd h2, #servInd h1{background:none;}
+	
+	/*---------------- Renta de Oficinas ------------------*/
+	#inf{float:left; width:100%;}
+	#inf h1, #inf h2, #inf h3, #inf p, #inf ul, #inf h4, #inf strong, #inf em{padding:0 20px; width:93%; float:left;}
+	#inf h4{margin-top: 10px;}
+	#inf h3{font-size:1.1em; padding-bottom: 5px;}
+	#inf ul li strong, #inf ul li p{padding:0px;}
+	.boton2{margin-left:20px;}
+	
+	/*---------------- Contacto------------------*/
+	#formMob{float:left; width:90%; padding:0 10px;}
+	#formMob label{padding-left:10px;}
+	#formMob textarea{width:98%; height:180px; border:1px solid #ccc; border-radius:5px; padding:10px;}
+	#submitCon{float:right; margin:10px 0 0 0;}
+	.coniN{width:300px;}
+	#formMob h3{font-size: 1.5em; font-weight: 100; padding:10px 0; border-bottom:1px solid #ccc; margin-bottom: 10px;}
+	#formMob legend{font-weight:bold; border-bottom:1px dotted #ccc; width:100%; padding-bottom: 5px; margin-bottom:5px;}
+	#conMob{padding:20px 0;}
+
+}
+
+
+
+/* 	
+	TO PREVIEW ON THE DESKTOP, REPLACE THE QUERY WITH THE FOLLOW:
+	@media (max-width: 1024px) {  } 
+*/
+	
+@media (max-device-width: 1024px) and (orientation: landscape) {
+
+	body{border-top:2px solid #C9214B;}
+	#header, #menu ul, #wrapPromocion, #content, #wrapFooter, #deco span, #conInt, #conCon, #fotGa, .strongWrap, #conImp, #conSol, #conVir{margin:0 auto; width:100%;}
+	 #map{width:100%; margin:20px 0;}
+	 #map ul, .strongWrap{padding:0 10px; width:95%;}
+	 #ubi{margin-top:20px;}
+	 .titWrap{font-size: 1.8em; margin-bottom: 10px; padding:0 10px;}
+	#content{position: relative;}
+	#conInt{background:url(../graphics/bck-rightbar.png) right top repeat-y; position:relative;}
+	
+	#logo{float:left; width:100%; text-align:center;}
+	#tel{width:100%; height:41px; text-align:center; margin:10px 0 30px; background:url(../graphics/telefono-mobile.png) center top no-repeat;}
+	#number{margin-left:135px; font-size:1.8em; color:#333;}
+	#menu li{float:left; width:100%; border-bottom:1px solid #ccc; border-top:1px solid #fff; margin-top: 0px;}
+	#menu li a{float:left; width:100%; text-align:center; font-size:.9em; text-transform:uppercase; padding:14px 0;}
+	#promocion{float:left; width:100%; text-align:center; padding-top: 15px;}
+	#promocion img{margin-bottom:20px;}
+	#promocion a{float:none; border-radius:5px; background-color:#c9214b; height:32px; padding:6px 10px 8px; margin:0;}
+
+	.secMobile{background:url(../graphics/bck-menu.png) right center repeat-x; float:left; width:100%; text-align:center; margin:30px 0 20px;}
+	.wrapMobile{float:left; padding:0 20px;}
+	.mainTit{padding:2px 0 10px 30px; font-size: 1.4em; color:#333; }
+	#servInd li{float:left; width:97%; text-align:center;}
+	#servInd li img{width:100%;}
+	#servInd h2, #servInd h1{background:none;}
+	
+	/*---------------- Renta de Oficinas ------------------*/
+	#inf{float:left; width:100%;}
+	#inf h1, #inf h2, #inf h3, #inf p, #inf ul, #inf h4, #inf strong, #inf em{padding:0 20px; width:93%; float:left;}
+	#inf h4{margin-top: 10px;}
+	#inf h3{font-size:1.1em; padding-bottom: 5px;}
+	#inf ul li strong, #inf ul li p{padding:0px;}
+	.boton2{margin-left:20px;}
+	
+	/*---------------- Contacto------------------*/
+	#formMob{float:left; width:90%; padding:0 10px;}
+	#formMob label{padding-left:10px;}
+	#formMob textarea{width:98%; height:180px; border:1px solid #ccc; border-radius:5px; padding:10px;}
+	#submitCon{float:right; margin:10px 0 0 0;}
+	.coniN{width:300px;}
+	#formMob h3{font-size: 1.5em; font-weight: 100; padding:10px 0; border-bottom:1px solid #ccc; margin-bottom: 10px;}
+	#formMob legend{font-weight:bold; border-bottom:1px dotted #ccc; width:100%; padding-bottom: 5px; margin-bottom:5px;}
+	#conMob{padding:20px 0;}
+
+}
+
+/* --------------------------------------------
+  iPad in portrait
+-------------------------------------------- */
+
+/* 	
+	TO PREVIEW ON THE DESKTOP, REPLACE THE QUERY WITH THE FOLLOW:
+	@media (max-width: 768px) {  } 
+*/
+
+@media (max-device-width:768px) and (orientation: portrait) {
+	body{border-top:2px solid #C9214B;}
+	#header, #menu ul, #wrapPromocion, #content, #wrapFooter, #deco span, #conInt, #conCon, #fotGa, .strongWrap, #conImp, #conSol, #conVir{margin:0 auto; width:100%;}
+	 #map{width:100%; margin:20px 0;}
+	 #map ul, .strongWrap{padding:0 10px; width:95%;}
+	 #ubi{margin-top:20px;}
+	 .titWrap{font-size: 1.8em; margin-bottom: 10px; padding:0 10px;}
+	#content{position: relative;}
+	#conInt{background:url(../graphics/bck-rightbar.png) right top repeat-y; position:relative;}
+	
+	#logo{float:left; width:100%; text-align:center;}
+	#tel{width:100%; height:41px; text-align:center; margin:10px 0 30px; background:url(../graphics/telefono-mobile.png) center top no-repeat;}
+	#number{margin-left:135px; font-size:1.8em; color:#333;}
+	#menu li{float:left; width:100%; border-bottom:1px solid #ccc; border-top:1px solid #fff; margin-top: 0px;}
+	#menu li a{float:left; width:100%; text-align:center; font-size:.9em; text-transform:uppercase; padding:14px 0;}
+	#promocion{float:left; width:100%; text-align:center; padding-top: 15px;}
+	#promocion img{margin-bottom:20px;}
+	#promocion a{float:none; border-radius:5px; background-color:#c9214b; height:32px; padding:6px 10px 8px; margin:0;}
+
+	.secMobile{background:url(../graphics/bck-menu.png) right center repeat-x; float:left; width:100%; text-align:center; margin:30px 0 20px;}
+	.wrapMobile{float:left; padding:0 20px;}
+	.mainTit{padding:2px 0 10px 30px; font-size: 1.4em; color:#333; }
+	#servInd li{float:left; width:97%; text-align:center;}
+	#servInd li img{width:100%;}
+	#servInd h2, #servInd h1{background:none;}
+	
+	/*---------------- Renta de Oficinas ------------------*/
+	#inf{float:left; width:100%;}
+	#inf h1, #inf h2, #inf h3, #inf p, #inf ul, #inf h4, #inf strong, #inf em{padding:0 20px; width:93%; float:left;}
+	#inf h4{margin-top: 10px;}
+	#inf h3{font-size:1.1em; padding-bottom: 5px;}
+	#inf ul li strong, #inf ul li p{padding:0px;}
+	.boton2{margin-left:20px;}
+	
+	/*---------------- Contacto------------------*/
+	#formMob{float:left; width:90%; padding:0 10px;}
+	#formMob label{padding-left:10px;}
+	#formMob textarea{width:98%; height:180px; border:1px solid #ccc; border-radius:5px; padding:10px;}
+	#submitCon{float:right; margin:10px 0 0 0;}
+	.coniN{width:300px;}
+	#formMob h3{font-size: 1.5em; font-weight: 100; padding:10px 0; border-bottom:1px solid #ccc; margin-bottom: 10px;}
+	#formMob legend{font-weight:bold; border-bottom:1px dotted #ccc; width:100%; padding-bottom: 5px; margin-bottom:5px;}
+	#conMob{padding:20px 0;}
+
+}
+
+
+/* --------------------------------------------
+  Mobile
+-------------------------------------------- */
+
+@media (max-width: 600px) {
+	body{border-top:2px solid #C9214B;}
+	#header, #menu ul, #wrapPromocion, #content, #wrapFooter, #deco span, #conInt, #conCon, #fotGa, .strongWrap, #conImp, #conSol, #conVir{margin:0 auto; width:100%;}
+	 #map{width:100%; margin:20px 0;}
+	 #map ul, .strongWrap{padding:0 10px; width:95%;}
+	 #ubi{margin-top:20px;}
+	 .titWrap{font-size: 1.8em; margin-bottom: 10px; padding:0 10px;}
+	#content{position: relative;}
+	#conInt{background:url(../graphics/bck-rightbar.png) right top repeat-y; position:relative;}
+	
+	#logo{float:left; width:100%; text-align:center;}
+	#tel{width:100%; height:41px; text-align:center; margin:10px 0 30px; background:url(../graphics/telefono-mobile.png) center top no-repeat;}
+	#number{margin-left:135px; font-size:1.8em; color:#333;}
+	#menu li{float:left; width:100%; border-bottom:1px solid #ccc; border-top:1px solid #fff; margin-top: 0px;}
+	#menu li a{float:left; width:100%; text-align:center; font-size:.9em; text-transform:uppercase; padding:14px 0;}
+	#promocion{float:left; width:100%; text-align:center; padding-top: 15px;}
+	#promocion img{margin-bottom:20px;}
+	#promocion a{float:none; border-radius:5px; background-color:#c9214b; height:32px; padding:6px 10px 8px; margin:0;}
+
+	.secMobile{background:url(../graphics/bck-menu.png) right center repeat-x; float:left; width:100%; text-align:center; margin:30px 0 20px;}
+	.wrapMobile{float:left; padding:0 20px;}
+	.mainTit{padding:2px 0 10px 30px; font-size: 1.4em; color:#333; }
+	#servInd li{float:left; width:97%; text-align:center;}
+	#servInd li img{width:100%;}
+	#servInd h2, #servInd h1{background:none;}
+	
+	/*---------------- Renta de Oficinas ------------------*/
+	#inf{float:left; width:100%;}
+	#inf h1, #inf h2, #inf h3, #inf p, #inf ul, #inf h4, #inf strong, #inf em{padding:0 20px; width:93%; float:left;}
+	#inf h4{margin-top: 10px;}
+	#inf h3{font-size:1.1em; padding-bottom: 5px;}
+	#inf ul li strong, #inf ul li p{padding:0px;}
+	.boton2{margin-left:20px;}
+	
+	/*---------------- Contacto------------------*/
+	#formMob{float:left; width:90%; padding:0 10px;}
+	#formMob label{padding-left:10px;}
+	#formMob textarea{width:98%; height:180px; border:1px solid #ccc; border-radius:5px; padding:10px;}
+	#submitCon{float:right; margin:10px 0 0 0;}
+	.coniN{width:300px; height:46px; padding:0 10px;}
+	#formMob h3{font-size: 1.5em; font-weight: 100; padding:10px 0; border-bottom:1px solid #ccc; margin-bottom: 10px;}
+	#formMob legend{font-weight:bold; border-bottom:1px dotted #ccc; width:100%; padding-bottom: 5px; margin-bottom:5px;}
+	#conMob{padding:20px 0;}
+}

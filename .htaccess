@@ -1,0 +1,11 @@
+RewriteOptions inherit
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} ^system.*
+RewriteRule ^(.*)$ localhost/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ apeConnect/index.php?/$1 [L]
+RewriteCond %{HTTP_HOST} ^apeplazas\.com$ [NC]
+#Redirect http://apeplazas.com to http://www.apeplazas.com
+RewriteRule ^(.*) http://www.apeplazas.com/$1 [L,R=301]  

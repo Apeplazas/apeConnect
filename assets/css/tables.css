@@ -1,0 +1,50 @@
+#tablaproveed, #tablaPlano{float:left; width:100%; font-size:.8em; margin-top:20px; border:1px solid #ccc; position:relative}
+#tablaproveed thead th, #tablaPlano thead th{text-align:left; background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #f6f6f6, #f3f3f4);
+  background-image: -ms-linear-gradient(top, #f6f6f6, #f3f3f4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6f6f6), to(#f3f3f4));
+  background-image: -webkit-linear-gradient(top, #f6f6f6, #f3f3f4);
+  background-image: -o-linear-gradient(top, #f6f6f6, #f3f3f4);
+  background-image: linear-gradient(top, #f6f6f6, #f3f3f4);
+  /* background-repeat: repeat-x; */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f3f3f4', GradientType=0);
+  border-color: #f3f3f4 #f3f3f4 #cbcbcf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid #dddddd;}
+#tablaproveed thead th, #tablaPlano thead th{background-color:#eee; padding:10px 0}
+#tablaproveed tbody tr{border-bottom:1px dotted #eee}
+#tablaPlano tbody tr{border-bottom:1px solid #ccc}
+#tablaproveed tbody tr:hover, #tablaPlano tbody .plaza:hover{background:lightyellow}
+#tablaproveed tbody th{text-align:left; font-size:.9em}
+#tablaPlano tbody th{text-align:left; font-size:.9em; vertical-align:top}
+#tablaPlano tbody .plaza th a{padding:12px 0;}
+#tablaproveed tbody th a{float:left; width:100%; padding:12px 0;}
+
+
+.tablaCheck input{margin:0 10px}
+.dataTables_filter{position:absolute; font-size:.9em; padding:0 10px; top:72px; right:70px; width:300px; border:1px solid #ccc; z-index:9999; background-color:#fff;}
+.dataTables_filter input{border:none; background:none; padding:5px 0 0; width:245px; font-size:14px; font-weight:700;}
+.dataTables_filter label{float:left; margin-top:2px; height:27px;}
+#tablaproveed_length, #tablaPlano_length{position:absolute; top:21px; right:0; border:1px solid #ccc; background:#e6e6e6; margin-top:1px;}
+#tablaproveed_length select, #tablaPlano_length select{border:0; background-color:#fff; height:29px; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;}
+.dataTables_info{float:left; width:97%; text-align:right; padding:7px 0; font-size:.8em;}
+.paginate_disabled_previous, .paginate_enabled_previous{text-indent:-9999px; position:absolute; top:72px; right:35px; width:30px; height:29px; border:1px solid #ccc; background:url(../graphics/sprite2.png) -423px -64px no-repeat #e6e6e6; cursor:pointer;}
+.paginate_enabled_next, .paginate_disabled_next{text-indent:-9999px; position:absolute; top:72px; right:0px; width:30px; height:29px; border:1px solid #ccc; background:url(../graphics/sprite2.png) -448px -64px no-repeat #e6e6e6; cursor:pointer;}
+#tablaproveed_length select:hover, #tablaPlano_length select:hover, .dataTables_filter:hover, .paginate_disabled_previous:hover, .paginate_enabled_previous:hover, .paginate_enabled_next:hover, .paginate_disabled_next:hover{box-shadow:1px 0px 3px 0px lightskyblue; -moz-box-shadow:1px 0px 3px 0px lightskyblue; -webkit-box-shadow:1px 0px 3px 0px lightskyblue;}
+.dataTables_empty{padding:20px}
+.childTab{background-color:#e6e6e6}
+.childTab ul{float:left;  width:100%}
+.childTab ul a{float:left; width:94%; padding:6px 0 5px 55px;}
+
+@media (max-width:1024px) {
+	}
+
+@media (max-width:768px) {
+
+	}
+
+@media (max-width:640px) {
+	}	
+	
+	
+	

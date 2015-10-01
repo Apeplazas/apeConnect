@@ -1,0 +1,1 @@
+<p class="alerta"><?=$message;?></p>

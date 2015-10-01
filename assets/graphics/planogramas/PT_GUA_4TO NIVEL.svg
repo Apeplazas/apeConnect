@@ -1,0 +1,2048 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px"
+	 height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+<g id="ÁREAS_COMUNES">
+	<g id="TEXT">
+		
+			<text transform="matrix(6.123234e-017 -1 1 6.123234e-017 717.0059 419.3096)" fill="#00FF3F" font-family="'ArialMT'" font-size="15.1685">AV. 16 DE SEPTIEMBRE</text>
+	</g>
+	<g id="TEXT_2_">
+		<text transform="matrix(1 0 0 1 129.2861 547.3848)" fill="#00FF3F" font-family="'ArialMT'" font-size="15.1685">CALLE LOPEZ COTILLA</text>
+	</g>
+	<g id="HATCH">
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" d="M541.579,376.818v-76.304l-10.163-10.155h-24.362v-1.414h24.941
+			l10.991,10.983v76.889H541.579L541.579,376.818z M591.011,319.068h-48.024v-1.415h46.601v-28.19l-20.32-0.028v-1.385h46.879v1.413
+			h-25.135V319.068L591.011,319.068z M571.856,432.642v79.949h-1.407v-79.157L571.856,432.642L571.856,432.642z M409.058,410.028
+			h16.946v1.414h-16.946V410.028L409.058,410.028z M669.286,477.295H638.22v1.413h31.066V477.295L669.286,477.295z M636.8,489.648
+			v-25.412l-50.16-43.688l-4.496,4.487l-14.932-15.008l4.479-4.495l-22.75-22.765l0.994-1l23.771,23.765l-4.496,4.495l12.934,13.016
+			l4.496-4.494l51.58,45.102v27.411l-18.35,21.528v-31.644h-12.717v-10.588h1.408v9.183h12.712v33.049L636.8,489.648z"/>
+	</g>
+	<g id="LWPOLYLINE_6_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			541.572,376.815 541.572,300.515 531.416,290.36 507.049,290.36 507.049,288.948 532.001,288.948 542.983,299.93 542.983,376.815 
+			541.572,376.815 		"/>
+	</g>
+	<g id="LWPOLYLINE_7_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			509.097,232.471 693,232.471 693,532.927 432.994,532.927 432.994,521.208 		"/>
+	</g>
+	<g id="TEXT_3_">
+		<text transform="matrix(1 0 0 1 484.3984 328.6709)" fill="#00FF3F" font-family="'ArialMT'" font-size="15.6162">Mi PC</text>
+	</g>
+	<g id="MTEXT_1_">
+		<text transform="matrix(1 0 0 1 491.9854 343.0674)" fill="#00FF3F" font-family="'ArialMT'" font-size="15.6162">401</text>
+	</g>
+	<g id="HATCH_1_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="412.315,521.065 435.74,521.065 435.74,518.383 
+			412.315,518.383 412.315,521.065 		"/>
+	</g>
+	<g id="LWPOLYLINE_8_">
+		
+			<rect x="412.31" y="518.385" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="23.438" height="2.684"/>
+	</g>
+	<g id="HATCH_2_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="409.058,386.794 409.058,511.751 406.95,511.751 
+			406.95,386.794 409.058,386.794 		"/>
+	</g>
+	<g id="LWPOLYLINE_9_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			409.063,386.794 409.063,511.749 406.944,511.749 406.944,386.794 409.063,386.794 		"/>
+	</g>
+	<g id="HATCH_3_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="471.121,113.449 473.659,113.449 473.659,149.45 
+			471.121,149.45 471.121,113.449 		"/>
+	</g>
+	<g id="INSERT">
+		<g id="LINE">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="493.852" y1="156.02" x2="493.852" y2="156.463"/>
+		</g>
+		<g id="LINE_1_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="156.02" x2="493.852" y2="156.02"/>
+		</g>
+		<g id="ARC">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M502.319,164.487c-4.676,0-8.468-3.791-8.468-8.467"/>
+		</g>
+		<g id="LINE_2_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="156.284" x2="502.319" y2="156.284"/>
+		</g>
+		<g id="LINE_3_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="156.02" x2="502.319" y2="156.463"/>
+		</g>
+		<g id="LINE_4_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="156.463" x2="493.852" y2="156.463"/>
+		</g>
+	</g>
+	<g id="INSERT_1_">
+		<g id="LINE_5_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="493.852" y1="172.955" x2="493.852" y2="172.511"/>
+		</g>
+		<g id="LINE_6_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="172.955" x2="493.852" y2="172.955"/>
+		</g>
+		<g id="ARC_1_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M502.319,164.487c-4.676,0-8.468,3.792-8.468,8.467"/>
+		</g>
+		<g id="LINE_7_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="172.69" x2="502.319" y2="172.69"/>
+		</g>
+		<g id="LINE_8_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="172.955" x2="502.319" y2="172.511"/>
+		</g>
+		<g id="LINE_9_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="502.319" y1="172.511" x2="493.852" y2="172.511"/>
+		</g>
+	</g>
+	<g id="INSERT_2_">
+		<g id="LINE_10_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="339.852" y1="240.286" x2="339.852" y2="234.355"/>
+		</g>
+		<g id="LINE_11_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="239.438" x2="342.464" y2="239.438"/>
+		</g>
+		<g id="LINE_12_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="235.203" x2="342.464" y2="235.203"/>
+		</g>
+		<g id="LINE_13_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="234.144" x2="342.901" y2="234.144"/>
+		</g>
+		<g id="LINE_14_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="350.018" y1="238.912" x2="350.018" y2="235.729"/>
+		</g>
+		<g id="ARC_2_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.719,235.324c-2.213-0.682-4.504-1.079-6.818-1.181"/>
+		</g>
+		<g id="ARC_3_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M350.018,235.729c0-0.186-0.122-0.35-0.299-0.405"/>
+		</g>
+		<g id="ARC_4_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.434,235.533c-2.196-0.658-4.467-1.033-6.758-1.116"/>
+		</g>
+		<g id="LINE_15_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="349.735" y1="238.732" x2="349.735" y2="235.939"/>
+		</g>
+		<g id="LINE_16_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.883" y1="237.32" x2="343.887" y2="235.376"/>
+		</g>
+		<g id="ARC_5_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.005,235.849c-1.521-0.436-3.078-0.734-4.653-0.893"/>
+		</g>
+		<g id="LINE_17_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="349.312" y1="238.385" x2="349.312" y2="236.256"/>
+		</g>
+		<g id="ARC_6_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.353,234.956c-0.232-0.023-0.44,0.146-0.463,0.379c-0.001,0.014-0.002,0.027-0.002,0.042"/>
+		</g>
+		<g id="ARC_7_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.312,236.256c0-0.189-0.125-0.355-0.307-0.407"/>
+		</g>
+		<g id="ARC_8_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.735,235.939c0-0.187-0.122-0.353-0.302-0.406"/>
+		</g>
+		<g id="ARC_9_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M340.064,235.203c-0.117,0-0.212,0.094-0.212,0.212"/>
+		</g>
+		<g id="ARC_10_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.676,235.415c0-0.118-0.095-0.212-0.211-0.212"/>
+		</g>
+		<g id="ARC_11_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.464,239.438c0.117,0,0.211-0.095,0.211-0.212"/>
+		</g>
+		<g id="ARC_12_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M339.852,239.226c0,0.117,0.095,0.212,0.212,0.212"/>
+		</g>
+		<g id="LINE_18_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="234.417" x2="342.676" y2="234.417"/>
+		</g>
+		<g id="ARC_13_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M340.064,234.144c-0.117,0-0.212,0.095-0.212,0.211"/>
+		</g>
+		<g id="ARC_14_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M340.064,234.417c-0.117,0-0.212,0.095-0.212,0.212"/>
+		</g>
+		<g id="ARC_15_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.712,240.222c0.244-1.927,0.244-3.877,0-5.804"/>
+		</g>
+		<g id="ARC_16_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.676,239.226c0.139-1.282,0.137-2.576-0.005-3.857"/>
+		</g>
+		<g id="ARC_17_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.434,239.108c0.18-0.053,0.302-0.219,0.302-0.405"/>
+		</g>
+		<g id="ARC_18_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.005,238.792c0.181-0.052,0.307-0.218,0.307-0.407"/>
+		</g>
+		<g id="ARC_19_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.353,239.685c1.575-0.158,3.131-0.457,4.653-0.893"/>
+		</g>
+		<g id="ARC_20_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M343.887,239.264c0,0.234,0.19,0.423,0.425,0.422c0.014,0,0.027,0,0.041-0.002"/>
+		</g>
+		<g id="ARC_21_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.719,239.316c0.178-0.055,0.299-0.219,0.299-0.405"/>
+		</g>
+		<g id="LINE_19_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.883" y1="237.32" x2="343.887" y2="239.264"/>
+		</g>
+		<g id="ARC_22_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.676,240.224c2.291-0.083,4.562-0.458,6.758-1.116"/>
+		</g>
+		<g id="ARC_23_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.901,240.497c2.314-0.102,4.605-0.499,6.818-1.181"/>
+		</g>
+		<g id="LINE_20_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="240.224" x2="342.676" y2="240.224"/>
+		</g>
+		<g id="LINE_21_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="240.497" x2="342.901" y2="240.497"/>
+		</g>
+		<g id="ARC_24_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M339.852,240.012c0,0.117,0.095,0.211,0.212,0.211"/>
+		</g>
+		<g id="ARC_25_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M339.852,240.286c0,0.117,0.095,0.211,0.212,0.211"/>
+		</g>
+		<g id="LINE_22_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="348.888" y1="238.385" x2="347.104" y2="237.654"/>
+		</g>
+		<g id="LINE_23_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="348.888" y1="236.256" x2="347.104" y2="236.987"/>
+		</g>
+		<g id="LINE_24_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.588" y1="237.744" x2="344.59" y2="236.897"/>
+		</g>
+		<g id="LINE_25_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="345.648" y1="237.392" x2="345.648" y2="237.251"/>
+		</g>
+		<g id="LINE_26_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.588" y1="237.744" x2="345.295" y2="237.744"/>
+		</g>
+		<g id="LINE_27_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.59" y1="236.897" x2="345.295" y2="236.897"/>
+		</g>
+		<g id="ARC_26_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M345.648,237.251c0-0.196-0.157-0.354-0.352-0.354"/>
+		</g>
+		<g id="ARC_27_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M345.295,237.744c0.195,0,0.353-0.158,0.353-0.353"/>
+		</g>
+		<g id="ARC_28_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M348.966,235.984c-1.513-0.434-3.062-0.73-4.627-0.888"/>
+		</g>
+		<g id="ARC_29_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.338,235.097c-0.154-0.016-0.293,0.098-0.309,0.253c-0.001,0.009-0.001,0.018-0.001,0.027"/>
+		</g>
+		<g id="LINE_28_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.025" y1="237.32" x2="344.028" y2="235.377"/>
+		</g>
+		<g id="LINE_29_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.025" y1="237.32" x2="344.028" y2="239.264"/>
+		</g>
+		<g id="ARC_30_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.028,239.264c0,0.156,0.127,0.282,0.283,0.282c0.009,0,0.019-0.001,0.027-0.001"/>
+		</g>
+		<g id="ARC_31_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.338,239.544c1.566-0.158,3.115-0.455,4.627-0.888"/>
+		</g>
+		<g id="ARC_32_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M348.966,238.656c0.122-0.035,0.205-0.145,0.205-0.271"/>
+		</g>
+		<g id="LINE_30_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="349.17" y1="238.385" x2="349.17" y2="236.256"/>
+		</g>
+		<g id="ARC_33_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.17,236.256c0-0.126-0.083-0.236-0.205-0.271"/>
+		</g>
+	</g>
+	<g id="LINE_31_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.045" y1="224.706" x2="339.667" y2="224.706"/>
+	</g>
+	<g id="LINE_32_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.045" y1="228.941" x2="339.667" y2="228.941"/>
+	</g>
+	<g id="INSERT_3_">
+		<g id="LINE_33_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="339.852" y1="221.163" x2="339.852" y2="215.233"/>
+		</g>
+		<g id="LINE_34_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="220.316" x2="342.464" y2="220.316"/>
+		</g>
+		<g id="LINE_35_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="216.08" x2="342.464" y2="216.08"/>
+		</g>
+		<g id="LINE_36_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="215.021" x2="342.901" y2="215.021"/>
+		</g>
+		<g id="LINE_37_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="350.018" y1="219.789" x2="350.018" y2="216.607"/>
+		</g>
+		<g id="ARC_34_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.719,216.202c-2.213-0.681-4.504-1.078-6.818-1.181"/>
+		</g>
+		<g id="ARC_35_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M350.018,216.607c0-0.186-0.122-0.35-0.299-0.405"/>
+		</g>
+		<g id="ARC_36_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.434,216.41c-2.196-0.658-4.467-1.032-6.758-1.116"/>
+		</g>
+		<g id="LINE_38_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="349.735" y1="219.61" x2="349.735" y2="216.816"/>
+		</g>
+		<g id="LINE_39_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.883" y1="218.198" x2="343.887" y2="216.254"/>
+		</g>
+		<g id="ARC_37_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.005,216.726c-1.521-0.436-3.078-0.734-4.653-0.893"/>
+		</g>
+		<g id="LINE_40_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="349.312" y1="219.262" x2="349.312" y2="217.134"/>
+		</g>
+		<g id="ARC_38_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.353,215.833c-0.232-0.023-0.44,0.146-0.463,0.379c-0.001,0.014-0.002,0.028-0.002,0.042"/>
+		</g>
+		<g id="ARC_39_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.312,217.134c0-0.189-0.125-0.356-0.307-0.408"/>
+		</g>
+		<g id="ARC_40_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.735,216.816c0-0.188-0.122-0.353-0.302-0.406"/>
+		</g>
+		<g id="ARC_41_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M340.064,216.08c-0.117,0-0.212,0.095-0.212,0.212"/>
+		</g>
+		<g id="ARC_42_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.676,216.292c0-0.117-0.095-0.212-0.211-0.212"/>
+		</g>
+		<g id="ARC_43_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.464,220.316c0.117,0,0.211-0.095,0.211-0.212"/>
+		</g>
+		<g id="ARC_44_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M339.852,220.104c0,0.117,0.095,0.212,0.212,0.212"/>
+		</g>
+		<g id="LINE_41_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="215.294" x2="342.676" y2="215.294"/>
+		</g>
+		<g id="ARC_45_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M340.064,215.021c-0.117,0-0.212,0.095-0.212,0.212"/>
+		</g>
+		<g id="ARC_46_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M340.064,215.294c-0.117,0-0.212,0.095-0.212,0.212"/>
+		</g>
+		<g id="ARC_47_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.712,221.1c0.244-1.927,0.244-3.877,0-5.803"/>
+		</g>
+		<g id="ARC_48_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.676,220.104c0.139-1.283,0.137-2.576-0.005-3.858"/>
+		</g>
+		<g id="ARC_49_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.434,219.985c0.18-0.053,0.302-0.218,0.302-0.406"/>
+		</g>
+		<g id="ARC_50_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.005,219.67c0.181-0.052,0.307-0.218,0.307-0.408"/>
+		</g>
+		<g id="ARC_51_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.353,220.562c1.575-0.158,3.131-0.457,4.653-0.892"/>
+		</g>
+		<g id="ARC_52_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M343.887,220.142c0,0.234,0.19,0.423,0.425,0.423c0.014,0,0.027,0,0.041-0.002"/>
+		</g>
+		<g id="ARC_53_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.719,220.194c0.178-0.055,0.299-0.218,0.299-0.405"/>
+		</g>
+		<g id="LINE_42_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.883" y1="218.198" x2="343.887" y2="220.142"/>
+		</g>
+		<g id="ARC_54_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.676,221.101c2.291-0.083,4.562-0.458,6.758-1.116"/>
+		</g>
+		<g id="ARC_55_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M342.901,221.375c2.314-0.102,4.605-0.499,6.818-1.181"/>
+		</g>
+		<g id="LINE_43_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="221.101" x2="342.676" y2="221.101"/>
+		</g>
+		<g id="LINE_44_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="340.064" y1="221.375" x2="342.901" y2="221.375"/>
+		</g>
+		<g id="ARC_56_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M339.852,220.89c0,0.116,0.095,0.211,0.212,0.211"/>
+		</g>
+		<g id="ARC_57_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M339.852,221.163c0,0.117,0.095,0.211,0.212,0.211"/>
+		</g>
+		<g id="LINE_45_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="348.888" y1="219.262" x2="347.104" y2="218.531"/>
+		</g>
+		<g id="LINE_46_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="348.888" y1="217.134" x2="347.104" y2="217.864"/>
+		</g>
+		<g id="LINE_47_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.588" y1="218.622" x2="344.59" y2="217.774"/>
+		</g>
+		<g id="LINE_48_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="345.648" y1="218.269" x2="345.648" y2="218.128"/>
+		</g>
+		<g id="LINE_49_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.588" y1="218.622" x2="345.295" y2="218.622"/>
+		</g>
+		<g id="LINE_50_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.59" y1="217.774" x2="345.295" y2="217.774"/>
+		</g>
+		<g id="ARC_58_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M345.648,218.128c0-0.194-0.157-0.353-0.352-0.354"/>
+		</g>
+		<g id="ARC_59_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M345.295,218.622c0.195,0,0.353-0.158,0.353-0.353"/>
+		</g>
+		<g id="ARC_60_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M348.966,216.862c-1.513-0.434-3.062-0.73-4.627-0.888"/>
+		</g>
+		<g id="ARC_61_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.338,215.974c-0.154-0.016-0.293,0.098-0.309,0.252c-0.001,0.009-0.001,0.019-0.001,0.028"/>
+		</g>
+		<g id="LINE_51_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.025" y1="218.198" x2="344.028" y2="216.254"/>
+		</g>
+		<g id="LINE_52_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="344.025" y1="218.198" x2="344.028" y2="220.142"/>
+		</g>
+		<g id="ARC_62_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.028,220.142c0,0.156,0.127,0.282,0.283,0.282c0.009,0,0.019,0,0.027-0.001"/>
+		</g>
+		<g id="ARC_63_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M344.338,220.422c1.566-0.158,3.115-0.455,4.627-0.888"/>
+		</g>
+		<g id="ARC_64_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M348.966,219.534c0.122-0.035,0.205-0.145,0.205-0.271"/>
+		</g>
+		<g id="LINE_53_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="349.17" y1="219.262" x2="349.17" y2="217.134"/>
+		</g>
+		<g id="ARC_65_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M349.17,217.134c0-0.126-0.083-0.237-0.205-0.271"/>
+		</g>
+	</g>
+	<g id="MLINE">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="369.266" y1="248.479" x2="342.208" y2="248.479"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="369.266" y1="247.773" x2="342.208" y2="247.773"/>
+	</g>
+	<g id="LINE_54_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="405.321" y1="250.155" x2="342.208" y2="250.155"/>
+	</g>
+	<g id="LINE_55_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="405.321" y1="246.096" x2="342.208" y2="246.096"/>
+	</g>
+	<g id="MLINE_1_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="369.266" y1="112.617" x2="342.208" y2="112.617"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="369.266" y1="111.911" x2="342.208" y2="111.911"/>
+	</g>
+	<g id="LINE_56_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="488.624" y1="152.345" x2="488.624" y2="153.051"/>
+	</g>
+	<g id="LINE_57_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.045" y1="209.315" x2="356.045" y2="246.096"/>
+	</g>
+	<g id="LWPOLYLINE_10_">
+		
+			<rect x="405.438" y="204.033" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="5.666" height="6.345"/>
+	</g>
+	<g id="LWPOLYLINE_11_">
+		
+			<rect x="405.016" y="203.61" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.512" height="7.192"/>
+	</g>
+	<g id="LINE_58_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="439.913" y1="195.056" x2="413.933" y2="195.056"/>
+	</g>
+	<g id="LINE_59_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="411.956" y1="225.765" x2="404.051" y2="225.765"/>
+	</g>
+	<g id="LINE_60_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="404.051" y1="225.765" x2="404.051" y2="226.33"/>
+	</g>
+	<g id="LINE_61_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="411.956" y1="226.33" x2="404.051" y2="226.33"/>
+	</g>
+	<g id="INSERT_4_">
+		<g id="ARC_66_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M410.423,234.521c0-0.779-0.631-1.412-1.411-1.412"/>
+		</g>
+		<g id="LINE_62_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="411.361" y1="241.016" x2="411.361" y2="232.544"/>
+		</g>
+		<g id="ARC_67_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M407.479,233.109c-0.779,0-1.412,0.632-1.412,1.412"/>
+		</g>
+		<g id="LWPOLYLINE_12_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M411.855,240.733c0,0.156-0.126,0.283-0.283,0.283h-5.788c-0.155,0-0.282-0.127-0.282-0.283v-7.907
+				c0-0.156,0.127-0.283,0.282-0.283h5.788c0.157,0,0.283,0.127,0.283,0.283V240.733z"/>
+		</g>
+		<g id="ARC_68_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M406.066,239.039c0,0.78,0.633,1.412,1.412,1.412"/>
+		</g>
+		<g id="ARC_69_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M409.012,240.451c0.78,0,1.411-0.632,1.411-1.412"/>
+		</g>
+		<g id="LINE_63_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="409.012" y1="240.451" x2="407.479" y2="240.451"/>
+		</g>
+		<g id="CIRCLE">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M411.175,236.004c0-0.157-0.126-0.283-0.282-0.283s-0.282,0.126-0.282,0.283c0,0.155,0.126,0.281,0.282,0.281
+				S411.175,236.159,411.175,236.004L411.175,236.004z"/>
+		</g>
+		<g id="LINE_64_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="411.361" y1="236.004" x2="410.423" y2="236.004"/>
+		</g>
+		<g id="LINE_65_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="410.893" y1="235.445" x2="410.893" y2="238.063"/>
+		</g>
+		<g id="CIRCLE_1_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M409.878,236.779c0-0.156-0.125-0.281-0.281-0.281s-0.283,0.125-0.283,0.281c0,0.157,0.127,0.283,0.283,0.283
+				S409.878,236.936,409.878,236.779L409.878,236.779z"/>
+		</g>
+		<g id="CIRCLE_2_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M410.02,236.779c0-0.233-0.189-0.423-0.423-0.423c-0.234,0-0.424,0.189-0.424,0.423c0,0.235,0.189,0.424,0.424,0.424
+				C409.83,237.204,410.02,237.014,410.02,236.779L410.02,236.779z"/>
+		</g>
+		<g id="LINE_66_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="409.597" y1="237.204" x2="409.597" y2="236.356"/>
+		</g>
+		<g id="CIRCLE_3_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M411.175,237.557c0-0.156-0.126-0.283-0.282-0.283s-0.282,0.126-0.282,0.283c0,0.156,0.126,0.282,0.282,0.282
+				S411.175,237.712,411.175,237.557L411.175,237.557z"/>
+		</g>
+		<g id="LINE_67_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="411.361" y1="237.557" x2="410.423" y2="237.557"/>
+		</g>
+		<g id="LINE_68_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="410.423" y1="239.039" x2="410.423" y2="234.521"/>
+		</g>
+		<g id="LINE_69_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="406.066" y1="239.039" x2="406.066" y2="234.521"/>
+		</g>
+		<g id="LINE_70_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="409.012" y1="233.109" x2="407.479" y2="233.109"/>
+		</g>
+	</g>
+	<g id="MLINE_2_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="376.467" y1="247.773" x2="405.321" y2="247.773"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="376.467" y1="248.479" x2="405.321" y2="248.479"/>
+	</g>
+	<g id="LINE_71_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="337.125" y1="116.835" x2="337.125" y2="244.332"/>
+	</g>
+	<g id="LINE_72_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="339.667" y1="116.835" x2="339.667" y2="150.58"/>
+	</g>
+	<g id="LINE_73_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="339.667" y1="153.121" x2="339.667" y2="206.774"/>
+	</g>
+	<g id="INSERT_5_">
+		<g id="LINE_74_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="385.942" y1="209.351" x2="386.595" y2="209.351"/>
+		</g>
+		<g id="LINE_75_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="385.942" y1="196.891" x2="385.942" y2="209.351"/>
+		</g>
+		<g id="ARC_70_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M398.403,196.891c0,6.882-5.579,12.46-12.46,12.46"/>
+		</g>
+		<g id="LINE_76_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.332" y1="196.891" x2="386.332" y2="196.891"/>
+		</g>
+		<g id="LINE_77_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="385.942" y1="196.891" x2="386.595" y2="196.891"/>
+		</g>
+		<g id="LINE_78_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.595" y1="196.891" x2="386.595" y2="209.351"/>
+		</g>
+	</g>
+	<g id="LINE_79_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="509.097" y1="199.715" x2="509.097" y2="247.861"/>
+	</g>
+	<g id="ARC_71_">
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M414.498,207.736c6.854,0.166,12.542-5.254,12.707-12.106c0.005-0.201,0.005-0.4,0-0.601"/>
+	</g>
+	<g id="LINE_80_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="414.498" y1="195.029" x2="414.498" y2="207.736"/>
+	</g>
+	<g id="ARC_72_">
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M427.205,195.029c-0.165,6.852,5.255,12.541,12.107,12.707c0.199,0.005,0.4,0.005,0.601,0"/>
+	</g>
+	<g id="LINE_81_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="439.913" y1="195.029" x2="439.913" y2="207.736"/>
+	</g>
+	<g id="HATCH_4_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="413.927,244.328 411.952,244.328 411.952,199.715 
+			413.927,199.715 413.927,244.328 		"/>
+	</g>
+	<g id="LWPOLYLINE_13_">
+		
+			<rect x="411.956" y="199.715" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="1.977" height="44.617"/>
+	</g>
+	<g id="HATCH_5_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="509.092,190.96 506.555,190.96 506.555,155.663 
+			509.092,155.663 509.092,190.96 		"/>
+	</g>
+	<g id="LWPOLYLINE_14_">
+		
+			<rect x="506.556" y="155.663" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.541" height="35.298"/>
+	</g>
+	<g id="LWPOLYLINE_15_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			506.556,173.171 502.319,173.171 502.319,180.23 506.556,180.23 		"/>
+	</g>
+	<g id="HATCH_6_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="474.994,151.428 481.143,151.428 481.143,153.966 
+			474.994,153.966 474.994,151.428 		"/>
+	</g>
+	<g id="HATCH_7_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="496.104,151.428 502.252,151.428 502.252,153.966 
+			496.104,153.966 496.104,151.428 		"/>
+	</g>
+	<g id="LWPOLYLINE_16_">
+		
+			<rect x="496.107" y="151.427" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.142" height="2.541"/>
+	</g>
+	<g id="LWPOLYLINE_17_">
+		
+			<rect x="474.999" y="151.427" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.142" height="2.541"/>
+	</g>
+	<g id="LWPOLYLINE_18_">
+		
+			<rect x="481.141" y="152.345" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="14.967" height="0.707"/>
+	</g>
+	<g id="HATCH_8_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="509.092,149.45 506.555,149.45 506.555,113.449 
+			509.092,113.449 509.092,149.45 		"/>
+	</g>
+	<g id="LWPOLYLINE_19_">
+		
+			<rect x="506.556" y="113.446" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.541" height="36.004"/>
+	</g>
+	<g id="HATCH_9_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="474.994,111.657 502.252,111.657 502.252,109.114 
+			474.994,109.114 474.994,111.657 		"/>
+	</g>
+	<g id="LWPOLYLINE_20_">
+		
+			<rect x="474.999" y="109.115" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="27.25" height="2.542"/>
+	</g>
+	<g id="LWPOLYLINE_21_">
+		
+			<rect x="471.116" y="113.446" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.542" height="36.004"/>
+	</g>
+	<g id="HATCH_10_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="413.718,116.696 411.884,116.696 411.884,147.19 
+			413.718,147.19 413.718,116.696 		"/>
+	</g>
+	<g id="LWPOLYLINE_22_">
+		
+			<rect x="411.886" y="116.694" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="1.837" height="30.497"/>
+	</g>
+	<g id="HATCH_11_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="398.4,150.582 405.321,150.582 405.321,153.117 
+			398.4,153.117 398.4,150.582 		"/>
+	</g>
+	<g id="LWPOLYLINE_23_">
+		
+			<rect x="398.403" y="150.58" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.918" height="2.542"/>
+	</g>
+	<g id="HATCH_12_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="398.537,195.621 405.321,195.621 405.321,198.165 
+			398.537,198.165 398.537,195.621 		"/>
+	</g>
+	<g id="LWPOLYLINE_24_">
+		
+			<rect x="398.544" y="195.62" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.777" height="2.541"/>
+	</g>
+	<g id="LINE_82_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="468.787" y1="113.305" x2="413.863" y2="113.305"/>
+	</g>
+	<g id="LINE_83_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="430.241" y1="154.506" x2="452.546" y2="154.506"/>
+	</g>
+	<g id="LINE_84_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="461.41" y1="157.394" x2="461.41" y2="139.809"/>
+	</g>
+	<g id="LINE_85_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="461.41" y1="139.809" x2="457.25" y2="142.687"/>
+	</g>
+	<g id="LINE_86_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="461.41" y1="139.809" x2="465.57" y2="142.687"/>
+	</g>
+	<g id="LINE_87_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="452.546" y1="153.801" x2="468.787" y2="153.801"/>
+	</g>
+	<g id="LINE_88_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="452.546" y1="149.197" x2="468.787" y2="149.197"/>
+	</g>
+	<g id="LINE_89_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="452.546" y1="144.595" x2="469.489" y2="144.595"/>
+	</g>
+	<g id="LINE_90_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="452.546" y1="139.992" x2="469.489" y2="139.992"/>
+	</g>
+	<g id="LINE_91_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="421.103" y1="157.394" x2="421.103" y2="139.809"/>
+	</g>
+	<g id="LINE_92_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="421.103" y1="139.809" x2="416.941" y2="142.687"/>
+	</g>
+	<g id="LINE_93_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="421.103" y1="139.809" x2="425.263" y2="142.687"/>
+	</g>
+	<g id="LINE_94_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="413.863" y1="153.801" x2="430.241" y2="153.801"/>
+	</g>
+	<g id="LINE_95_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="413.863" y1="149.197" x2="430.241" y2="149.197"/>
+	</g>
+	<g id="LINE_96_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="413.863" y1="144.595" x2="430.241" y2="144.595"/>
+	</g>
+	<g id="LINE_97_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="413.863" y1="139.992" x2="430.241" y2="139.992"/>
+	</g>
+	<g id="LINE_98_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="452.546" y1="135.389" x2="469.489" y2="135.389"/>
+	</g>
+	<g id="LINE_99_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="469.489" y1="130.672" x2="452.546" y2="130.672"/>
+	</g>
+	<g id="LINE_100_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="469.489" y1="130.672" x2="452.546" y2="130.672"/>
+	</g>
+	<g id="LINE_101_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="413.863" y1="135.389" x2="430.241" y2="135.389"/>
+	</g>
+	<g id="LINE_102_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="430.241" y1="130.672" x2="413.863" y2="130.672"/>
+	</g>
+	<g id="LINE_103_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="430.947" y1="129.966" x2="430.947" y2="113.305"/>
+	</g>
+	<g id="LINE_104_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="451.84" y1="113.305" x2="451.84" y2="129.966"/>
+	</g>
+	<g id="LINE_105_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="447.688" y1="113.305" x2="447.688" y2="129.966"/>
+	</g>
+	<g id="LINE_106_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="443.537" y1="113.305" x2="443.537" y2="129.966"/>
+	</g>
+	<g id="LINE_107_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="439.387" y1="113.305" x2="439.387" y2="129.966"/>
+	</g>
+	<g id="LINE_108_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="435.236" y1="113.305" x2="435.236" y2="129.966"/>
+	</g>
+	<g id="LINE_109_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="451.84" y1="113.305" x2="451.84" y2="129.966"/>
+	</g>
+	<g id="LINE_110_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="430.947" y1="129.966" x2="430.947" y2="113.305"/>
+	</g>
+	<g id="HATCH_13_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="430.238,154.649 430.238,130.106 452.546,130.106 
+			452.546,154.649 451.126,154.649 451.126,153.946 451.842,153.946 451.842,130.816 430.942,130.816 430.942,153.946 
+			431.658,153.946 431.658,154.649 430.238,154.649 		"/>
+	</g>
+	<g id="LWPOLYLINE_25_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			430.241,154.647 430.241,130.107 452.546,130.107 452.546,154.647 451.134,154.647 451.134,153.942 451.84,153.942 
+			451.84,130.813 430.947,130.813 430.947,153.942 431.653,153.942 431.653,154.647 430.241,154.647 		"/>
+	</g>
+	<g id="LWPOLYLINE_26_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="451.134" y1="153.942" x2="431.653" y2="153.942"/>
+	</g>
+	<g id="LWPOLYLINE_27_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="469.489" y1="113.446" x2="469.489" y2="149.45"/>
+	</g>
+	<g id="HATCH_14_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="376.463,114.29 369.264,114.29 369.264,110.236 
+			376.463,110.236 376.463,114.29 		"/>
+	</g>
+	<g id="LWPOLYLINE_28_">
+		
+			<rect x="369.266" y="110.235" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.201" height="4.059"/>
+	</g>
+	<g id="LWPOLYLINE_29_">
+		
+			<rect x="342.208" y="111.911" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="27.058" height="0.706"/>
+	</g>
+	<g id="LWPOLYLINE_30_">
+		
+			<rect x="376.467" y="111.911" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="28.783" height="0.706"/>
+	</g>
+	<g id="HATCH_15_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="376.463,250.153 369.264,250.153 369.264,246.093 
+			376.463,246.093 376.463,250.153 		"/>
+	</g>
+	<g id="LWPOLYLINE_31_">
+		
+			<rect x="369.266" y="246.096" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.201" height="4.059"/>
+	</g>
+	<g id="LWPOLYLINE_32_">
+		
+			<rect x="342.208" y="246.096" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="27.058" height="4.059"/>
+	</g>
+	<g id="LWPOLYLINE_33_">
+		
+			<rect x="376.467" y="246.096" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="28.854" height="4.059"/>
+	</g>
+	<g id="LWPOLYLINE_34_">
+		
+			<rect x="376.467" y="247.773" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="28.854" height="0.706"/>
+	</g>
+	<g id="LWPOLYLINE_35_">
+		
+			<rect x="342.208" y="247.773" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="27.058" height="0.706"/>
+	</g>
+	<g id="HATCH_16_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="409.058,253.082 409.058,378.184 406.95,378.184 
+			406.95,253.082 409.058,253.082 		"/>
+	</g>
+	<g id="LWPOLYLINE_36_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			409.063,253.085 409.063,378.181 406.944,378.181 406.944,253.085 409.063,253.085 		"/>
+	</g>
+	<g id="LWPOLYLINE_37_">
+		
+			<rect x="444.149" y="516.69" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="94.527" height="0.706"/>
+	</g>
+	<g id="LWPOLYLINE_38_">
+		
+			<rect x="547.289" y="516.69" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="121.99" height="0.706"/>
+	</g>
+	<g id="LWPOLYLINE_39_">
+		
+			<rect x="673.374" y="387.077" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.705" height="125.52"/>
+	</g>
+	<g id="LWPOLYLINE_40_">
+		
+			<rect x="547.289" y="247.861" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="121.99" height="0.707"/>
+	</g>
+	<g id="HATCH_17_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="439.918,232.684 439.918,252.946 442.593,252.946 
+			442.593,248.568 444.149,248.568 444.149,246.022 442.593,246.022 442.593,232.684 439.918,232.684 		"/>
+	</g>
+	<g id="LWPOLYLINE_41_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			439.913,232.684 439.913,252.944 442.596,252.944 442.596,248.567 444.149,248.567 444.149,246.025 442.596,246.025 
+			442.596,232.684 439.913,232.684 		"/>
+	</g>
+	<g id="LWPOLYLINE_42_">
+		
+			<rect x="439.913" y="197.597" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.683" height="35.087"/>
+	</g>
+	<g id="LWPOLYLINE_43_">
+		
+			<rect x="640.405" y="233.036" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.988" height="4.941"/>
+	</g>
+	<g id="LWPOLYLINE_44_">
+		
+			<rect x="607.366" y="233.036" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.988" height="4.941"/>
+	</g>
+	<g id="LWPOLYLINE_45_">
+		
+			<rect x="575.315" y="233.036" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.988" height="4.941"/>
+	</g>
+	<g id="LWPOLYLINE_46_">
+		
+			<rect x="538.782" y="233.036" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.988" height="4.941"/>
+	</g>
+	<g id="LWPOLYLINE_47_">
+		
+			<rect x="545.983" y="233.036" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.988" height="4.941"/>
+	</g>
+	<g id="LWPOLYLINE_48_">
+		
+			<rect x="444.149" y="247.861" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="94.527" height="0.707"/>
+	</g>
+	<g id="TEXT_4_">
+		
+			<text transform="matrix(6.735558e-017 -1.1 1 6.123234e-017 505.791 168.3184)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="7.1219">cl.</text>
+	</g>
+	<g id="TEXT_5_">
+		<text transform="matrix(1 0 0 1 458.2236 160.2969)" fill="#00FF3F" font-family="'ArialMT'" font-size="3.6397">sube</text>
+	</g>
+	<g id="TEXT_6_">
+		<text transform="matrix(1 0 0 1 417.7695 160.2231)" fill="#00FF3F" font-family="'ArialMT'" font-size="3.6397">baja</text>
+	</g>
+	<g id="LWPOLYLINE_49_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="669.279" y1="512.597" x2="547.289" y2="512.597"/>
+	</g>
+	<g id="HATCH_18_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="442.593,232.684 439.918,232.684 439.918,197.6 
+			442.593,197.6 442.593,232.684 		"/>
+	</g>
+	<g id="LWPOLYLINE_50_">
+		
+			<rect x="439.913" y="197.597" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.683" height="35.087"/>
+	</g>
+	<g id="HATCH_19_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="439.918,197.6 456.406,197.6 456.406,195.056 
+			439.918,195.056 439.918,197.6 		"/>
+	</g>
+	<g id="LWPOLYLINE_51_">
+		
+			<rect x="439.913" y="195.056" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="16.494" height="2.541"/>
+	</g>
+	<g id="HATCH_20_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="487.171,232.684 489.846,232.684 489.846,197.6 
+			487.171,197.6 487.171,232.684 		"/>
+	</g>
+	<g id="LWPOLYLINE_52_">
+		
+			<rect x="487.162" y="197.597" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.683" height="35.087"/>
+	</g>
+	<g id="HATCH_21_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="473.354,197.6 489.846,197.6 489.846,195.056 
+			473.354,195.056 473.354,197.6 		"/>
+	</g>
+	<g id="LWPOLYLINE_53_">
+		
+			<rect x="473.351" y="195.056" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="16.494" height="2.541"/>
+	</g>
+	<g id="HATCH_22_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="489.846,232.684 442.593,232.684 442.593,234.097 
+			489.846,234.097 489.846,232.684 		"/>
+	</g>
+	<g id="LWPOLYLINE_54_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			489.845,232.684 442.596,232.684 442.596,234.095 489.845,234.095 489.845,232.684 		"/>
+	</g>
+	<g id="LWPOLYLINE_55_">
+		
+			<rect x="456.407" y="195.056" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="16.943" height="2.541"/>
+	</g>
+	<g id="LWPOLYLINE_56_">
+		
+			<rect x="456.407" y="195.605" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.472" height="0.721"/>
+	</g>
+	<g id="LWPOLYLINE_57_">
+		
+			<rect x="464.879" y="196.326" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.472" height="0.72"/>
+	</g>
+	<g id="HATCH_23_">
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" d="M548.375,382.769c0-2.972-2.413-5.391-5.389-5.391
+			c-2.979,0-5.394,2.419-5.394,5.391c0,2.979,2.414,5.392,5.394,5.392C545.962,388.16,548.375,385.747,548.375,382.769
+			L548.375,382.769z"/>
+	</g>
+	<g id="CIRCLE_4_">
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M548.373,382.77c0-2.976-2.413-5.39-5.39-5.39s-5.391,2.414-5.391,5.39c0,2.978,2.414,5.392,5.391,5.392
+			S548.373,385.747,548.373,382.77L548.373,382.77z"/>
+	</g>
+	<g id="CIRCLE_5_">
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M548.938,382.77c0-3.288-2.666-5.954-5.954-5.954c-3.289,0-5.956,2.666-5.956,5.954c0,3.29,2.667,5.955,5.956,5.955
+			C546.271,388.725,548.938,386.06,548.938,382.77L548.938,382.77z"/>
+	</g>
+	<g id="LWPOLYLINE_58_">
+		
+			<rect x="669.279" y="512.737" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.471" height="8.471"/>
+	</g>
+	<g id="HATCH_24_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="669.838,513.304 677.185,513.304 677.185,520.645 
+			669.838,520.645 669.838,513.304 		"/>
+	</g>
+	<g id="LWPOLYLINE_59_">
+		
+			<rect x="669.844" y="513.303" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.343" height="7.341"/>
+	</g>
+	<g id="LWPOLYLINE_60_">
+		
+			<rect x="538.677" y="512.597" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.612" height="8.611"/>
+	</g>
+	<g id="HATCH_25_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="539.233,513.158 546.722,513.158 546.722,520.645 
+			539.233,520.645 539.233,513.158 		"/>
+	</g>
+	<g id="LWPOLYLINE_61_">
+		
+			<rect x="539.242" y="513.16" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.482" height="7.483"/>
+	</g>
+	<g id="HATCH_26_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="546.722,252.518 539.233,252.518 539.233,245.037 
+			546.722,245.037 546.722,252.518 		"/>
+	</g>
+	<g id="LWPOLYLINE_62_">
+		
+			<rect x="539.242" y="245.037" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.482" height="7.483"/>
+	</g>
+	<g id="LWPOLYLINE_63_">
+		
+			<rect x="538.677" y="244.472" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.612" height="8.613"/>
+	</g>
+	<g id="LWPOLYLINE_64_">
+		
+			<rect x="405.321" y="244.472" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.611" height="8.613"/>
+	</g>
+	<g id="HATCH_27_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="413.377,245.037 405.888,245.037 405.888,252.518 
+			413.377,252.518 413.377,245.037 		"/>
+	</g>
+	<g id="LWPOLYLINE_65_">
+		
+			<rect x="405.886" y="245.037" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.483" height="7.483"/>
+	</g>
+	<g id="LWPOLYLINE_66_">
+		
+			<rect x="405.25" y="108.223" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.613" height="8.612"/>
+	</g>
+	<g id="HATCH_28_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="413.292,108.788 405.819,108.788 405.819,116.268 
+			413.292,116.268 413.292,108.788 		"/>
+	</g>
+	<g id="LWPOLYLINE_67_">
+		
+			<rect x="405.814" y="108.787" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.483" height="7.483"/>
+	</g>
+	<g id="LWPOLYLINE_68_">
+		
+			<rect x="504.226" y="191.102" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.613" height="8.613"/>
+	</g>
+	<g id="HATCH_29_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="504.79,191.67 512.277,191.67 512.277,199.149 
+			504.79,199.149 504.79,191.67 		"/>
+	</g>
+	<g id="LWPOLYLINE_69_">
+		
+			<rect x="504.791" y="191.667" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.482" height="7.482"/>
+	</g>
+	<g id="LWPOLYLINE_70_">
+		
+			<rect x="333.525" y="244.332" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.612" height="8.613"/>
+	</g>
+	<g id="HATCH_30_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="341.564,244.893 334.092,244.893 334.092,252.38 
+			341.564,252.38 341.564,244.893 		"/>
+	</g>
+	<g id="LWPOLYLINE_71_">
+		
+			<rect x="334.089" y="244.896" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.483" height="7.482"/>
+	</g>
+	<g id="LWPOLYLINE_72_">
+		
+			<rect x="333.525" y="108.505" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.612" height="8.33"/>
+	</g>
+	<g id="HATCH_31_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="334.092,109.071 341.564,109.071 341.564,116.268 
+			334.092,116.268 334.092,109.071 		"/>
+	</g>
+	<g id="LWPOLYLINE_73_">
+		
+			<rect x="334.089" y="109.069" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.483" height="7.201"/>
+	</g>
+	<g id="LWPOLYLINE_74_">
+		
+			<rect x="468.787" y="107.375" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.212" height="6.213"/>
+	</g>
+	<g id="HATCH_32_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="469.355,107.941 474.432,107.941 474.432,113.023 
+			469.355,113.023 469.355,107.941 		"/>
+	</g>
+	<g id="LWPOLYLINE_75_">
+		
+			<rect x="469.352" y="107.94" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="5.082" height="5.083"/>
+	</g>
+	<g id="LWPOLYLINE_76_">
+		
+			<rect x="468.787" y="149.591" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.212" height="6.213"/>
+	</g>
+	<g id="HATCH_33_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="469.355,150.153 474.432,150.153 474.432,155.241 
+			469.355,155.241 469.355,150.153 		"/>
+	</g>
+	<g id="LWPOLYLINE_77_">
+		
+			<rect x="469.352" y="150.157" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="5.082" height="5.083"/>
+	</g>
+	<g id="LWPOLYLINE_78_">
+		
+			<rect x="502.249" y="149.591" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.482" height="6.213"/>
+	</g>
+	<g id="HATCH_34_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="502.808,150.153 509.161,150.153 509.161,155.241 
+			502.808,155.241 502.808,150.153 		"/>
+	</g>
+	<g id="LWPOLYLINE_79_">
+		
+			<rect x="502.814" y="150.157" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.354" height="5.083"/>
+	</g>
+	<g id="LWPOLYLINE_80_">
+		
+			<rect x="502.249" y="107.375" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.482" height="6.213"/>
+	</g>
+	<g id="HATCH_35_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="502.808,107.941 509.161,107.941 509.161,113.023 
+			502.808,113.023 502.808,107.941 		"/>
+	</g>
+	<g id="LWPOLYLINE_81_">
+		
+			<rect x="502.814" y="107.94" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.354" height="5.083"/>
+	</g>
+	<g id="LWPOLYLINE_82_">
+		
+			<rect x="435.748" y="512.455" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.401" height="8.753"/>
+	</g>
+	<g id="HATCH_36_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="436.318,513.02 443.586,513.02 443.586,520.645 
+			436.318,520.645 436.318,513.02 		"/>
+	</g>
+	<g id="LWPOLYLINE_83_">
+		
+			<rect x="436.313" y="513.02" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.271" height="7.624"/>
+	</g>
+	<g id="LWPOLYLINE_84_">
+		
+			<rect x="403.698" y="378.322" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.611" height="8.612"/>
+	</g>
+	<g id="HATCH_37_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="404.259,386.374 411.748,386.374 411.748,378.888 
+			404.259,378.888 404.259,386.374 		"/>
+	</g>
+	<g id="LWPOLYLINE_85_">
+		
+			<rect x="404.262" y="378.887" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.484" height="7.484"/>
+	</g>
+	<g id="LWPOLYLINE_86_">
+		
+			<rect x="405.321" y="191.243" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.611" height="8.613"/>
+	</g>
+	<g id="HATCH_38_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="413.377,191.808 405.888,191.808 405.888,199.294 
+			413.377,199.294 413.377,191.808 		"/>
+	</g>
+	<g id="LWPOLYLINE_87_">
+		
+			<rect x="405.886" y="191.808" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.483" height="7.483"/>
+	</g>
+	<g id="LWPOLYLINE_88_">
+		
+			<rect x="405.321" y="147.333" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="8.611" height="8.612"/>
+	</g>
+	<g id="HATCH_39_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="413.377,147.899 405.888,147.899 405.888,155.379 
+			413.377,155.379 413.377,147.899 		"/>
+	</g>
+	<g id="LWPOLYLINE_89_">
+		
+			<rect x="405.886" y="147.897" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.483" height="7.483"/>
+	</g>
+	<g id="LWPOLYLINE_90_">
+		
+			<rect x="434.9" y="288.948" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="72.148" height="0.706"/>
+	</g>
+	<g id="HATCH_40_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="507.054,248.568 507.054,259.37 508.458,259.37 
+			508.458,248.568 507.054,248.568 		"/>
+	</g>
+	<g id="HATCH_41_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="507.054,288.946 507.054,273.421 508.458,273.421 
+			508.458,288.946 507.054,288.946 		"/>
+	</g>
+	<g id="LWPOLYLINE_91_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			507.049,288.948 507.049,273.417 508.462,273.417 508.462,288.948 507.049,288.948 		"/>
+	</g>
+	<g id="LWPOLYLINE_92_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			507.049,248.567 507.049,259.368 508.462,259.368 508.462,248.567 507.049,248.567 		"/>
+	</g>
+	<g id="LWPOLYLINE_93_">
+		
+			<rect x="507.049" y="259.368" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="1.413" height="14.049"/>
+	</g>
+	<g id="LWPOLYLINE_94_">
+		
+			<rect x="409.063" y="288.948" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="11.577" height="0.706"/>
+	</g>
+	<g id="LWPOLYLINE_95_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			507.049,290.36 434.9,290.36 434.9,289.654 		"/>
+	</g>
+	<g id="HATCH_42_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="619.87,512.591 619.87,480.947 607.153,480.947 
+			607.153,470.359 608.562,470.359 608.562,479.542 621.273,479.542 621.273,512.591 619.87,512.591 		"/>
+	</g>
+	<g id="LWPOLYLINE_96_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			619.863,512.597 619.863,480.95 607.155,480.95 607.155,470.36 608.567,470.36 608.567,479.537 621.274,479.537 621.274,512.597 
+			619.863,512.597 		"/>
+	</g>
+	<g id="HATCH_43_">
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" d="M571.856,432.642c-0.057,0.034-0.125,0.074-0.193,0.11
+			c-27.603,15.835-62.832,6.294-78.66-21.31h-54.287v-1.414h55.099c15.057,27.149,49.28,36.952,76.417,21.903
+			c0.314-0.173,0.62-0.346,0.921-0.519L571.856,432.642L571.856,432.642z"/>
+	</g>
+	<g id="LWPOLYLINE_97_">
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M571.863,432.64c-0.065,0.038-0.131,0.075-0.196,0.112c-27.609,15.839-62.831,6.296-78.669-21.313h-54.285v-1.413h55.109
+			c15.055,27.15,49.267,36.958,76.416,21.904c0.308-0.17,0.612-0.342,0.914-0.518L571.863,432.64"/>
+	</g>
+	<g id="LWPOLYLINE_98_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			571.863,432.64 571.863,512.597 570.452,512.597 570.452,433.431 571.863,432.64 		"/>
+	</g>
+	<g id="HATCH_44_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="636.8,489.648 633.989,489.648 633.989,491.063 
+			638.22,491.063 638.22,463.651 586.64,418.55 582.144,423.044 569.21,410.028 573.706,405.533 549.936,381.769 548.941,382.769 
+			571.691,405.533 567.212,410.028 582.144,425.036 586.64,420.549 636.8,464.236 636.8,489.648 		"/>
+	</g>
+	<g id="LWPOLYLINE_99_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			636.805,489.652 633.981,489.652 633.981,491.064 638.217,491.064 638.217,463.652 586.637,418.55 582.145,423.042 
+			569.205,410.025 573.697,405.534 549.937,381.771 548.938,382.77 571.7,405.534 567.208,410.025 582.145,425.039 586.638,420.546 
+			636.805,464.237 636.805,489.652 		"/>
+	</g>
+	<g id="LWPOLYLINE_100_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			669.279,512.737 669.279,253.085 547.289,253.085 		"/>
+	</g>
+	<g id="LWPOLYLINE_101_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			669.279,477.299 638.217,477.299 638.217,478.71 669.279,478.71 669.279,477.299 		"/>
+	</g>
+	<g id="HATCH_45_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="542.986,301.928 555.448,289.463 559.809,289.463 
+			559.809,288.05 554.869,288.05 542.986,299.929 542.986,301.928 		"/>
+	</g>
+	<g id="LWPOLYLINE_102_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			542.983,301.927 555.448,289.461 559.806,289.461 559.806,288.05 554.863,288.05 542.983,299.93 542.983,301.927 		"/>
+	</g>
+	<g id="LWPOLYLINE_103_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			591.009,319.07 542.983,319.07 542.983,317.658 589.598,317.658 589.598,289.461 569.266,289.438 569.266,288.05 616.142,288.05 
+			616.142,289.461 591.009,289.461 591.009,319.07 		"/>
+	</g>
+	<g id="INSERT_6_">
+		<g id="LINE_111_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="569.266" y1="298.203" x2="568.77" y2="298.203"/>
+		</g>
+		<g id="LINE_112_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="569.266" y1="288.743" x2="569.266" y2="298.203"/>
+		</g>
+		<g id="ARC_73_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M559.806,288.743c0,5.225,4.234,9.46,9.46,9.46"/>
+		</g>
+		<g id="LINE_113_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="568.971" y1="288.743" x2="568.971" y2="288.743"/>
+		</g>
+		<g id="LINE_114_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="569.266" y1="288.743" x2="568.77" y2="288.743"/>
+		</g>
+		<g id="LINE_115_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="568.77" y1="288.743" x2="568.77" y2="298.203"/>
+		</g>
+	</g>
+	<g id="INSERT_7_">
+		<g id="LINE_116_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="580.303" y1="440.864" x2="580.766" y2="440.404"/>
+		</g>
+		<g id="LINE_117_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="571.509" y1="432.025" x2="580.303" y2="440.864"/>
+		</g>
+		<g id="ARC_74_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M580.347,423.232c4.857,4.881,4.837,12.775-0.044,17.632"/>
+		</g>
+		<g id="LINE_118_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="571.785" y1="431.751" x2="571.785" y2="431.751"/>
+		</g>
+		<g id="LINE_119_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="571.509" y1="432.025" x2="571.972" y2="431.564"/>
+		</g>
+		<g id="LINE_120_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="571.972" y1="431.564" x2="580.766" y2="440.404"/>
+		</g>
+	</g>
+	<g id="LWPOLYLINE_104_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="607.155" y1="473.395" x2="571.863" y2="473.395"/>
+	</g>
+	<g id="INSERT_8_">
+		<g id="LINE_121_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="621.274" y1="503.065" x2="621.94" y2="503.065"/>
+		</g>
+		<g id="LINE_122_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="621.274" y1="490.358" x2="621.274" y2="503.065"/>
+		</g>
+		<g id="ARC_75_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M633.981,490.358c0,7.018-5.689,12.707-12.707,12.707"/>
+		</g>
+		<g id="LINE_123_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="621.671" y1="490.358" x2="621.671" y2="490.358"/>
+		</g>
+		<g id="LINE_124_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="621.274" y1="490.358" x2="621.94" y2="490.358"/>
+		</g>
+		<g id="LINE_125_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="621.94" y1="490.358" x2="621.94" y2="503.065"/>
+		</g>
+	</g>
+	<g id="LWPOLYLINE_105_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			409.063,410.025 426.006,410.025 426.006,411.438 409.063,411.438 409.063,410.025 		"/>
+	</g>
+	<g id="INSERT_9_">
+		<g id="LINE_126_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="426.006" y1="423.438" x2="426.671" y2="423.438"/>
+		</g>
+		<g id="LINE_127_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="426.006" y1="410.73" x2="426.006" y2="423.438"/>
+		</g>
+		<g id="ARC_76_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M438.713,410.73c0,7.02-5.689,12.708-12.707,12.708"/>
+		</g>
+		<g id="LINE_128_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="426.403" y1="410.73" x2="426.403" y2="410.73"/>
+		</g>
+		<g id="LINE_129_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="426.006" y1="410.73" x2="426.671" y2="410.73"/>
+		</g>
+		<g id="LINE_130_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="426.671" y1="410.73" x2="426.671" y2="423.438"/>
+		</g>
+	</g>
+	<g id="LWPOLYLINE_106_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="538.677" y1="512.597" x2="444.149" y2="512.597"/>
+	</g>
+	<g id="INSERT_10_">
+		<g id="LINE_131_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="521.791" y1="259.368" x2="521.791" y2="260.104"/>
+		</g>
+		<g id="LINE_132_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="507.756" y1="259.368" x2="521.791" y2="259.368"/>
+		</g>
+		<g id="ARC_77_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M507.756,273.405c7.752,0,14.035-6.284,14.035-14.037"/>
+		</g>
+		<g id="LINE_133_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="507.756" y1="259.807" x2="507.756" y2="259.807"/>
+		</g>
+		<g id="LINE_134_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="507.756" y1="259.368" x2="507.756" y2="260.104"/>
+		</g>
+		<g id="LINE_135_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="507.756" y1="260.104" x2="521.791" y2="260.104"/>
+		</g>
+	</g>
+	<g id="LWPOLYLINE_107_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="607.155" y1="479.043" x2="571.863" y2="479.043"/>
+	</g>
+	<g id="INSERT_11_">
+		<g id="LINE_136_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="420.64" y1="303.337" x2="421.375" y2="303.337"/>
+		</g>
+		<g id="LINE_137_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="420.64" y1="289.301" x2="420.64" y2="303.337"/>
+		</g>
+		<g id="ARC_78_">
+			
+				<path fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+				M434.677,289.301c0,7.752-6.284,14.036-14.037,14.036"/>
+		</g>
+		<g id="LINE_138_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="421.078" y1="289.301" x2="421.078" y2="289.301"/>
+		</g>
+		<g id="LINE_139_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="420.64" y1="289.301" x2="421.375" y2="289.301"/>
+		</g>
+		<g id="LINE_140_">
+			
+				<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="421.375" y1="289.301" x2="421.375" y2="303.337"/>
+		</g>
+	</g>
+	<g id="HATCH_46_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="509.092,232.47 509.092,248.001 440.4,248.001 
+			440.4,246.59 507.685,246.59 507.685,232.47 509.092,232.47 		"/>
+	</g>
+	<g id="LWPOLYLINE_108_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			509.097,232.471 509.097,248.001 440.406,248.001 440.406,246.59 507.685,246.59 507.685,232.471 509.097,232.471 		"/>
+	</g>
+	<g id="TEXT_7_">
+		<text transform="matrix(1.1 0 0 1 450.3486 242.2734)" fill="#00FF3F" font-family="'ArialMT'" font-size="3.154">Cuarto de Policias</text>
+	</g>
+	<g id="LWPOLYLINE_109_">
+		
+			<rect x="506.556" y="199.715" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="2.541" height="32.756"/>
+	</g>
+	<g id="LWPOLYLINE_110_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,519.444 210.986,519.444 210.982,517.624 83.988,517.525 84.423,157.744 280.617,157.744 280.617,220.541 
+			337.125,220.541 		"/>
+	</g>
+	<g id="LWPOLYLINE_111_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="619.559" y1="197.738" x2="681.335" y2="197.738"/>
+	</g>
+	<g id="LWPOLYLINE_112_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			681.335,232.612 681.335,12 503.919,12 503.919,107.375 		"/>
+	</g>
+	<g id="LWPOLYLINE_113_">
+		
+			<rect x="507.474" y="199.715" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="0.706" height="32.756"/>
+	</g>
+	<g id="HATCH_47_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="none" points="569.857,190.415 512.845,190.415 512.845,232.607 
+			569.857,232.607 569.857,190.415 		"/>
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="0.001" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M514.167,232.607v-8.735 M514.167,222.603v-2.543 M514.167,218.791v-10.16 M514.167,207.354v-2.543 M514.167,203.541v-10.16
+			 M514.167,192.104v-1.689 M516.291,232.607v-8.735 M516.291,222.603v-2.543 M516.291,218.791v-10.16 M516.291,207.354v-2.543
+			 M516.291,203.541v-10.16 M516.291,192.104v-1.689 M518.414,232.607v-8.735 M518.414,222.603v-2.543 M518.414,218.791v-10.16
+			 M518.414,207.354v-2.543 M518.414,203.541v-10.16 M518.414,192.104v-1.689 M520.521,232.607v-8.735 M520.521,222.603v-2.543
+			 M520.521,218.791v-10.16 M520.521,207.354v-2.543 M520.521,203.541v-10.16 M520.521,192.104v-1.689 M522.646,232.607v-8.735
+			 M522.646,222.603v-2.543 M522.646,218.791v-10.16 M522.646,207.354v-2.543 M522.646,203.541v-10.16 M522.646,192.104v-1.689
+			 M524.757,232.607v-8.735 M524.757,222.603v-2.543 M524.757,218.791v-10.16 M524.757,207.354v-2.543 M524.757,203.541v-10.16
+			 M524.757,192.104v-1.689 M526.879,232.607v-8.735 M526.879,222.603v-2.543 M526.879,218.791v-10.16 M526.879,207.354v-2.543
+			 M526.879,203.541v-10.16 M526.879,192.104v-1.689 M529.003,232.607v-8.735 M529.003,222.603v-2.543 M529.003,218.791v-10.16
+			 M529.003,207.354v-2.543 M529.003,203.541v-10.16 M529.003,192.104v-1.689 M531.114,232.607v-8.735 M531.114,222.603v-2.543
+			 M531.114,218.791v-10.16 M531.114,207.354v-2.543 M531.114,203.541v-10.16 M531.114,192.104v-1.689 M533.238,232.607v-8.735
+			 M533.238,222.603v-2.543 M533.238,218.791v-10.16 M533.238,207.354v-2.543 M533.238,203.541v-10.16 M533.238,192.104v-1.689
+			 M535.346,232.607v-8.735 M535.346,222.603v-2.543 M535.346,218.791v-10.16 M535.346,207.354v-2.543 M535.346,203.541v-10.16
+			 M535.346,192.104v-1.689 M537.469,232.607v-8.735 M537.469,222.603v-2.543 M537.469,218.791v-10.16 M537.469,207.354v-2.543
+			 M537.469,203.541v-10.16 M537.469,192.104v-1.689 M539.592,232.607v-8.735 M539.592,222.603v-2.543 M539.592,218.791v-10.16
+			 M539.592,207.354v-2.543 M539.592,203.541v-10.16 M539.592,192.104v-1.689 M541.703,232.607v-8.735 M541.703,222.603v-2.543
+			 M541.703,218.791v-10.16 M541.703,207.354v-2.543 M541.703,203.541v-10.16 M541.703,192.104v-1.689 M543.826,232.607v-8.735
+			 M543.826,222.603v-2.543 M543.826,218.791v-10.16 M543.826,207.354v-2.543 M543.826,203.541v-10.16 M543.826,192.104v-1.689
+			 M545.934,232.607v-8.735 M545.934,222.603v-2.543 M545.934,218.791v-10.16 M545.934,207.354v-2.543 M545.934,203.541v-10.16
+			 M545.934,192.104v-1.689 M548.058,232.607v-8.735 M548.058,222.603v-2.543 M548.058,218.791v-10.16 M548.058,207.354v-2.543
+			 M548.058,203.541v-10.16 M548.058,192.104v-1.689 M550.181,232.607v-8.735 M550.181,222.603v-2.543 M550.181,218.791v-10.16
+			 M550.181,207.354v-2.543 M550.181,203.541v-10.16 M550.181,192.104v-1.689 M552.291,232.607v-8.735 M552.291,222.603v-2.543
+			 M552.291,218.791v-10.16 M552.291,207.354v-2.543 M552.291,203.541v-10.16 M552.291,192.104v-1.689 M554.415,232.607v-8.735
+			 M554.415,222.603v-2.543 M554.415,218.791v-10.16 M554.415,207.354v-2.543 M554.415,203.541v-10.16 M554.415,192.104v-1.689
+			 M556.526,232.607v-8.735 M556.526,222.603v-2.543 M556.526,218.791v-10.16 M556.526,207.354v-2.543 M556.526,203.541v-10.16
+			 M556.526,192.104v-1.689 M558.65,232.607v-8.735 M558.65,222.603v-2.543 M558.65,218.791v-10.16 M558.65,207.354v-2.543
+			 M558.65,203.541v-10.16 M558.65,192.104v-1.689 M560.773,232.607v-8.735 M560.773,222.603v-2.543 M560.773,218.791v-10.16
+			 M560.773,207.354v-2.543 M560.773,203.541v-10.16 M560.773,192.104v-1.689 M562.881,232.607v-8.735 M562.881,222.603v-2.543
+			 M562.881,218.791v-10.16 M562.881,207.354v-2.543 M562.881,203.541v-10.16 M562.881,192.104v-1.689 M565.004,232.607v-8.735
+			 M565.004,222.603v-2.543 M565.004,218.791v-10.16 M565.004,207.354v-2.543 M565.004,203.541v-10.16 M565.004,192.104v-1.689
+			 M567.115,232.607v-8.735 M567.115,222.603v-2.543 M567.115,218.791v-10.16 M567.115,207.354v-2.543 M567.115,203.541v-10.16
+			 M567.115,192.104v-1.689 M569.238,232.607v-8.735 M569.238,222.603v-2.543 M569.238,218.791v-10.16 M569.238,207.354v-2.543
+			 M569.238,203.541v-10.16 M569.238,192.104v-1.689"/>
+	</g>
+	<g id="HATCH_48_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="none" points="619.563,232.45 569.857,232.45 569.857,190.415 
+			619.563,190.415 619.563,232.45 		"/>
+		
+			<path fill="none" stroke="#00FF3F" stroke-width="0.001" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M571.362,232.45v-8.578 M571.362,222.603v-2.543 M571.362,218.791v-10.16 M571.362,207.354v-2.543 M571.362,203.541v-10.16
+			 M571.362,192.104v-1.689 M573.47,232.45v-8.578 M573.47,222.603v-2.543 M573.47,218.791v-10.16 M573.47,207.354v-2.543
+			 M573.47,203.541v-10.16 M573.47,192.104v-1.689 M575.593,232.45v-8.578 M575.593,222.603v-2.543 M575.593,218.791v-10.16
+			 M575.593,207.354v-2.543 M575.593,203.541v-10.16 M575.593,192.104v-1.689 M577.704,232.45v-8.578 M577.704,222.603v-2.543
+			 M577.704,218.791v-10.16 M577.704,207.354v-2.543 M577.704,203.541v-10.16 M577.704,192.104v-1.689 M579.827,232.45v-8.578
+			 M579.827,222.603v-2.543 M579.827,218.791v-10.16 M579.827,207.354v-2.543 M579.827,203.541v-10.16 M579.827,192.104v-1.689
+			 M581.95,232.45v-8.578 M581.95,222.603v-2.543 M581.95,218.791v-10.16 M581.95,207.354v-2.543 M581.95,203.541v-10.16
+			 M581.95,192.104v-1.689 M584.058,232.45v-8.578 M584.058,222.603v-2.543 M584.058,218.791v-10.16 M584.058,207.354v-2.543
+			 M584.058,203.541v-10.16 M584.058,192.104v-1.689 M586.182,232.45v-8.578 M586.182,222.603v-2.543 M586.182,218.791v-10.16
+			 M586.182,207.354v-2.543 M586.182,203.541v-10.16 M586.182,192.104v-1.689 M588.293,232.45v-8.578 M588.293,222.603v-2.543
+			 M588.293,218.791v-10.16 M588.293,207.354v-2.543 M588.293,203.541v-10.16 M588.293,192.104v-1.689 M590.416,232.45v-8.578
+			 M590.416,222.603v-2.543 M590.416,218.791v-10.16 M590.416,207.354v-2.543 M590.416,203.541v-10.16 M590.416,192.104v-1.689
+			 M592.539,232.45v-8.578 M592.539,222.603v-2.543 M592.539,218.791v-10.16 M592.539,207.354v-2.543 M592.539,203.541v-10.16
+			 M592.539,192.104v-1.689 M594.65,232.45v-8.578 M594.65,222.603v-2.543 M594.65,218.791v-10.16 M594.65,207.354v-2.543
+			 M594.65,203.541v-10.16 M594.65,192.104v-1.689 M596.773,232.45v-8.578 M596.773,222.603v-2.543 M596.773,218.791v-10.16
+			 M596.773,207.354v-2.543 M596.773,203.541v-10.16 M596.773,192.104v-1.689 M598.881,232.45v-8.578 M598.881,222.603v-2.543
+			 M598.881,218.791v-10.16 M598.881,207.354v-2.543 M598.881,203.541v-10.16 M598.881,192.104v-1.689 M601.005,232.45v-8.578
+			 M601.005,222.603v-2.543 M601.005,218.791v-10.16 M601.005,207.354v-2.543 M601.005,203.541v-10.16 M601.005,192.104v-1.689
+			 M603.128,232.45v-8.578 M603.128,222.603v-2.543 M603.128,218.791v-10.16 M603.128,207.354v-2.543 M603.128,203.541v-10.16
+			 M603.128,192.104v-1.689 M605.239,232.45v-8.578 M605.239,222.603v-2.543 M605.239,218.791v-10.16 M605.239,207.354v-2.543
+			 M605.239,203.541v-10.16 M605.239,192.104v-1.689 M607.362,232.45v-8.578 M607.362,222.603v-2.543 M607.362,218.791v-10.16
+			 M607.362,207.354v-2.543 M607.362,203.541v-10.16 M607.362,192.104v-1.689 M609.47,232.45v-8.578 M609.47,222.603v-2.543
+			 M609.47,218.791v-10.16 M609.47,207.354v-2.543 M609.47,203.541v-10.16 M609.47,192.104v-1.689 M611.594,232.45v-8.578
+			 M611.594,222.603v-2.543 M611.594,218.791v-10.16 M611.594,207.354v-2.543 M611.594,203.541v-10.16 M611.594,192.104v-1.689
+			 M613.717,232.45v-8.578 M613.717,222.603v-2.543 M613.717,218.791v-10.16 M613.717,207.354v-2.543 M613.717,203.541v-10.16
+			 M613.717,192.104v-1.689 M615.828,232.45v-8.578 M615.828,222.603v-2.543 M615.828,218.791v-10.16 M615.828,207.354v-2.543
+			 M615.828,203.541v-10.16 M615.828,192.104v-1.689 M617.951,232.45v-8.578 M617.951,222.603v-2.543 M617.951,218.791v-10.16
+			 M617.951,207.354v-2.543 M617.951,203.541v-10.16 M617.951,192.104v-1.689"/>
+	</g>
+	<g id="LWPOLYLINE_114_">
+		
+			<rect x="569.855" y="190.415" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="49.703" height="42.032"/>
+	</g>
+	<g id="LWPOLYLINE_115_">
+		
+			<rect x="512.839" y="190.415" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="57.017" height="42.197"/>
+	</g>
+	<g id="LWPOLYLINE_116_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="0.6857" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			542.472,224.135 542.472,205.469 543.402,210.372 541.59,210.372 		"/>
+	</g>
+	<g id="LWPOLYLINE_117_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="0.6857" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			594.922,224.135 594.922,205.469 595.854,210.372 594.041,210.372 		"/>
+	</g>
+	<g id="MTEXT_2_">
+		<text transform="matrix(1 0 0 1 482.1465 134.2329)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="3.154">ELEVADOR</text>
+	</g>
+	<g id="MTEXT_3_">
+		<text transform="matrix(1 0 0 1 455.9531 216.3784)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="3.154">ELEVADOR</text>
+	</g>
+	<g id="LWPOLYLINE_118_">
+		
+			<rect x="449.379" y="203.958" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="30.355" height="23.603"/>
+	</g>
+	<g id="LWPOLYLINE_119_">
+		
+			<rect x="450.084" y="204.664" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="28.944" height="22.19"/>
+	</g>
+	<g id="LWPOLYLINE_120_">
+		
+			<rect x="474.792" y="119.609" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="30.356" height="23.603"/>
+	</g>
+	<g id="LWPOLYLINE_121_">
+		
+			<rect x="475.497" y="120.315" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="28.946" height="22.19"/>
+	</g>
+	<g id="MTEXT_4_">
+		<text transform="matrix(1 0 0 1 430.6738 142.0591)" fill="#00FF3F" font-family="'ArialMT'" font-size="3.8593">Montacargas</text>
+	</g>
+	<g id="LWPOLYLINE_122_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="0.6857" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			439.674,132.197 439.674,123.828 445.359,123.828 445.359,121.918 433.414,121.918 433.414,120.047 439.739,120.047 
+			439.739,101.268 		"/>
+	</g>
+	<g id="MLINE_3_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="413.933" y1="253.085" x2="413.933" y2="251.673"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="413.933" y1="250.262" x2="413.933" y2="251.673"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="439.948" y1="253.085" x2="439.948" y2="251.673"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="439.948" y1="250.262" x2="439.948" y2="251.673"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="413.933" y1="253.085" x2="439.948" y2="253.085"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="413.933" y1="251.673" x2="439.948" y2="251.673"/>
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="4.1366,2.0683" x1="413.933" y1="250.262" x2="439.948" y2="250.262"/>
+	</g>
+	<g id="LWPOLYLINE_123_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7.8378,3.9189" x1="403.698" y1="519.444" x2="84.423" y2="157.744"/>
+	</g>
+	<g id="LWPOLYLINE_124_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7.8378,3.9189" x1="337.125" y1="220.541" x2="83.988" y2="517.525"/>
+	</g>
+	<g id="LWPOLYLINE_125_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7.8378,3.9189" x1="681.335" y1="197.738" x2="503.919" y2="12"/>
+	</g>
+	<g id="LWPOLYLINE_126_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="7.8378,3.9189" x1="681.335" y1="12" x2="509.097" y2="190.961"/>
+	</g>
+	<g id="LWPOLYLINE_127_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="681.335" y1="232.471" x2="619.559" y2="197.738"/>
+	</g>
+	<g id="LWPOLYLINE_128_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="681.335" y1="197.738" x2="619.559" y2="232.447"/>
+	</g>
+	<g id="MTEXT_5_">
+		<text transform="matrix(1 0 0 1 233.6831 382.8105)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="6.308">VACIO</text>
+	</g>
+	<g id="MTEXT_6_">
+		<text transform="matrix(1 0 0 1 579.8828 125.3081)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="6.308">VACIO</text>
+	</g>
+	<g id="MTEXT_7_">
+		<text transform="matrix(1 0 0 1 644.0137 221.2988)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="3.154">VACIO</text>
+	</g>
+	<g id="HATCH_49_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="438.153,108.657 445.211,108.657 445.211,113.449 
+			438.153,113.449 438.153,108.657 		"/>
+	</g>
+	<g id="LWPOLYLINE_129_">
+		
+			<rect x="438.148" y="108.659" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.06" height="4.787"/>
+	</g>
+	<g id="LWPOLYLINE_130_">
+		
+			<rect x="445.208" y="109.115" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="23.579" height="2.542"/>
+	</g>
+	<g id="LWPOLYLINE_131_">
+		
+			<rect x="413.863" y="109.115" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="24.285" height="2.542"/>
+	</g>
+	<g id="LWPOLYLINE_132_">
+		
+			<rect x="445.208" y="110.17" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="23.579" height="0.592"/>
+	</g>
+	<g id="LWPOLYLINE_133_">
+		
+			<rect x="413.863" y="110.17" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="24.285" height="0.592"/>
+	</g>
+	<g id="LWPOLYLINE_134_">
+		
+			<polygon fill="none" stroke="#00FF3F" stroke-width="0.2743" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.208 432.994,521.208 432.994,532.927 693,532.927 693,232.471 509.097,232.471 509.097,199.715 512.839,199.715 
+			512.839,191.102 509.106,191.102 509.106,155.804 509.731,155.804 509.731,149.591 509.081,149.591 509.081,113.588 
+			509.731,113.588 509.731,107.375 502.249,107.375 502.249,109.115 474.999,109.115 474.999,107.375 468.787,107.375 
+			468.787,109.115 413.863,109.115 413.863,108.223 405.25,108.223 405.25,110.235 342.137,110.235 342.137,108.505 
+			333.525,108.505 333.525,116.835 337.125,116.835 337.125,244.332 333.525,244.332 333.525,252.944 342.137,252.944 
+			342.137,250.155 405.321,250.155 405.321,253.085 406.944,253.085 406.944,378.322 403.698,378.322 403.698,386.935 
+			406.944,386.935 406.944,511.891 403.698,511.891 		"/>
+	</g>
+	<g id="LWPOLYLINE_135_">
+		
+			<polygon fill="none" stroke="#00FF3F" stroke-width="0.2743" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.351 432.994,521.351 432.994,533.069 693,533.069 693,232.612 509.097,232.612 509.097,199.856 512.839,199.856 
+			512.839,191.243 509.106,191.243 509.106,155.945 509.731,155.945 509.731,149.733 509.081,149.733 509.081,113.729 
+			509.731,113.729 509.731,107.517 502.249,107.517 502.249,109.256 474.999,109.256 474.999,107.517 468.787,107.517 
+			468.787,109.256 413.863,109.256 413.863,108.363 405.25,108.363 405.25,110.375 342.137,110.375 342.137,108.646 
+			333.525,108.646 333.525,116.976 337.125,116.976 337.125,244.472 333.525,244.472 333.525,253.085 342.137,253.085 
+			342.137,250.296 405.321,250.296 405.321,253.226 406.944,253.226 406.944,378.464 403.698,378.464 403.698,387.077 
+			406.944,387.077 406.944,512.031 403.698,512.031 		"/>
+	</g>
+	<g id="LWPOLYLINE_136_">
+		
+			<polygon fill="none" stroke="#00FF3F" stroke-width="0.2743" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.351 432.994,521.351 432.994,533.069 693,533.069 693,232.612 509.097,232.612 509.097,199.856 512.839,199.856 
+			512.839,191.243 509.106,191.243 509.106,155.945 509.731,155.945 509.731,149.733 509.081,149.733 509.081,113.729 
+			509.731,113.729 509.731,107.517 502.249,107.517 502.249,109.256 474.999,109.256 474.999,107.517 468.787,107.517 
+			468.787,109.256 413.863,109.256 413.863,108.363 405.25,108.363 405.25,110.375 342.137,110.375 342.137,108.646 
+			333.525,108.646 333.525,116.976 337.125,116.976 337.125,244.472 333.525,244.472 333.525,253.085 342.137,253.085 
+			342.137,250.296 405.321,250.296 405.321,253.226 406.944,253.226 406.944,378.464 403.698,378.464 403.698,387.077 
+			406.944,387.077 406.944,512.031 403.698,512.031 		"/>
+	</g>
+	<g id="LWPOLYLINE_137_">
+		
+			<polygon fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.351 432.994,521.351 432.994,533.069 693,533.069 693,232.612 509.097,232.612 509.097,199.856 512.839,199.856 
+			512.839,191.243 509.106,191.243 509.106,155.945 509.731,155.945 509.731,149.733 509.081,149.733 509.081,113.729 
+			509.731,113.729 509.731,107.517 502.249,107.517 502.249,109.256 474.999,109.256 474.999,107.517 468.787,107.517 
+			468.787,109.256 413.863,109.256 413.863,108.363 405.25,108.363 405.25,110.375 342.137,110.375 342.137,108.646 
+			333.525,108.646 333.525,116.976 337.125,116.976 337.125,244.472 333.525,244.472 333.525,253.085 342.137,253.085 
+			342.137,250.296 405.321,250.296 405.321,253.226 406.944,253.226 406.944,378.464 403.698,378.464 403.698,387.077 
+			406.944,387.077 406.944,512.031 403.698,512.031 		"/>
+	</g>
+</g>
+<g id="ÁREAS__x28_POLILINEA_x29_">
+	<g id="TEXT_8_">
+		<text transform="matrix(1 0 0 1 484.3984 328.6709)" fill="#0099CC" font-family="'ArialMT'" font-size="15.6162">Mi PC</text>
+	</g>
+	<g id="MTEXT_16_">
+		<text transform="matrix(1 0 0 1 491.9854 343.0674)" fill="#0099CC" font-family="'ArialMT'" font-size="15.6162">401</text>
+	</g>
+	<g id="LWPOLYLINE_143_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="0.2743" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.208 432.994,521.208 432.994,532.927 693,532.927 693,232.471 509.097,232.471 509.097,199.715 512.839,199.715 
+			512.839,191.102 509.106,191.102 509.106,155.804 509.731,155.804 509.731,149.591 509.081,149.591 509.081,113.588 
+			509.731,113.588 509.731,107.375 502.249,107.375 502.249,109.115 474.999,109.115 474.999,107.375 468.787,107.375 
+			468.787,109.115 413.863,109.115 413.863,108.223 405.25,108.223 405.25,110.235 342.137,110.235 342.137,108.505 
+			333.525,108.505 333.525,116.835 337.125,116.835 337.125,244.332 333.525,244.332 333.525,252.944 342.137,252.944 
+			342.137,250.155 405.321,250.155 405.321,253.085 406.944,253.085 406.944,378.322 403.698,378.322 403.698,386.935 
+			406.944,386.935 406.944,511.891 403.698,511.891 		"/>
+	</g>
+	<g id="LWPOLYLINE_142_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="0.2743" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.351 432.994,521.351 432.994,533.069 693,533.069 693,232.612 509.097,232.612 509.097,199.856 512.839,199.856 
+			512.839,191.243 509.106,191.243 509.106,155.945 509.731,155.945 509.731,149.733 509.081,149.733 509.081,113.729 
+			509.731,113.729 509.731,107.517 502.249,107.517 502.249,109.256 474.999,109.256 474.999,107.517 468.787,107.517 
+			468.787,109.256 413.863,109.256 413.863,108.363 405.25,108.363 405.25,110.375 342.137,110.375 342.137,108.646 
+			333.525,108.646 333.525,116.976 337.125,116.976 337.125,244.472 333.525,244.472 333.525,253.085 342.137,253.085 
+			342.137,250.296 405.321,250.296 405.321,253.226 406.944,253.226 406.944,378.464 403.698,378.464 403.698,387.077 
+			406.944,387.077 406.944,512.031 403.698,512.031 		"/>
+	</g>
+	<g id="LWPOLYLINE_141_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="0.2743" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.351 432.994,521.351 432.994,533.069 693,533.069 693,232.612 509.097,232.612 509.097,199.856 512.839,199.856 
+			512.839,191.243 509.106,191.243 509.106,155.945 509.731,155.945 509.731,149.733 509.081,149.733 509.081,113.729 
+			509.731,113.729 509.731,107.517 502.249,107.517 502.249,109.256 474.999,109.256 474.999,107.517 468.787,107.517 
+			468.787,109.256 413.863,109.256 413.863,108.363 405.25,108.363 405.25,110.375 342.137,110.375 342.137,108.646 
+			333.525,108.646 333.525,116.976 337.125,116.976 337.125,244.472 333.525,244.472 333.525,253.085 342.137,253.085 
+			342.137,250.296 405.321,250.296 405.321,253.226 406.944,253.226 406.944,378.464 403.698,378.464 403.698,387.077 
+			406.944,387.077 406.944,512.031 403.698,512.031 		"/>
+	</g>
+	<g id="LWPOLYLINE_140_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			403.698,521.351 432.994,521.351 432.994,533.069 693,533.069 693,232.612 509.097,232.612 509.097,199.856 512.839,199.856 
+			512.839,191.243 509.106,191.243 509.106,155.945 509.731,155.945 509.731,149.733 509.081,149.733 509.081,113.729 
+			509.731,113.729 509.731,107.517 502.249,107.517 502.249,109.256 474.999,109.256 474.999,107.517 468.787,107.517 
+			468.787,109.256 413.863,109.256 413.863,108.363 405.25,108.363 405.25,110.375 342.137,110.375 342.137,108.646 
+			333.525,108.646 333.525,116.976 337.125,116.976 337.125,244.472 333.525,244.472 333.525,253.085 342.137,253.085 
+			342.137,250.296 405.321,250.296 405.321,253.226 406.944,253.226 406.944,378.464 403.698,378.464 403.698,387.077 
+			406.944,387.077 406.944,512.031 403.698,512.031 		"/>
+	</g>
+	<g id="LWPOLYLINE_139_">
+		
+			<rect x="339.667" y="151.851" fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="35.883" height="54.924"/>
+	</g>
+	<g id="LWPOLYLINE_138_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			411.886,147.191 405.321,147.191 405.321,153.121 375.67,153.121 375.67,151.851 339.667,151.851 339.667,116.835 
+			342.208,116.835 342.208,114.293 405.25,114.293 405.25,116.694 411.886,116.694 		"/>
+	</g>
+	<g id="MTEXT_15_">
+		<text transform="matrix(1 0 0 1 346.1592 181.6157)" fill="#0099CC" font-family="'ArialMT'" font-size="3.8593">Área= 9.88 m²</text>
+	</g>
+	<g id="MTEXT_14_">
+		<text transform="matrix(1 0 0 1 347.4082 175.4082)" fill="#0099CC" font-family="'ArialMT'" font-size="3.8593">Bodega 402</text>
+	</g>
+	<g id="MTEXT_13_">
+		<text transform="matrix(1 0 0 1 364.6138 136.9165)" fill="#0099CC" font-family="'ArialMT'" font-size="3.8593">Área= 13.53 m²</text>
+	</g>
+	<g id="MTEXT_12_">
+		<text transform="matrix(1 0 0 1 366.1357 130.71)" fill="#0099CC" font-family="'ArialMT'" font-size="3.8593">Almacen 405</text>
+	</g>
+</g>
+<g id="_x30_">
+</g>
+</svg>

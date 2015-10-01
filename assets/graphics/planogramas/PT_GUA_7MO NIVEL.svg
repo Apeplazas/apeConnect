@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px"
+	 height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+<g id="ÁREAS__x28_POLILINEA_x29_">
+	<g id="TEXT">
+		
+			<text transform="matrix(6.735558e-017 -1.1 1 6.123234e-017 480.2002 308.4492)" fill="#0099CC" font-family="'CenturyGothic'" font-size="8.725">CASE</text>
+	</g>
+	<g id="TEXT_1_">
+		<text transform="matrix(1 0 0 1 342.3184 96.6216)" fill="#0099CC" font-family="'ArialMT'" font-size="4.4591">sube</text>
+	</g>
+	<g id="TEXT_2_">
+		<text transform="matrix(1 0 0 1 294.0029 97.0308)" fill="#0099CC" font-family="'ArialMT'" font-size="4.4591">baja</text>
+	</g>
+	<g id="TEXT_3_">
+		<text transform="matrix(1.1 0 0 1 308.2446 114.6914)" fill="#0099CC" font-family="'CenturyGothic'" font-size="8.725">vestibulo</text>
+	</g>
+	<g id="MTEXT">
+		<text transform="matrix(1 0 0 1 309.1865 72.9741)" fill="#FF0000" font-family="'ArialMT'" font-size="4.728">Montacargas</text>
+	</g>
+	<g id="MTEXT_1_">
+		<text transform="matrix(1 0 0 1 463.2217 265.8711)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">BODEGA 701</text>
+	</g>
+	<g id="MTEXT_2_">
+		<text transform="matrix(1 0 0 1 460.9883 433.9082)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">BODEGA 703</text>
+	</g>
+	<g id="MTEXT_3_">
+		<text transform="matrix(1 0 0 1 227.1143 143.5024)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">BODEGA 702</text>
+	</g>
+	<g id="MTEXT_4_">
+		<text transform="matrix(1 0 0 1 251.5625 56.5513)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">BODEGA 704</text>
+	</g>
+	<g id="LWPOLYLINE">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="0.3296" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			276.137,537.47 312.029,537.47 312.029,551.827 630.562,551.827 630.562,183.737 405.263,183.737 405.263,143.607 
+			409.846,143.607 409.846,133.056 405.274,133.056 405.274,89.812 406.041,89.812 406.041,82.201 405.243,82.201 405.243,38.093 
+			406.041,38.093 406.041,30.482 396.873,30.482 396.873,32.613 363.489,32.613 363.489,30.482 355.878,30.482 355.878,32.613 
+			288.591,32.613 288.591,31.52 278.04,31.52 278.04,33.985 200.72,33.985 200.72,31.866 190.168,31.866 190.168,42.071 
+			194.58,42.071 194.58,198.267 190.168,198.267 190.168,208.819 200.72,208.819 200.72,205.402 278.126,205.402 278.126,208.991 
+			280.116,208.991 280.116,362.42 276.137,362.42 276.137,372.971 280.116,372.971 280.116,526.054 276.137,526.054 		"/>
+	</g>
+	<g id="LWPOLYLINE_1_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="0.3296" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			276.224,537.643 312.116,537.643 312.116,552 630.647,552 630.647,183.91 405.349,183.91 405.349,143.78 409.933,143.78 
+			409.933,133.229 405.36,133.229 405.36,89.985 406.127,89.985 406.127,82.375 405.33,82.375 405.33,38.266 406.127,38.266 
+			406.127,30.655 396.96,30.655 396.96,32.786 363.575,32.786 363.575,30.655 355.965,30.655 355.965,32.786 288.677,32.786 
+			288.677,31.692 278.126,31.692 278.126,34.158 200.807,34.158 200.807,32.039 190.255,32.039 190.255,42.245 194.666,42.245 
+			194.666,198.44 190.255,198.44 190.255,208.991 200.807,208.991 200.807,205.575 278.213,205.575 278.213,209.165 
+			280.202,209.165 280.202,362.593 276.224,362.593 276.224,373.145 280.202,373.145 280.202,526.227 276.224,526.227 		"/>
+	</g>
+	<g id="LWPOLYLINE_3_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			243.123,38.958 243.123,74.036 248.506,74.036 248.506,84.623 253.997,84.623 278.126,84.537 278.126,79.434 286.169,79.261 
+			286.169,42.071 278.04,42.071 278.126,38.958 		"/>
+	</g>
+	<g id="LWPOLYLINE_4_">
+		
+			<rect x="197.606" y="84.623" fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="26.605" height="15.265"/>
+	</g>
+	<g id="LWPOLYLINE_5_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			197.606,103.001 197.606,152.256 197.606,198.267 200.72,198.267 200.72,200.429 278.126,200.429 278.126,198.44 288.677,198.44 
+			288.677,143.78 278.126,143.78 278.126,133.229 288.677,133.229 288.591,105.38 242.72,105.38 242.72,103.001 		"/>
+	</g>
+	<g id="LWPOLYLINE_6_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			288.677,201.554 288.677,208.991 282.71,208.991 282.71,362.42 286.688,362.42 286.688,372.971 282.71,372.971 282.71,526.054 
+			286.688,526.054 286.688,534.184 315.402,534.184 315.402,526.746 325.694,526.746 325.694,532.973 601.502,532.973 
+			601.502,527.092 607.383,527.092 607.383,373.317 601.502,373.317 601.502,368.993 452.052,368.993 452.052,373.317 
+			441.501,373.317 441.501,365.37 402.063,365.37 402.063,364.506 356.916,364.506 356.916,337.133 356.916,327.618 
+			371.446,327.618 371.446,201.554 		"/>
+	</g>
+	<g id="LWPOLYLINE_7_">
+		
+			<polygon fill="none" stroke="#0099CC" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			402.063,365.37 441.501,365.37 441.501,362.766 452.052,362.766 452.052,368.993 601.502,368.993 601.502,362.766 
+			607.383,362.766 607.383,208.991 601.502,208.991 601.502,202.591 452.052,202.591 452.052,208.991 441.501,208.991 
+			441.501,202.591 402.063,202.591 		"/>
+	</g>
+	<g id="MTEXT_6_">
+		<text transform="matrix(1 0 0 1 200.1455 89.4551)" fill="#0099CC" font-family="'ArialMT'" font-size="3.7824">BODEGA 710</text>
+	</g>
+	<g id="MTEXT_7_">
+		<text transform="matrix(1 0 0 1 249.7031 64.7915)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">Área= 6.15 m²</text>
+	</g>
+	<g id="MTEXT_8_">
+		<text transform="matrix(1 0 0 1 197.7476 95.8477)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">Área=1.35m²</text>
+	</g>
+	<g id="MTEXT_9_">
+		<text transform="matrix(1 0 0 1 225.3022 152.9385)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">Área= 28.82 m²</text>
+	</g>
+	<g id="MTEXT_10_">
+		<text transform="matrix(1 0 0 1 460.0752 276.271)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">Área= 113.02 m²</text>
+	</g>
+	<g id="MTEXT_11_">
+		<text transform="matrix(1 0 0 1 457.0967 446.5781)" fill="#0099CC" font-family="'ArialMT'" font-size="4.728">Área= 225.91 m²</text>
+	</g>
+</g>
+<g id="ÁREAS_COMUNES">
+	<g id="MTEXT_18_">
+		<text transform="matrix(1 0 0 1 208.9478 64.4502)" fill="#00FF3F" font-family="'ArialMT'" font-size="4.728">Sanitarios</text>
+	</g>
+	<g id="LWPOLYLINE_54_">
+		
+			<polygon fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			276.224,537.643 312.116,537.643 312.116,552 630.647,552 630.647,183.91 405.349,183.91 405.349,143.78 409.933,143.78 
+			409.933,133.229 405.36,133.229 405.36,89.985 406.127,89.985 406.127,82.375 405.33,82.375 405.33,38.266 406.127,38.266 
+			406.127,30.655 396.96,30.655 396.96,32.786 363.575,32.786 363.575,30.655 355.965,30.655 355.965,32.786 288.677,32.786 
+			288.677,31.692 278.126,31.692 278.126,34.158 200.807,34.158 200.807,32.039 190.255,32.039 190.255,42.245 194.666,42.245 
+			194.666,198.44 190.255,198.44 190.255,208.991 200.807,208.991 200.807,205.575 278.213,205.575 278.213,209.165 
+			280.202,209.165 280.202,362.593 276.224,362.593 276.224,373.145 280.202,373.145 280.202,526.227 276.224,526.227 		"/>
+	</g>
+	<g id="LWPOLYLINE_53_">
+		
+			<rect x="355.878" y="30.482" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.611" height="7.611"/>
+	</g>
+	<g id="LWPOLYLINE_52_">
+		
+			<rect x="355.878" y="82.201" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="7.611" height="7.611"/>
+	</g>
+	<g id="LWPOLYLINE_51_">
+		
+			<rect x="396.873" y="30.482" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="9.168" height="7.611"/>
+	</g>
+	<g id="TEXT_9_">
+		<text transform="matrix(1 0 0 1 342.3184 96.6216)" fill="#00FF3F" font-family="'ArialMT'" font-size="4.4591">sube</text>
+	</g>
+	<g id="TEXT_8_">
+		<text transform="matrix(1 0 0 1 294.0029 97.0308)" fill="#00FF3F" font-family="'ArialMT'" font-size="4.4591">baja</text>
+	</g>
+	<g id="TEXT_7_">
+		<text transform="matrix(1.1 0 0 1 308.2446 114.6914)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="8.725">vestibulo</text>
+	</g>
+	<g id="LWPOLYLINE_50_">
+		
+			<rect x="402.148" y="37.92" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="3.114" height="44.108"/>
+	</g>
+	<g id="LWPOLYLINE_49_">
+		
+			<rect x="358.732" y="37.92" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="3.113" height="44.108"/>
+	</g>
+	<g id="LINE_55_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="308.656" y1="88.223" x2="335.982" y2="88.223"/>
+	</g>
+	<g id="LINE_54_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="346.841" y1="91.76" x2="346.841" y2="70.217"/>
+	</g>
+	<g id="LINE_53_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="346.841" y1="70.217" x2="341.744" y2="73.742"/>
+	</g>
+	<g id="LINE_52_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="346.841" y1="70.217" x2="351.938" y2="73.742"/>
+	</g>
+	<g id="LINE_51_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.982" y1="87.357" x2="355.878" y2="87.357"/>
+	</g>
+	<g id="LINE_50_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.982" y1="81.718" x2="355.878" y2="81.718"/>
+	</g>
+	<g id="LINE_49_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.982" y1="76.08" x2="356.739" y2="76.08"/>
+	</g>
+	<g id="LINE_48_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.982" y1="70.441" x2="356.739" y2="70.441"/>
+	</g>
+	<g id="LINE_47_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="297.46" y1="91.76" x2="297.46" y2="70.217"/>
+	</g>
+	<g id="LINE_46_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="297.46" y1="70.217" x2="292.363" y2="73.742"/>
+	</g>
+	<g id="LINE_45_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="297.46" y1="70.217" x2="302.557" y2="73.742"/>
+	</g>
+	<g id="LINE_44_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="288.591" y1="87.357" x2="308.656" y2="87.357"/>
+	</g>
+	<g id="LINE_43_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="288.591" y1="81.718" x2="308.656" y2="81.718"/>
+	</g>
+	<g id="LINE_42_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="288.591" y1="76.08" x2="308.656" y2="76.08"/>
+	</g>
+	<g id="LINE_41_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="288.591" y1="70.441" x2="308.656" y2="70.441"/>
+	</g>
+	<g id="LINE_40_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.982" y1="64.802" x2="356.739" y2="64.802"/>
+	</g>
+	<g id="LINE_39_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.739" y1="59.022" x2="335.982" y2="59.022"/>
+	</g>
+	<g id="LINE_38_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.739" y1="59.022" x2="335.982" y2="59.022"/>
+	</g>
+	<g id="LINE_37_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="288.591" y1="64.802" x2="308.656" y2="64.802"/>
+	</g>
+	<g id="LINE_36_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="308.656" y1="59.022" x2="288.591" y2="59.022"/>
+	</g>
+	<g id="LINE_35_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="309.521" y1="58.158" x2="309.521" y2="37.747"/>
+	</g>
+	<g id="LINE_34_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.117" y1="37.747" x2="335.117" y2="58.158"/>
+	</g>
+	<g id="LINE_33_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="330.032" y1="37.747" x2="330.032" y2="58.158"/>
+	</g>
+	<g id="LINE_32_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="324.946" y1="37.747" x2="324.946" y2="58.158"/>
+	</g>
+	<g id="LINE_31_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="319.86" y1="37.747" x2="319.86" y2="58.158"/>
+	</g>
+	<g id="LINE_30_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="314.775" y1="37.747" x2="314.775" y2="58.158"/>
+	</g>
+	<g id="LINE_29_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="335.117" y1="37.747" x2="335.117" y2="58.158"/>
+	</g>
+	<g id="LINE_28_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="309.521" y1="58.158" x2="309.521" y2="37.747"/>
+	</g>
+	<g id="HATCH_11_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="308.658,88.393 308.658,58.334 335.989,58.334 
+			335.989,88.393 334.25,88.393 334.25,87.532 335.128,87.532 335.128,59.195 309.52,59.195 309.52,87.532 310.396,87.532 
+			310.396,88.393 308.658,88.393 		"/>
+	</g>
+	<g id="LWPOLYLINE_48_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			308.656,88.395 308.656,58.331 335.982,58.331 335.982,88.395 334.252,88.395 334.252,87.531 335.117,87.531 335.117,59.195 
+			309.521,59.195 309.521,87.531 310.386,87.531 310.386,88.395 308.656,88.395 		"/>
+	</g>
+	<g id="LWPOLYLINE_47_">
+		
+			<line fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="334.252" y1="87.531" x2="310.386" y2="87.531"/>
+	</g>
+	<g id="LWPOLYLINE_46_">
+		
+			<rect x="320.382" y="141.063" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="3.287" height="44.714"/>
+	</g>
+	<g id="HATCH_10_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="323.677,185.776 320.38,185.776 320.38,141.062 
+			323.677,141.062 323.677,185.776 		"/>
+	</g>
+	<g id="LWPOLYLINE_45_">
+		
+			<rect x="320.382" y="141.063" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="3.287" height="44.714"/>
+	</g>
+	<g id="HATCH_9_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="288.675,141.062 340.602,141.062 340.602,137.946 
+			288.675,137.946 288.675,141.062 		"/>
+	</g>
+	<g id="LWPOLYLINE_44_">
+		
+			<rect x="288.677" y="137.949" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="51.913" height="3.114"/>
+	</g>
+	<g id="HATCH_8_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="378.272,184.044 381.548,184.044 381.548,141.062 
+			378.272,141.062 378.272,184.044 		"/>
+	</g>
+	<g id="LWPOLYLINE_43_">
+		
+			<rect x="378.268" y="141.063" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="3.287" height="42.984"/>
+	</g>
+	<g id="HATCH_7_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="361.343,141.062 381.548,141.062 381.548,137.946 
+			361.343,137.946 361.343,141.062 		"/>
+	</g>
+	<g id="LWPOLYLINE_42_">
+		
+			<rect x="361.347" y="137.949" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="20.208" height="3.114"/>
+	</g>
+	<g id="HATCH_6_">
+		<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#00FF3F" points="381.548,184.044 323.677,184.044 323.677,185.776 
+			381.548,185.776 381.548,184.044 		"/>
+	</g>
+	<g id="LWPOLYLINE_41_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			381.555,184.047 323.669,184.047 323.669,185.777 381.555,185.777 381.555,184.047 		"/>
+	</g>
+	<g id="LWPOLYLINE_40_">
+		
+			<rect x="340.59" y="137.949" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="20.757" height="3.114"/>
+	</g>
+	<g id="LWPOLYLINE_39_">
+		
+			<rect x="350.968" y="139.506" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="10.379" height="0.882"/>
+	</g>
+	<g id="LWPOLYLINE_38_">
+		
+			<rect x="340.59" y="138.625" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="10.378" height="0.882"/>
+	</g>
+	<g id="MTEXT_17_">
+		<text transform="matrix(1 0 0 1 372.2461 63.3862)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="3.864">ELEVADOR</text>
+	</g>
+	<g id="MTEXT_16_">
+		<text transform="matrix(1 0 0 1 340.1563 164.0229)" fill="#00FF3F" font-family="'CenturyGothic'" font-size="3.864">ELEVADOR</text>
+	</g>
+	<g id="LWPOLYLINE_37_">
+		
+			<rect x="332.101" y="148.805" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="37.19" height="28.915"/>
+	</g>
+	<g id="LWPOLYLINE_36_">
+		
+			<rect x="332.966" y="149.67" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="35.459" height="27.186"/>
+	</g>
+	<g id="LWPOLYLINE_35_">
+		
+			<rect x="363.236" y="45.47" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="37.189" height="28.915"/>
+	</g>
+	<g id="LWPOLYLINE_34_">
+		
+			<rect x="364.1" y="46.335" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="35.46" height="27.186"/>
+	</g>
+	<g id="MTEXT_15_">
+		<text transform="matrix(1 0 0 1 309.1865 72.9741)" fill="#00FF3F" font-family="'ArialMT'" font-size="4.728">Montacargas</text>
+	</g>
+	<g id="LWPOLYLINE_33_">
+		
+			<polyline fill="none" stroke="#00FF3F" stroke-width="0.824" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			320.213,60.891 320.213,50.638 327.177,50.638 327.177,48.298 312.544,48.298 312.544,46.006 320.292,46.006 320.292,23 		"/>
+	</g>
+	<g id="LWPOLYLINE_32_">
+		
+			<polygon fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			288.591,87.357 355.878,87.357 355.878,82.201 356.739,82.201 356.739,37.747 288.591,37.747 		"/>
+	</g>
+	<g id="LWPOLYLINE_31_">
+		
+			<rect x="197.606" y="38.958" fill="none" stroke="#00FF3F" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="45.517" height="45.665"/>
+	</g>
+</g>
+<g id="_x30_">
+</g>
+</svg>

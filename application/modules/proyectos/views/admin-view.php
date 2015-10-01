@@ -1,0 +1,148 @@
+<?php $obras = $this->proyecto_model->buscaProyectos();?>
+<script>
+/********************************************************************************************************************
+Calendario
+********************************************************************************************************************/
+var dateObject = null;
+
+$('#fechaCierre').datepicker({
+	inline:false,
+	minDate:'+1d',  //d m w y
+	defaultDate:'+1d',
+	'dateFormat': 'mm/dd/yy'
+});	
+$(".fancy").fancybox({
+	'scrolling'		: 'no',
+	'titleShow'		: false,
+	'onClosed'		: function() {
+		$("#login_error").hide();
+	}
+});
+
+	$(document).ready(function() {
+	    $('#tablaproveed').dataTable({
+	    	"bPaginate": false,
+    	});
+    	
+    	$("#datepicker").datepicker({ 
+    		dateFormat: 'yy-mm-dd',
+    		onSelect: function(){ 
+		        var dateObject = $(this).datepicker('getDate'); 
+		    } 
+    	});
+    	
+    	//Borrar unos o varios proyectos
+    	$("#proyectosBorrar").click(function(e){
+    		
+    		e.preventDefault();
+    		var idProyectos = [];
+			$.each($("input:checkbox[name=proyectId]:checked"),function(){
+				idProyectos.push($(this).val());
+			});
+			
+			if(idProyectos.length === 0){
+				alert("Por favor seleccione al menos un proyecto para borrar");
+			}else{
+				
+				$.ajax({
+	                data:  {"idProyectos":idProyectos},
+					dataType : 'json',
+	                url:   ajax_url+'borrarProyectos',
+	                type:  'post',
+	                success:  function (response) {
+						window.location.reload();
+	                }
+        		});
+        		
+			}
+    		
+    	});
+    	
+	});
+</script>
+<div id="mainTit"><img src="<?=base_url()?>assets/graphics/proyectos-blackIcon.png" alt="Proyectos y Obras" />Lista de Obras y Proyectos</div>
+<?= $this->session->flashdata('msg'); ?>
+<?= $this->load->view('includes/menus/toolbarAdmin');?>
+<form id="wrapTableTwo" action="<?=base_url()?>" method="post" >
+<? foreach($profile as $row):?>
+	<span id="head"></span>
+	<table id="tablaproveed" class="display">
+		<thead> 
+			<tr> 
+				<th class="tools"></th>
+				<th>Proveedor asignado</th>
+				<th>Titulo Proyecto</th> 
+				<th>Descripción Proyecto</th> 
+				<th>Tipo</th> 
+				<th>Status</th>
+				<th>Fecha de Solicitud de Autorización</th>
+				<th>Fecha de Autorización</th>
+				<th>Fecha de Asignación</th>
+			</tr> 
+		</thead> 
+		<tbody>
+			<?php foreach($obras as $rowO):?>
+				<tr>
+					<th class="tools" style="text-align:center;">
+					  <!-- Tu comentario <a class="tcenter" href="<?=base_url()?>proyectos/borrarStatusProy/<?=$rowO->idProyecto;?>"><img src="<?=base_url()?>assets/graphics/borrar.png" alt="Borrar" /></a>-->
+					 <input type="checkbox" name="proyectId" value="<?=$rowO->idProyecto;?>" />
+					</th>
+					<th class="asigPro"><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->nombreCompleto;?></span></a></th>
+					<th class="titPro"><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->tituloProyecto;?></span></a></th> 
+					<th><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><p><?=character_limiter($rowO->descripcionProyecto, '180');?></p></a></th> 
+					<th><a class="fle100 obraTipo" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->obraTipo;?></span></a></th> 
+					<th><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->status;?></span></a></th>
+					<th><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->fechaUltimaRevision;?></span></a></th>
+					<th><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->fechaAutorizacion;?></span></a></th>
+					<th><a class="fle100" href="<?=base_url()?>proyectos/verProyecto/<?=$rowO->idProyecto;?>"><span><?=$rowO->fechaAsignacion;?></span></a></th>
+				</tr>
+			<?php endforeach;?>
+		</tbody> 
+	</table>
+<? endforeach; ?>
+</form>
+
+<div id="addDisplay" style="display:none;">
+	<h3>Agregar Proyecto</h3>
+<form id="addPoy" action="<?=base_url()?>proyectos/agregarProyecto" method="post">
+	<fieldset>
+		<label>Titulo Proyecto</label>
+		<input id="bckBuscar" type="text" class="inBut" name="titProy" />
+	</fieldset>
+	<fieldset>
+		<label>Tipo Proyecto</label>
+		<select id="tipProy" name="tipProy" class="selRegBig">
+	    <option selected >Elige una opción</option>
+	    <? foreach($tipos as $rowTip):?>
+	    <option value="<?= $rowTip->idTipo;?>"><?= $rowTip->tipo;?></option>
+	    <? endforeach; ?>
+		</select>
+	</fieldset>
+	<fieldset>
+		<label>Fecha Cierre Licitación</label>
+		<span id="calen"><input name="fechaCierre" type="text" id="datepicker" class="inSmall" placeholder="año/mes/dia"><img src="<?=base_url()?>assets/graphics/calendar.jpg" alt="" /></span>
+	</fieldset>
+	<fieldset>
+		<label>Costo aproximado por proyecto</label>
+		<select id="costProy" name="costProy" class="selRegBig">
+	    <option selected value="" >Elige una opción</option>
+	    <? foreach($rango as $rowR):?>
+	    <option value="<?= $rowR->idRango;?>"><?= $rowR->rangoMaximo;?></option>
+	    <? endforeach; ?>
+		</select>
+	</fieldset>
+	<fieldset>
+		<label>Proyecto Ubicación</label>
+		<select id="ubiProy" name="ubiProy" class="selRegBig">
+	    <option selected value="" >Elige una opción</option>
+	    <? foreach($zonas as $rowZ):?>
+	    <option value="<?= $rowZ->idZona;?>"><?= $rowZ->zona;?></option>
+	    <? endforeach; ?>
+		</select>
+	</fieldset>
+	<fieldset>
+		<textarea class="textMed" id="proyDesc" name="proyDesc" placeholder="Descripción del proyecto"></textarea>
+	</fieldset>
+	<fieldset>
+		<input class="botOra fWhite crear" type="submit" value="Crear proyecto" />
+	</fieldset>

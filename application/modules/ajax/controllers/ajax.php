@@ -1,0 +1,1343 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Ajax extends MX_Controller {
+	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('proyectos/proyecto_model');
+		$this->load->model('prospectos/prospectos_model');
+		$this->load->model('planogramas/planogramas_model');
+		$this->load->model('notificaciones/notificaciones_model');
+		$this->load->model('user_model');
+		
+		$this->load->model('tempciri/tempciri_model');
+		
+	}
+	
+	//verifica que la sesion esta inciada para poder dar acceso a modulo
+	function is_logged_in()
+    {
+        $user = $this->session->userdata('usuario');
+        if(!isset($user) || $user != true)
+        {
+        	$this->session->set_userdata(array('previous_page'=> uri_string()));
+         	redirect('');
+        }
+    }
+	
+	function verificaUrl()
+	{
+		$url       = $_POST['filtro'];
+		$base = base_url();
+		$fancyUrl = strtolower(str_replace(" ", "_", $url));
+		
+		$verificado = $this->registrate_model->confirmaUrl($url);
+		
+		if (!$verificado){
+			echo $base,$fancyUrl;
+		}
+		else{
+			$aviso = "<div class='aviso'><img src='/apeplazas/assets/graphics/alert.png' /><i>Este alias ya ha sido asignado</i></div>";
+				 
+			echo $aviso;
+		}
+	}
+	
+	function verificaPisos()
+	{
+		$plaza	= $_POST['plaza'];
+		$base	 = base_url();
+		
+		$info = $this->planogramas_model->cargarPisosArray($plaza);
+		
+		if(!in_array('PB', $info)){ echo '<option value="PB">PB</option>';}
+		if(!in_array('1', $info)){ echo '<option value="1">1</option>';}
+		if(!in_array('2', $info)){ echo '<option value="2">2</option>';}
+		if(!in_array('3', $info)){ echo '<option value="3">3</option>';}
+		if(!in_array('4', $info)){ echo '<option value="4">4</option>';}
+		if(!in_array('5', $info)){ echo '<option value="5">5</option>';}
+		if(!in_array('6', $info)){ echo '<option value="6">6</option>';}
+		if(!in_array('7', $info)){ echo '<option value="7">7</option>';}
+		if(!in_array('Azotea', $info)){ echo '<option value="Azotea">Azotea</option>';}
+			
+	}
+	
+	function verLocal()
+	{
+		$id = $_POST['id'];
+		
+		$op['Nvector'] = $this->data_model->buscarVector($id);
+		$op['local'] = $this->data_model->buscarSeleccionLocal($id);
+		
+		echo json_encode($op);
+	}
+	
+	function verLocalID()
+	{
+		$id       = $_POST['id'];
+		
+		$vector = $op['Nvector'] = $this->data_model->buscarVector($id);
+		$op['local'] = $this->data_model->buscarSeleccionLocalID($vector[0]->localID);
+		$op['cliente'] = $this->data_model->buscarSeleccionContrato($vector[0]->localID);
+		
+		
+		echo json_encode($op);
+	} 
+	
+	function formValores()
+	{
+		$campos = $this->planogramas_model->cargaCamposBD();
+		$variable= array();
+		foreach($campos[0] as $key => $val){
+			$variable[]=$key;
+		}
+		echo json_encode($variable);
+		exit();
+	}
+	
+	function desasignar()
+	{
+		$id       = $_POST['id'];
+		
+		$query = $this->planogramas_model->buscarClaveLocalVector($id);
+		
+		$update = array('localID' => NULL);
+		$this->db->where('localID', $query[0]->localID);
+		$this->db->update('vector', $update);
+		
+		$this->db->delete('catalogoLocalesAsignados', array('localID' => $query[0]->localID)); 
+		
+		echo json_encode($query[0]);
+	} 
+	
+	function statusVector()
+	{
+		$id       	  	= $_POST['id'];
+		$status       	= $_POST['status'];
+		
+		$vector   		= $this->data_model->buscarVector($id);
+		$op['local']  	= $this->data_model->buscarSeleccionLocal($id);
+		
+		$update = array('status' => $status,'localID' => NULL);
+		$this->db->where('id', $id);
+		$this->db->update('vector', $update);
+		
+		$op['Nvector'] = $this->data_model->buscarVector($id);
+		
+		echo json_encode($op);
+	}
+	
+	function cargaNotificacionesBarra()
+	{
+		//Carga Session para sacar informacion de //
+		$user                 = $this->session->userdata('usuario');
+		$op['notificaciones'] = $this->notificaciones_model->cargaNotificacionesBarra($user['usuarioID']);
+		
+		$this->load->view('notificacionesAjax-view', $op);
+	}
+	
+	function addFormResp($comentarioID, $proyectoID)
+	{
+		$op['comentarios']    = $this->proyecto_model->cargaComentariosID($proyectoID, $comentarioID);
+		
+		$this->load->view('ajaxFormRespuesta', $op);
+	}
+	
+	function verificaEmail()
+	{
+		$email	= $_POST['filtro'];
+		$base	= base_url();
+		
+		$verificar = $this->registrate_model->confirmaEmail($email);
+		
+		if (!$verificar){
+			echo '';
+		}
+		else{
+			$aviso = "<div class='avisoEmail'><img src='/apeplazas/assets/graphics/alert.png' /><i>Este email ya se encuentra registrado</i>s</div>";
+	 
+			echo $aviso;
+		}
+	}
+	
+	function buscarCiudad()
+	{
+		$filtro = strtolower($_POST['q']);
+		$op['ciudad']	= $this->data_model->buscaCiudades($filtro);
+			
+		//Vista//
+		$this->load->view('busquedaAuto-view' ,$op);
+		
+	}
+	
+	function fechaNac()
+	{		
+		$dia = $var	= $_POST['filtro'];
+		$valores	= $_POST['accion'];
+		
+		//Separa segmentos accion y id
+		$segmento = explode("-", $valores);
+		$accion   = $segmento[0]; 
+		$id       = $segmento[1]; 
+
+		if (strlen($var) == '1') {
+			$dia = '0'.$var;
+		}
+		
+		$actualiza = $this->usuario_model->buscaPerfilID($id);
+		
+		//Separa segmentos accion y id
+		$nuevaAct = explode("-", $actualiza[0]->fechaNacimiento);
+		$diaAct   = $nuevaAct[2]; 
+		$mesAct   = $nuevaAct[1]; 
+		$anioAct  = $nuevaAct[0]; 
+		
+		$final = $anioAct.'-'.$mesAct.'-'.$dia;
+		$update = array('fechaNacimiento' => $final,);
+			$this->db->where('usuarioID', $id);
+			$this->db->update('usuarios', $update);
+		
+		echo $final;
+		
+	}
+	
+	function profile($var)
+	{		
+		$var	= $_POST['filtro'];
+		$field	= $this->uri->segment(3);
+		$id		= '1';
+		
+		if($field == 'age'){
+			
+			if($var == '0' || $var >= '90'){
+			echo 'No has escogido una edad correcta';
+			}
+			else{
+				$update = array('age' => $var,);
+				$this->db->where('userID', $id);
+				$this->db->update('users', $update);
+			}
+			
+		}
+		
+		if($field == 'gender'){
+			$update = array('gender' => 'Femenino',);
+			$this->db->where('userID', $id);
+			$this->db->update('users', $update);
+			echo $var;
+		}
+		
+	}
+	
+	function gender($gender,$userID)
+	{		
+		$type	= $this->uri->segment(3);
+		$id		= $this->uri->segment(4);
+		
+		$update = array('gender' => $type,);
+			$this->db->where('userID', $id);
+			$this->db->update('users', $update);
+			echo $type;
+		
+		
+	}
+	
+	function edo()
+	{
+		$var	= $_POST['filtro'];
+		
+		$piece = explode("-", $var);
+		$edo = $piece[0]; // Estado Civil
+		$id = $piece[1]; // userID
+		$row = $piece[2]; // database field
+		
+		if ($row == 'gender') {
+			$update = array($row => $edo,);
+				$this->db->where('userID', $id);
+				$this->db->update('users', $update);
+		echo $edo;
+		}
+		elseif ($row == 'cs'){
+			$update = array('civilStatement' => $edo,);
+				$this->db->where('userID', $id);
+				$this->db->update('users', $update);
+		echo $edo;
+			
+		}
+		
+		
+	}
+	
+	function cargarMunicipios()
+	{
+		$estadoFiltro = strtolower($_POST['estadoFiltro']);
+
+		$sc = $this->db->query("SELECT claveMunicipio AS idMunicipio, 
+									   nombreMunicipio AS nombreMunicipio 
+									   FROM estadosMexico 
+									   WHERE nombreEstado = '$estadoFiltro' 
+									   GROUP BY claveMunicipio  
+									   ORDER BY claveMunicipio");
+
+		$lista_opciones = '<option value="0">Municipio</option>
+		';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones .= "<option value='".$row->nombreMunicipio."'>".$row->nombreMunicipio."</option>";
+		}
+		
+		echo $lista_opciones;	
+	}
+	
+	function cargarColonias()
+	{
+		$municipioFiltro 	= strtolower($_POST['municipioFiltro']);
+		$estadoFiltro 		= strtolower($_POST['estadoFiltro']);
+
+		$sc = $this->db->query("SELECT claveColonia AS idColonia, 
+									   nombreColonia AS nombreColonia 
+									   FROM estadosMexico 
+									   WHERE nombreEstado = '$estadoFiltro'
+									   AND nombreMunicipio = '$municipioFiltro' 
+									   GROUP BY claveColonia  
+									   ORDER BY nombreColonia ASC");
+
+		$lista_opciones = '<option value="0">Colonia</option>
+		';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones .= "<option value='".$row->nombreColonia."'>".$row->nombreColonia."</option>";
+		}
+		
+		echo $lista_opciones;	
+	}
+	
+	function cargarCP()
+	{
+		$municipioFiltro 	= strtolower($_POST['municipioFiltro']);
+		$estadoFiltro 		= strtolower($_POST['estadoFiltro']);
+		$coloniaFiltro 		= strtolower($_POST['coloniaFiltro']);
+
+		$sc = $this->db->query("SELECT codigoCP
+									   FROM estadosMexico 
+									   WHERE nombreEstado = '$estadoFiltro'
+									   AND nombreMunicipio = '$municipioFiltro' 
+									   AND nombreColonia = '$coloniaFiltro'");
+
+		
+		$lista_opciones = '';
+		foreach($sc->result() as $row){
+			$lista_opciones = $row->codigoCP;
+		}
+		
+		if ($lista_opciones >= '0'){
+		echo $lista_opciones;	
+		}
+		else{
+			echo 'Intente Nuevamente';
+		}
+		
+	}
+	
+	function agregarSegmento()
+	{
+		$op['unidad'] = $this->data_model->cargaUnidades();
+		
+		$this->load->view('agregaSegmentoForm-view', $op);
+	}
+	
+	function excelimport($partidaId){
+			
+		$idproyecto = $this->input->post('idproyecto');
+		
+
+		$excelname	= $_FILES['excelfile']['name'];
+		$exceltype 	= $_FILES['excelfile']['type'];
+		$excelsize	= $_FILES['excelfile']['size'];
+		
+		$contadorTemporal = array();
+		
+		$aceptypes = array(
+			'application/vnd.ms-excel',
+			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+		);
+		
+		if(!in_array($exceltype,$aceptypes) ){
+			redirect("proyectos/verProyecto/$idproyecto");
+			exit();
+		}
+		
+		move_uploaded_file($_FILES['excelfile']['tmp_name'],DIREXCELS.$excelname);
+			
+		$this->load->library('excel');
+        
+		$objPHPExcel = PHPExcel_IOFactory::load(DIREXCELS.$excelname);
+		$sheet = $objPHPExcel->getSheet(0);
+		$highestRow = $sheet->getHighestRow();
+		$highestColumn = $sheet->getHighestColumn();
+		
+		$data = array();
+
+		// Loop de cada fila dentro del excel
+		for ($row = 1; $row <= $highestRow; $row++){ 
+		    // Leer la fila del excel y pasarla a un array
+		    $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+		                                    NULL,
+		                                    TRUE,
+		                                    FALSE);
+	
+			if(empty($rowData[0][1]))
+				continue;
+				
+			
+			$unidadId = $this->data_model->cargaUnidadesporNombre($rowData[0][1]);
+			
+			if(isset($unidadId[0]->idUnidad)){								
+			
+				if(isset($rowData[0][2])){
+					
+					$partidaDatos 	= $this->proyecto_model->cargaPartida($partidaId);
+					$zonaDatos		= $this->proyecto_model->cargaZonaPorProyecto($idproyecto);
+					
+					if(!isset($contadorTemporal[$idproyecto][$partidaId])){
+						$contadorTemporal[$idproyecto] = array();
+						$contadorTemporal[$idproyecto][$partidaId] = $this->proyecto_model->cargaNumeroPartida($idproyecto,$partidaId);
+					}
+					$contadorTemporal[$idproyecto][$partidaId]  = $contadorTemporal[$idproyecto][$partidaId] + 1;
+					$numeroPartida	= $contadorTemporal[$idproyecto][$partidaId];
+					$clave 			= $zonaDatos[0]->zonaCodigo . '-' . $partidaDatos[0]->clave . '-' . str_pad($numeroPartida, 3, '0', STR_PAD_LEFT);
+					
+					$data[] = array(
+						'seccionDesc'	=> $rowData[0][0],
+						'unidadID'   	=> $unidadId[0]->idUnidad,
+						'idPartida'		=> $partidaId,
+						'claveSegmento'	=> $clave, 
+						'idProyecto'   	=> $idproyecto,
+						'cantidad'   	=> $rowData[0][2],
+						'horaAlta'   	=> date("H:m:s"),
+						'fechaAlta'  	=> date("Y-m-d"),
+					);
+				}
+			
+			}else{
+			
+				$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Por favor ingrese la unidad ' . $rowData[0][1] . ' de forma correcta.</strong></div><br class="clear">');
+				redirect("proyectos/verProyecto/$idproyecto");
+			
+			}
+		
+		}
+	
+		if(!empty($data)){
+			$this->db->insert_batch('segmentoProyectos', $data);
+		}
+		redirect("proyectos/verProyecto/$idproyecto");
+		
+	}
+
+	function excelFullImport(){
+		
+		$idproyecto = $this->input->post('idproyecto');
+
+		$excelname	= $_FILES['excelfile']['name'];
+		$exceltype 	= $_FILES['excelfile']['type'];
+		$excelsize	= $_FILES['excelfile']['size'];
+		
+		$contadorTemporal = array();
+		
+		$aceptypes = array(
+			'application/vnd.ms-excel',
+			'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+		);
+		
+		if(!in_array($exceltype,$aceptypes) ){
+			redirect("proyectos/verProyecto/$idproyecto");
+			exit();
+		}
+		
+		move_uploaded_file($_FILES['excelfile']['tmp_name'],DIREXCELS.$excelname);
+			
+		$this->load->library('excel');
+        
+		$objPHPExcel = PHPExcel_IOFactory::load(DIREXCELS.$excelname);
+		$sheet = $objPHPExcel->getSheet(0);
+		$highestRow = $sheet->getHighestRow();
+		$highestColumn = $sheet->getHighestColumn();
+		
+		$data = array();
+
+		// Loop de cada fila dentro del excel
+		for ($row = 1; $row <= $highestRow; $row++){ 
+		    // Leer la fila del excel y pasarla a un array
+		    $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row,
+		                                    NULL,
+		                                    TRUE,
+		                                    FALSE);
+	
+			if(empty($rowData[0][2]))
+				continue;
+
+			$partidaId = $this->data_model->cargaPartidaporNombre($rowData[0][0]);
+	
+			if(isset($partidaId[0]->id)){
+				
+				$partidaAgregada = $this->data_model->verificaPartidaEnProyecto($idproyecto,$partidaId[0]->id);
+				
+				if(empty($partidaAgregada)){
+					
+					$op = array(
+						'proyectoId'   	=> $idproyecto,
+						'partidaId'  	=> $partidaId[0]->id
+						);
+					$this->db->insert('ProyectosPartidas', $op);
+					
+				}
+
+				$unidadId = $this->data_model->cargaUnidadesporNombre($rowData[0][2]);
+				
+				if(isset($unidadId[0]->idUnidad)){								
+				
+					if(isset($rowData[0][3])){
+						
+						$partidaDatos 	= $this->proyecto_model->cargaPartida($partidaId[0]->id);	
+						$zonaDatos		= $this->proyecto_model->cargaZonaPorProyecto($idproyecto);
+						
+						if(!isset($contadorTemporal[$idproyecto][$partidaId[0]->id])){
+							$contadorTemporal[$idproyecto] = array();
+							$contadorTemporal[$idproyecto][$partidaId[0]->id] = 0;
+						}
+						$contadorTemporal[$idproyecto][$partidaId[0]->id]  = $contadorTemporal[$idproyecto][$partidaId[0]->id] + 1;
+						$numeroPartida	= $contadorTemporal[$idproyecto][$partidaId[0]->id];
+						$clave 			= $zonaDatos[0]->zonaCodigo . '-' . $partidaDatos[0]->clave . '-' . str_pad($numeroPartida, 3, '0', STR_PAD_LEFT);
+
+						$data[] = array(
+							'seccionDesc'	=> $rowData[0][1],
+							'unidadID'   	=> $unidadId[0]->idUnidad,
+							'idPartida'		=> $partidaId[0]->id,
+							'claveSegmento'	=> $clave, 
+							'idProyecto'   	=> $idproyecto,
+							'cantidad'   	=> $rowData[0][3],
+							'horaAlta'   	=> date("H:m:s"),
+							'fechaAlta'  	=> date("Y-m-d"),
+						);
+					}
+				
+				}else{
+				
+					$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Por favor ingrese la unidad ' . $rowData[0][2] . ' de forma correcta.</strong></div><br class="clear">');
+					redirect("proyectos/verProyecto/$idproyecto");
+				
+				}
+			
+			}else{
+				
+				$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Por favor ingrese la partida ' . $rowData[0][0] . ' de forma correcta.</strong></div><br class="clear">');
+				redirect("proyectos/verProyecto/$idproyecto");
+				
+				
+			}
+		
+		}
+	
+		if(!empty($data)){
+			$this->db->insert_batch('segmentoProyectos', $data);
+		}
+		redirect("proyectos/verProyecto/$idproyecto");
+		
+	}
+	
+	function editConSeg(){
+		
+		$unidad = $this->data_model->cargaUnidadesporNombre($_POST['update_value']);
+		$idSegmento = $this->uri->segment(3);
+		
+		$update = array('unidadID' => $unidad[0]->idUnidad);
+				$this->db->where('idSegmento', $idSegmento);
+				$this->db->update('segmentoProyectos', $update);
+		
+		echo $unidad[0]->nombre;
+		
+		
+	}
+	
+	function editZonaEstado($zonaId){
+		
+		if($_POST['original_value'] != $_POST['update_value'] && !empty($_POST['update_value'])){
+			
+			$estadoId = $this->registrate_model->cargaEstadoId($_POST['update_value']);
+
+			if(!$_POST['original_value']){
+				
+				//Insertar Usuario
+				$user_data['zona'] = array(
+					'zonasid'		=> $zonaId,
+					'claveEstado'	=> $estadoId[0]->claveEstado
+				);
+				$this->db->insert('zonas_estadosMexico', $user_data['zona']);
+				
+			}elseif($_POST['original_value']){
+				
+				$update = array(
+					'claveEstado' => $estadoId[0]->claveEstado
+				);
+				$this->db->where('zonasid', $zonaId);
+				$this->db->update('zonas_estadosMexico', $update);	
+				
+			}
+			
+			
+		}
+		
+		echo $_POST['update_value'];
+		
+	}
+	
+	function editQuantSeg()
+	{
+		$idSegmento	= $this->uri->segment(3);
+		$value    	= str_replace(' ', '', $_POST['update_value']);
+		
+		if (is_numeric($value)){
+		
+			$update = array('cantidad' => $value);
+			$this->db->where('idSegmento', $idSegmento);
+			$this->db->update('segmentoProyectos', $update);
+			
+			echo $value;
+		}
+		else{
+			echo 'Solo se aceptan caracteres numericos';
+		}
+		
+		
+	}
+	
+	function editConPro()
+	{
+		$idProyecto	= $this->uri->segment(3);
+		
+		$update = array('descripcionProyecto' => $_POST['update_value']);
+		$this->db->where('idProyecto', $idProyecto);
+		$this->db->update('proyectos', $update);
+		
+		echo nl2br($_POST['update_value']);
+	}
+	
+	function editTitPro()
+	{
+		$idProyecto	= $this->uri->segment(3);
+		
+		$update = array('tituloProyecto' => $_POST['update_value']);
+		$this->db->where('idProyecto', $idProyecto);
+		$this->db->update('proyectos', $update);
+		
+		echo nl2br($_POST['update_value']);
+	}
+	
+	function buscarDescripcion()
+	{
+		$filtro = strtolower($_POST['q']);
+		$op['descripciones'] = $this->data_model->buscarConceptops($filtro);
+		
+		$this->load->view('busquedaConceptos-view', $op);
+		
+	}
+	
+	function addplaza(){
+		$zona	= $this->input->post('zona');
+		$czona	= $this->input->post('czona');
+		$estado	= $this->input->post('estado');
+		
+		//Insertar plaza
+		$dataplaza = array(
+					'zona'			=> $zona,
+					'zonaCodigo'	=> $czona
+				);
+		$this->db->insert('zonas', $dataplaza);
+		$plaza_id = $this->db->insert_id();
+	
+		$dataref = array(
+			'zonasid'		=> $plaza_id,
+			'claveEstado'	=> $estado  
+		);
+		
+		$this->db->insert('zonas_estadosMexico', $dataref);
+				
+		exit();
+	}
+	
+	function addunidad(){
+		$unombre	= $this->input->post('unombre');
+		$sunidad	= $this->input->post('sunidad');
+		
+		$data = array(
+			'nombre'	=> $unombre,
+			'simbolo'	=> $sunidad  
+		);
+		
+		$this->db->insert('unidades', $data);
+		
+		exit();
+	}
+
+	function agregarpartida(){
+	
+		$pnombre	= $this->input->post('pnombre');
+		$pclave		= $this->input->post('pclave');
+		
+		$data = array(
+			'nombre'	=> $pnombre,
+			'clave'		=> $pclave
+		);
+		
+		$this->db->insert('partidas', $data);
+		
+		exit();
+		
+	}	
+
+	function totalsegmento(){
+		$idsegmento		= $this->input->post('segmentoid');
+		$punitario		= $this->input->post('cunitario');
+		$cantidadseg 	= $this->proyecto_model->tresegentocant($idsegmento); 
+		$totalseg = $cantidadseg[0]->cantidad * $punitario;
+		
+		echo json_encode($totalseg);
+		exit();
+	}
+	
+	function editSeg()
+	{
+		$idSegmento	= $this->uri->segment(3);
+		$value    	= $_POST['update_value'];
+		
+		$update = array('seccionDesc' => $value);
+		$this->db->where('idSegmento', $idSegmento);
+		$this->db->update('segmentoProyectos', $update);
+		
+		echo $value;
+		
+	
+		
+		
+	}
+	
+	function borrarProyectos(){
+		
+		$idProyectos = $this->input->post('idProyectos');
+		$actualizarDatos = array();
+		
+		foreach($idProyectos as $id){
+			$actualizarDatos[] = array(
+				'idProyecto'	 => $id, 
+				'statusProyecto' => 'Borrado'
+			);	
+		}
+		
+		$this->db->update_batch('proyectos', $actualizarDatos, 'idProyecto'); 
+		exit();
+
+	}
+	
+	function cargarLocales()
+	{
+		$op['filtro'] = $filtro = strtolower($_POST['q']);
+	    $op['local']			= $this->data_model->cargarAjaxLocales($filtro);
+			
+		//Vista//
+		$this->load->view('busqueda-view' ,$op);
+	}
+	
+	function asignarLocales()
+	{
+		$op['filtro']	= $filtro = strtolower($_POST['q']);
+		//consulta a catalogoLocalesAsignados
+		$localID	= $this->data_model->cargarCatalogoLocalesAsignados();
+		
+		$implode = implode('', $localID);
+	    $op['local']	= $this->data_model->asignarAjaxLocales($filtro, $implode);
+			
+		//Vista//
+		$this->load->view('busqueda-view' ,$op);
+	}
+	
+	function asignar()
+	{
+		$ids    = $_POST['ids'];
+		$local	= $_POST['local'];
+		$textos	= array();
+
+		foreach($ids as $id){
+			
+			$vector = $this->data_model->buscarVector($id);
+			if($vector[0]->tipo == "text"){
+				$tempcoord = explode(",",str_replace(array("(",")","translate"),"",$vector[0]->transform));
+				$textos[] = array(
+					"id"	=> $vector[0]->id,
+					"coord" => $tempcoord[1]
+				);
+			}
+			
+			if(!isset($op['local']) && !isset($locales))
+				$op['local'] = $locales = $this->data_model->buscarSeleccion($local);
+			
+			if ($vector[0]->localID == ''){
+				$update = array('localID' => $locales[0]->id, 'status' => 'seleccionado');
+				$this->db->where('id', $id);
+				$this->db->update('vector', $update);
+			}	
+			
+		}
+		
+		foreach($textos as $key => $val){
+			
+			$idvect[$key]		= $val["id"];
+			$coordvect[$key] 	= $val["coord"];
+			
+		}	
+		
+		array_multisort($coordvect, SORT_ASC, $idvect, SORT_REGULAR, $textos);
+		
+		foreach($textos as $key => $val){
+			
+			$update = array('orden' => $key+1);
+			$this->db->where('id', $val["id"]);
+			$this->db->update('vector', $update);
+			
+		}
+		
+		$op['Nvector'] = $this->data_model->buscarVector($ids[0]);		
+		echo json_encode($op);
+ 
+	}
+	
+	function asignarVector()
+	{
+		$ids    = $_POST['ids'];
+		$local	= $_POST['local'];
+		$textos	= array();
+
+		foreach($ids as $id){
+			
+			$vector = $this->data_model->buscarVector($id);
+			if($vector[0]->tipo == "text"){
+				$tempcoord = explode(",",str_replace(array("(",")","translate"),"",$vector[0]->transform));
+				$textos[] = array(
+					"id"	=> $vector[0]->id,
+					"coord" => $tempcoord[1]
+				);
+			}
+			
+			if(!isset($op['local']) && !isset($locales))
+				$op['local'] = $locales = $this->data_model->buscarSeleccionVicLocal($local,$vector[0]->id);
+			
+			if ($vector[0]->localID == ''){
+				$update = array('localID' => $locales[0]->local, 'status' => 'habilitado');
+				$this->db->where('id', $id);
+				$this->db->update('vector', $update);
+			}	
+			
+		}
+		
+		foreach($textos as $key => $val){
+			
+			$idvect[$key]		= $val["id"];
+			$coordvect[$key] 	= $val["coord"];
+			
+		}	
+		
+		array_multisort($coordvect, SORT_ASC, $idvect, SORT_REGULAR, $textos);
+		
+		foreach($textos as $key => $val){
+			
+			$update = array('orden' => $key+1);
+			$this->db->where('id', $val["id"]);
+			$this->db->update('vector', $update);
+			
+		}
+		
+		$op['Nvector'] = $this->data_model->buscarVector($ids[0]);		
+		echo json_encode($op);
+ 
+	}
+	
+	public function asignarVectorPlano()
+	{
+		$ids      = $_POST['ids'];
+		$local    = $_POST['local'];
+		$plazaId  = $_POST['plazaId'];
+		$textos	= array();
+
+		krsort($ids);
+
+		foreach($ids as $id){
+			
+			$vector = $this->data_model->buscarVector($id);
+			$val = explode(",",str_replace(array("(",")","translate"),"",$vector[0]->transform));
+			
+			if($vector[0]->tipo == "text"){
+				
+				$tempcoord = explode(",",str_replace(array("(",")","translate"),"",$vector[0]->transform));
+				
+				if(!isset($tempcoord[1]))
+				exit();
+				
+				$textos[] = array(
+					"id"	=> $vector[0]->id,
+					"coord" => $tempcoord[1]
+				);
+			}	
+			
+			if(!isset($op['local']) && !isset($locales))
+				$op['local'] = $locales = $this->data_model->buscarSeleccionVicLocal($local,$vector[0]->id);
+			
+			
+			
+			if ($vector[0]->localID == ''){
+				$update = array('localID' => $local, 'status' => 'habilitado');
+				$this->db->where('id', $id);
+				$this->db->update('vector', $update);
+				}	
+			
+			}
+			
+			$uno = $tempcoord[0];
+			$dos = $tempcoord[1] + 2;
+			$tres = $tempcoord[1] + 4;
+			$cuatro = $tempcoord[1] + 6;
+			
+			$insert = array('tipo' => 'text', 'infoTipo' => '1', 'localID' => $local, 'plazaId' => $plazaId, 'transform' => 'translate('.$uno.','.$dos .')'); 
+			$this->db->insert('vector', $insert);
+			$textoIdUno = $this->db->insert_id();
+			
+			$textos[1] = array(
+			"id"	=> $textoIdUno,
+			"coord" => $dos
+			);
+			
+			$insertDos = array('tipo' => 'text', 'infoTipo' => '1', 'localID' => $local, 'plazaId' => $plazaId, 'transform' => 'translate('.$uno.','.$tres .')');
+			$this->db->insert('vector', $insertDos);
+			$textoIdDos = $this->db->insert_id();
+			
+			$textos[2] = array(
+				"id"	=> $textoIdDos,
+				"coord" => $tres
+				); 
+				
+			
+			$insertTres = array('tipo' => 'text', 'infoTipo' => '1', 'localID' => $local, 'plazaId' => $plazaId,  'transform' => 'translate('.$uno.','.$cuatro .')');
+			$this->db->insert('vector', $insertTres);
+			$textoIdTres = $this->db->insert_id();
+			
+			$textos[3] = array(
+				"id"	=> $textoIdTres,
+				"coord" => $cuatro
+				); 
+			
+			
+			$catalogo = array('localID' => $local, 'vectorID' => $vector[0]->id);
+			$this->db->insert('catalogoLocalesAsignados', $catalogo);
+			
+			
+		foreach($textos as $key => $val){
+			
+			$idvect[$key]		= $val["id"];
+			$coordvect[$key] 	= $val["coord"];
+			
+		}	
+		
+		array_multisort($coordvect, SORT_ASC, $idvect, SORT_REGULAR, $textos);
+		
+		foreach($textos as $key => $val){
+			
+			$update = array('orden' => $key+1);
+			$this->db->where('id', $val["id"]);
+			$this->db->update('vector', $update);
+			
+		}
+		
+		$op['Nvector'] = $this->data_model->buscarVector($ids[0]);
+		echo json_encode($op);
+		exit;
+ 
+	}
+	
+	function actualizaCoord(){
+	
+		$id		= $_POST['id'];
+		$coords	= $_POST['coords'];
+		
+		$update = array('transform' => $coords, 'x' => NULL, 'y' => NULL );
+		$this->db->where('id', $id);
+		$this->db->update('vector', $update);
+
+		exit;
+		
+	}
+	
+	function agregarPath(){
+		
+		$planoId 	= $_POST['planogramaID'];
+		$coord		= $_POST['coords'];
+		
+		if(!empty($planoId) && !empty($coord)){
+			
+			$data = array(
+				'tipo'		=> "path",
+				'd'			=> $coord,
+				'plazaId'	=> $planoId,
+				'status'	=> 'reciente'
+			);
+			$this->db->insert('vector', $data);
+			
+			$c = explode(' ',$coord);
+			$x   = $c[1];
+			$y   = $c[2] + 3;
+			$y1  = $c[2] + 6;
+			$y2  = $c[2] + 9;
+			
+			$data0 = array(
+				'tipo'		=> "text",
+				'x'			=> $x,
+				'y'			=> $y,
+				'plazaId'	=> $planoId,
+				'contenido'	=> 'texto 1',
+				'status'	=> 'reciente'
+			);
+			$this->db->insert('vector', $data0);
+			
+			$data1 = array(
+				'tipo'		=> "text",
+				'x'			=> $x,
+				'y'			=> $y1,
+				'plazaId'	=> $planoId,
+				'contenido'	=> 'texto 2',
+				'status'	=> 'reciente'
+			);
+			$this->db->insert('vector', $data1);
+			
+			$data2 = array(
+				'tipo'		=> "text",
+				'x'			=> $x,
+				'y'			=> $y2,
+				'plazaId'	=> $planoId,
+				'contenido'	=> 'texto 3',
+				'status'	=> 'reciente'
+			);
+			$this->db->insert('vector', $data2);
+			
+			redirect('planogramas/editarplano/'.$planoId);
+			
+		}
+		
+	}
+	
+	function cargarMasPlazas()
+	{
+		$idPlaza 	= strtolower($_POST['idPlaza']);
+		$sc = $this->db->query("SELECT * FROM propiedades");
+		$lista_opciones = '<option value="0">Agrega mas plazas</option>
+		';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones .= "<option value='".$row->clavePropiedad."'>".$row->propiedad."</option>";
+		}
+		
+		echo '<div class="prel f100"><div class="delToolSmallTwo delThis"><i class="iconDelete">Borrar</i></div><div class="delToolSmall "><span class="plusTwo">Agregar</span></div><select name="plaza[]" class="selExtra">'.$lista_opciones.'</select>
+		<script>
+			$(".delThis").click(function() {
+				$(this).parent().remove();
+				$(".plus").removeClass("none");
+			});	
+		</script>
+		<script>
+		$(".plusTwo").click(function(){
+			$(".delToolSmall").addClass("none");
+			var idPlaza 	= $("#idPlaza").val();
+			$.post("../ajax/cargarMasPlazas",{idPlaza:idPlaza},function(data){
+			sucess:				
+			$("#masPlazas").append(data);	
+			});
+		});
+		</script>
+		</div>' ;	
+	}
+	
+	function borrarPlazaUsuario()
+	{
+		$idPlaza  = strtolower($_POST['idPlaza']);
+		$user     = $this->session->userdata('usuario');
+		
+		$valido = $this->prospectos_model->validaPlazaUsuario($user['usuarioID'], $idPlaza);
+		
+		if ($valido){
+			$data = array(
+	    	    'status' => 'borrada'
+				);
+	
+			$this->db->where('plazaID', $idPlaza);
+			$this->db->where('usuarioID', $user['usuarioID']);
+			$this->db->update('prospectosPlazas', $data);
+			
+		}
+		
+		else{
+			echo'<span>Ocurrio un error, Contacte a su administrador</span>';
+		}
+	}
+	
+	function agregarPlazaPost()
+	{
+		$idPlaza      = strtolower($_POST['idPlaza']);
+		$user         = $this->session->userdata('usuario');
+		$textoPlaza   = $_POST['textoPlaza'];
+		
+		$chequeo = $this->prospectos_model->validaPlazaUsuario($user['usuarioID'], $idPlaza);
+		
+		if($chequeo){
+			$data = array(
+	    	    'status' => 'activa'
+				);
+				
+				foreach($chequeo as $row){
+					
+					if($row->zona != $textoPlaza || $row->status == 'borrada'){
+					
+					$this->db->where('plazaID', $idPlaza);
+					$this->db->where('usuarioID', $user['usuarioID']);
+					$this->db->update('prospectosPlazas', $data);
+		
+				echo'
+				<div class="prel f100">
+				<div id="'.$idPlaza.'" class="delToolSmallThree delPlaza"><i class="iconDelete">Borrar</i></div>
+					<input type="hidden" name="plaza[]" value="'.$idPlaza.'">
+					<div class="plazaSel">'.$textoPlaza.'</div>
+				</div>
+				<script type="text/javascript">
+				jQuery(function($) {
+					/// Borra en edicion la plaza seleccionada de la bd
+					$(".delPlaza").click(function() {
+						var idPlaza = $(this).attr("id");
+						$.post("../../ajax/borrarPlazaUsuario",{idPlaza:idPlaza},function(data){
+						sucess:				
+							$("#masPlazas").append(data);	
+						});
+						$(this).parent().remove();
+					});
+				});
+				</script>
+				
+				';
+				}
+			}
+		}
+		else{
+			$data = array(
+	    	    'status' => 'activa',
+	    	    'plazaID' => $idPlaza,
+	    	    'usuarioID' => $user['usuarioID'],
+				);
+			$this->db->insert('prospectosPlazas', $data);
+			echo'<div class="prel f100">
+						<div id="'.$idPlaza.'" class="delToolSmallThree delPlaza"><i class="iconDelete">Borrar</i></div>
+					<input type="hidden" name="plaza[]" value="'.$idPlaza.'">
+					<div class="plazaSel">'.$textoPlaza.'</div>
+				</div>
+				
+				<script type="text/javascript">
+				jQuery(function($) {
+					/// Borra en edicion la plaza seleccionada de la bd
+					$(".delPlaza").click(function() {
+						var idPlaza = $(this).attr("id");
+						$.post("../../ajax/borrarPlazaUsuario",{idPlaza:idPlaza},function(data){
+						sucess:				
+							$("#masPlazas").append(data);	
+						});
+						$(this).parent().remove();
+					});
+				});
+				</script>
+				
+				';
+			
+		}
+	}
+	
+	function plazasEmpresas()
+	{
+		$user         = $this->session->userdata('usuario');
+		
+		$sc = $this->db->query("SELECT * FROM zonas");
+		$lista_opciones = '<option value="0">Agrega mas plazas</option>';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones .= "<option value='".$row->idZona."'>".$row->zona."</option>";
+		}
+		echo '<div class="prel f100"><div class="delToolSmallTwo delThis"><i class="iconDelete">Borrar</i></div><div class="delToolSmall "><span class="plusThree">Agregar</span></div><select name="plaza[]" class="selExtra">'.$lista_opciones.'</select>
+		<script>
+			$(".delThis").click(function() {
+				$(this).parent().remove();
+				$(".plusModal").removeClass("none");
+			});	
+		</script>
+		<script>
+		$(".plusThree").click(function(){
+			$(".delToolSmall").addClass("none");
+			$.post("http://www.apeplazas.com/apeConnect/ajax/plazasEmpresas",{},function(data){
+			sucess:				
+				$("#modalPlazas").append(data);	
+			});
+		});
+		
+		</script>
+		</div>' ;
+	}
+
+	public function genera_rfc(){
+		
+		$persona = ($_POST['persona'] == 'MORAL') ? false : true;
+	    $rfc = $this->load->library('rfc',array(
+											    'nombre' => $_POST['nombre'],
+											    'fecha' => $_POST['fecha'], 
+											    'personaFisica' => $persona
+											    ));
+	    $data['rfc'] = $rfc->rfc;
+	    
+	    echo  json_encode($data);
+		
+	}
+
+	public function obtenerLocalInfo(){
+		
+		$id    = $_POST['id'];
+		
+		$cotizacion = $this->session->userdata('cotizacion');
+		if(!in_array($id, $cotizacion['locales'])){
+			$vector = $this->data_model->buscarVector($id);
+			$local 	= $this->data_model->buscarSeleccionVicLocal($vector[0]->localID,$id);
+			$cotizacion['locales'][] = $id;
+			$data['cotizacion'] = $cotizacion;
+			$this->session->set_userdata($data);
+			echo json_encode($local);
+		}else{
+			$local[0]['Nombre'] = '';
+			echo json_encode($local);
+		}
+		exit;
+		
+	}
+
+	public function eliminarLocalCotizacion(){
+		
+		$id    = $_POST['id'];
+		
+		$cotizacion = $this->session->userdata('cotizacion');
+		if(in_array($id, $cotizacion['locales'])){
+			if(($key = array_search($id, $cotizacion['locales'])) !== false) {
+			    unset($cotizacion['locales'][$key]);
+			}
+			$data['cotizacion'] = $cotizacion;
+			$this->session->set_userdata($data);
+		}
+		exit;
+		
+	}
+	
+	public function agruparLocales(){
+		
+		$ids    	= $_POST['ids'];
+		$cost_min	= $_POST['cost_min'];
+		$cost_max	= $_POST['cost_max'];
+		$grupo_nom	= $_POST['grupo_nombre'];
+
+		if(!empty($cost_min)){
+			
+			$op = array(
+				'costo-min'   	=> $cost_min,
+				'cost-max'		=> $cost_max,
+				'grupo_nombre'	=> $grupo_nom
+			);
+			$this->db->insert('grupos_locales', $op);
+			$grupo_id = $this->db->insert_id();
+			$data = array();
+
+			foreach($ids as $id){
+				
+				$data[] = array(
+				      'id' 		=> $id,
+				      'grupoId'	=> $grupo_id,
+				);
+				
+			}
+		
+			$this->db->update_batch('vector', $data, 'id'); 
+		
+		}
+		
+		echo true;
+		exit;
+		
+	}
+	
+	function traeCiPorPlaza(){
+		
+		$plaza 	= $_POST['plaza'];
+		$ci		= $this->tempciri_model->cargarCiPorPLaza($plaza);
+		echo json_encode($ci);
+		exit;
+		
+	}
+	
+	function cargarPlazasDir(){
+		
+		$plaza 	= $_POST['plaza'];
+		$ci		= $this->tempciri_model->cargarPLazasDir($plaza);
+		echo json_encode($ci);
+		exit;
+		
+	}
+	
+	function traeFolioGenerar(){
+		
+		$documento 	= $_POST['documento'];
+		$plaza		= $_POST['plaza'];
+		
+		$plazaDatos 		= $this->tempciri_model->traerDatosPLaza($plaza);
+		if($documento == 'CI')
+			echo $plazaDatos[0]->ci_num + 1;
+		else
+			echo $plazaDatos[0]->ri_num + 1;
+		
+		exit;
+		
+	}
+
+	function traeCiDatos(){
+		
+		$ciId		= $_POST['ciId'];
+		$datosCi	= $this->tempciri_model->traerDatosCi($ciId);
+		echo json_encode($datosCi[0]);
+		exit;
+		
+	}
+	
+	function cancelarCi(){
+		
+		$ciId = $_POST['ciId'];
+		
+		$this->db->where('id', $ciId);
+		$this->db->update('TEMPORA_CI', array('estado'=>'cancelado'));
+		
+	}
+	
+	function cancelarRi(){
+		
+		$riId = $_POST['riId'];
+		
+		$this->db->where('id', $riId);
+		$this->db->update('TEMORA_RI', array('estado'=>'cancelado'));
+		
+	}
+	
+}

@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px"
+	 height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+<g id="AREAS_COMUNES__x28_BAÑOS-MUROS-ESCALERAS-OFICINAS-PREDIO_x29_">
+	<g id="TEXT">
+		
+			<text transform="matrix(-1.836970e-016 1 -1 -1.836970e-016 442.3965 269.0732)" fill="#00FF7F" font-family="'MyriadPro-Regular'" font-size="4.8248">ELEVADOR</text>
+	</g>
+	<g id="TEXT_1_">
+		<text transform="matrix(1 0 0 1 22.5479 158.3633)" fill="#00FF7F" font-family="'MyriadPro-Regular'" font-size="4.8248">VACIO</text>
+	</g>
+	<g id="LWPOLYLINE_61_">
+		
+			<polyline fill="none" stroke="#00FF7F" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			622.589,480.925 622.589,466.11 580.603,466.11 580.603,502.8 727.122,504.989 727.122,472.394 720.839,472.394 720.839,469.902 
+			702.6,469.902 702.6,482.008 690.1,481.896 622.589,480.925 		"/>
+	</g>
+	<g id="LWPOLYLINE_62_">
+		
+			<polyline fill="none" stroke="#00FF7F" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			432.996,267.237 432.996,275.091 430.64,275.091 430.64,289.229 432.996,289.229 432.996,297.083 454.988,297.083 
+			454.988,267.237 432.996,267.237 		"/>
+	</g>
+	<g id="LWPOLYLINE_63_">
+		<path fill="none" stroke="#00FF7F" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M96.828,297.669L69.48,253.728l-60.622,0.157v1.571h1.571v6.284H8.859v44.77h1.571v6.283H8.859v1.571H3.361v4.712h14.138
+			c0.373-2.488,2.511-4.329,5.027-4.329s4.654,1.841,5.027,4.329h35.942C76.838,316.23,88.688,308.619,96.828,297.669"/>
+	</g>
+	<g id="TEXT_60_">
+		<text transform="matrix(1 -0.0035 0.0035 1 635.1104 497.4727)" fill="#00FF7F" font-family="'ArialMT'" font-size="9.4575">ESCALERA</text>
+	</g>
+	<g id="TEXT_61_">
+		<text transform="matrix(1 -0.0035 0.0035 1 125.1431 231.9658)" fill="#00FF7F" font-family="'ArialMT'" font-size="9.4575">ESCALERA</text>
+	</g>
+	<g id="TEXT_62_">
+		<text transform="matrix(1 -0.0035 0.0035 1 14.9688 302.2813)" fill="#00FF7F" font-family="'ArialMT'" font-size="9.4575">ESCALERA</text>
+	</g>
+</g>
+<g id="_x30_">
+	<g id="LINE">
+		
+			<line fill="none" stroke="#000000" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="547.539" y1="539.723" x2="698.331" y2="539.723"/>
+	</g>
+	<g id="CIRCLE">
+		<path fill="none" stroke="#000000" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M571.104,539.723c0-6.508-5.274-11.782-11.782-11.782c-6.507,0-11.783,5.274-11.783,11.782c0,6.507,5.276,11.782,11.783,11.782
+			C565.83,551.505,571.104,546.229,571.104,539.723L571.104,539.723z"/>
+	</g>
+	<g id="MTEXT">
+		<text transform="matrix(1 0 0 1 651.6621 538.7139)" font-family="'ArialMT'" font-size="16.3133">PLANTA 1ER NIVEL</text>
+	</g>
+	<g id="MTEXT_1_">
+		<text transform="matrix(1 0 0 1 558.1602 536.999)" font-family="'MyriadPro-Regular'" font-size="6.9304">01</text>
+	</g>
+</g>
+<g id="AREA__x28_POLILLINEA_x29_">
+	<g id="MTEXT_2_">
+		<text transform="matrix(1 0 0 1 118.2256 310.9941)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 118.1079 314.9297)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">102</text>
+	</g>
+	<g id="MTEXT_3_">
+		<text transform="matrix(1 0 0 1 166.7803 310.2617)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 166.6631 314.1992)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">106</text>
+	</g>
+	<g id="MTEXT_4_">
+		<text transform="matrix(1 0 0 1 280.5439 311.2412)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 280.4263 315.1777)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">114</text>
+	</g>
+	<g id="MTEXT_5_">
+		<text transform="matrix(1 0 0 1 359.9072 310.0508)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 359.7886 313.9883)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">118</text>
+	</g>
+	<g id="MTEXT_6_">
+		<text transform="matrix(1 0 0 1 40.6118 229.9102)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 40.4937 233.8467)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">173</text>
+	</g>
+	<g id="MTEXT_7_">
+		<text transform="matrix(1 0 0 1 110.6792 247.6982)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 110.5615 251.6343)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">103</text>
+	</g>
+	<g id="MTEXT_8_">
+		<text transform="matrix(1 0 0 1 140.7007 247.6182)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 140.583 251.5552)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">107</text>
+	</g>
+	<g id="MTEXT_9_">
+		<text transform="matrix(1 0 0 1 189.2988 249.0884)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 189.1816 253.0249)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">110</text>
+	</g>
+	<g id="MTEXT_10_">
+		<text transform="matrix(1 0 0 1 292.4746 243.7144)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 292.3564 247.6514)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">119</text>
+	</g>
+	<g id="MTEXT_11_">
+		<text transform="matrix(1 0 0 1 329.8936 244.1826)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 329.7759 248.1182)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">122</text>
+	</g>
+	<g id="MTEXT_12_">
+		<text transform="matrix(1 0 0 1 391.2217 238.5498)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 391.1035 242.4868)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">125</text>
+	</g>
+	<g id="MTEXT_13_">
+		<text transform="matrix(1 0 0 1 444.7783 248.3613)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 444.6602 252.2983)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">127</text>
+	</g>
+	<g id="MTEXT_14_">
+		<text transform="matrix(1 0 0 1 369.6865 174.4121)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 369.5693 178.3491)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">126</text>
+	</g>
+	<g id="MTEXT_15_">
+		<text transform="matrix(1 0 0 1 341.3882 174.6465)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 341.2705 178.5835)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">123</text>
+	</g>
+	<g id="MTEXT_16_">
+		<text transform="matrix(1 0 0 1 297.8887 173.9453)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 297.7715 177.8818)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">120</text>
+	</g>
+	<g id="MTEXT_17_">
+		<text transform="matrix(1 0 0 1 434.3184 162.2065)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 434.2002 166.1436)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">170</text>
+	</g>
+	<g id="MTEXT_18_">
+		<text transform="matrix(1 0 0 1 180.9536 182.9287)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 180.8359 186.8657)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">111</text>
+	</g>
+	<g id="MTEXT_19_">
+		<text transform="matrix(1 0 0 1 182.624 165.5024)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 182.5063 169.438)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">112</text>
+	</g>
+	<g id="MTEXT_20_">
+		<text transform="matrix(1 0 0 1 136.9028 172.7275)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 136.7847 176.665)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">108</text>
+	</g>
+	<g id="MTEXT_21_">
+		<text transform="matrix(1 0 0 1 107.7637 171.6152)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 107.6455 175.5522)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">104</text>
+	</g>
+	<g id="MTEXT_22_">
+		<text transform="matrix(1 0 0 1 90.646 113.9355)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 90.5283 117.8726)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">105</text>
+	</g>
+	<g id="MTEXT_23_">
+		<text transform="matrix(1 0 0 1 139.6182 113.168)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 139.501 117.1035)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">109</text>
+	</g>
+	<g id="MTEXT_24_">
+		<text transform="matrix(1 0 0 1 194.4258 112.8882)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 194.3076 116.8252)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">113</text>
+	</g>
+	<g id="MTEXT_25_">
+		<text transform="matrix(1 0 0 1 229.1094 112.3271)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 228.9917 116.2627)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">117</text>
+	</g>
+	<g id="MTEXT_26_">
+		<text transform="matrix(1 0 0 1 284.1855 112.5127)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 284.0684 116.4487)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">121</text>
+	</g>
+	<g id="MTEXT_27_">
+		<text transform="matrix(1 0 0 1 327.6152 112.876)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 327.4976 116.8125)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">124</text>
+	</g>
+	<g id="MTEXT_28_">
+		<text transform="matrix(1 0 0 1 394.2778 113.4292)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 394.1597 117.3662)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">128</text>
+	</g>
+	<g id="MTEXT_29_">
+		<text transform="matrix(1 0 0 1 70.0352 156.9697)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 69.917 160.9058)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">171</text>
+	</g>
+	<g id="MTEXT_30_">
+		<text transform="matrix(1 0 0 1 452.5049 164.0166)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 455.9385 167.9536)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">169</text>
+	</g>
+	<g id="MTEXT_31_">
+		<text transform="matrix(1 0 0 1 476.6797 117.5532)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 476.5615 121.4902)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">159</text>
+	</g>
+	<g id="MTEXT_32_">
+		<text transform="matrix(1 0 0 1 512.4551 118.0918)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 512.3379 122.0288)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">129</text>
+	</g>
+	<g id="MTEXT_33_">
+		<text transform="matrix(1 0 0 1 553.0967 117.7256)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 552.9785 121.6626)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">131</text>
+	</g>
+	<g id="MTEXT_34_">
+		<text transform="matrix(1 0 0 1 607.335 116.9893)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 607.2168 120.9263)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">133</text>
+	</g>
+	<g id="MTEXT_35_">
+		<text transform="matrix(1 0 0 1 723.6846 116.9893)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 723.5664 120.9263)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">135</text>
+	</g>
+	<g id="MTEXT_36_">
+		<text transform="matrix(1 0 0 1 468.8105 270.606)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 468.6934 274.543)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">144</text>
+	</g>
+	<g id="MTEXT_37_">
+		<text transform="matrix(1 0 0 1 467.9863 363.1025)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 467.8682 367.0391)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">144</text>
+	</g>
+	<g id="MTEXT_38_">
+		<text transform="matrix(1 0 0 1 490.1699 484.4443)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 490.0518 488.3799)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">157</text>
+	</g>
+	<g id="MTEXT_39_">
+		<text transform="matrix(1 0 0 1 551.8213 483.4883)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 551.7041 487.4248)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">158</text>
+	</g>
+	<g id="MTEXT_40_">
+		<text transform="matrix(1 0 0 1 524.0654 166.9287)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 523.9473 170.8643)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">130</text>
+	</g>
+	<g id="MTEXT_41_">
+		<text transform="matrix(1 0 0 1 591.9854 167.1123)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 591.8682 171.0493)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">132</text>
+	</g>
+	<g id="MTEXT_42_">
+		<text transform="matrix(1 0 0 1 655.8066 168.7373)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 655.6895 172.6743)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">134</text>
+	</g>
+	<g id="MTEXT_43_">
+		<text transform="matrix(1 0 0 1 526.9707 230.9258)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 526.8525 234.8623)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">139</text>
+	</g>
+	<g id="MTEXT_44_">
+		<text transform="matrix(1 0 0 1 590.9521 233.563)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 590.834 237.4995)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">138</text>
+	</g>
+	<g id="MTEXT_45_">
+		<text transform="matrix(1 0 0 1 659.6621 235.189)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 659.5449 239.126)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">137</text>
+	</g>
+	<g id="MTEXT_46_">
+		<text transform="matrix(1 0 0 1 526.4121 270.3149)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 526.2939 274.252)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">143</text>
+	</g>
+	<g id="MTEXT_47_">
+		<text transform="matrix(1 0 0 1 592.2217 270.9229)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 592.1035 274.8599)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">142</text>
+	</g>
+	<g id="MTEXT_48_">
+		<text transform="matrix(1 0 0 1 657.625 271.5322)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 657.5068 275.4692)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">141</text>
+	</g>
+	<g id="MTEXT_49_">
+		<text transform="matrix(1 0 0 1 527.0986 345.1582)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 526.9814 349.0957)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">148</text>
+	</g>
+	<g id="MTEXT_50_">
+		<text transform="matrix(1 0 0 1 593.6152 345.3867)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 593.498 349.3232)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">147</text>
+	</g>
+	<g id="MTEXT_51_">
+		<text transform="matrix(1 0 0 1 658.9893 345.3867)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 658.8721 349.3232)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">146</text>
+	</g>
+	<g id="MTEXT_52_">
+		<text transform="matrix(1 0 0 1 529.1367 385.9277)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 529.0195 389.8633)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">151</text>
+	</g>
+	<g id="MTEXT_53_">
+		<text transform="matrix(1 0 0 1 528.6797 427.9385)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 528.5625 431.875)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">156</text>
+	</g>
+	<g id="MTEXT_54_">
+		<text transform="matrix(1 0 0 1 594.5107 384.1006)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 594.3936 388.0371)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">150</text>
+	</g>
+	<g id="MTEXT_55_">
+		<text transform="matrix(1 0 0 1 591.9971 428.3955)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 591.8789 432.332)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">155</text>
+	</g>
+	<g id="MTEXT_56_">
+		<text transform="matrix(1 0 0 1 659.4277 428.3955)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 659.3105 432.332)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">154</text>
+	</g>
+	<g id="MTEXT_57_">
+		<text transform="matrix(1 0 0 1 657.8281 389.124)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 657.71 393.0596)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">149</text>
+	</g>
+	<g id="MTEXT_58_">
+		<text transform="matrix(1 0 0 1 723.6846 199.7588)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 723.5664 203.6953)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">136</text>
+	</g>
+	<g id="MTEXT_59_">
+		<text transform="matrix(1 0 0 1 718.667 294.6279)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 718.5488 298.5654)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">140</text>
+	</g>
+	<g id="MTEXT_60_">
+		<text transform="matrix(1 0 0 1 715.6084 378.8691)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 715.4902 382.8066)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">145</text>
+	</g>
+	<g id="MTEXT_61_">
+		<text transform="matrix(1 0 0 1 716.0313 449.957)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 715.9131 453.8945)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">153</text>
+	</g>
+	<g id="MTEXT_62_">
+		<text transform="matrix(1 0 0 1 466.1924 401.5908)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">Local </text>
+		<text transform="matrix(1 0 0 1 466.0742 405.5264)" fill="#007FFF" font-family="'ArialMT'" font-size="3.4652">152</text>
+	</g>
+	<g id="LWPOLYLINE_1_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			61.483,115.646 61.483,131.04 101.07,131.042 104.998,127.115 115.19,127.115 115.197,107.792 64.625,107.792 64.625,110.148 
+			68.552,110.148 68.552,115.646 61.483,115.646 		"/>
+	</g>
+	<g id="LWPOLYLINE_2_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			115.197,107.792 115.197,127.115 125.382,127.115 129.309,131.042 158.066,131.042 161.917,127.115 162.702,127.115 
+			162.71,107.792 115.197,107.774 		"/>
+	</g>
+	<g id="LWPOLYLINE_3_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			162.71,107.792 162.702,127.115 163.488,127.115 167.351,131.031 196.092,131.031 200.008,127.115 210.208,127.115 
+			210.208,107.792 162.71,107.792 		"/>
+	</g>
+	<g id="LWPOLYLINE_4_">
+		<path fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M210.208,127.115l10.2,0l3.927,3.927h23.877l3.927-3.927v3.927h0.786l0-9.667c-0.058,0.005-0.115,0.009-0.172,0.012
+			c-3.108,0.155-5.752-2.24-5.907-5.348c0.001-0.33,0.033-0.659,0.096-0.982c0.543-2.768,3.227-4.571,5.995-4.028v-3.236h-42.73
+			l0.011,19.323"/>
+	</g>
+	<g id="LWPOLYLINE_5_">
+		<path fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M314.181,127.114H303.98l-3.927,3.927l-42.414,0l-3.927-3.928l0,3.927h-0.786l0-9.667c2.363-0.732,4.014-2.865,4.132-5.335
+			c0.001-2.448-1.738-4.552-4.142-5.012v-3.236h61.265V127.114"/>
+	</g>
+	<g id="LWPOLYLINE_6_">
+		<path fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M314.181,127.114h10.2l3.927,3.927h43.985l3.926-3.927l0.001,3.927h0.786l0-9.902c-1.483-1.285-2.352-3.138-2.389-5.101
+			c0-1.735,0.882-3.352,2.341-4.292v-3.956h-62.778V127.114"/>
+	</g>
+	<g id="LWPOLYLINE_7_">
+		<path fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M377.006,131.042h0.786v-3.927l3.927,3.927h19.366l3.927-3.927h20.4l3.928,3.927h23.293v-23.25h-75.628l-0.046,3.956
+			c0.61-0.314,1.274-0.51,1.958-0.577c2.978-0.288,5.624,1.892,5.912,4.868c-0.035,0.414-0.112,0.823-0.23,1.221
+			c-0.959,3.233-4.358,5.075-7.591,4.115L377.006,131.042"/>
+	</g>
+	<g id="LWPOLYLINE_8_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			457.345,118.788 457.345,131.984 495.87,131.984 495.87,107.792 467.557,107.792 467.557,118.788 457.345,118.788 		"/>
+	</g>
+	<g id="LWPOLYLINE_9_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			495.87,131.984 536.007,131.984 536.007,107.792 495.87,107.792 495.87,131.984 		"/>
+	</g>
+	<g id="LWPOLYLINE_10_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			536.007,131.984 575.986,131.984 575.986,107.792 536.007,107.792 536.007,131.984 		"/>
+	</g>
+	<g id="LWPOLYLINE_11_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			575.986,131.984 643.533,131.984 643.533,107.792 575.986,107.792 575.986,131.984 		"/>
+	</g>
+	<g id="LWPOLYLINE_12_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			643.533,131.984 714.878,131.984 715.507,160.763 740.536,160.763 741.637,107.792 643.533,107.792 643.533,131.984 		"/>
+	</g>
+	<g id="LWPOLYLINE_13_">
+		
+			<rect x="68.945" y="144.955" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="6.284" height="43.984"/>
+	</g>
+	<g id="LWPOLYLINE_14_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			98.241,154.446 94.314,158.373 94.315,195.29 98.243,199.216 107.353,199.215 111.28,195.288 121.491,195.288 121.537,158.374 
+			120.706,158.373 116.779,154.446 98.242,154.446 		"/>
+	</g>
+	<g id="LWPOLYLINE_15_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			121.491,158.374 122.276,158.375 126.202,154.448 145.211,154.448 149.139,158.375 159.349,158.375 159.349,195.288 
+			149.139,195.288 145.211,199.215 126.203,199.215 122.276,195.288 121.491,195.287 121.537,158.374 		"/>
+	</g>
+	<g id="LWPOLYLINE_16_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			159.349,158.375 160.135,158.375 164.062,154.448 220.929,154.448 224.854,158.373 224.854,176.832 159.349,176.831 
+			159.349,158.375 		"/>
+	</g>
+	<g id="LWPOLYLINE_17_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			224.854,176.832 224.854,195.291 220.928,199.217 164.062,199.217 160.135,195.288 159.349,195.288 159.35,176.831 
+			224.854,176.831 		"/>
+	</g>
+	<g id="LWPOLYLINE_18_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			314.237,158.216 314.237,195.292 304.027,195.292 300.1,199.218 270.41,199.221 266.482,195.294 266.481,158.217 270.409,154.289 
+			300.1,154.289 304.027,158.216 314.237,158.216 		"/>
+	</g>
+	<g id="LWPOLYLINE_19_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			314.236,195.292 324.448,195.292 328.375,199.218 358.065,199.216 360.892,195.292 360.892,199.22 361.678,199.22 
+			361.679,154.291 360.893,154.291 360.893,158.216 358.066,154.29 328.375,154.289 324.448,158.216 314.237,158.216 
+			314.237,195.292 		"/>
+	</g>
+	<g id="LWPOLYLINE_20_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			361.678,199.22 362.464,199.22 362.464,195.291 365.93,199.218 382.668,199.218 386.498,195.291 386.499,158.218 382.571,154.291 
+			375.816,154.292 371.89,158.218 362.464,158.218 362.464,154.291 361.679,154.291 361.679,199.22 		"/>
+	</g>
+	<g id="LWPOLYLINE_21_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			125.888,236.764 125.888,265.668 126.673,265.668 130.601,269.593 159.036,269.593 162.96,265.668 172.386,265.668 
+			172.386,269.59 173.172,269.59 173.172,236.764 125.888,236.764 		"/>
+	</g>
+	<g id="LWPOLYLINE_22_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			220.927,236.764 220.927,238.335 224.854,242.262 224.854,265.67 220.927,269.597 187.31,269.596 183.383,265.668 
+			173.958,265.668 173.958,269.59 173.172,269.59 173.172,236.764 220.927,236.764 		"/>
+	</g>
+	<g id="LWPOLYLINE_23_">
+		<path fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M96.828,297.083v21.992h26.391c0.374-2.489,2.514-4.331,5.032-4.329c2.515,0,4.651,1.842,5.021,4.329h12.253l0.163-21.984
+			l-10.375,0.004l-3.927-3.939h-29.125l-3.863,3.927H96.828"/>
+	</g>
+	<g id="LWPOLYLINE_24_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			145.689,297.095 155.736,297.095 159.663,293.168 188.789,293.18 192.652,297.095 194.223,297.095 198.085,293.18 
+			227.211,293.168 231.138,297.095 241.349,297.095 241.506,319.075 145.526,319.075 145.689,297.095 		"/>
+	</g>
+	<g id="LWPOLYLINE_25_">
+		
+			<line fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="241.349" y1="297.095" x2="241.506" y2="313.106"/>
+	</g>
+	<g id="LWPOLYLINE_26_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			241.349,297.095 241.506,313.106 260.514,313.106 260.514,319.075 338.43,319.075 338.43,297.095 328.219,297.095 
+			324.292,293.168 294.538,293.18 290.675,297.095 289.104,297.095 285.241,293.18 255.475,293.18 251.56,297.095 241.349,297.095 
+					"/>
+	</g>
+	<g id="LWPOLYLINE_27_">
+		<path fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M338.43,297.095v21.98h36.266c0.379-2.484,2.514-4.322,5.027-4.329c2.518-0.002,4.657,1.84,5.027,4.329h33.638v-3.927h7.383v3.927
+			h4.869l-0.026-21.992l-9.398,0.012l-3.927-3.927l-27.712,0.012l-3.863,3.916h-1.571l-3.863-3.916h-27.724l-3.916,3.916H338.43"/>
+	</g>
+	<g id="LWPOLYLINE_28_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			314.237,224.045 313.452,224.045 313.452,227.973 304.027,227.973 300.1,224.046 270.409,224.049 266.481,227.976 
+			266.482,265.677 270.41,269.599 300.1,269.602 304.027,265.675 313.451,265.675 313.451,269.601 314.236,269.601 314.237,224.045 
+					"/>
+	</g>
+	<g id="LWPOLYLINE_29_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			314.237,224.045 315.023,224.045 315.023,227.975 318.165,224.049 347.542,224.049 351.468,227.975 361.678,227.975 
+			361.678,265.675 351.468,265.675 347.541,269.603 318.165,269.603 315.023,265.676 315.023,269.601 314.236,269.601 
+			314.236,224.045 		"/>
+	</g>
+	<g id="LWPOLYLINE_30_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			361.678,227.975 371.889,227.975 375.816,224.047 405.192,224.049 409.119,227.976 409.118,265.677 405.191,269.604 
+			375.818,269.604 371.889,265.675 361.678,265.675 361.678,227.975 		"/>
+	</g>
+	<g id="LWPOLYLINE_31_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			430.64,264.88 456.402,264.88 456.402,207.7 447.01,207.7 446.538,206.915 434.566,206.91 430.64,210.838 430.64,264.88 		"/>
+	</g>
+	<g id="LWPOLYLINE_32_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			461.272,229.536 482.637,229.534 482.637,321.784 474.468,321.784 474.468,310.003 461.272,310.003 461.272,298.616 
+			464.886,298.616 464.886,292.332 461.272,292.332 461.285,229.536 		"/>
+	</g>
+	<g id="LWPOLYLINE_33_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			482.637,321.784 461.744,321.784 461.744,372.132 482.637,372.132 482.641,321.784 		"/>
+	</g>
+	<g id="LWPOLYLINE_34_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			482.637,372.132 461.744,372.132 461.744,379.24 468.027,379.24 468.027,385.524 461.744,385.524 461.744,421.537 
+			482.637,421.537 482.637,372.132 		"/>
+	</g>
+	<g id="LWPOLYLINE_35_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			461.744,421.537 482.637,421.537 482.637,469.723 528.566,469.723 528.566,501.532 461.744,501.298 461.744,474.278 
+			466.143,470.194 466.143,463.125 461.744,463.125 461.744,421.537 		"/>
+	</g>
+	<g id="LWPOLYLINE_36_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			528.566,469.723 574.319,469.723 574.319,472.394 580.564,472.394 580.592,502.8 544.155,501.808 544.155,489.832 
+			528.566,489.832 528.566,469.723 		"/>
+	</g>
+	<g id="LWPOLYLINE_37_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			715.507,160.763 714.845,205.344 712.562,250.979 739.246,250.979 739.639,208.728 736.158,208.728 736.158,199.931 
+			739.721,199.931 740.524,160.763 715.507,160.764 		"/>
+	</g>
+	<g id="LWPOLYLINE_38_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			739.246,250.996 738.858,292.056 735.031,292.056 735.031,298.497 738.487,298.497 734.813,342.885 707.014,342.885 
+			708.215,297.476 708.215,296.465 712.562,250.979 739.246,250.979 		"/>
+	</g>
+	<g id="LWPOLYLINE_39_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			707.014,343.671 707.014,435.725 727.122,435.725 731.273,385.648 728.104,385.648 728.104,379.365 731.792,379.365 
+			734.748,343.671 707.014,343.673 		"/>
+	</g>
+	<g id="LWPOLYLINE_40_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			707.014,435.725 707.014,436.497 711.507,469.902 720.839,469.902 720.839,464.854 727.122,464.854 727.122,435.725 
+			707.014,435.725 		"/>
+	</g>
+	<g id="LWPOLYLINE_41_">
+		
+			<rect x="413.518" y="154.133" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="34.402" height="23.563"/>
+	</g>
+	<g id="LWPOLYLINE_42_">
+		
+			<rect x="447.92" y="154.133" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="34.401" height="23.563"/>
+	</g>
+	<g id="LWPOLYLINE_43_">
+		
+			<rect x="504.969" y="155.547" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.57" height="23.563"/>
+	</g>
+	<g id="LWPOLYLINE_44_">
+		
+			<rect x="571.417" y="155.547" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.57" height="23.563"/>
+	</g>
+	<g id="LWPOLYLINE_45_">
+		
+			<rect x="637.552" y="155.547" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.57" height="23.563"/>
+	</g>
+	<g id="LWPOLYLINE_46_">
+		
+			<rect x="506.043" y="202.831" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="47.598"/>
+	</g>
+	<g id="LWPOLYLINE_47_">
+		
+			<rect x="506.043" y="250.428" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="46.813"/>
+	</g>
+	<g id="LWPOLYLINE_48_">
+		
+			<rect x="639.882" y="202.831" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.413" height="47.598"/>
+	</g>
+	<g id="LWPOLYLINE_49_">
+		
+			<rect x="639.882" y="250.428" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.413" height="46.813"/>
+	</g>
+	<g id="LWPOLYLINE_50_">
+		
+			<rect x="639.882" y="407.045" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="42.885"/>
+	</g>
+	<g id="LWPOLYLINE_51_">
+		
+			<rect x="639.882" y="364.003" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="43.042"/>
+	</g>
+	<g id="LWPOLYLINE_52_">
+		
+			<rect x="639.882" y="321.117" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="42.886"/>
+	</g>
+	<g id="LWPOLYLINE_53_">
+		
+			<rect x="573.59" y="321.117" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.729" height="42.886"/>
+	</g>
+	<g id="LWPOLYLINE_54_">
+		
+			<rect x="573.59" y="407.045" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.729" height="42.885"/>
+	</g>
+	<g id="LWPOLYLINE_55_">
+		
+			<rect x="506.043" y="407.045" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="42.885"/>
+	</g>
+	<g id="LWPOLYLINE_56_">
+		
+			<rect x="506.043" y="364.003" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="43.042"/>
+	</g>
+	<g id="LWPOLYLINE_57_">
+		
+			<rect x="506.043" y="321.117" fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="42.728" height="42.886"/>
+	</g>
+	<g id="LWPOLYLINE_58_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			573.59,364.003 573.59,379.24 582.073,379.24 582.073,385.524 573.59,385.524 573.59,407.045 616.318,407.045 616.318,364.003 
+			573.59,364.003 		"/>
+	</g>
+	<g id="LWPOLYLINE_59_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			582.387,297.241 616.318,297.241 616.318,250.428 573.599,250.42 573.59,292.056 582.387,292.056 582.387,297.241 		"/>
+	</g>
+	<g id="LWPOLYLINE_60_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			582.858,202.831 616.318,202.831 616.318,250.428 573.599,250.437 573.607,211.465 582.858,211.47 582.858,202.831 		"/>
+	</g>
+	<g id="TEXT_2_">
+		<text transform="matrix(1 -0.0035 0.0035 1 83.3594 119.978)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.68 m2</text>
+	</g>
+	<g id="TEXT_3_">
+		<text transform="matrix(1 -0.0035 0.0035 1 137.8008 121.4321)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.24 m2</text>
+	</g>
+	<g id="TEXT_4_">
+		<text transform="matrix(1 -0.0035 0.0035 1 192.9521 121.147)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.24 m2</text>
+	</g>
+	<g id="TEXT_5_">
+		<text transform="matrix(1 -0.0035 0.0035 1 226.4551 120.5723)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.59 m2</text>
+	</g>
+	<g id="TEXT_6_">
+		<text transform="matrix(1 -0.0035 0.0035 1 278.9648 119.978)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">5.42 m2</text>
+	</g>
+	<g id="TEXT_7_">
+		<text transform="matrix(1 -0.0035 0.0035 1 325.3745 121.0703)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">5.63 m2</text>
+	</g>
+	<g id="TEXT_8_">
+		<text transform="matrix(1 -0.0035 0.0035 1 392.958 121.416)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">6.43m2</text>
+	</g>
+	<g id="TEXT_9_">
+		<text transform="matrix(1 -0.0035 0.0035 1 471.627 126.7236)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.32 m2</text>
+	</g>
+	<g id="TEXT_10_">
+		<text transform="matrix(1 -0.0035 0.0035 1 510.3076 125.3188)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.93 m2</text>
+	</g>
+	<g id="TEXT_11_">
+		<text transform="matrix(1 -0.0035 0.0035 1 551.0039 124.7476)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.92 m2</text>
+	</g>
+	<g id="TEXT_12_">
+		<text transform="matrix(1 -0.0035 0.0035 1 605.166 126.7241)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">6.62 m2</text>
+	</g>
+	<g id="TEXT_13_">
+		<text transform="matrix(1 -0.0035 0.0035 1 722.3945 124.1528)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">12.58 m2</text>
+	</g>
+	<g id="TEXT_14_">
+		<text transform="matrix(1 -0.0035 0.0035 1 721.624 207.6729)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">9.13 m2</text>
+	</g>
+	<g id="TEXT_15_">
+		<text transform="matrix(1 -0.0035 0.0035 1 656.6387 242.6709)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.18 m2</text>
+	</g>
+	<g id="TEXT_16_">
+		<text transform="matrix(1 -0.0035 0.0035 1 653.2637 176.7222)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.07 m2</text>
+	</g>
+	<g id="TEXT_17_">
+		<text transform="matrix(1 -0.0035 0.0035 1 655.9932 279.1309)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.05 m2</text>
+	</g>
+	<g id="TEXT_18_">
+		<text transform="matrix(1 -0.0035 0.0035 1 657.6738 353.2148)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.43 m2</text>
+	</g>
+	<g id="TEXT_19_">
+		<text transform="matrix(1 -0.0035 0.0035 1 656.3506 396.1406)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.45 m2</text>
+	</g>
+	<g id="TEXT_20_">
+		<text transform="matrix(1 -0.0035 0.0035 1 657.292 436.0801)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.43 m2</text>
+	</g>
+	<g id="TEXT_21_">
+		<text transform="matrix(1 -0.0035 0.0035 1 714.3408 457.6055)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">2.35 m2</text>
+	</g>
+	<g id="TEXT_22_">
+		<text transform="matrix(1 -0.0035 0.0035 1 713.8203 386.4766)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.84 m2</text>
+	</g>
+	<g id="TEXT_23_">
+		<text transform="matrix(1 -0.0035 0.0035 1 550.2031 490.6748)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">6.01 m2</text>
+	</g>
+	<g id="TEXT_24_">
+		<text transform="matrix(1 -0.0035 0.0035 1 488.0703 491.6172)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">12.50 m2</text>
+	</g>
+	<g id="TEXT_25_">
+		<text transform="matrix(1 -0.0035 0.0035 1 590.4912 435.8398)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.43 m2</text>
+	</g>
+	<g id="TEXT_26_">
+		<text transform="matrix(1 -0.0035 0.0035 1 526.8594 435.2783)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.43 m2</text>
+	</g>
+	<g id="TEXT_27_">
+		<text transform="matrix(1 -0.0035 0.0035 1 464.2354 409.9072)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.02 m2</text>
+	</g>
+	<g id="TEXT_28_">
+		<text transform="matrix(1 -0.0035 0.0035 1 467.0967 358.3086)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.26 m2</text>
+	</g>
+	<g id="TEXT_29_">
+		<text transform="matrix(1 -0.0035 0.0035 1 524.9873 352.9521)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.43 m2</text>
+	</g>
+	<g id="TEXT_30_">
+		<text transform="matrix(1 -0.0035 0.0035 1 527.3154 394.0068)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.45 m2</text>
+	</g>
+	<g id="TEXT_31_">
+		<text transform="matrix(1 -0.0035 0.0035 1 592.5283 391.5176)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.24 m2</text>
+	</g>
+	<g id="TEXT_32_">
+		<text transform="matrix(1 -0.0035 0.0035 1 591.3955 352.8184)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.43 m2</text>
+	</g>
+	<g id="TEXT_33_">
+		<text transform="matrix(1 -0.0035 0.0035 1 590.4248 279.0977)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.92 m2</text>
+	</g>
+	<g id="TEXT_34_">
+		<text transform="matrix(1 -0.0035 0.0035 1 589.043 241.8726)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">7.92 m2</text>
+	</g>
+	<g id="TEXT_35_">
+		<text transform="matrix(1 -0.0035 0.0035 1 589.4063 174.7944)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.07 m2</text>
+	</g>
+	<g id="TEXT_36_">
+		<text transform="matrix(1 -0.0035 0.0035 1 521.7266 174.8447)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.07 m2</text>
+	</g>
+	<g id="TEXT_37_">
+		<text transform="matrix(1 -0.0035 0.0035 1 524.9414 239.7432)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.24 m2</text>
+	</g>
+	<g id="TEXT_38_">
+		<text transform="matrix(1 -0.0035 0.0035 1 524.5791 277.9019)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.11 m2</text>
+	</g>
+	<g id="TEXT_39_">
+		<text transform="matrix(1 -0.0035 0.0035 1 466.7031 279.2607)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">9.27 m2</text>
+	</g>
+	<g id="TEXT_40_">
+		<text transform="matrix(1 -0.0035 0.0035 1 438.9277 256.4907)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">9.27 m2</text>
+	</g>
+	<g id="TEXT_41_">
+		<text transform="matrix(1 -0.0035 0.0035 1 454.1416 172.0938)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.28 m2</text>
+	</g>
+	<g id="TEXT_42_">
+		<text transform="matrix(1 -0.0035 0.0035 1 434.1855 169.8423)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.28 m2</text>
+	</g>
+	<g id="TEXT_43_">
+		<text transform="matrix(1 -0.0035 0.0035 1 389.9756 246.4795)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.31 m2</text>
+	</g>
+	<g id="TEXT_44_">
+		<text transform="matrix(1 -0.0035 0.0035 1 357.8862 317.5107)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.97 m2</text>
+	</g>
+	<g id="TEXT_45_">
+		<text transform="matrix(1 -0.0035 0.0035 1 294.8784 318.1504)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">9.25 m2</text>
+	</g>
+	<g id="TEXT_46_">
+		<text transform="matrix(1 -0.0035 0.0035 1 328.7168 251.9023)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.32 m2</text>
+	</g>
+	<g id="TEXT_47_">
+		<text transform="matrix(1 -0.0035 0.0035 1 291.3867 251.7593)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.39 m2</text>
+	</g>
+	<g id="TEXT_48_">
+		<text transform="matrix(1 -0.0035 0.0035 1 188.1055 257.1372)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">6.61 m2</text>
+	</g>
+	<g id="TEXT_49_">
+		<text transform="matrix(1 -0.0035 0.0035 1 164.0488 317.2305)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">9.58 m2</text>
+	</g>
+	<g id="TEXT_50_">
+		<text transform="matrix(1 -0.0035 0.0035 1 112.439 317.7666)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.74 m2</text>
+	</g>
+	<g id="TEXT_51_">
+		<text transform="matrix(1 -0.0035 0.0035 1 137.7866 255.4927)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">6.07 m2</text>
+	</g>
+	<g id="TEXT_52_">
+		<text transform="matrix(1 -0.0035 0.0035 1 296.959 182.0122)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.25 m2</text>
+	</g>
+	<g id="TEXT_53_">
+		<text transform="matrix(1 -0.0035 0.0035 1 340.5044 182.5054)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">8.21 m2</text>
+	</g>
+	<g id="TEXT_54_">
+		<text transform="matrix(1 -0.0035 0.0035 1 369.021 181.9629)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.25 m2</text>
+	</g>
+	<g id="TEXT_55_">
+		<text transform="matrix(1 -0.0035 0.0035 1 180.1104 172.8994)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">5.87 m2</text>
+	</g>
+	<g id="TEXT_56_">
+		<text transform="matrix(1 -0.0035 0.0035 1 178.3315 190.9614)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">5.87 m2</text>
+	</g>
+	<g id="TEXT_57_">
+		<text transform="matrix(1 -0.0035 0.0035 1 136.4004 180.0654)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.39 m2</text>
+	</g>
+	<g id="TEXT_58_">
+		<text transform="matrix(1 -0.0035 0.0035 1 105.3892 179.1685)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">4.63 m2</text>
+	</g>
+	<g id="LWPOLYLINE_64_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			69.495,210.685 69.48,253.728 8.859,253.722 8.859,212.256 8.859,210.685 10.43,210.685 10.43,208.721 55.357,208.721 
+			55.357,210.685 56.928,210.685 56.928,212.256 58.499,212.256 58.499,213.827 63.211,213.827 63.211,212.256 64.782,212.256 
+			64.782,210.685 69.495,210.687 		"/>
+	</g>
+	<g id="TEXT_59_">
+		<text transform="matrix(1 -0.0035 0.0035 1 39.5132 237.3423)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">10.85 m2</text>
+	</g>
+	<g id="TEXT_63_">
+		<text transform="matrix(1 -0.0035 0.0035 1 717.4326 305.6221)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">10,6 m2</text>
+	</g>
+	<g id="LWPOLYLINE_65_">
+		
+			<polyline fill="none" stroke="#007FFF" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			125.888,265.668 125.888,236.764 101.384,236.764 101.384,265.666 105.311,269.593 121.175,269.593 125.888,265.668 		"/>
+	</g>
+	<g id="TEXT_64_">
+		<text transform="matrix(1 -0.0035 0.0035 1 108.3311 256.4131)" fill="#007FFF" font-family="'ArialMT'" font-size="3.0973">3.19 m2</text>
+	</g>
+</g>
+</svg>

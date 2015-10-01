@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="800px"
+	 height="600px" viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+<g id="Areas_x5F_comunes">
+	<g id="LINE">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="387.164" y1="503.6" x2="384.027" y2="503.6"/>
+	</g>
+	<g id="MTEXT">
+		<text transform="matrix(1 0 0 1 347.2505 553.8115)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">CUARTO 1</text>
+		<text transform="matrix(1 0 0 1 345.438 557.1123)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 19.49m</text>
+		<text transform="matrix(1 0 0 1 360.8164 555.9766)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_1_">
+		<text transform="matrix(1 0 0 1 453.2656 551.3643)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">CUARTO 3</text>
+		<text transform="matrix(1 0 0 1 451.6309 554.665)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 19.42m</text>
+		<text transform="matrix(1 0 0 1 467.0088 553.5293)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_2_">
+		<text transform="matrix(1 0 0 1 400.416 552.377)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">CUARTO 2</text>
+		<text transform="matrix(1 0 0 1 398.7715 555.6777)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 20.16m</text>
+		<text transform="matrix(1 0 0 1 414.1504 554.542)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="LWPOLYLINE">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			483.397,502.146 482.751,503.116 482.751,507.383 483.397,508.352 485.208,508.352 485.208,502.146 		"/>
+	</g>
+	<g id="CIRCLE">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M482.59,504.603c0-0.089-0.073-0.161-0.161-0.161c-0.09,0-0.162,0.072-0.162,0.161c0,0.09,0.072,0.161,0.162,0.161
+			C482.517,504.764,482.59,504.692,482.59,504.603L482.59,504.603z"/>
+	</g>
+	<g id="ARC">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M480.059,506.901c0.913-0.205,1.486-1.11,1.282-2.022c-0.145-0.64-0.644-1.139-1.282-1.282"/>
+	</g>
+	<g id="ARC_1_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M479.16,503.396c-1.023-0.23-2.04,0.413-2.27,1.438c-0.231,1.023,0.413,2.04,1.438,2.27c0.273,0.063,0.559,0.063,0.832,0"/>
+	</g>
+	<g id="LINE_1_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="479.16" y1="503.396" x2="480.059" y2="503.597"/>
+	</g>
+	<g id="LINE_2_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="479.268" y1="502.916" x2="482.751" y2="503.698"/>
+	</g>
+	<g id="LINE_3_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="479.16" y1="507.104" x2="480.059" y2="506.901"/>
+	</g>
+	<g id="LINE_4_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="479.268" y1="507.582" x2="482.751" y2="506.801"/>
+	</g>
+	<g id="CIRCLE_1_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M482.59,505.896c0-0.089-0.073-0.161-0.161-0.161c-0.09,0-0.162,0.072-0.162,0.161s0.072,0.162,0.162,0.162
+			C482.517,506.058,482.59,505.984,482.59,505.896L482.59,505.896z"/>
+	</g>
+	<g id="CIRCLE_2_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M481.911,505.249c0-0.356-0.29-0.646-0.646-0.646c-0.357,0-0.646,0.29-0.646,0.646c0,0.357,0.289,0.646,0.646,0.646
+			C481.621,505.896,481.911,505.606,481.911,505.249L481.911,505.249z"/>
+	</g>
+	<g id="ARC_2_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M479.268,502.916c-1.289-0.289-2.568,0.521-2.857,1.81s0.521,2.568,1.81,2.857c0.345,0.077,0.703,0.077,1.048,0"/>
+	</g>
+	<g id="LINE_5_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="485.23" y1="516.101" x2="482.128" y2="515.976"/>
+	</g>
+	<g id="LINE_6_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.744" y1="515.199" x2="480.575" y2="515.327"/>
+	</g>
+	<g id="LINE_7_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.744" y1="515.265" x2="482.128" y2="515.328"/>
+	</g>
+	<g id="CIRCLE_3_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M483.583,513.068c0-0.09-0.073-0.163-0.162-0.163c-0.09,0-0.161,0.073-0.161,0.163c0,0.089,0.071,0.161,0.161,0.161
+			C483.51,513.229,483.583,513.157,483.583,513.068L483.583,513.068z"/>
+	</g>
+	<g id="LINE_8_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.744" y1="510.937" x2="480.575" y2="510.808"/>
+	</g>
+	<g id="LINE_9_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="485.23" y1="510.035" x2="482.128" y2="510.16"/>
+	</g>
+	<g id="LINE_10_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.744" y1="510.872" x2="482.128" y2="510.807"/>
+	</g>
+	<g id="LWPOLYLINE_1_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			485.36,516.234 485.36,509.9 480.383,510.114 480.255,510.763 480.159,511.418 480.097,512.076 480.063,512.737 480.063,513.398 
+			480.097,514.059 480.159,514.717 480.255,515.372 480.383,516.022 		"/>
+	</g>
+	<g id="LINE_11_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.481" y1="514.679" x2="480.575" y2="515.327"/>
+	</g>
+	<g id="LINE_12_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="482.128" y1="515.976" x2="482.128" y2="515.328"/>
+	</g>
+	<g id="LINE_13_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.418" y1="512.1" x2="480.387" y2="512.744"/>
+	</g>
+	<g id="LINE_14_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.387" y1="512.744" x2="480.387" y2="513.391"/>
+	</g>
+	<g id="LINE_15_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.387" y1="513.391" x2="480.418" y2="514.036"/>
+	</g>
+	<g id="LINE_16_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.481" y1="511.457" x2="480.418" y2="512.1"/>
+	</g>
+	<g id="LINE_17_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="482.128" y1="510.807" x2="482.128" y2="510.16"/>
+	</g>
+	<g id="LINE_18_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.575" y1="510.808" x2="480.481" y2="511.457"/>
+	</g>
+	<g id="LINE_19_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="480.418" y1="514.036" x2="480.481" y2="514.679"/>
+	</g>
+	<g id="LINE_20_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.784" y1="515.209" x2="483.883" y2="514.862"/>
+	</g>
+	<g id="LINE_21_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.843" y1="514.853" x2="483.923" y2="514.501"/>
+	</g>
+	<g id="CIRCLE_4_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M485.075,512.409c0-0.09-0.072-0.162-0.161-0.162c-0.09,0-0.161,0.072-0.161,0.162c0,0.088,0.071,0.161,0.161,0.161
+			C485.003,512.57,485.075,512.497,485.075,512.409L485.075,512.409z"/>
+	</g>
+	<g id="CIRCLE_5_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M485.075,513.728c0-0.09-0.072-0.162-0.161-0.162c-0.09,0-0.161,0.072-0.161,0.162c0,0.089,0.071,0.161,0.161,0.161
+			C485.003,513.889,485.075,513.816,485.075,513.728L485.075,513.728z"/>
+	</g>
+	<g id="CIRCLE_6_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M485.075,513.068c0-0.09-0.072-0.163-0.161-0.163c-0.09,0-0.161,0.073-0.161,0.163c0,0.089,0.071,0.161,0.161,0.161
+			C485.003,513.229,485.075,513.157,485.075,513.068L485.075,513.068z"/>
+	</g>
+	<g id="LINE_22_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="484.031" y1="512.348" x2="483.985" y2="511.99"/>
+	</g>
+	<g id="LINE_23_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.985" y1="511.99" x2="483.923" y2="511.634"/>
+	</g>
+	<g id="LINE_24_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.985" y1="514.146" x2="484.031" y2="513.787"/>
+	</g>
+	<g id="LINE_25_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="484.031" y1="513.787" x2="484.059" y2="513.429"/>
+	</g>
+	<g id="LINE_26_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="484.059" y1="513.429" x2="484.067" y2="513.068"/>
+	</g>
+	<g id="LINE_27_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="484.067" y1="513.068" x2="484.059" y2="512.707"/>
+	</g>
+	<g id="LINE_28_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="484.059" y1="512.707" x2="484.031" y2="512.348"/>
+	</g>
+	<g id="LINE_29_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.744" y1="510.937" x2="483.744" y2="510.872"/>
+	</g>
+	<g id="LINE_30_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.843" y1="511.282" x2="483.744" y2="510.937"/>
+	</g>
+	<g id="LINE_31_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.923" y1="511.634" x2="483.843" y2="511.282"/>
+	</g>
+	<g id="LINE_32_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="483.923" y1="514.501" x2="483.985" y2="514.146"/>
+	</g>
+	<g id="LINE_33_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="485.23" y1="516.101" x2="485.23" y2="510.035"/>
+	</g>
+	<g id="LINE_34_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="460.732" y1="493.234" x2="454.742" y2="499.278"/>
+	</g>
+	<g id="LINE_35_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="460.688" y1="492.126" x2="454.742" y2="487.009"/>
+	</g>
+	<g id="CIRCLE_7_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M462.117,492.656c0-0.448-0.364-0.813-0.813-0.813c-0.448,0-0.813,0.365-0.813,0.813c0,0.45,0.365,0.813,0.813,0.813
+			C461.753,493.47,462.117,493.106,462.117,492.656L462.117,492.656z"/>
+	</g>
+	<g id="LINE_36_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="485.51" y1="487.009" x2="461.384" y2="491.806"/>
+	</g>
+	<g id="LINE_37_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="484.863" y1="499.278" x2="461.418" y2="493.462"/>
+	</g>
+	<g id="LINE_38_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="454.742" y1="499.278" x2="485.51" y2="499.278"/>
+	</g>
+	<g id="LINE_39_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="407.897" y1="498.428" x2="381.442" y2="498.428"/>
+	</g>
+	<g id="LINE_40_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="381.442" y1="498.428" x2="400.815" y2="491.997"/>
+	</g>
+	<g id="LINE_41_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="388.356" y1="486.104" x2="400.9" y2="491.402"/>
+	</g>
+	<g id="CIRCLE_8_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M402.419,491.806c0-0.448-0.364-0.813-0.813-0.813s-0.813,0.365-0.813,0.813c0,0.45,0.363,0.813,0.813,0.813
+			S402.419,492.256,402.419,491.806L402.419,491.806z"/>
+	</g>
+	<g id="LINE_42_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="401.904" y1="491.049" x2="407.897" y2="486.104"/>
+	</g>
+	<g id="LINE_43_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="401.679" y1="492.616" x2="407.897" y2="498.428"/>
+	</g>
+	<g id="LINE_44_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="381.619" y1="516.689" x2="381.619" y2="510.624"/>
+	</g>
+	<g id="LINE_45_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.928" y1="515.09" x2="382.864" y2="514.734"/>
+	</g>
+	<g id="LINE_46_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.928" y1="512.223" x2="383.008" y2="511.871"/>
+	</g>
+	<g id="LINE_47_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.008" y1="511.871" x2="383.105" y2="511.525"/>
+	</g>
+	<g id="LINE_48_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.105" y1="511.525" x2="383.105" y2="511.46"/>
+	</g>
+	<g id="LINE_49_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.792" y1="513.296" x2="382.818" y2="512.937"/>
+	</g>
+	<g id="LINE_50_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.782" y1="513.657" x2="382.792" y2="513.296"/>
+	</g>
+	<g id="LINE_51_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.792" y1="514.018" x2="382.782" y2="513.657"/>
+	</g>
+	<g id="LINE_52_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.818" y1="514.376" x2="382.792" y2="514.018"/>
+	</g>
+	<g id="LINE_53_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.864" y1="514.734" x2="382.818" y2="514.376"/>
+	</g>
+	<g id="LINE_54_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.864" y1="512.579" x2="382.928" y2="512.223"/>
+	</g>
+	<g id="LINE_55_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="382.818" y1="512.937" x2="382.864" y2="512.579"/>
+	</g>
+	<g id="CIRCLE_9_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M382.097,513.657c0-0.09-0.072-0.163-0.161-0.163c-0.089,0-0.162,0.073-0.162,0.163c0,0.089,0.072,0.161,0.162,0.161
+			C382.025,513.818,382.097,513.746,382.097,513.657L382.097,513.657z"/>
+	</g>
+	<g id="CIRCLE_10_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M382.097,514.316c0-0.09-0.072-0.162-0.161-0.162c-0.089,0-0.162,0.072-0.162,0.162c0,0.089,0.072,0.161,0.162,0.161
+			C382.025,514.478,382.097,514.405,382.097,514.316L382.097,514.316z"/>
+	</g>
+	<g id="CIRCLE_11_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M382.097,512.998c0-0.09-0.072-0.163-0.161-0.163c-0.089,0-0.162,0.073-0.162,0.163c0,0.088,0.072,0.161,0.162,0.161
+			C382.025,513.159,382.097,513.086,382.097,512.998L382.097,512.998z"/>
+	</g>
+	<g id="LINE_56_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.008" y1="515.441" x2="382.928" y2="515.09"/>
+	</g>
+	<g id="LINE_57_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.065" y1="515.798" x2="382.967" y2="515.451"/>
+	</g>
+	<g id="LINE_58_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.432" y1="514.625" x2="386.369" y2="515.268"/>
+	</g>
+	<g id="LINE_59_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.274" y1="511.396" x2="386.369" y2="512.045"/>
+	</g>
+	<g id="LINE_60_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="384.722" y1="511.396" x2="384.722" y2="510.749"/>
+	</g>
+	<g id="LINE_61_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.369" y1="512.045" x2="386.432" y2="512.688"/>
+	</g>
+	<g id="LINE_62_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.463" y1="513.979" x2="386.432" y2="514.625"/>
+	</g>
+	<g id="LINE_63_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.463" y1="513.333" x2="386.463" y2="513.979"/>
+	</g>
+	<g id="LINE_64_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.432" y1="512.688" x2="386.463" y2="513.333"/>
+	</g>
+	<g id="LINE_65_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="384.722" y1="516.564" x2="384.722" y2="515.917"/>
+	</g>
+	<g id="LINE_66_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="386.369" y1="515.268" x2="386.274" y2="515.916"/>
+	</g>
+	<g id="LWPOLYLINE_2_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			381.49,516.823 381.49,510.489 386.467,510.703 386.595,511.352 386.69,512.007 386.754,512.665 386.786,513.326 386.786,513.987 
+			386.754,514.647 386.69,515.306 386.595,515.961 386.467,516.611 		"/>
+	</g>
+	<g id="LINE_67_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.105" y1="511.46" x2="384.722" y2="511.396"/>
+	</g>
+	<g id="LINE_68_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="381.619" y1="510.624" x2="384.722" y2="510.749"/>
+	</g>
+	<g id="LINE_69_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.105" y1="511.525" x2="386.274" y2="511.396"/>
+	</g>
+	<g id="CIRCLE_12_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M383.591,513.657c0-0.09-0.073-0.163-0.162-0.163c-0.089,0-0.161,0.073-0.161,0.163c0,0.089,0.072,0.161,0.161,0.161
+			C383.518,513.818,383.591,513.746,383.591,513.657L383.591,513.657z"/>
+	</g>
+	<g id="LINE_70_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.105" y1="515.854" x2="384.722" y2="515.917"/>
+	</g>
+	<g id="LINE_71_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="383.105" y1="515.788" x2="386.274" y2="515.916"/>
+	</g>
+	<g id="LINE_72_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="381.619" y1="516.689" x2="384.722" y2="516.564"/>
+	</g>
+	<g id="ARC_3_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M387.583,508.172c1.289,0.289,2.568-0.521,2.857-1.81c0.289-1.289-0.521-2.568-1.81-2.857c-0.345-0.078-0.703-0.078-1.047,0"/>
+	</g>
+	<g id="CIRCLE_13_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M386.231,505.838c0-0.356-0.29-0.646-0.646-0.646s-0.646,0.29-0.646,0.646c0,0.357,0.289,0.646,0.646,0.646
+			S386.231,506.195,386.231,505.838L386.231,505.838z"/>
+	</g>
+	<g id="CIRCLE_14_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M384.583,506.484c0-0.089-0.072-0.161-0.161-0.161c-0.089,0-0.162,0.072-0.162,0.161s0.072,0.162,0.162,0.162
+			C384.511,506.646,384.583,506.573,384.583,506.484L384.583,506.484z"/>
+	</g>
+	<g id="LINE_73_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="387.583" y1="508.171" x2="384.099" y2="507.39"/>
+	</g>
+	<g id="LINE_74_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="387.69" y1="507.692" x2="386.791" y2="507.49"/>
+	</g>
+	<g id="LINE_75_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="384.099" y1="507.485" x2="384.525" y2="507.485"/>
+	</g>
+	<g id="LINE_76_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="387.583" y1="503.505" x2="384.099" y2="504.286"/>
+	</g>
+	<g id="LINE_77_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="387.69" y1="503.984" x2="386.791" y2="504.186"/>
+	</g>
+	<g id="ARC_4_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M387.69,507.692c1.024,0.229,2.04-0.413,2.271-1.438c0.23-1.024-0.414-2.041-1.438-2.271c-0.274-0.063-0.559-0.063-0.833,0"/>
+	</g>
+	<g id="ARC_5_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M386.791,504.186c-0.912,0.206-1.486,1.111-1.281,2.023c0.143,0.64,0.642,1.139,1.281,1.281"/>
+	</g>
+	<g id="CIRCLE_15_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M384.583,505.191c0-0.089-0.072-0.161-0.161-0.161c-0.089,0-0.162,0.072-0.162,0.161c0,0.09,0.072,0.162,0.162,0.162
+			C384.511,505.354,384.583,505.281,384.583,505.191L384.583,505.191z"/>
+	</g>
+	<g id="LWPOLYLINE_3_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			383.452,502.735 384.099,503.705 384.099,507.972 383.452,508.94 381.643,508.94 381.643,502.735 		"/>
+	</g>
+	<g id="LINE_78_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="334.047" y1="492.322" x2="339.859" y2="486.104"/>
+	</g>
+	<g id="LINE_79_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="332.481" y1="492.097" x2="327.534" y2="486.104"/>
+	</g>
+	<g id="CIRCLE_16_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M334.051,492.395c0-0.448-0.364-0.813-0.813-0.813c-0.45,0-0.813,0.365-0.813,0.813c0,0.449,0.364,0.813,0.813,0.813
+			C333.687,493.208,334.051,492.844,334.051,492.395L334.051,492.395z"/>
+	</g>
+	<g id="LINE_80_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="328.247" y1="517.259" x2="332.833" y2="493.102"/>
+	</g>
+	<g id="LINE_81_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="339.859" y1="517.259" x2="333.429" y2="493.186"/>
+	</g>
+	<g id="LWPOLYLINE_4_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			348.273,488.289 347.303,488.936 343.037,488.936 342.067,488.289 342.067,486.479 348.273,486.479 		"/>
+	</g>
+	<g id="CIRCLE_17_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M345.978,489.258c0-0.089-0.072-0.161-0.162-0.161c-0.089,0-0.161,0.072-0.161,0.161c0,0.09,0.072,0.163,0.161,0.163
+			C345.906,489.421,345.978,489.348,345.978,489.258L345.978,489.258z"/>
+	</g>
+	<g id="ARC_6_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M346.823,491.629c-0.205-0.913-1.111-1.487-2.023-1.282c-0.639,0.144-1.138,0.643-1.282,1.282"/>
+	</g>
+	<g id="ARC_7_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M343.316,492.526c-0.23,1.023,0.414,2.041,1.438,2.271c1.024,0.23,2.041-0.413,2.271-1.438c0.062-0.273,0.062-0.558,0-0.832"/>
+	</g>
+	<g id="LINE_82_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="347.024" y1="492.526" x2="346.822" y2="491.629"/>
+	</g>
+	<g id="LINE_83_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="347.503" y1="492.419" x2="346.721" y2="488.936"/>
+	</g>
+	<g id="LINE_84_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.523" y1="488.936" x2="343.523" y2="489.361"/>
+	</g>
+	<g id="LINE_85_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="343.316" y1="492.526" x2="343.518" y2="491.629"/>
+	</g>
+	<g id="LINE_86_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="342.837" y1="492.419" x2="343.619" y2="488.936"/>
+	</g>
+	<g id="CIRCLE_18_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M344.686,489.258c0-0.089-0.072-0.161-0.162-0.161s-0.162,0.072-0.162,0.161c0,0.09,0.073,0.163,0.162,0.163
+			S344.686,489.348,344.686,489.258L344.686,489.258z"/>
+	</g>
+	<g id="CIRCLE_19_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M345.816,490.422c0-0.357-0.29-0.646-0.646-0.646s-0.646,0.289-0.646,0.646c0,0.356,0.289,0.646,0.646,0.646
+			S345.816,490.778,345.816,490.422L345.816,490.422z"/>
+	</g>
+	<g id="ARC_8_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M342.836,492.419c-0.289,1.289,0.521,2.568,1.81,2.857c1.289,0.289,2.568-0.521,2.857-1.81c0.078-0.346,0.078-0.702,0-1.048"/>
+	</g>
+	<g id="LINE_87_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="347.081" y1="490.533" x2="347.079" y2="488.936"/>
+	</g>
+	<g id="LINE_88_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="339.859" y1="516.878" x2="339.859" y2="486.104"/>
+	</g>
+	<g id="LINE_89_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="351.936" y1="486.456" x2="352.061" y2="489.559"/>
+	</g>
+	<g id="LINE_90_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="352.836" y1="487.942" x2="352.708" y2="491.111"/>
+	</g>
+	<g id="LINE_91_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="352.772" y1="487.942" x2="352.707" y2="489.559"/>
+	</g>
+	<g id="CIRCLE_20_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M355.13,488.267c0-0.09-0.073-0.163-0.162-0.163c-0.089,0-0.162,0.073-0.162,0.163c0,0.088,0.072,0.161,0.162,0.161
+			C355.057,488.428,355.13,488.354,355.13,488.267L355.13,488.267z"/>
+	</g>
+	<g id="LINE_92_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="357.1" y1="487.942" x2="357.228" y2="491.111"/>
+	</g>
+	<g id="LINE_93_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="358.001" y1="486.456" x2="357.875" y2="489.559"/>
+	</g>
+	<g id="LINE_94_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="357.165" y1="487.942" x2="357.229" y2="489.559"/>
+	</g>
+	<g id="LWPOLYLINE_5_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			351.801,486.326 358.135,486.326 357.922,491.304 357.273,491.432 356.618,491.527 355.96,491.591 355.299,491.623 
+			354.637,491.623 353.977,491.591 353.318,491.527 352.664,491.432 352.014,491.304 		"/>
+	</g>
+	<g id="LINE_95_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="353.357" y1="491.205" x2="352.708" y2="491.111"/>
+	</g>
+	<g id="LINE_96_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="352.061" y1="489.559" x2="352.707" y2="489.559"/>
+	</g>
+	<g id="LINE_97_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="355.937" y1="491.269" x2="355.292" y2="491.301"/>
+	</g>
+	<g id="LINE_98_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="355.292" y1="491.301" x2="354.645" y2="491.301"/>
+	</g>
+	<g id="LINE_99_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="354.645" y1="491.301" x2="354" y2="491.269"/>
+	</g>
+	<g id="LINE_100_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.579" y1="491.205" x2="355.937" y2="491.269"/>
+	</g>
+	<g id="LINE_101_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="357.229" y1="489.559" x2="357.875" y2="489.559"/>
+	</g>
+	<g id="LINE_102_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="357.228" y1="491.111" x2="356.579" y2="491.205"/>
+	</g>
+	<g id="LINE_103_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="354" y1="491.269" x2="353.357" y2="491.205"/>
+	</g>
+	<g id="LINE_104_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="352.828" y1="487.902" x2="353.174" y2="487.805"/>
+	</g>
+	<g id="LINE_105_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="353.183" y1="487.844" x2="353.534" y2="487.764"/>
+	</g>
+	<g id="CIRCLE_21_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M355.789,486.772c0-0.089-0.072-0.162-0.162-0.162s-0.161,0.073-0.161,0.162c0,0.09,0.072,0.162,0.161,0.162
+			S355.789,486.862,355.789,486.772L355.789,486.772z"/>
+	</g>
+	<g id="CIRCLE_22_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M354.471,486.772c0-0.089-0.073-0.162-0.162-0.162s-0.161,0.073-0.161,0.162c0,0.09,0.072,0.162,0.161,0.162
+			S354.471,486.862,354.471,486.772L354.471,486.772z"/>
+	</g>
+	<g id="CIRCLE_23_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M355.13,486.772c0-0.089-0.073-0.162-0.162-0.162c-0.089,0-0.162,0.073-0.162,0.162c0,0.09,0.072,0.162,0.162,0.162
+			C355.057,486.935,355.13,486.862,355.13,486.772L355.13,486.772z"/>
+	</g>
+	<g id="LINE_106_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="355.688" y1="487.656" x2="356.046" y2="487.701"/>
+	</g>
+	<g id="LINE_107_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.046" y1="487.701" x2="356.402" y2="487.764"/>
+	</g>
+	<g id="LINE_108_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="353.89" y1="487.701" x2="354.248" y2="487.656"/>
+	</g>
+	<g id="LINE_109_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="354.248" y1="487.656" x2="354.607" y2="487.628"/>
+	</g>
+	<g id="LINE_110_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="354.607" y1="487.628" x2="354.968" y2="487.619"/>
+	</g>
+	<g id="LINE_111_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="354.968" y1="487.619" x2="355.329" y2="487.628"/>
+	</g>
+	<g id="LINE_112_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="355.329" y1="487.628" x2="355.688" y2="487.656"/>
+	</g>
+	<g id="LINE_113_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="357.1" y1="487.942" x2="357.165" y2="487.942"/>
+	</g>
+	<g id="LINE_114_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.753" y1="487.844" x2="357.1" y2="487.942"/>
+	</g>
+	<g id="LINE_115_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="356.402" y1="487.764" x2="356.753" y2="487.844"/>
+	</g>
+	<g id="LINE_116_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="353.534" y1="487.764" x2="353.89" y2="487.701"/>
+	</g>
+	<g id="LINE_117_">
+		
+			<line fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="351.936" y1="486.456" x2="358.001" y2="486.456"/>
+	</g>
+	<g id="MTEXT_3_">
+		<text transform="matrix(1 0 0 1 377.5498 392.2139)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">AZOTEA</text>
+		<text transform="matrix(1 0 0 1 373.8335 395.5146)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 319.47m</text>
+		<text transform="matrix(1 0 0 1 390.6411 394.3799)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_6_">
+		<text transform="matrix(1 0 0 1 471.9014 404.4238)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">VACIO</text>
+		<text transform="matrix(1 0 0 1 468.4219 407.7236)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 5.76m</text>
+		<text transform="matrix(1 0 0 1 482.3721 406.5889)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_7_">
+		<text transform="matrix(1 0 0 1 448.4863 9.8413)" fill="#0000FF" font-family="'MyriadPro-Regular'" font-size="2.8517">b</text>
+	</g>
+	<g id="LWPOLYLINE_9_">
+		
+			<polyline fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			451.192,9.127 483.089,9.015 483.089,39.722 466.208,39.722 467.412,40.746 466.208,39.722 467.4,38.645 		"/>
+	</g>
+	<g id="LWPOLYLINE_10_">
+		
+			<polyline fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			466.185,32.268 466.185,45.04 469.804,45.04 469.804,32.268 473.423,32.268 473.423,45.04 477.043,45.05 477.043,32.268 
+			489.305,45.04 489.305,32.268 477.104,32.268 477.104,28.648 489.305,28.648 489.305,25.028 477.104,25.028 477.104,21.409 
+			489.305,21.409 489.305,17.789 477.104,17.789 477.104,14.353 489.305,14.353 489.291,4.148 477.104,14.353 477.104,4.148 
+			473.423,4.148 473.423,13.95 469.804,13.95 469.804,4.148 466.185,4.148 466.185,13.95 462.052,13.95 462.05,4.149 458.433,4.149 
+			458.433,13.95 454.813,13.95 454.813,4.148 451.192,4.148 451.192,13.95 		"/>
+	</g>
+	<g id="MTEXT_8_">
+		<text transform="matrix(1 0 0 1 470.5273 7.3418)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Escaleras</text>
+		<text transform="matrix(1 0 0 1 468.7959 10.6416)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 5.33m</text>
+		<text transform="matrix(1 0 0 1 482.7461 9.5068)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_9_">
+		<text transform="matrix(1 0 0 1 471.8818 60.811)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Monta-Cargas</text>
+		<text transform="matrix(1 0 0 1 472.6475 64.1113)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 4.23m</text>
+		<text transform="matrix(1 0 0 1 486.5977 62.9766)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="LWPOLYLINE_11_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			467.82,80.949 487.427,80.949 487.427,77.047 484.866,77.047 484.866,73.168 489.305,73.168 489.305,46.822 467.82,46.979 		"/>
+	</g>
+	<g id="LWPOLYLINE_12_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			463.914,381.001 476.779,381.001 476.764,387.451 485.183,387.451 485.168,428.834 463.914,428.834 		"/>
+	</g>
+	<g id="LWPOLYLINE_13_">
+		
+			<rect x="327.192" y="313.823" fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="17.452" height="24.563"/>
+	</g>
+	<g id="LWPOLYLINE_14_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,210.357 344.645,210.357 344.645,232.334 327.519,232.334 		"/>
+	</g>
+	<g id="LWPOLYLINE_15_">
+		
+			<rect x="327.192" y="103.058" fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="17.126" height="25.855"/>
+	</g>
+	<g id="LWPOLYLINE_16_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,103.058 344.319,128.913 327.195,128.697 344.319,103.058 		"/>
+	</g>
+	<g id="LWPOLYLINE_17_">
+		
+			<rect x="469.994" y="171.574" fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="17.452" height="24.563"/>
+	</g>
+	<g id="LWPOLYLINE_18_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			469.994,171.574 487.446,196.137 469.994,196.137 487.446,171.574 		"/>
+	</g>
+	<g id="LWPOLYLINE_19_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,210.362 344.645,232.334 327.519,232.334 344.645,210.357 		"/>
+	</g>
+	<g id="LWPOLYLINE_20_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,313.823 344.645,338.386 327.192,338.386 344.645,313.823 		"/>
+	</g>
+	<g id="LWPOLYLINE_21_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,419.784 344.645,445.64 327.192,445.64 344.645,419.784 		"/>
+	</g>
+	<g id="LWPOLYLINE_22_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			485.168,428.834 463.914,381.001 463.914,428.834 485.182,387.827 		"/>
+	</g>
+	<g id="MTEXT_10_">
+		<text transform="matrix(1 0 0 1 328.4834 116.8779)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 2.64m</text>
+		<text transform="matrix(1 0 0 1 342.4336 115.7417)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_11_">
+		<text transform="matrix(1 0 0 1 471.1338 185.2495)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 2.56m</text>
+		<text transform="matrix(1 0 0 1 485.084 184.1133)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_12_">
+		<text transform="matrix(1 0 0 1 328.4438 222.1025)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 2.27m</text>
+		<text transform="matrix(1 0 0 1 342.3931 220.9678)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_13_">
+		<text transform="matrix(1 0 0 1 328.3667 326.7109)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 2.56m</text>
+		<text transform="matrix(1 0 0 1 342.3169 325.5762)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_14_">
+		<text transform="matrix(1 0 0 1 329.0156 433.4482)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 2.70m</text>
+		<text transform="matrix(1 0 0 1 342.9658 432.3125)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="LWPOLYLINE_23_">
+		
+			<rect x="327.192" y="419.771" fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="17.452" height="25.855"/>
+	</g>
+	<g id="LWPOLYLINE_24_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,4.134 344.319,4.148 344.301,25.457 327.192,25.457 		"/>
+	</g>
+	<g id="LWPOLYLINE_25_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.192,4.134 344.301,25.457 344.319,4.148 327.192,25.457 		"/>
+	</g>
+	<g id="MTEXT_15_">
+		<text transform="matrix(1 0 0 1 328.5215 14.9678)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 2.18m</text>
+		<text transform="matrix(1 0 0 1 342.4717 13.833)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="LWPOLYLINE_26_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			451.42,3.992 451.42,13.793 477.333,13.793 477.333,32.111 466.412,32.111 466.412,44.883 489.532,44.908 489.52,3.992 		"/>
+	</g>
+	<g id="LWPOLYLINE_27_">
+		
+			<path fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+			M404.004,472.399h46.472v-153.45h-9.049V301.96c0-10.352-8.392-18.744-18.744-18.744s-18.744,8.392-18.744,18.744
+			c0,0.261,0.006,0.521,0.017,0.781L404.004,472.399z"/>
+	</g>
+	<g id="LWPOLYLINE_28_">
+		
+			<rect x="327.534" y="486.104" fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="38.266" height="32.124"/>
+	</g>
+	<g id="LWPOLYLINE_29_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			379.452,519.301 365.8,519.197 365.808,518.228 327.534,518.228 327.534,577.487 332.06,577.487 332.06,581.365 333.998,581.365 
+			333.998,582.076 349.382,582.076 349.382,581.365 379.452,581.365 		"/>
+	</g>
+	<g id="LWPOLYLINE_30_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			381.094,518.228 381.442,493.017 388.356,486.104 407.897,486.104 407.773,518.228 		"/>
+	</g>
+	<g id="LWPOLYLINE_31_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			433.152,517.259 420.872,517.259 420.872,519.197 407.773,519.197 407.773,518.228 381.094,518.228 381.094,519.197 
+			379.452,519.301 379.452,581.365 396.827,581.365 396.827,580.396 415.829,580.396 415.829,581.365 433.152,581.365 		"/>
+	</g>
+	<g id="LWPOLYLINE_32_">
+		
+			<rect x="454.742" y="487.009" fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="30.768" height="31.219"/>
+	</g>
+	<g id="LWPOLYLINE_33_">
+		
+			<polygon fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			433.152,517.259 445.435,517.259 445.435,519.197 454.742,519.197 454.742,518.228 485.51,518.228 485.51,576.646 
+			479.563,576.646 479.563,580.396 473.617,580.396 473.617,581.106 458.232,581.106 458.232,580.396 433.152,580.396 		"/>
+	</g>
+	<g id="MTEXT_16_">
+		<text transform="matrix(1 0 0 1 346.7554 502.1504)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Baño</text>
+		<text transform="matrix(1 0 0 1 342.3755 505.4502)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 7.35m</text>
+		<text transform="matrix(1 0 0 1 356.3252 504.3154)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_17_">
+		<text transform="matrix(1 0 0 1 391.5444 502.5635)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Baño</text>
+		<text transform="matrix(1 0 0 1 387.1655 505.8643)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 4.95m</text>
+		<text transform="matrix(1 0 0 1 401.1152 504.7285)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_18_">
+		<text transform="matrix(1 0 0 1 467.9795 502.5635)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Baño</text>
+		<text transform="matrix(1 0 0 1 463.5996 505.8643)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 5.74m</text>
+		<text transform="matrix(1 0 0 1 477.5498 504.7285)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_19_">
+		<text transform="matrix(1 0 0 1 419.7764 383.0273)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 49.80m</text>
+		<text transform="matrix(1 0 0 1 435.1553 381.8916)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="LWPOLYLINE_34_">
+		
+			<polyline fill="none" stroke="#0000FF" stroke-width="1.1339" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			327.534,415.906 348.415,415.906 348.415,449.519 327.534,449.519 327.534,483.518 367.739,483.518 367.47,519.21 
+			377.564,519.197 377.564,493.017 384.478,486.104 380.6,486.104 380.6,483.518 409.837,483.518 409.837,517.259 452.803,517.259 
+			452.803,484.422 485.465,484.422 485.465,432.712 461.671,432.712 461.671,377.124 479.706,377.124 479.706,384.865 
+			485.524,384.865 485.524,326.691 484.231,326.691 484.231,322.813 488.761,322.813 488.761,225.871 406.991,225.871 
+			406.991,135.377 487.77,135.377 487.77,122.45 455.234,122.45 455.234,81.843 468.032,81.843 467.82,59.96 431.883,59.96 
+			431.883,4.202 348.089,4.202 348.089,29.371 327.534,29.371 327.534,99.18 348.063,99.18 348.063,132.792 327.534,132.792 
+			327.534,206.479 348.415,206.479 348.415,236.212 327.534,236.212 327.534,309.944 348.865,309.944 348.865,342.264 
+			327.534,342.264 327.534,415.906 		"/>
+	</g>
+	<g id="MTEXT_20_">
+		<text transform="matrix(1 0 0 1 385.6504 258.5815)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">AZOTEA</text>
+		<text transform="matrix(1 0 0 1 381.9341 261.8818)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 319.47m</text>
+		<text transform="matrix(1 0 0 1 398.7412 260.7471)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+	<g id="MTEXT_21_">
+		<text transform="matrix(1 0 0 1 379.4106 63.6509)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">AZOTEA</text>
+		<text transform="matrix(1 0 0 1 375.6943 66.9521)" fill="#0000FF" font-family="'ArialMT'" font-size="2.7077">Área: 319.47m</text>
+		<text transform="matrix(1 0 0 1 392.5015 65.8164)" fill="#0000FF" font-family="'ArialMT'" font-size="1.8954">2</text>
+	</g>
+</g>
+<g id="A_x5F_Areas">
+	<g id="MTEXT_4_">
+		<text transform="matrix(1 0 0 1 447.7803 156.1128)" fill="#FF0000" font-family="'ArialMT'" font-size="2.2187">BODEGA 601</text>
+		<text transform="matrix(1 0 0 1 447.5498 158.8169)" fill="#FF0000" font-family="'ArialMT'" font-size="2.2187">Área: 15.85m</text>
+		<text transform="matrix(1 0 0 1 460.1514 157.8867)" fill="#FF0000" font-family="'ArialMT'" font-size="1.5531">2</text>
+	</g>
+	<g id="MTEXT_5_">
+		<text transform="matrix(1 0 0 1 446.6299 204.3726)" fill="#FF0000" font-family="'ArialMT'" font-size="2.2187">BODEGA 602</text>
+		<text transform="matrix(1 0 0 1 446.5381 207.0762)" fill="#FF0000" font-family="'ArialMT'" font-size="2.2187">Área: 14.95m</text>
+		<text transform="matrix(1 0 0 1 459.1396 206.1465)" fill="#FF0000" font-family="'ArialMT'" font-size="1.5531">2</text>
+	</g>
+	<g id="LWPOLYLINE_7_">
+		
+			<polygon fill="none" stroke="#9FFF7F" stroke-width="0.9921" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			488.761,139.255 488.761,167.696 466.009,167.696 466.009,180.624 418.626,180.624 418.626,154.123 414.748,154.175 
+			414.748,143.134 418.626,143.134 418.626,139.255 		"/>
+	</g>
+	<g id="LWPOLYLINE_8_">
+		
+			<polygon fill="none" stroke="#9FFF7F" stroke-width="0.9921" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+			488.761,221.992 488.761,200.015 466.009,200.015 466.009,180.624 418.626,180.624 418.626,207.125 414.748,207.125 
+			415.136,218.167 419.015,218.114 419.066,221.992 		"/>
+	</g>
+</g>
+<g id="_x30_">
+	<g id="MTEXT_26_">
+		<text transform="matrix(1 0 0 1 412.4609 594.0879)" font-family="'ArialMT'" font-size="2.2637">EJE CENTRAL LAZARO CARDENAS 38</text>
+	</g>
+</g>
+</svg>
