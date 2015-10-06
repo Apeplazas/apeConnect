@@ -36,18 +36,16 @@
 
 <h3 id="mainTit">Creando nuevo contacto</h3>
 <? foreach($perfil as $row):?>
-<div id="actions">	
-	<span class="back">
+<span class="back">
 	 <a class="addToolSmall" href="javascript:window.history.go(-1);"><i class="iconBack">Regresar</i></button></a>
-	</span>
-</div>
-	
+</span>
+
 <form action="<?=base_url()?>prospectos/editarProspecto/<?=$this->uri->segment(3);?>" method="post">
 <?= $this->session->flashdata('msg');?>
 <div class="wrapListForm" id="wrapListForm1">
-	<span class="msgBar grayBox">Datos personales</span>	    
-	
-		
+	<span class="msgBar grayBox">Datos personales</span>
+
+
 	<fieldset>
 		<div class="wrapLabel">
 		  <label><span class="obli">*</span>Primer nombre</label>
@@ -62,14 +60,14 @@
 	    <? if($errorPrimerNombre):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorPrimerNombre?></em></div><?endif?>
 	    <input class="medInp" name="primerNombre" value="<? if ($row->pnombre):?><?=$row->pnombre?><?endif?><?= set_value('primerNombre');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 		 <label>Segundo nombre</label>
 	    </div>
 	    <input class="bigInp" name="segundoNombre" value="<? if ($row->snombre):?><?=$row->snombre?><?endif?><?=set_value('segundoNombre');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label><span class="obli">*</span>Apellido paterno</label>
@@ -77,14 +75,14 @@
 	    <? if($errorApellidoPaterno):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?=$errorApellidoPaterno?></em></div><?endif?>
 	    <input class="bigInp" name="apellidoPaterno" value="<? if ($row->apellidop):?><?=$row->apellidop?><?endif?><?=set_value('apellidoPaterno');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	   <div class="wrapLabel">
 		  <label>Apellido materno</label>
 	    </div>
 	    <input class="bigInp" name="apellidoMaterno" value="<? if ($row->apellidom):?><?=$row->apellidom?><?endif?><?=set_value('apellidoMaterno');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 		<div class="wrapLabel">
 	      <label><span class="obli">*</span>Correo electrónico</label>
@@ -92,7 +90,7 @@
 		<? if($errorEmail):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorEmail?></em></div><?endif?>
 		<input class="bigInp" name="email" value="<? if ($row->correo):?><?=$row->correo?><?endif?><?=set_value('email');?>" type="text"/>
 	</fieldset>
-	      
+
 	<fieldset>
 	    <div class="wrapLabel">
 	      <label><span class="obli">*</span>Teléfono</label>
@@ -100,14 +98,14 @@
 		<? if($errorTelefono):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorTelefono?></em></div><?endif?>
 	    <input class="bigInp soloNumeros" name="telefono" value="<? if ($row->telefono):?><?=$row->telefono?><?endif?><?=set_value('telefono');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 	    <label>Celular</label>
 	    </div>
 		<input class="bigInp soloNumeros" name="mobile" value="<? if ($row->celular):?><?=$row->celular?><?endif?><?=set_value('mobile');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label><span class="obli">*</span>Actividad</label>
@@ -120,37 +118,9 @@
 		    <option value="Servicios">Servicios</option>
 	    </select>
 	</fieldset>
-	
-	<fieldset>
-		<div class="wrapLabel">
-		  <label><span class="obli">*</span>Propiedad</label>
-		</div>
-		<select name="plaza[]" id="idPlaza" class="selMed selPlaza">
-			<? if(!$cadena):?>
-			<option value="" checked>Seleccione una opción</option>
-			<? endif?>
-		    
-		    <? foreach($plazas as $p):?>
-		    <option value="<?= $p->clavePropiedad;?>"><?= $p->propiedad;?></option>
-		    <? endforeach; ?>
-	    </select>
-	    
-		    
-	    <span class="plusPlaza">Agregar Plaza</span>
-	    
-	    
-	   
-	    <div  id="masPlazas">
-			<? foreach($zonas as $z):?>
-			<div class="prel f100">
-				<div id="<?= $z->clavePropiedad;?>" class="delToolSmallThree delPlaza"><i class="iconDelete">Borrar</i></div>
-				<input type="hidden" name="plaza[]" value="<?= $z->clavePropiedad;?>" />
-				<div class="plazaSel"><?= ucfirst($z->propiedad);?></div>
-			</div>
-			<? endforeach; ?>
-	    </div>
-	</fieldset>
-	
+
+
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label><span class="obli">*</span>Origen cliente</label>
@@ -165,27 +135,27 @@
 		    <? endforeach; ?>
 		</select>
 	</fieldset>
-		
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Giro</label>
 	    </div>
 	    <select id="infoGiro" name="giro" class="selBig">
 		    <? if($giro):?><option value="<?= $giro?>" checked><?= $giro?></option><?endif?>
-		    <? if($row->giro):?> 
+		    <? if($row->giro):?>
 		    <? $g = $this->prospectos_model->cargarGirosProspecto($row->id);?>
 		    <? foreach($g as $gir):?>
 		    <option value="<?=$row->giro?>" checked><?=$gir->giroProspecto?></option>
 		    <? endforeach; ?>
 		    <?endif;?>
-		    
-		    
+
+
 		    <? foreach($giros as $g):?>
 		    <option value="<?= $g->giroID;?>"><?= $g->giro;?></option>
 		    <? endforeach; ?>
 	    </select>
 	</fieldset>
-	
+
 	<? if ($user['tipoUsuario'] == 'Administrador'):?>
 	<fieldset>
 	    <div class="wrapLabel">
@@ -195,18 +165,50 @@
 		    <option value="<?=$user['usuarioID']?>" checked ><?=$user['nombre'];?></option>
 		    <? foreach($vendedores as $v):?>
 		      <option value="<?= $v->usuarioID;?>"><?= $v->nombreCompleto;?></option>
-		    <? endforeach; ?>	    
+		    <? endforeach; ?>
 	    </select>
 	</fieldset>
 	<?endif?>
-	
-		
-		
+
+
+
+	<fieldset>
+		<div class="wrapLabel">
+		  <label><span class="obli">*</span>Propiedad</label>
+		</div>
+		<select name="plaza[]" id="idPlaza" class="selMed selPlaza">
+			<? if(!$cadena):?>
+			<option value="" checked>Seleccione una opción</option>
+			<? endif?>
+
+		    <? foreach($plazas as $p):?>
+		    <option value="<?= $p->clavePropiedad;?>"><?= $p->propiedad;?></option>
+		    <? endforeach; ?>
+	    </select>
+
+
+	    <span class="plusPlaza">Agregar Plaza</span>
+
+
+
+	    <div  id="masPlazas">
+			<? foreach($zonas as $z):?>
+			<div class="prel f100">
+				<div id="<?= $z->clavePropiedad;?>" class="delToolSmallThree delPlaza"><i class="iconDelete">Borrar</i></div>
+				<input type="hidden" name="plaza[]" value="<?= $z->clavePropiedad;?>" />
+				<div class="plazaSel"><?= ucfirst($z->propiedad);?></div>
+			</div>
+			<? endforeach; ?>
+	    </div>
+	</fieldset>
+
+
+
 </div>
 
 <div class="wrapListForm" id="wrapListForm2">
 	<span class="msgBar grayBox">Detalles de la dirección</span>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Estado</label>
@@ -219,10 +221,10 @@
 		    <? foreach($estados as $estadosRow):?>
 		    <option value="<?= $estadosRow->nombreEstado?>"><?= $estadosRow->nombreEstado?></option>
 		    <? endforeach;?>
-		    
+
 		</select>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Municipio</label>
@@ -234,7 +236,7 @@
 		    <option value="">Seleccione un municipio</option>
 		</select>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Colonia</label>
@@ -246,7 +248,7 @@
 		    <option value="">Seleccione una colonia</option>
 		</select>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Código postal</label>
@@ -254,7 +256,7 @@
 	    <? if($errorCp):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorCp?></em></div><?endif?>
 	    <input type="text" class="bigInp soloNumeros" id="cp" name="cp" value="<? if ($row->cp):?><?=$row->cp?><?endif?><?= set_value('cp');?>" />
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Calle</label>
@@ -262,7 +264,7 @@
     	<? if($errorCalle):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorCalle?></em></div><?endif?>
 		<textarea class="texMed" name="calle" value=""><? if ($row->calle):?><?=$row->calle?><?endif?><?=set_value('calle');?></textarea>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Número exterior</label>
@@ -270,19 +272,19 @@
     	<? if($errorExterior):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorExterior?></em></div><?endif?>
 		<input class="bigInp soloNumeros" name="exterior" value="<? if ($row->numeroExt):?><?=$row->numeroExt?><?endif?><?=set_value('exterior');?>" type="text"/>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Número interior</label>
     	</div>
 		<input class="bigInp soloNumeros" name="interior" value="<? if ($row->numeroInt):?><?=$row->numeroInt?><?endif?><?=set_value('interior');?>" type="text"/>
 	</fieldset>
-	
+
 </div>
 
 <!-- Tu comentario
 <div class="wrapListForm">
-	<span class="msgBar grayBox">Datos personales</span>	
+	<span class="msgBar grayBox">Datos personales</span>
 	<fieldset>
 	<? if($errorComentario):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorComentario?></em></div><?endif?>
 	<div class="wrapLabel">
@@ -321,10 +323,10 @@
 	</fieldset>
 </div>
  -->
- 
- 
+
+
 <div class="wrapListForm" id="wrapListForm3">
-	<span class="msgBar grayBox">Información importante</span>	
+	<span class="msgBar grayBox">Información importante</span>
 	<div class="comenWrap">
 	    <div class="wrapLabel">
 		  <label>Comentario</label>
@@ -332,7 +334,7 @@
     	<? if($errorComentario):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorComentario?></em></div><?endif?>
 		<textarea class="texBig" name="comentario" value=""><? if ($row->comentario):?><?=$row->comentario?><?endif?><?=set_value('comentario');?></textarea>
 	</div>
-	
+
 	<span id="formSub">
 	  <input class="mainBotton" type="submit" name="button" id="button" value="Guardar" class='contacto_enviar' />
 	</span>

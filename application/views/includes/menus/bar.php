@@ -7,7 +7,7 @@
   	    <em>Dashboard</em>
   	  </a>
   	</li>
-  	<?php if(isset($user['modulos']) && in_array('proyectos', $user['modulos'])):?>		
+  	<?php if(isset($user['modulos']) && in_array('proyectos', $user['modulos'])):?>
   		<li class="prel <? if ($this->uri->segment(1) == 'proyectos'):?>active<? else:?>inactive<? endif?>">
   		  <a href="<?=base_url()?>proyectos/obras">
   		    <span class="icon"><img src="<?=base_url()?>assets/graphics/obras.png" alt="Obras y Proyectos" /></span>

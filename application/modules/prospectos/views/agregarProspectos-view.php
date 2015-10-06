@@ -40,18 +40,18 @@
 
 <h3 id="mainTitAbs">Creando nuevo prospecto</h3>
 
-<div id="actions">	
+<div id="actions">
 	<span class="back">
 	 <a class="addToolSmall" href="javascript:window.history.go(-1);"><i class="iconBack">Regresar</i></button></a>
 	</span>
 </div>
-	
+
 <form id="addPros" action="<?=base_url()?>prospectos/guardarProspecto" method="post">
 <?= $this->session->flashdata('msg');?>
 <div class="wrapListForm" id="wrapListForm1">
-	<span class="msgBar grayBox">Datos personales</span>	    
-	
-		
+	<span class="msgBar grayBox">Datos personales</span>
+
+
 	<fieldset>
 		<div class="wrapLabel">
 		  <label><span class="obli">*</span>Primer nombre</label>
@@ -66,14 +66,14 @@
 	    <? if($errorPrimerNombre):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorPrimerNombre?></em></div><?endif?>
 	    <input class="medInp soloLetras" name="primerNombre" value="<?= set_value('primerNombre');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 		 <label>Segundo nombre</label>
 	    </div>
 	    <input class="bigInp soloLetras" name="segundoNombre" value="<?=set_value('segundoNombre');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label><span class="obli">*</span>Apellido paterno</label>
@@ -81,14 +81,14 @@
 	    <? if($errorApellidoPaterno):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?=$errorApellidoPaterno?></em></div><?endif?>
 	    <input class="bigInp soloLetras" name="apellidoPaterno" value="<?=set_value('apellidoPaterno');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	   <div class="wrapLabel">
 		  <label>Apellido materno</label>
 	    </div>
 	    <input class="bigInp soloLetras" name="apellidoMaterno" value="<?=set_value('apellidoMaterno');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 		<div class="wrapLabel">
 	      <label><span class="obli">*</span>Correo electrónico</label>
@@ -96,7 +96,7 @@
 		<? if($errorEmail):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorEmail?></em></div><?endif?>
 		<input type="email" class="bigInp" name="email" value="<?=set_value('email');?>" type="text"/>
 	</fieldset>
-	      
+
 	<fieldset>
 	    <div class="wrapLabel">
 	      <label><span class="obli">*</span>Teléfono</label>
@@ -104,14 +104,14 @@
 		<? if($errorTelefono):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorTelefono?></em></div><?endif?>
 	    <input class="bigInp soloNumeros" name="telefono" value="<?=set_value('telefono');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 	    <label>Celular</label>
 	    </div>
 		<input class="bigInp soloNumeros" name="mobile" value="<?=set_value('mobile');?>" type="text"/>
 	</fieldset>
-	    
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label><span class="obli">*</span>Actividad</label>
@@ -124,7 +124,52 @@
 		    <option value="Servicios">Servicios</option>
 	    </select>
 	</fieldset>
-	
+
+	<fieldset>
+	    <div class="wrapLabel">
+		  <label><span class="obli">*</span>Origen cliente</label>
+	    </div>
+	     <? if($errorOrigen):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorOrigen?></em></div><?endif?>
+	    <select name="origen" class="selBig">
+		    <? if($origen):?><option value="<?= $origen?>"><?= $origen?></option><?endif?>
+		    <option value="" checked>Seleccione el origen</option>
+		    <? foreach($origenCliente as $rowOrigen):?>
+		    <option value="<?= $rowOrigen->origen;?>"><?= $rowOrigen->origen;?></option>
+		    <? endforeach; ?>
+		</select>
+	</fieldset>
+
+	<fieldset>
+	    <div class="wrapLabel">
+		  <label><span class="obli">*</span>Giro</label>
+	    </div>
+	    <select name="giro" class="selBig">
+		    <? if($giro):?><option value="<?= $giro?>" checked><?= $giro?></option><?endif?>
+		    <option value="" checked>Seleccione una opción</option>
+		    <? foreach($giros as $g):?>
+		    <option value="<?= $g->giroID;?>"><?= $g->giro;?></option>
+		    <? endforeach; ?>
+	    </select>
+	</fieldset>
+
+	<? if ($user['tipoUsuario'] == 'Administrador'):?>
+	<fieldset>
+	    <div class="wrapLabel">
+		  <label>Asignado a:</label>
+	    </div>
+	    <select name="asignado" class="selBig">
+		    <option value="<?=$user['usuarioID']?>" checked ><?=$user['nombre'];?></option>
+		    <? foreach($vendedores as $v):?>
+		      <option value="<?= $v->usuarioID;?>"><?= $v->nombreCompleto;?></option>
+		    <? endforeach; ?>
+	    </select>
+	</fieldset>
+	<? else:?>
+	<fieldset>
+	<input type="hidden" name="asignado" value="<?=$user['usuarioID']?>" />
+	</fieldset>
+	<?endif?>
+
 	<fieldset>
 		<div class="wrapLabel">
 		  <label><span class="obli">*</span>Propiedad</label>
@@ -134,15 +179,15 @@
 			<? if(!$cadena):?>
 			<option value="" checked>Seleccione una opción</option>
 			<? endif?>
-		    
+
 		    <? foreach($plazas as $p):?>
 		    <option value="<?= $p->clavePropiedad;?>"><?= $p->propiedad;?></option>
 		    <? endforeach; ?>
 	    </select>
 	    <span class="plus">Agregar Plaza</span>
-	    
-	    
-	   
+
+
+
 	    <div  id="masPlazas">
 		<? if ($cadena != ''):?>
 		    <? foreach($cadena as $r):?>
@@ -163,57 +208,13 @@
 	    </div>
 	</fieldset>
 	
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label><span class="obli">*</span>Origen cliente</label>
-	    </div>
-	     <? if($errorOrigen):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorOrigen?></em></div><?endif?>
-	    <select name="origen" class="selBig">
-		    <? if($origen):?><option value="<?= $origen?>"><?= $origen?></option><?endif?>
-		    <option value="" checked>Seleccione el origen</option>
-		    <? foreach($origenCliente as $rowOrigen):?>
-		    <option value="<?= $rowOrigen->origen;?>"><?= $rowOrigen->origen;?></option>
-		    <? endforeach; ?>
-		</select>
-	</fieldset>
-		
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label><span class="obli">*</span>Giro</label>
-	    </div>
-	    <select name="giro" class="selBig">
-		    <? if($giro):?><option value="<?= $giro?>" checked><?= $giro?></option><?endif?>
-		    <option value="" checked>Seleccione una opción</option>
-		    <? foreach($giros as $g):?>
-		    <option value="<?= $g->giroID;?>"><?= $g->giro;?></option>
-		    <? endforeach; ?>
-	    </select>
-	</fieldset>
-	
-	<? if ($user['tipoUsuario'] == 'Administrador'):?>
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label>Asignado a:</label>
-	    </div>
-	    <select name="asignado" class="selBig">
-		    <option value="<?=$user['usuarioID']?>" checked ><?=$user['nombre'];?></option>
-		    <? foreach($vendedores as $v):?>
-		      <option value="<?= $v->usuarioID;?>"><?= $v->nombreCompleto;?></option>
-		    <? endforeach; ?>	    
-	    </select>
-	</fieldset>
-	<? else:?>
-	<fieldset>
-	<input type="hidden" name="asignado" value="<?=$user['usuarioID']?>" />
-	</fieldset>
-	<?endif?>
 	<!-- Se quito el campo de fecha de cierre por que se va a utilizar la fecha en la que se realizo cotizacion
 	<fieldset>
 	<div class="wrapLabel">
 	  <label>Fecha de cierre</label>
 	</div>
 	<input class="medInp bloquea" id="datepicker" name="fechaCierre" value="<?=set_value('fechaCierre');?>"  type="text" />
-	
+
 	</fieldset>
 	-->
 	<script>
@@ -223,17 +224,17 @@
 	      buttonImage: "<?=base_url()?>assets/graphics/calendar.png",
 	      buttonImageOnly: true,
 	      buttonText: "Fecha probable",
-	      dateFormat: 'yy-mm-dd' 
+	      dateFormat: 'yy-mm-dd'
 	    });
 	  });
 	</script>
-		
-		
+
+
 </div>
 
 <div class="wrapListForm" id="wrapListForm2">
 	<span class="msgBar grayBox">Detalles de la dirección</span>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Estado</label>
@@ -245,10 +246,10 @@
 		    <? foreach($estados as $estadosRow):?>
 		    <option value="<?= $estadosRow->nombreEstado?>"><?= $estadosRow->nombreEstado?></option>
 		    <? endforeach;?>
-		    
+
 		</select>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Municipio</label>
@@ -259,7 +260,7 @@
 		    <option value="">Seleccione un municipio</option>
 		</select>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Colonia</label>
@@ -270,7 +271,7 @@
 		    <option value="">Seleccione una colonia</option>
 		</select>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Código postal</label>
@@ -278,7 +279,7 @@
 	    <? if($errorCp):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorCp?></em></div><?endif?>
 	    <input type="text" class="bigInp soloNumeros" id="cp" name="cp" value="<?= set_value('cp');?>" />
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Calle</label>
@@ -286,7 +287,7 @@
     	<? if($errorCalle):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorCalle?></em></div><?endif?>
 		<textarea class="texMed" name="calle" value=""><?=set_value('calle');?></textarea>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Número exterior</label>
@@ -294,19 +295,19 @@
     	<? if($errorExterior):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorExterior?></em></div><?endif?>
 		<input class="bigInp soloNumeros" name="exterior" value="<?=set_value('exterior');?>" type="text"/>
 	</fieldset>
-	
+
 	<fieldset>
 	    <div class="wrapLabel">
 		  <label>Número interior</label>
     	</div>
 		<input class="bigInp soloNumeros" name="interior" value="<?=set_value('interior');?>" type="text"/>
 	</fieldset>
-	
+
 </div>
 
 <!-- Tu comentario
 <div class="wrapListForm">
-	<span class="msgBar grayBox">Datos personales</span>	
+	<span class="msgBar grayBox">Datos personales</span>
 	<fieldset>
 	<? if($errorComentario):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorComentario?></em></div><?endif?>
 	<div class="wrapLabel">
@@ -345,10 +346,10 @@
 	</fieldset>
 </div>
  -->
- 
- 
+
+
 <div class="wrapListForm" id="wrapListForm3">
-	<span class="msgBar grayBox">Información importante</span>	
+	<span class="msgBar grayBox">Información importante</span>
 	<div class="comenWrap">
 	    <div class="wrapLabel">
 		  <label>Comentario</label>
@@ -356,13 +357,13 @@
     	<? if($errorComentario):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorComentario?></em></div><?endif?>
 		<textarea class="texBig" name="comentario" value=""><?=set_value('comentario');?></textarea>
 	</div>
-	
+
 	<span id="formSub">
 	  <input class="mainBotton" type="submit" name="button" id="button" value="Guardar" class='contacto_enviar' />
 	</span>
 
 
-	  
+
 </form>
 </div>
 <script type="text/javascript">

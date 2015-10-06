@@ -13,20 +13,6 @@
 <title><?=$rowOpt->enlaceTitulo;;?></title>
 <? endforeach; ?>
 <meta name="robots" content="All,index, follow" />
-<!-- Google Fonts embed code -->
-<script type="text/javascript">
-	(function() {
-	var link_element = document.createElement("link"),
-    s = document.getElementsByTagName("script")[0];
-	if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
-    	link_element.href = "http:";
-    }
-    link_element.href += "//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,300,400italic,400,700italic,700";
-    link_element.rel = "stylesheet";
-    link_element.type = "text/css";
-    s.parentNode.insertBefore(link_element, s);
-})();
-</script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/modernizr.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.dataTables.min.js" type="text/javascript"></script>
@@ -41,7 +27,7 @@
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/favicon.png" />
 <script> var ajax_url = "http://www.apeplazas.com/apeConnect/ajax/"; </script>
 <? if($this->uri->segment(2) == 'finalizarCotizacion'):?>
- <style type="text/css">html{background-color:#555}</style> 
+ <style type="text/css">html{background-color:#555}</style>
 <?endif?>
 </head>
 
@@ -50,7 +36,7 @@
 <div class="f100 blue nav">
 <nav>
 <a id="dash" href="<?=base_url()?>" title="Inicio"><img src="<?=base_url()?>assets/graphics/inicio.png" alt="Dashboard" /></a>
-<? $this->load->view('includes/menus/barV2');?>	
+
 	<ul id="preferences">
 		<li class="prel">
 		  <a class="cheers" id="options">Hola <?=$user['nombre'];?><i id="triangle"></i></a>
@@ -73,15 +59,17 @@
 
 <section id="headBus" class="f100">
 <img id="logoHeader" src="<?=base_url()?>assets/graphics/apeplazas.png" alt="Administradora de Plazas Especializadas" />
-<form id="search" action="">
+
+<!--<form id="search" action="">
 <span>Busqueda Avanzada: </span>
 	<fieldset>
 		<input type="text" id="avanz" placeholder="Escribe la palabra y presiona Enter"/>
 	</fieldset>
 	<fieldset class="go">
-		<input id="searchGo" type="img" src="<?=base_url()?>assets/graphics/search.png"/>
+		<input id="searchGo" type="img" src="assets/graphics/search.png"/>
 	</fieldset>
-</form>
+</form> --->
+
 <div id="wrapPlus" class="prel">
 <button id="add"><img src="<?=base_url()?>assets/graphics/add.png" alt="Agregar" /></button>
 	<div id="popupQuick">
@@ -116,47 +104,26 @@
 
 <div id="adjustWrap<?if($this->uri->segment(2)== 'finalizarCotizacion'):?>Black<?endif?>">
 	<section id="content" class="open">
-	<!--div id="bar">
+
+
+	<div id="bar">
 	<nav id="navMenu" class="prel">
 	<button class="arrowLeft">Cerrar</button>
-	
-	
+
+
 	<a href="<?=base_url()?>planogramas" title="Vista de planogramas"><h1><?= ucfirst($this->uri->segment(1));?></h1></a>
 	<ul>
 		<li class="main"><a href="<?=base_url()?>" title="Dashboard"><strong href="<?=base_url()?>">Dashboard</strong></a></li>
-		<li class="main">
-		<strong class="tit" href="<?=base_url()?>">Reportes</strong>
-		<ul class="submenu" style="display:none">
-			<li><a href="<?=base_url()?>prospectos/cotizaciones">Cotizaciones</a></li>
-			<li><a href="<?=base_url()?>">Locales disponibles por plaza</a></li>
-			<li><a href="<?=base_url()?>">Uno más</a></li>
-		</ul>
-		</li>
-		
-	</ul>
-
-	<ul>
-		<li class="main">
-		<strong class="tit" href="<?=base_url()?>">Renovaciones</strong>
-		<ul class="submenu" style="display:none">
-			<li><a href="<?=base_url()?>">Asignacion de precios</a></li>
-			<li><a href="<?=base_url()?>">Test</a></li>
-			<li><a href="<?=base_url()?>">Uno más</a></li>
-		</ul>
-		</li>
-		<li class="main">
-		<strong class="tit" href="<?=base_url()?>">Analisis</strong>
-		<ul class="submenu" style="display:none">
-		  <li><a href="<?=base_url()?>">Reportes</a></li>
-		</ul>
-		</li>
+		<? $this->load->view('includes/menus/barV3');?>
 	</ul>
 
 
-	
+
 	</nav>
-	</div-->
-	<div id="wrapAll" class="wrapClose">
+</div>
+
+
+	<div id="wrapAll" class="wrapOpen">
 	<?= $content; ?>
 	</div>
 	<br class="clear">
@@ -165,10 +132,6 @@
 
 </section>
 
-
-
-<footer>Powered by APE Plazas CRM Mexico © www.apeplazas.com 1.0.0  © 2015 apeconnect</footer>
-<br class="clear"/>
 </div>
 
 <script>

@@ -22,14 +22,14 @@
 
 
 <section class="conLog">
-	<span><img src="<?=base_url()?>assets/graphics/logoConekta.png" alt="APE Conecta" /></span>
+	<span></span>
     <div class="login">
       <h1>Administración de Plazas Especializadas</h1>
       <form  id="loginForm"  method="post">
         <p><input type="text" name="var" value="" placeholder="Username or Email"></p>
         <p><input type="password" name="password" value="" placeholder="Password"></p>
-        
-        <p class="submit"><input type="submit" name="commit" value="Login"></p>
+
+        <p class="submit"><input type="submit" name="commit" value="Entrar"></p>
       </form>
     </div>
 
@@ -37,9 +37,9 @@
       <p>¿Olvidaste tu contraseña? <a href="<?=base_url()?>l">Click aquí</a>.</p>
     </div>
 </section>
-  
-  
-  
+
+
+
 
 
 

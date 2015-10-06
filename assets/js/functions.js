@@ -42,7 +42,7 @@ jQuery(function($) {
 	$("#emaCheck").keyup(function() {
 		var filtro = $("#emaCheck").val();
 		$("#ajaxEma").removeAttr("disabled");
-		$.post("http://www.apeplazas.com/apeConnect/ajax/verificaEmail", {
+		$.post("http://localhost:8888/apeConnect/ajax/verificaEmail", {
 			filtro : filtro
 		}, function(data) { sucess:
 			$("#ajaxEma").empty().append(data);
@@ -58,7 +58,7 @@ jQuery(function($) {
 		$.ajax({
 			data : $(this).serialize(),
 			dataType : 'json',
-			url : 'http://www.apeplazas.com/apeConnect/registrate/valida',
+			url : 'http://localhost:8888/apeConnect/registrate/valida',
 			type : 'post',
 			beforeSend : function() {
 				$(".msgBlack").html("<span class='msg<'>Procesando, espere por favor...</span>");
@@ -72,7 +72,7 @@ jQuery(function($) {
 		});
 
 	});
-	
+
 	/********************************************************************************************************************
 	 Cotización
 	********************************************************************************************************************/
@@ -268,8 +268,8 @@ jQuery(function($) {
 		});
 
 	})
-	
-	
+
+
 	/********************************************************************************************************************
 	Cierra ventana en click afuera de ventana
 	+********************************************************************************************************************/
@@ -289,8 +289,8 @@ jQuery(function($) {
     	e.preventDefault();
 		$("#addPlaza").show();
     });
-    
-    
+
+
 	$('html').click(function() {
 		$(".popup").hide();
 		$(".popupTwo").hide();
@@ -307,12 +307,12 @@ jQuery(function($) {
 	$('#canDel').click(function() {
 		$(".delVector").hide();
 	});
-	
-	
+
+
 	$('.link, #filtroTool, .busqueda, .fanc, #asigInp, .habilitado, #habilitado, .seleccionado, .areaPublica, #planoGrama, #planoGramaAsig, #addPlaza, #planMas, #delTool, .reciente, .deshabilitado, .texto, .selected').click(function(event){
     	event.stopPropagation();
     });
-	    
+
     // Cambia clase en barra izquierda menu
     $('#bar button').click(function() {
 	    $('#bar').toggleClass('barLeft');
@@ -322,7 +322,7 @@ jQuery(function($) {
     	$(this).toggleClass('arrowLeft');
     	$(this).toggleClass('arrowRight');
     });
-	
+
 	// Cambia clase en barra derecha
     $('#winRight button').click(function() {;
 	    $('#winRight').toggleClass('barClose');
@@ -330,16 +330,15 @@ jQuery(function($) {
     	$(this).toggleClass('winRightClose');
     	$(this).toggleClass('winRight');
     });
-	
-	$(".tit").click(function(e){
+
+	$(".main strong").click(function(e){
 		$(this).siblings().toggle();
 		$(this).toggleClass('titActive');
-		$(this).toggleClass('tit');
     });
     //// Solo permite numeros en los inputs de telefonos y numericos
     $(".soloNumeros").keydown(function (e) {
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
-            (e.keyCode == 65 && e.ctrlKey === true) || 
+            (e.keyCode == 65 && e.ctrlKey === true) ||
             (e.keyCode >= 35 && e.keyCode <= 40)) {
             return;
         }
@@ -347,8 +346,8 @@ jQuery(function($) {
             e.preventDefault();
         }
     });
-    
-    
+
+
     $(".soloLetras").keydown (function (e){
        key = e.keyCode || e.which;
 
@@ -374,69 +373,69 @@ jQuery(function($) {
             return false;
         }
      });
-    
+
     $(".soloLetras, .uppercase").keyup(function (e){
         $(this).val($(this).val().toUpperCase());
     });
-    
-    
-    
+
+
+
     $('.bloquea').keyup(function() {
 	    var sanitized = $('.bloquea').val().replace(/[^]/g, '');
 	    $(this).val(sanitized);
 	});
-    
+
     //// Carga estados y municipio desde la base de datos
     //Para cargar los municipios
 	$("#estado").change(function(){
 		var estadoFiltro = $(this).val();
 		$("#municipioDir").removeAttr("disabled");
-		$.post("http://www.apeplazas.com/apeConnect/ajax/cargarMunicipios",{estadoFiltro:estadoFiltro},function(data){
-			sucess:				
+		$.post("http://localhost:8888/apeConnect/ajax/cargarMunicipios",{estadoFiltro:estadoFiltro},function(data){
+			sucess:
 				$("#municipio").empty().append(data);
 				$("#municipio").removeAttr("disabled");
 		});
-		
+
 	});
 	//Para cargar las colonias
 	$("#municipio").change(function(){
 		var estadoFiltro = $("#estado").val();
 		var municipioFiltro = $(this).val();
 		$("#colonia").removeAttr("disabled");
-		$.post("http://www.apeplazas.com/apeConnect/ajax/cargarColonias",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro},function(data){
-			sucess:				
+		$.post("http://localhost:8888/apeConnect/ajax/cargarColonias",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro},function(data){
+			sucess:
 				$("#colonia").empty().append(data);
 				$("#colonia").removeAttr("disabled");
 		});
-		
+
 	});
 	//Para cargar C.P.
 	$("#colonia").change(function(){
 		var estadoFiltro 	= $("#estado").val();
 		var municipioFiltro = $("#municipio").val();
 		var coloniaFiltro 	= $(this).val();
-		$.post("http://www.apeplazas.com/apeConnect/ajax/cargarCP",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro,coloniaFiltro:coloniaFiltro},function(data){
-			sucess:				
+		$.post("http://localhost:8888/apeConnect/ajax/cargarCP",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro,coloniaFiltro:coloniaFiltro},function(data){
+			sucess:
 				$("#cp").val(data);
 		});
-		
+
 	});
 	//Carga un select nuevo con mas plazas
 	$(".plus, .plusTwo").click(function(){
 		$(".plus").addClass("none");
 		var idPlaza 	= $("#idPlaza").val();
-		$.post("http://www.apeplazas.com/apeConnect/ajax/cargarMasPlazas",{idPlaza:idPlaza},function(data){
-			sucess:				
-				$("#masPlazas").append(data);	
+		$.post("http://localhost:8888/apeConnect/ajax/cargarMasPlazas",{idPlaza:idPlaza},function(data){
+			sucess:
+				$("#masPlazas").append(data);
 		});
-		
+
 	});
-	
-	
+
+
 	/********************************************************************************************************************
 	 Borrar Proyectos
 	 ********************************************************************************************************************/
-/*	
+/*
 	$('#proyectosBorrar').click(function(e){
 		e.preventDefault();
 		var allVals = [];
@@ -461,23 +460,23 @@ jQuery(function($) {
 			}
 		});
 	    }
-		
+
 	});
 */
 	$(".delThis").click(function() {
 		$(this).parent().remove();
 	});
-		
+
 	/// Borra en edicion la plaza seleccionada de la bd
 	$(".delPlaza").click(function() {
 		var idPlaza = $(this).attr("id");
-		$.post("http://www.apeplazas.com/apeConnect/ajax/borrarPlazaUsuario",{idPlaza:idPlaza},function(data){
-		sucess:				
-			$("#masPlazas").append(data);	
+		$.post("http://localhost:8888/apeConnect/ajax/borrarPlazaUsuario",{idPlaza:idPlaza},function(data){
+		sucess:
+			$("#masPlazas").append(data);
 		});
 		$(this).parent().remove();
 	});
-		
+
 	/// Agrega  plazas al usuario
 	$(".plusPlaza").click(function() {
 		var idPlaza = $("#idPlaza").val();
@@ -485,31 +484,31 @@ jQuery(function($) {
 		if(idPlaza == ''){
 			alert("No ha seleccionado ninguna plaza");
 		}
-		$.post("http://www.apeplazas.com/apeConnect/ajax/agregarPlazaPost",{idPlaza:idPlaza,textoPlaza:textoPlaza},function(data){
-		sucess:				
-			$("#masPlazas").append(data);	
-		});	
+		$.post("http://localhost:8888/apeConnect/ajax/agregarPlazaPost",{idPlaza:idPlaza,textoPlaza:textoPlaza},function(data){
+		sucess:
+			$("#masPlazas").append(data);
+		});
 	});
-		
+
 	//Carga un select nuevo con mas plazas
-	$(".plusModal").click(function(){			
+	$(".plusModal").click(function(){
 		var textoPlaza	= $("#plazaModal option:selected").text();
 		if (textoPlaza == 'Seleccione una opción'){
 			alert('Aun no has seleccionado una plaza.');
 		}
-		else{	
-			$.post("http://www.apeplazas.com/apeConnect/ajax/plazasEmpresas",{},function(data){
-			sucess:				
-				$("#modalPlazas").append(data);	
+		else{
+			$.post("http://localhost:8888/apeConnect/ajax/plazasEmpresas",{},function(data){
+			sucess:
+				$("#modalPlazas").append(data);
 			});
 			$(".plusModal").addClass("none");
 		}
 	});
-			
+
 	/********************************************************************************************************************
 	 Nueva Version Modo CRM
 	 ********************************************************************************************************************/
-	
+
 	$("#options").click(function(e){
     	e.preventDefault();
 		$("#popupPref").show();
@@ -531,10 +530,10 @@ jQuery(function($) {
 	$('.bigInp, .medInp, .selBig, .selMed').click(function() {
 		$(this).prev('.msgError').hide()
 	});
-	
+
 	$('#options').click(function() {
 		$("#popupQuick").hide();
-	});	
+	});
 	$('html').click(function() {
 		$("#popupQuick, #popupPref").hide();
 	});
