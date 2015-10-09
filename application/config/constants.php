@@ -40,7 +40,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
 
-define('BASEURL',	'http://www.apeplazas.com/apeConnect/');
+define('BASEURL',	'http://localhost:8888/apeConnect/');
 
 define('DIRCERTIFICADO',	$_SERVER['DOCUMENT_ROOT'].'/apeConnect/assets/graphics/documentosProveedores/certificado/');
 define('DIRACTAS',			$_SERVER['DOCUMENT_ROOT'].'/apeConnect/assets/graphics/documentosProveedores/actas/');

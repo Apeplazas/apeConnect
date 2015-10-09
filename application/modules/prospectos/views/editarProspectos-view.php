@@ -33,142 +33,165 @@
 <? $errorExterior           = form_error('exterior'); ?>
 <? $errorComentario         = form_error('comentario'); ?>
 
+<div id="mainTit">
+	<h3>Creando nuevo contacto</h3>
+</div>
 
-<h3 id="mainTit">Creando nuevo contacto</h3>
+<div class="wrapList">
 <? foreach($perfil as $row):?>
-<span class="back">
-	 <a class="addToolSmall" href="javascript:window.history.go(-1);"><i class="iconBack">Regresar</i></button></a>
-</span>
+	<div id="actions">
+		<span class="back">
+			<a class="addToolSmall" href="javascript:window.history.go(-1);"><i class="iconBack">Regresar</i></button></a>
+		</span>
+	</div>
 
-<form action="<?=base_url()?>prospectos/editarProspecto/<?=$this->uri->segment(3);?>" method="post">
-<?= $this->session->flashdata('msg');?>
-<div class="wrapListForm" id="wrapListForm1">
+	<form action="<?=base_url()?>prospectos/editarProspecto/<?=$this->uri->segment(3);?>" method="post">
+	<?= $this->session->flashdata('msg');?>
 	<span class="msgBar grayBox">Datos personales</span>
 
 
-	<fieldset>
-		<div class="wrapLabel">
-		  <label><span class="obli">*</span>Primer nombre</label>
-		</div>
-	    <select name="titulo" class="selSma">
-		    <option value="Sr">Sr</option>
-		    <option value="Sra">Sra</option>
-		    <option value="Ing">Ing</option>
-		    <option value="Lic">Lic</option>
-		    <option value="Otro">Otro</option>
-	    </select>
-	    <? if($errorPrimerNombre):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorPrimerNombre?></em></div><?endif?>
-	    <input class="medInp" name="primerNombre" value="<? if ($row->pnombre):?><?=$row->pnombre?><?endif?><?= set_value('primerNombre');?>" type="text"/>
-	</fieldset>
+	<table>
+		<thead>
+	  <tr>
+	    <th colspan="4">Datos personales</th>
+	  </tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>
+					<label><span class="obli">*</span>Primer nombre</label>
+				</th>
+				<th>
+					<select name="titulo" class="selSma">
+				    <option value="Sr">Sr</option>
+				    <option value="Sra">Sra</option>
+				    <option value="Ing">Ing</option>
+				    <option value="Lic">Lic</option>
+				    <option value="Otro">Otro</option>
+			    </select>
+			    <? if($errorPrimerNombre):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorPrimerNombre?></em></div><?endif?>
+			    <input class="medInp" name="primerNombre" value="<? if ($row->pnombre):?><?=$row->pnombre?><?endif?><?= set_value('primerNombre');?>" type="text"/>
+				</th>
+				<th>
+					<label>Segundo nombre</label>
+				</th>
+				<th>
+					<input class="bigInp" name="segundoNombre" value="<? if ($row->snombre):?><?=$row->snombre?><?endif?><?=set_value('segundoNombre');?>" type="text"/>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label><span class="obli">*</span>Apellido paterno</label>
+				</th>
+				<th>
+					<? if($errorApellidoPaterno):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?=$errorApellidoPaterno?></em></div><?endif?>
+			    <input class="bigInp" name="apellidoPaterno" value="<? if ($row->apellidop):?><?=$row->apellidop?><?endif?><?=set_value('apellidoPaterno');?>" type="text"/>
+				</th>
+				<th>
+					<label>Apellido materno</label>
+				</th>
+				<th>
+					<input class="bigInp" name="apellidoMaterno" value="<? if ($row->apellidom):?><?=$row->apellidom?><?endif?><?=set_value('apellidoMaterno');?>" type="text"/>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label><span class="obli">*</span>Correo electrónico</label>
+				</th>
+				<th>
+					<? if($errorEmail):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorEmail?></em></div><?endif?>
+					<input class="bigInp" name="email" value="<? if ($row->correo):?><?=$row->correo?><?endif?><?=set_value('email');?>" type="text"/>
+				</th>
+				<th>
+					<label><span class="obli">*</span>Teléfono</label>
+				</th>
+				<th>
+					<? if($errorTelefono):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorTelefono?></em></div><?endif?>
+				    <input class="bigInp soloNumeros" name="telefono" value="<? if ($row->telefono):?><?=$row->telefono?><?endif?><?=set_value('telefono');?>" type="text"/>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label>Celular</label>
+				</th>
+				<th>
+					<input class="bigInp soloNumeros" name="mobile" value="<? if ($row->celular):?><?=$row->celular?><?endif?><?=set_value('mobile');?>" type="text"/>
+				</th>
+				<th>
+					<label><span class="obli">*</span>Actividad</label>
+				</th>
+				<th>
+					<? if($errorActividad):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorActividad?></em></div><?endif?>
+			    <select name="actividad" class="selBig">
+					<? if($actividad):?><option checked value="<?= $actividad?>"><?= $actividad?></option><?endif?>
+					<? if($row->actividad):?> <option value="" checked><?=$row->actividad?></option><?endif;?>
+				    <option value="Ventas">Ventas </option>
+				    <option value="Servicios">Servicios</option>
+			    </select>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label><span class="obli">*</span>Origen cliente</label>
+				</th>
+				<th>
+					<? if($errorOrigen):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorOrigen?></em></div><?endif?>
+	 	    	<select name="origen" class="selBig">
+	 		    	<? if($origen):?><option value="<?= $origen?>"><?= $origen?></option><?endif?>
+	 		    	<? if($row->origenCliente):?> <option value="<?=$row->origenCliente?>" checked><?=$row->origenCliente?></option><?endif;?>
+	 		    		<option value="">Seleccione el origen</option>
+	 		    		<? foreach($origenCliente as $rowOrigen):?>
+	 		    		<option value="<?= $rowOrigen->origen;?>" ><?= $rowOrigen->origen;?></option>
+	 		    		<? endforeach; ?>
+					</select>
+				</th>
+				<th>
+					<label>Giro</label>
+				</th>
+				<th>
+					<select id="infoGiro" name="giro" class="selBig">
+				    <? if($giro):?><option value="<?= $giro?>" checked><?= $giro?></option><?endif?>
+				    <? if($row->giro):?>
+				    <? $g = $this->prospectos_model->cargarGirosProspecto($row->id);?>
+				    <? foreach($g as $gir):?>
+				    <option value="<?=$row->giro?>" checked><?=$gir->giroProspecto?></option>
+				    <? endforeach; ?>
+				    <?endif;?>
 
-	<fieldset>
-	    <div class="wrapLabel">
-		 <label>Segundo nombre</label>
-	    </div>
-	    <input class="bigInp" name="segundoNombre" value="<? if ($row->snombre):?><?=$row->snombre?><?endif?><?=set_value('segundoNombre');?>" type="text"/>
-	</fieldset>
 
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label><span class="obli">*</span>Apellido paterno</label>
-	    </div>
-	    <? if($errorApellidoPaterno):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?=$errorApellidoPaterno?></em></div><?endif?>
-	    <input class="bigInp" name="apellidoPaterno" value="<? if ($row->apellidop):?><?=$row->apellidop?><?endif?><?=set_value('apellidoPaterno');?>" type="text"/>
-	</fieldset>
+				    <? foreach($giros as $g):?>
+				    <option value="<?= $g->giroID;?>"><?= $g->giro;?></option>
+				    <? endforeach; ?>
+			    </select>
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<? if ($user['tipoUsuario'] == 'Administrador'):?>
+					<label>Asignado a:</label>
+					<?endif?>
+				</th>
+				<th>
 
-	<fieldset>
-	   <div class="wrapLabel">
-		  <label>Apellido materno</label>
-	    </div>
-	    <input class="bigInp" name="apellidoMaterno" value="<? if ($row->apellidom):?><?=$row->apellidom?><?endif?><?=set_value('apellidoMaterno');?>" type="text"/>
-	</fieldset>
+				</th>
+				<th>
 
-	<fieldset>
-		<div class="wrapLabel">
-	      <label><span class="obli">*</span>Correo electrónico</label>
-		</div>
-		<? if($errorEmail):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorEmail?></em></div><?endif?>
-		<input class="bigInp" name="email" value="<? if ($row->correo):?><?=$row->correo?><?endif?><?=set_value('email');?>" type="text"/>
-	</fieldset>
+				</th>
+				<th>
 
-	<fieldset>
-	    <div class="wrapLabel">
-	      <label><span class="obli">*</span>Teléfono</label>
-		</div>
-		<? if($errorTelefono):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorTelefono?></em></div><?endif?>
-	    <input class="bigInp soloNumeros" name="telefono" value="<? if ($row->telefono):?><?=$row->telefono?><?endif?><?=set_value('telefono');?>" type="text"/>
-	</fieldset>
+				</th>
+			</tr>
+		</tbody>
+	</table>
 
-	<fieldset>
-	    <div class="wrapLabel">
-	    <label>Celular</label>
-	    </div>
-		<input class="bigInp soloNumeros" name="mobile" value="<? if ($row->celular):?><?=$row->celular?><?endif?><?=set_value('mobile');?>" type="text"/>
-	</fieldset>
-
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label><span class="obli">*</span>Actividad</label>
-	    </div>
-	    <? if($errorActividad):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorActividad?></em></div><?endif?>
-	    <select name="actividad" class="selBig">
-			<? if($actividad):?><option checked value="<?= $actividad?>"><?= $actividad?></option><?endif?>
-			<? if($row->actividad):?> <option value="" checked><?=$row->actividad?></option><?endif;?>
-		    <option value="Ventas">Ventas </option>
-		    <option value="Servicios">Servicios</option>
-	    </select>
-	</fieldset>
-
-
-
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label><span class="obli">*</span>Origen cliente</label>
-	    </div>
-	     <? if($errorOrigen):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorOrigen?></em></div><?endif?>
-	    <select name="origen" class="selBig">
-		    <? if($origen):?><option value="<?= $origen?>"><?= $origen?></option><?endif?>
-		    <? if($row->origenCliente):?> <option value="<?=$row->origenCliente?>" checked><?=$row->origenCliente?></option><?endif;?>
-		    <option value="">Seleccione el origen</option>
-		    <? foreach($origenCliente as $rowOrigen):?>
-		    <option value="<?= $rowOrigen->origen;?>" ><?= $rowOrigen->origen;?></option>
-		    <? endforeach; ?>
-		</select>
-	</fieldset>
-
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label>Giro</label>
-	    </div>
-	    <select id="infoGiro" name="giro" class="selBig">
-		    <? if($giro):?><option value="<?= $giro?>" checked><?= $giro?></option><?endif?>
-		    <? if($row->giro):?>
-		    <? $g = $this->prospectos_model->cargarGirosProspecto($row->id);?>
-		    <? foreach($g as $gir):?>
-		    <option value="<?=$row->giro?>" checked><?=$gir->giroProspecto?></option>
-		    <? endforeach; ?>
-		    <?endif;?>
-
-
-		    <? foreach($giros as $g):?>
-		    <option value="<?= $g->giroID;?>"><?= $g->giro;?></option>
-		    <? endforeach; ?>
-	    </select>
-	</fieldset>
-
-	<? if ($user['tipoUsuario'] == 'Administrador'):?>
-	<fieldset>
-	    <div class="wrapLabel">
-		  <label>Asignado a:</label>
-	    </div>
+		<? if ($user['tipoUsuario'] == 'Administrador'):?>
 	    <select name="asignado" class="selBig">
 		    <option value="<?=$user['usuarioID']?>" checked ><?=$user['nombre'];?></option>
 		    <? foreach($vendedores as $v):?>
 		      <option value="<?= $v->usuarioID;?>"><?= $v->nombreCompleto;?></option>
 		    <? endforeach; ?>
 	    </select>
-	</fieldset>
-	<?endif?>
+			<?endif?>
 
 
 

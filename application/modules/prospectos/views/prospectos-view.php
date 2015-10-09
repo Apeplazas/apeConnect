@@ -2,7 +2,10 @@
 <div class="wrapList">
 
 	<div id="actions">
-		<a href="<?=base_url()?>prospectos/agregar" title="Agregar Contactos" class="addSmall"><i class="iconPlus">Agregar</i>Agregar Prospecto</a>
+		<a href="<?=base_url()?>prospectos/agregar" title="Agregar Contactos" class="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Prospesctos"></i>
+			<span>Agregar Prospecto</span>
+		</a>
 	</div>
 
 	<table id="tablaproveed">

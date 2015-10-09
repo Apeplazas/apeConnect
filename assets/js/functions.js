@@ -1,4 +1,32 @@
 jQuery(function($) {
+
+var statusBar = $.cookie('statusBar');
+	if(statusBar == 'open'){
+		$('#bar').removeClass('barIn');
+		$('#wrapAll').removeClass('wrapOpen');
+		$('#logoHeader').removeClass('ml85');
+		$('#logoHeader').addClass('ml270');
+		$('.main').removeClass('In');
+		$('#wrapAll').addClass('wrapClose');
+		$('.main').addClass('Out');
+
+		$('#bar button').removeClass('arrowLeft');
+		$('#bar button').addClass('arrowRight');
+		$('#bar').addClass('barOut');
+	}
+	else{
+		$('#bar').removeClass('barOut');
+		$('#wrapAll').removeClass('wrapClose');
+		$('#wrapAll').addClass('wrapOpen');
+		$('#logoHeader').removeClass('ml270');
+		$('#logoHeader').addClass('ml85');
+		$('#bar button').removeClass('arrowRight');
+		$('#bar button').addClass('arrowLeft');
+		$('#bar').addClass('barIn');
+		$('.main').removeClass('Out');
+		$('.main').addClass('In');
+	}
+
 	/********************************************************************************************************************
 	 Menu on Click
 	 ********************************************************************************************************************/
@@ -254,6 +282,7 @@ jQuery(function($) {
 	$("#excelList a").click(function() {
 		$(".subMenu").hide();
 	});
+
 	/********************************************************************************************************************
 	 Busca pisos disponibles de plazas
 	 ********************************************************************************************************************/
@@ -315,12 +344,34 @@ jQuery(function($) {
 
     // Cambia clase en barra izquierda menu
     $('#bar button').click(function() {
-	    $('#bar').toggleClass('barLeft');
+	    $('#bar').toggleClass('barOut');
+			$('#bar').toggleClass('barIn');
+			$('.main').toggleClass('Out');
+			$('.main').toggleClass('In');
+			$('.submenu').hide();
+			$('#logoHeader').toggleClass('ml85');
+			$('#logoHeader').toggleClass('ml270');
 	    $('#wrapAll').toggleClass('wrapOpen');
 	    $('#wrapAll').toggleClass('wrapClose');
 	    $('#barTwo').toggleClass('barRight');
-    	$(this).toggleClass('arrowLeft');
-    	$(this).toggleClass('arrowRight');
+
+
+			$(this).toggleClass(function (){
+				if($(this).hasClass('arrowLeft')){
+					$(this).removeClass('arrowLeft');
+					$.removeCookie('statusBar');
+					$.cookie('statusBar', 'open');
+					return 'arrowRight';
+
+				}
+				else{
+					$(this).removeClass('arrowRight');
+					$.removeCookie('statusBar');
+					$.cookie('statusBar', 'close');
+					return 'arrowLeft';
+				}
+			});
+
     });
 
 	// Cambia clase en barra derecha
@@ -331,8 +382,22 @@ jQuery(function($) {
     	$(this).toggleClass('winRight');
     });
 
+		// Cambia clase en hover para submenu
+		$('.In, .Out').hover(
+			function () {
+				if($(this).hasClass('In')){
+					$('.submenu', this).fadeIn(15);
+				}
+			},
+			function () {
+				if($(this).hasClass('In')){
+					$('.submenu', this).fadeOut(15);
+				}
+			}
+		);
+
 	$(".main strong").click(function(e){
-		$(this).siblings().toggle();
+		$(this).siblings('.submenu').toggle();
 		$(this).toggleClass('titActive');
     });
     //// Solo permite numeros en los inputs de telefonos y numericos
@@ -352,7 +417,7 @@ jQuery(function($) {
        key = e.keyCode || e.which;
 
        tecla = String.fromCharCode(key).toLowerCase();
-       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+       letras = "/\t áéíóúabcdefghijklmnñopqrstuvwxyz";
        var especiales = [];
        especiales.push("8");
        especiales.push("37");
@@ -428,7 +493,6 @@ jQuery(function($) {
 			sucess:
 				$("#masPlazas").append(data);
 		});
-
 	});
 
 
@@ -540,5 +604,6 @@ jQuery(function($) {
 	$('#options, #add, #winPlaza').click(function(event){
     	event.stopPropagation();
     });
+
 
 });

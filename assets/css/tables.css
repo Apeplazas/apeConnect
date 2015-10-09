@@ -1,57 +1,17 @@
-#tablaproveed, #tablaPlano{float:left; width:100%; font-size:.8em; margin-top:20px; border:1px solid #ccc; position:relative}
-#tablaproveed thead th, #tablaPlano thead th{text-align:left; background-color: #f5f5f5;
-  background-image: -moz-linear-gradient(top, #f6f6f6, #f3f3f4);
-  background-image: -ms-linear-gradient(top, #f6f6f6, #f3f3f4);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f6f6f6), to(#f3f3f4));
-  background-image: -webkit-linear-gradient(top, #f6f6f6, #f3f3f4);
-  background-image: -o-linear-gradient(top, #f6f6f6, #f3f3f4);
-  background-image: linear-gradient(top, #f6f6f6, #f3f3f4);
-  /* background-repeat: repeat-x; */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f3f3f4', GradientType=0);
-  border-color: #f3f3f4 #f3f3f4 #cbcbcf;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  border-bottom: 1px solid #dddddd;}
-#tablaproveed thead th, #tablaPlano thead th{background-color:#eee; padding:10px}
-#tablaproveed tbody tr{border-bottom:1px dotted #eee}
-#tablaPlano tbody tr{border-bottom:1px solid #ccc}
-#tablaproveed tbody tr:hover, #tablaPlano tbody .plaza:hover{background:lightyellow}
-#tablaproveed tbody th{text-align:left;}
-#tablaPlano tbody th{text-align:left; font-size:.9em; vertical-align:top}
-#tablaPlano tbody .plaza th a{padding:12px 0;}
-#tablaproveed tbody th a{float:left; width:100%; padding:10px;}
+.bold, thead th, thead span{font-weight:700}
 
-
-.tablaCheck input{margin:0 10px}
-.dataTables_filter{position:absolute; font-size:.9em; padding-left:10px; top:65px; right:70px; width:230px; border:1px solid #ccc; z-index:9999; background-color:#fff; height:38px}
-.dataTables_filter input{border:none; background:none; width:165px; font-size:14px; font-weight:700; height:32px}
-.dataTables_filter label{float:left; margin-top:2px; height:27px;}
-#tablaproveed_length, #tablaPlano_length{position:absolute; top:21px; right:0; border:1px solid #ccc; background:#e6e6e6; margin-top:1px;}
-#tablaproveed_length select, #tablaPlano_length select{border:0; background-color:#fff; height:29px; border-radius:0px; -moz-border-radius:0px; -webkit-border-radius:0px;}
-.dataTables_info{float:left; width:97%; text-align:right; padding:7px 0; font-size:.8em;}
-.paginate_disabled_previous, .paginate_enabled_previous{text-indent:-9999px; position:absolute; top:70px; right:35px; width:28px; height:30px; border:1px solid #ccc; background:url(../graphics/sprite2.png) -425px -65px no-repeat #e6e6e6; cursor:pointer; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}
-.paginate_disabled_previous:hover, .paginate_enabled_previous:hover, .paginate_enabled_next:hover, .paginate_disabled_next:hover{background:url(../graphics/sprite2.png) -425px -65px no-repeat #ccc;}
-.paginate_enabled_next, .paginate_disabled_next{text-indent:-9999px; position:absolute; top:70px; right:0px; width:28px; height:30px; border:1px solid #ccc; background:url(../graphics/sprite2.png) -449px -65px no-repeat #e6e6e6; cursor:pointer; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}
-#tablaproveed_length select:hover, #tablaPlano_length select:hover, .dataTables_filter:hover, .paginate_disabled_previous:hover, .paginate_enabled_previous:hover, .paginate_enabled_next:hover, .paginate_disabled_next:hover{box-shadow:1px 0px 3px 0px lightskyblue; -moz-box-shadow:1px 0px 3px 0px lightskyblue; -webkit-box-shadow:1px 0px 3px 0px lightskyblue;}
-.dataTables_empty{padding:20px}
-.childTab{background-color:#e6e6e6}
-.childTab ul{float:left;  width:100%}
-.childTab ul a{float:left; width:94%; padding:6px 0 5px 55px;}
-
-@media (min-width:640px) {
-}
-
-@media (min-width:768px) {
-  .Rema{padding:15px}
-}
-
-@media (min-width:1024px) {
-}
-
-@media (min-width:1280px) {
-}
-
-@media (min-width:1366px) {
-}
-
-@media (min-width:1680px) {
-}
+#tablaproveed_wrapper{background:#fff; padding:0 20px 20px}
+#tablaproveed{width:100%; margin-top:10px}
+#tablaproveed thead{font-size:13px;}
+#tablaproveed tr{border-bottom:1px solid #e2e2e4}
+#tablaproveed tr th{padding:13px 0 8px}
+#tablaproveed tr a{color:#5b5b60!important; float:left; width:100%; text-transform:uppercase;}
+#tablaproveed_length select{background: transparent; width:48px; padding:4px 4px 5px 8px; font-size:13px; border:0; border-radius:0; height:34px; -webkit-appearance:none;}
+#tablaproveed_length{position:absolute; top:28px; right:52px; z-index:999; width:46px; height:35px; overflow:hidden; background:url(../graphics/downArrow.png) no-repeat 29px #fff; border:1px solid #78C1FF; padding-right:15px; font-size:11px; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+.dataTables_filter label{font-weight:700; text-transform:uppercase; color:#777}
+.dataTables_filter input{text-transform:uppercase; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; border:1px solid #78C1FF; width:190px; height:35px; background:#fff; line-height:32px; margin-left:8px; color: #78C1FF; padding:0 10px}
+.dataTables_filter{position:absolute; margin-right:15px; margin-bottom:15px; right:95px; top:28px;}
+#tablaproveed_paginate{float:right; padding:10px; font-family:'Lato', sans-serif; font-size:11px}
+#tablaproveed_paginate a{margin-left:8px; text-transform:uppercase; color:#333}
+#tablaproveed_info{float:left; padding:10px 0; font-family:'Lato', sans-serif; text-transform:uppercase; font-size:11px; color:#333}
+.dataTables_empty{text-transform:uppercase; padding:15px 0 12px;}

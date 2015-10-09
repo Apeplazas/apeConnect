@@ -13,11 +13,13 @@
 <title><?=$rowOpt->enlaceTitulo;;?></title>
 <? endforeach; ?>
 <meta name="robots" content="All,index, follow" />
+<link href='https://fonts.googleapis.com/css?family=Lato:700,300,400' rel='stylesheet' type='text/css'>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/modernizr.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/functions.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.remodal.js" type="text/javascript"></script>
+<script language="javascript" src="<?=base_url()?>assets/js/jquery.cookie.js" type="text/javascript"></script>
 <link type="text/css" href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet"/>
 <link type="text/css" href="<?=base_url()?>assets/css/style.css" rel="stylesheet"/>
 <link type="text/css" href="<?=base_url()?>assets/css/tables.css" rel="stylesheet"/>
@@ -33,16 +35,16 @@
 
 <body>
 <header>
-<div class="f100 blue nav">
+<img id="logoHeader" src="<?=base_url()?>assets/graphics/apeplazas.png" alt="Administradora de Plazas Especializadas" />
 <nav>
-<a id="dash" href="<?=base_url()?>" title="Inicio"><img src="<?=base_url()?>assets/graphics/inicio.png" alt="Dashboard" /></a>
-
 	<ul id="preferences">
 		<li class="prel">
-		  <a class="cheers" id="options">Hola <?=$user['nombre'];?><i id="triangle"></i></a>
+		  <a class="cheers" id="options">
+        <span class="proImg"><img alt="Perfil" src="<?=base_url()?>assets/graphics/profile.png" alt="" /></span>
+        <?=$user['nombre'];?><i id="triangle"></i></a>
 		  <div id="popupPref">
 			  <ul>
-				  <li class="prel"><span id="señal"><img src="<?=base_url()?>assets/graphics/mark.png" alt="Señalizacion" /></span><a href="<?=base_url()?>">Mis Preferencias</a></li>
+				  <li class="prel"><span id="senial"><img src="<?=base_url()?>assets/graphics/mark.png" alt="Señalizacion" /></span><a href="<?=base_url()?>">Mis Preferencias</a></li>
 				  <li><a href="<?=base_url()?>registrate/salir">Salir</a></li>
 			  </ul>
           </div>
@@ -50,15 +52,38 @@
 	</ul>
 	<ul id="settings">
 		<?php $no_not = $this->user_model->numero_mensajes($user['usuarioID']);?>
-		<li id="notifBar"><a href="<?=base_url()?>notificaciones"><img src="<?=base_url()?>assets/graphics/inbox.png" alt="Inbox" /><?php if($no_not > 0):?><i id="solicitud"><?=$no_not;?></i><?php endif;?></a></li>
+		<li id="notifBar">
+      <a href="<?=base_url()?>notificaciones"><img src="<?=base_url()?>assets/graphics/inbox.png" alt="Inbox" />
+        <span>Mensajes</span>
+        <?php if($no_not > 0):?><i id="solicitud"><?=$no_not;?></i><?php endif;?>
+
+      </a>
+
+      </li>
 		<?php if(isset($user['modulos']) && in_array('settings', $user['modulos'])):?>
 		<li><a href="<?=base_url()?>settings"><img src="<?=base_url()?>assets/graphics/setting.png" alt="Configuracion" /></a></li>
 		<?php endif;?>
 	</ul>
+
+
+  <div id="wrapPlus" class="prel">
+  <button id="add"><img src="<?=base_url()?>assets/graphics/svg/add.svg" alt="Agregar" />
+    <span>Creación Rapida</span>
+  </button>
+  	<div id="popupQuick">
+  	<strong>Creación rapida</strong>
+  	<ul>
+  	  <li class="prel"><span><img src="<?=base_url()?>assets/graphics/mark.png" alt="Señalizacion" /></span></li>
+  	  <li><a href="<?=base_url()?>prospectos/agregar">Agregar Prospectos</a></li>
+  	  <li><a href="<?=base_url()?>">Contactos</a></li>
+  	  <li><a href="<?=base_url()?>">Prospectos</a></li>
+  	</ul>
+    </div>
+  </div>
 </nav>
 
 <section id="headBus" class="f100">
-<img id="logoHeader" src="<?=base_url()?>assets/graphics/apeplazas.png" alt="Administradora de Plazas Especializadas" />
+
 
 <!--<form id="search" action="">
 <span>Busqueda Avanzada: </span>
@@ -70,20 +95,8 @@
 	</fieldset>
 </form> --->
 
-<div id="wrapPlus" class="prel">
-<button id="add"><img src="<?=base_url()?>assets/graphics/add.png" alt="Agregar" /></button>
-	<div id="popupQuick">
-	<strong>Creación rapida</strong>
-	<ul>
-	  <li class="prel"><span><img src="<?=base_url()?>assets/graphics/mark.png" alt="Señalizacion" /></span></li>
-	  <li><a href="<?=base_url()?>prospectos/agregar">Agregar Prospectos</a></li>
-	  <li><a href="<?=base_url()?>">Contactos</a></li>
-	  <li><a href="<?=base_url()?>">Prospectos</a></li>
-	</ul>
-    </div>
-</div>
+
 </section>
-</div>
 </header>
 
 
@@ -106,14 +119,17 @@
 	<section id="content" class="open">
 
 
-	<div id="bar">
+	<div id="bar" class="">
 	<nav id="navMenu" class="prel">
-	<button class="arrowLeft">Cerrar</button>
-
-
-	<a href="<?=base_url()?>planogramas" title="Vista de planogramas"><h1><?= ucfirst($this->uri->segment(1));?></h1></a>
+	<button class="">Cerrar</button>
+  <h1><?= ucfirst($this->uri->segment(1));?></h1>
 	<ul>
-		<li class="main"><a href="<?=base_url()?>" title="Dashboard"><strong href="<?=base_url()?>">Dashboard</strong></a></li>
+		<li class="main">
+      <a href="<?=base_url()?>" title="Dashboard">
+        <img alt="Dashboard" src="<?=base_url()?>assets/graphics/svg/dashboard.svg" />
+        <em>Dashboard</em>
+      </a>
+    </li>
 		<? $this->load->view('includes/menus/barV3');?>
 	</ul>
 
@@ -123,7 +139,7 @@
 </div>
 
 
-	<div id="wrapAll" class="wrapOpen">
+	<div id="wrapAll" class="">
 	<?= $content; ?>
 	</div>
 	<br class="clear">
@@ -142,6 +158,5 @@
         }
     };
 </script>
-
 </body>
 </html>
