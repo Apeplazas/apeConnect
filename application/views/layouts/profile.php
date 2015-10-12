@@ -126,10 +126,10 @@
 	<nav id="navMenu" class="prel">
 	<button class="">Cerrar</button>
   <h1><?= ucfirst($this->uri->segment(1));?></h1>
-	<ul>
-		<li class="main">
+	<ul id="padMenu">
+		<li class="main <?if($this->uri->segment(1) == 'admin'):?>bckMark<?endif?>">
       <a href="<?=base_url()?>" title="Dashboard">
-        <img alt="Dashboard" src="<?=base_url()?>assets/graphics/svg/dashboardTwo.svg" />
+        <img class="svgIcon" alt="Dashboard" src="<?=base_url()?>assets/graphics/svg/dashboardTwo.svg" />
         <em>Dashboard</em>
       </a>
     </li>

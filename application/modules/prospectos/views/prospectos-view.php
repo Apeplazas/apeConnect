@@ -23,14 +23,19 @@
 		<tbody>
 			<? foreach($prospectos as $p):?>
 			<tr>
-			  <th><a class="Rema" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><span class="bold"><?= $p->pnombre;?> <?= $p->snombre;?> <?= $p->apellidop;?> <?= $p->apellidom;?></span><br><?= $p->correo;?></a></th>
+			  <th>
+					<a class="Rema" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>">
+						<span class="bold"><?= $p->pnombre;?> <?= $p->snombre;?> <?= $p->apellidop;?> <?= $p->apellidom;?></span>
+						<br><?= $p->correo;?>
+					</a>
+				</th>
 			  <th><a href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= $p->estado?></a></th>
 			  <th><a class="Rtel" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= $p->telefono?> </a></th>
 			  <th><a href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= $p->correo?></a></th>
 			  <th><a class="Rori" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= $p->origenCliente?></a></th>
 			  <th><a class="Rsta" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= ucfirst($p->status)?></a></th>
-			  <? endforeach; ?>
 				<th><a class="editPros" href="<?=base_url()?>prospectos/editar/<?= $p->id;?>"><i class="iconEdit"><img src="<?=base_url()?>assets/graphics/svg/pencil.svg" alt="Editar"></i></a></th>
+				<? endforeach; ?>
 			</tr>
 		</tbody>
 	</table>
