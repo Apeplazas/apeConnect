@@ -350,6 +350,7 @@ $(document).ready(function(){
 	    <label class="control-label col-sm-3" >Piso</label>
 	    <div class="col-sm-9">
 	      <select name="plazaPiso" id="plazaPiso" class="form-control" required>
+	      		<option value="">Seleccione un piso</option>
 				<? foreach($plazaPisos as $piso):
 					if(empty($piso->piso)) $piso->piso = "N/A";?>
 					<option value="<?=$piso->piso?>"><?=$piso->piso?></option>
@@ -375,7 +376,7 @@ $(document).ready(function(){
 	  <div class="form-group toggleci">
 	    <label class="control-label col-sm-3">Gerente de la plaza</label>
 	    <div class="col-sm-9">
-	        <input type="text" class="form-control soloLetras" name="gerente">
+	        <input type="text" class="form-control soloLetras" name="gerente" value="<?= $user['nombre'];?>" readonly>
 	    </div>
 	  </div>
 	  <div class="form-group">

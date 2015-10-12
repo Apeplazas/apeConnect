@@ -8,6 +8,9 @@ class Tempciri extends MX_Controller {
 		//$this->user_model->checkuser();
 		$this->load->model('tempciri/tempciri_model');
 		setlocale(LC_MONETARY, 'es_MX');
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 	}
 	
 	function index()
@@ -32,6 +35,7 @@ class Tempciri extends MX_Controller {
 					  ->add_include('assets/js/jquery-datepicker.js');
 		
 		$op['plaza'] 		= $plaza[0];
+		$op['user'] 		= $user;
 		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
 		$this->layouts->profile('ciRi-view',$op);
 		
