@@ -25,7 +25,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=0, user-scalable=no, minimum-scale=1.0, maximum-scale=0">
 <?= $this->layouts->print_includes(); ?>
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/favicon.png" />
-<script> var ajax_url = "http://www.apeplazas.com/apeConnect/ajax/"; </script>
+<script> var ajax_url = "<?= BASEURL;?>ajax/"; </script>
 <? if($this->uri->segment(2) == 'finalizarCotizacion'):?>
  <style type="text/css">html{background-color:#555}</style>
 <?endif?>

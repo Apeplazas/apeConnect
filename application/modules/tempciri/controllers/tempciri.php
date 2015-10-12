@@ -19,11 +19,20 @@ class Tempciri extends MX_Controller {
 	
 	function ciRi(){
 		
+		$user	= $this->session->userdata('usuario');
+		$plaza	= $this->tempciri_model->traerPlazaUsuario($user['usuarioID']);
+	
+		if(empty($plaza)){
+			echo "No tiene permiso para ingesar a esta página";
+			return false;
+		}	
+	
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
 					  ->add_include('assets/js/jquery-datepicker.js');
 		
-		$op['plazas'] = $this->tempciri_model->traepar_plazas();
+		$op['plaza'] 		= $plaza[0];
+		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
 		$this->layouts->profile('ciRi-view',$op);
 		
 	}

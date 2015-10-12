@@ -78,7 +78,7 @@ $(document).ready(function(){
 		
 	});
 	
-	$("#plazaNombre").change(function(){
+	$("#plazaPiso").change(function(){
 		
 		clearClientId();
 		mostrarPlazaDir();
@@ -283,9 +283,10 @@ $(document).ready(function(){
 		var self, $option;
     	$('#dirplaza').empty();
     	self = $('#dirplaza');
-		var plaza = $('#plazaNombre').val();
+		var plazaPiso = $('#plazaPiso').val();
+		var plazaId = $('#plazaId').val();
 			$.ajax({
-				data : {'plaza':plaza},
+				data : {'plazaId': plazaId,'plazaPiso':plazaPiso},
 				dataType : 'json',
 				url : ajax_url + 'cargarPlazasDir',
 				type : 'post',
@@ -340,13 +341,28 @@ $(document).ready(function(){
 	  <div class="form-group">
 	    <label class="control-label col-sm-3" >Plaza</label>
 	    <div class="col-sm-9">
-	      <select name="plazaNombre" id="plazaNombre" class="form-control" required>
-				<option value="">Seleccione una plaza...</option>
-				<?php foreach($plazas as $plaza):?>
-				<option value="<?=$plaza->PROPIEDAD?>"><?=$plaza->PROPIEDAD?></option>
-				<?php endforeach;?>
+	    	<input type="hidden" name="plazaId" id="plazaId" value="<?=$plaza->id; ?>" />
+	      <input type="text" name="plazaNombre" id="plazaNombre" class="form-control" value="<?=$plaza->plaza;?>" readonly required />
+			<label id="folioAgenerar">Folio que se va a generar <?=$plaza->ci_num+1;?></label>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="control-label col-sm-3" >Piso</label>
+	    <div class="col-sm-9">
+	      <select name="plazaPiso" id="plazaPiso" class="form-control" required>
+				<? foreach($plazaPisos as $piso):
+					if(empty($piso->piso)) $piso->piso = "N/A";?>
+					<option value="<?=$piso->piso?>"><?=$piso->piso?></option>
+				<? endforeach;?>
 			</select>
-			<label id="folioAgenerar"></label>
+	    </div>
+	  </div>
+	<div class="form-group">
+	    <label class="control-label col-sm-3" >Dirección de la plaza</label>
+	    <div class="col-sm-9">
+	        <select name="dirplaza" id="dirplaza" class="form-control" required>
+				<option value="">Seleccione una plaza...</option>
+			</select>
 	    </div>
 	  </div>
 	<div class="form-group" id="showrefCi" style="display:none;">
@@ -356,14 +372,6 @@ $(document).ready(function(){
 			</select>
 		</div>
 	</div>
-	<div class="form-group">
-	    <label class="control-label col-sm-3" >Dirección de la plaza</label>
-	    <div class="col-sm-9">
-	        <select name="dirplaza" id="dirplaza" class="form-control" required>
-				<option value="">Seleccione una plaza...</option>
-			</select>
-	    </div>
-	  </div>
 	  <div class="form-group toggleci">
 	    <label class="control-label col-sm-3">Gerente de la plaza</label>
 	    <div class="col-sm-9">
