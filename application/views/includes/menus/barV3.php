@@ -11,7 +11,7 @@
   	<?php endif;
   	if(isset($user['modulos']) && in_array('prospectos', $user['modulos'])):?>
   		<li class="main In <?if($this->uri->segment(1) == 'prospectos'):?>bckMark<?endif?>">
-        <img alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/prospectacion.svg" />
+        <img alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/user.svg" />
         <strong>Prospectos</strong>
         <ul class="submenu">
           <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Prospectos</h3></li>

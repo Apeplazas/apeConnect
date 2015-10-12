@@ -301,7 +301,7 @@
 				</td>
 				<td>
 					<? if($errorCalle):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorCalle?></em></div><?endif?>
-					<input type="text" class="bigInp soloNumeros" name="calle" value="<?= set_value('calle');?>"/>
+					<input type="text" class="bigInp" name="calle" value="<?= set_value('calle');?>"/>
 				</td>
 				<td>
 					<label>Número exterior</label>

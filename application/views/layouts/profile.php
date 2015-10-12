@@ -40,7 +40,7 @@
 	<ul id="preferences">
 		<li class="prel">
 		  <a class="cheers" id="options">
-        <span class="proImg"><img alt="Perfil" src="<?=base_url()?>assets/graphics/profile.png" alt="" /></span>
+        <span class="proImg"><img alt="Perfil" src="<?=base_url()?>assets/graphics/svg/profile.svg" alt="" /></span>
         <?=$user['nombre'];?><i id="triangle"></i></a>
 		  <div id="popupPref">
 			  <ul>
@@ -50,21 +50,24 @@
           </div>
         </li>
 	</ul>
+  <?php if(isset($user['modulos']) && in_array('settings', $user['modulos'])):?>
+  <ul id="obPref">
+    <li id="sets">
+      <a href="<?=base_url()?>settings"><img src="<?=base_url()?>assets/graphics/svg/sets.svg" alt="Configuracion" />
+      <span>Ajustes</span>
+      </a>
+    </li>
+  </ul>
+  <?php endif;?>
 	<ul id="settings">
 		<?php $no_not = $this->user_model->numero_mensajes($user['usuarioID']);?>
 		<li id="notifBar">
-      <a href="<?=base_url()?>notificaciones"><img src="<?=base_url()?>assets/graphics/inbox.png" alt="Inbox" />
+      <a href="<?=base_url()?>notificaciones"><img src="<?=base_url()?>assets/graphics/svg/mensajes.svg" alt="Inbox" />
         <span>Mensajes</span>
         <?php if($no_not > 0):?><i id="solicitud"><?=$no_not;?></i><?php endif;?>
-
       </a>
-
       </li>
-		<?php if(isset($user['modulos']) && in_array('settings', $user['modulos'])):?>
-		<li><a href="<?=base_url()?>settings"><img src="<?=base_url()?>assets/graphics/setting.png" alt="Configuracion" /></a></li>
-		<?php endif;?>
 	</ul>
-
 
   <div id="wrapPlus" class="prel">
   <button id="add"><img src="<?=base_url()?>assets/graphics/svg/add.svg" alt="Agregar" />
@@ -119,14 +122,14 @@
 	<section id="content" class="open">
 
 
-	<div id="bar" class="">
+	<div id="bar" class="barIn">
 	<nav id="navMenu" class="prel">
 	<button class="">Cerrar</button>
   <h1><?= ucfirst($this->uri->segment(1));?></h1>
 	<ul>
 		<li class="main">
       <a href="<?=base_url()?>" title="Dashboard">
-        <img alt="Dashboard" src="<?=base_url()?>assets/graphics/svg/dashboard.svg" />
+        <img alt="Dashboard" src="<?=base_url()?>assets/graphics/svg/dashboardTwo.svg" />
         <em>Dashboard</em>
       </a>
     </li>
