@@ -1290,9 +1290,10 @@ class Ajax extends MX_Controller {
 	}
 
 	function cargarPlazasDir(){
-
-		$plaza 	= $_POST['plaza'];
-		$ci		= $this->tempciri_model->cargarPLazasDir($plaza);
+		
+		$plazaId	= $_POST['plazaId'];
+		$plazaPiso 	= $_POST['plazaPiso'];
+		$ci			= $this->tempciri_model->cargarPLazasDir($plazaId,$plazaPiso);
 		echo json_encode($ci);
 		exit;
 
