@@ -25,9 +25,11 @@
   		</li>
   	<?php endif;
   	if(isset($user['modulos']) && in_array('proveedores', $user['modulos'])):?>
-  		<li class="main In">
+  		<li class="main In <?if($this->uri->segment(1) == 'proveedores'):?>bckMark<?endif?>">
+        <img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/proveedor.svg" />
         <strong>Proveedores</strong>
         <ul class="submenu">
+          <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Proveedores</h3></li>
           <li><a href="<?=base_url()?>proveedores">Proveedores</a></li>
         </ul>
   		</li>
@@ -45,12 +47,14 @@
   <?php endif;
   if(isset($user['modulos']) && in_array('tempciri', $user['modulos'])):?>
     <li class="main In <?if($this->uri->segment(1) == 'tempciri'):?>bckMark<?endif?>">
-      <img class="svgIcon" alt="Cartas de intencion" src="<?=base_url()?>assets/graphics/svg/map32.svg" />
+      <img class="svgIcon" alt="Cartas de intencion" src="<?=base_url()?>assets/graphics/svg/documents.svg" />
       <strong>Cartas intención</strong>
       <ul class="submenu">
         <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Cartas Intencion</h3></li>
         <li>
-        <li><a href="<?=base_url()?>tempciri">Listado de cartas</a></li>
+        <li><a href="<?=base_url()?>tempciri/ciRi">Generar carta y recibos</a></li>
+        <li><a href="<?=base_url()?>tempciri/verCi">Listado de cartas</a></li>
+        <li><a href="<?=base_url()?>tempciri/verci">Listado de recibos internos</a></li>
       </ul>
     </li>
 	<?php endif;
