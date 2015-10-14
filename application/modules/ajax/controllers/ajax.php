@@ -1290,7 +1290,7 @@ class Ajax extends MX_Controller {
 	}
 
 	function cargarPlazasDir(){
-		
+
 		$plazaId	= $_POST['plazaId'];
 		$plazaPiso 	= $_POST['plazaPiso'];
 		$ci			= $this->tempciri_model->cargarPLazasDir($plazaId,$plazaPiso);

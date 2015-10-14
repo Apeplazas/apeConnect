@@ -21,7 +21,7 @@ strong{font-weight:700;}
 .dblock, .barOut h1{display:block}
 .ml85{margin-left:85px;}
 .ml270{margin-left:270px;}
-.svgIcon{margin:0 22px 0 16px; width:28px; max-height:27px}
+.svgIcon{margin:0 22px 0 16px; width:28px;}
 .barOut #navMenu li img{margin:0 10px 0 16px; width:28px; max-height:27px}
 .barOut .In{border-bottom:1px solid #ccc;}
 h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#333}
@@ -31,6 +31,8 @@ a:hover{color:cornflowerblue}
 
 
 /*---------------- Generales  ------------------*/
+.back{float:right; margin-right:10px}
+#mainContainer{margin-top:50px;}
 .mainBotton{background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:16px; text-transform:uppercase; padding:8px 38px; border-radius:4px; float:right;}
 .f100{float:left; width:100%;}
 .wrapList{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:95px; padding-bottom:20px}
@@ -39,7 +41,6 @@ a:hover{color:cornflowerblue}
 .pl65{padding-left:65px}
 .fright{float:right;}
  #wrapPlus{float:right;}
-#content{margin-top:50px;}
 header{position:fixed; width:100%; background-color:#fff; border-bottom:1px solid #c8c7cc; height: 65px!important; text-transform:uppercase;}
 header nav{float:right; height:65px!important;}
 #logoHeader{width:145px; margin-top:9px;}
@@ -50,7 +51,7 @@ header nav{float:right; height:65px!important;}
 #popupPref li a{color:#fff; font-weight:400; padding:6px 20px; font-size: 12px; text-transform:capitalize; float:left; width:100%;}
 #popupPref li a:hover{background:#111; text-decoration:none}
 #senial{position:absolute; top:-10px; right:20px;}
-#settings, #obPref{float:right; border-left:1px solid #fff; border-right:1px solid #fff; padding:15px 8px 0 8px; height:64px!important; cursor:pointer}
+#settings, #obPref{float:right; position:relative; border-left:1px solid #fff; border-right:1px solid #fff; padding:15px 8px 0 8px; height:64px!important; cursor:pointer}
 #settings:hover, #add:hover, #obPref:hover{background-color:#fafafa; border-left:1px solid #ddd; border-right:1px solid #ddd;}
 #add{float:left; border:none; background:transparent; padding:15px 0; height:64px !important; border-left:1px solid #fff; border-right:1px solid #fff;}
 #add span{float:left; width:100%; margin-top:5px; font-weight:600; color:#777; text-transform:uppercase}
@@ -66,7 +67,7 @@ header nav{float:right; height:65px!important;}
 .arrowLeft:hover{background:url(../graphics/menuSprite.png) 20px 20px no-repeat #eee;}
 #navMenu svg{width:32px}
 #padMenu{padding-top:64px;}
-.barIn .main{float:left; width:69px; padding:18px 5px; cursor:pointer; position:relative}
+.barIn .main{float:left; width:69px; padding:14px 5px; cursor:pointer; position:relative}
 .barOut#navMenu li{float:left; width:260px; padding:15px 5px; cursor:pointer}
 .barOut .main{float:left; width:260px; padding:13px 5px; cursor:pointer}
 #navMenu li img{float:left}
@@ -75,16 +76,17 @@ header nav{float:right; height:65px!important;}
 #navMenu h1{float:left; width:100%; padding:15px 20px; background:#007aff; border-bottom:1px solid #ccc; font-size:22px; overflow:hidden; border-top:1px solid #c8c7cc; color:#fff; font-weight:400}
 .wrapClose{margin-left:260px;}
 #winRight{position:absolute; top:120px; right:-181px; display:none}
-#actions{position:absolute; left:17px; top:17px; width:96%; border:1px solid #B7E3FF; padding:10px 0; background-color:aliceblue; border-radius:4px;}
+#actions{position:absolute; min-height:58px; left:17px; top:17px; width:96%; border:1px solid #B7E3FF; padding:10px 0; background-color:aliceblue; border-radius:4px;}
 .barIn .submenu{position:absolute; font-size:14px; font-weight:300; top:-1px; left:69px; z-index:9999999; border:1px solid #ccc; width:265px; background:#fafafa;}
 .barOut .submenu li a{font-family:'Lato', sans-serif; font-size:16px; font-weight:300;     padding:6px 0 7px 52px; float:left; width:100%; color:#333}
 .submenu li{width:100%}
 .heading{position:relative; background:#fff; padding:13px 0}
-.heading img{position:absolute; top:0; left:-2px; padding:0px;}
+.heading img{position:absolute; top:0; left:-2px; padding:0px; height:59px !important;}
 .barIn .submenu li {padding-left:30px}
 .barIn .submenu li a{float:left; width:100%; padding:8px 0}
 /*----------------Titulos ------------------*/
 #mainTit{padding:26px 15px;}
+#mainTit img{float:left; width:34px; margin-right:10px}
 #mainTit h1, #mainTit h2, #mainTit h3, #mainTit h4{text-transform:uppercase}
 #mainTit p{font-family:Lato,sans-serif; font-size:17px; padding:3px 0;}
 .iconPlus img{width:20px; border-radius:4px; float:left; margin:4px 7px 3px 0;}
@@ -114,17 +116,13 @@ header nav{float:right; height:65px!important;}
 .obli{color:#c30; font-size:18px; line-height:9px}
 .texBig{float:left; width:100%; border:1px solid #ccc; margin:15px 0; padding:8px 15px; height:62px}
 .proImg img{width:22px; height:19px}
-#solicitud{background-color: #C82E29;
-    color: #fff;
-    border-radius: 50%;
-    padding: 2px 5px;
-    font-weight: 700;
-    font-style: normal;
-    position: absolute;
-    top: 6px;
-    right: 0px;}
+#solicitud{background-color:#C82E29;color:#fff;border-radius:50%;padding:2px 5px;font-weight:700; font-style:normal;position:absolute;top:6px;right:28px}
+#cotLoc{margin-top:6px; font-size:11px; border:none; background-color:#fff; text-transform: uppercase;}
+#folioAgenerar{color:cornflowerblue; padding:0 10px}
+.botCart input{margin-right:5px}
+.botCart label{margin-top:3px}
 
-
+/*---------------- Login  ------------------*/
 .login{position:relative;margin:150px auto 0;padding:20px;width:420px;background:#fff}
 .login h1{margin:-20px -20px 21px;padding:21px 0 15px;font-size:18px;font-weight:lighter;color:#555;text-align:center;text-shadow:0 1px #fff;background:#f3f3f3;border-bottom:1px solid #cfcfcf;border-radius:8px 8px 0 0;background-image:-webkit-linear-gradient(top,whiteffd,#eef2f5);background-image:-moz-linear-gradient(top,whiteffd,#eef2f5);background-image:-o-linear-gradient(top,whiteffd,#eef2f5);background-image:linear-gradient(to bottom,whiteffd,#eef2f5);-webkit-box-shadow:0 1px #f5f5f5;box-shadow:0 1px #f5f5f5}
 .login p{margin:20px 0 0}
@@ -138,7 +136,15 @@ header nav{float:right; height:65px!important;}
 .login-help{margin:20px 0;font-size:11px;color:#fff;text-align:center;text-shadow:0 1px #2a85a1}
 .login-help a{color:#fff;margin-left:5px;text-decoration:none;font-weight:700;font-size:14px}
 .login:before{content:'';position:absolute;top:-8px;right:-8px;bottom:-8px;left:-8px;z-index:-1;background:rgba(0,0,0,.08);border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px}
+.botCart{float:left; margin-right:10pxf}
+.calInp{position:absolute; top:8px; width:16px; right:7px; z-index: 9999;}
 
+/*---------------- pdf cartas intencion  ------------------*/
+.pdf-container{padding:20px 20px 0;font-size:10px;font-family:"Myriad Pro",arial,helvetica,sans-serif!important}
+.underline-text{text-decoration:underline;font-weight:700}
+hr.signing{margin-bottom:0;border-color:#000}
+.small-text{font-size:9px}
+#adjustWrapBlack form{float:left;width:730px;background:#fff;padding:30px;margin-top:15px;box-shadow:0 4px 7px #000;-moz-box-shadow:0 4px 7px #000;-webkit-box-shadow:0 4px 7px #000}
 
 
 /*---------------- Botones ------------------*/

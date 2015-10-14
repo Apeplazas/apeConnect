@@ -108,10 +108,10 @@
 
 
 
-
+<br class="clear">
 <!-- Comienza contenedor -->
 <section id="mainContainer">
-<br class="clear">
+
 
 <!-- Ventana derecha -->
 <? if($this->uri->segment(2) != 'finalizarCotizacion'):?>

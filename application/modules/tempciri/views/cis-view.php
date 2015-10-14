@@ -1,12 +1,12 @@
 <h3 id="mainTit">Cartas de intención</h3>
 <div class="wrapList">
-	
+
 	<div id="actions">
-		<a class="btn btn-default btn-lg" href="<?= base_url();?>tempciri/verRi">Ver Recibos Internos</a>
-	</div>
 	
+	</div>
+
 	<table id="tablaproveed">
-		<thead> 
+		<thead>
 			<tr>
 				<th>Folio</th>
 				<th>plaza</th>
@@ -14,8 +14,8 @@
 				<th>Cliente</th>
 				<th>Pdf</th>
 				<th>x</th>
-			</tr> 
-		</thead> 
+			</tr>
+		</thead>
 		<tbody>
 			<? foreach($cis as $ci):?>
 			<tr>
@@ -28,10 +28,10 @@
 			  	<th><a href="<?= base_url();?>tempciri/cancelarCi/<?=$ci->id;?>" title="<?=$ci->id;?>">Cancelar</a></th>
 			  <?php else:?>
 			  	<th>CANCELADO</th>
-			  <?php endif;?>	
+			  <?php endif;?>
 			  <? endforeach; ?>
 			</tr>
-		</tbody> 
+		</tbody>
 	</table>
 
 <script type="text/javascript">
@@ -40,7 +40,7 @@ $(document).ready(function() {
     $('#tablaproveed').dataTable();
     /// Genera el even de cada lista
     $('.wrapListForm fieldset:even').addClass('evenBorder');
-    
+
 } );
-</script>	
+</script>
 </div>
