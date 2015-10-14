@@ -52,9 +52,8 @@
       <ul class="submenu">
         <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Cartas Intencion</h3></li>
         <li>
-        <li><a href="<?=base_url()?>tempciri/ciRi">Generar carta y recibos</a></li>
         <li><a href="<?=base_url()?>tempciri/verCi">Listado de cartas</a></li>
-        <li><a href="<?=base_url()?>tempciri/verci">Listado de recibos internos</a></li>
+        <li><a href="<?=base_url()?>tempciri/ciRi">Generar carta de intención</a></li>
       </ul>
     </li>
 	<?php endif;
