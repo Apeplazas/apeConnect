@@ -28,14 +28,14 @@
 	una renta de deposito de <span class="underline-text"><?= money_format('%(#10n',$rentant);?></span></p>
 	<br/>
 	<p>Por la presente, ruego a la administración de <strong><?=strtoupper($plaza);?></strong>, darme una OPCION para celebrar el correspondiente contrato de 
-	ARRENDAMIENTO, quedo en el entendido de que el plazo para concretar el contrato sera de 7 días contados a partir de la presente fecha.
-	En el que me comprometo a entregar toda la documentación solicitada y cubrir requisitos que me sean requeridos.</p>
+	ARRENDAMIENTO, quedando en el entendido de que el plazo para concretar el contrato sera de 7 días contados a partir de la presente fecha.
+	Plazo en el que me comprometo a entregar toda la documentación solicitada y cubrir requisitos que me sean requeridos.</p>
 	<br/>
-	<p>Y en señal se mi deseo de efectuar la referida operación, en este acto, entrego a la Administración de este Centro Comercial
+	<p>Y en señal de mi deseo de efectuar la referida operación, en este acto, entrego a la Administración de este Centro Comercial
 	la suma de <span class="underline-text"><?= money_format('%(#10n',$rentant);?></span> (<span class="underline-text"><?= $depositoLetra;?></span>) suma que, para el caso de que por cualquier 
 	situación no se logre la firma del contrato de arrendamiento sea por cuestiones imputables a mi, o a que la Administración de este Centro Comercial no me 
 	otorgue el correspondiente contrato de Arrendamiento, acepto que la cantidad de dinero por mi entregada, me sea reintegrada al transcurrir los 7 días señalados 
-	anteriormente, sea depositado al número de cuenta <span class="underline-text"><?= $remnumcuenta;?></span> del banco <span class="underline-text"><?= $rembanco;?></span> 
+	anteriormente, ya sea depositado al número de cuenta <span class="underline-text"><?= $remnumcuenta;?></span> del banco <span class="underline-text"><?= $rembanco;?></span> 
 	a mi nombre, contra entrega del talón comprobante relacionado con esta carta intención con número de folio <?=$folioCompro;?> y no tendré reclamo ni derecho alguno de ejercitar en contra de la Administración
 	de <strong><?=strtoupper($plaza);?></strong>, en virtud de lo señalado en el presente documento.</p>
 	<br/>
@@ -44,13 +44,13 @@
 	<div class="row">
 		<div class="col-md-6" style="width: 45%; display:inline-block;">
 	  		<hr class="signing">
-	  		<p class="text-center">(nombre y firma de quien manifiesta su intención)</p>
+	  		<p class="text-center">(Nombre y firma de quien manifiesta su intención)</p>
 	 	</div>
 	  	<div class="col-md-6" style="width: 45%; display:inline-block;">
 	  		<hr class="signing">
-	  		<p class="text-center"><strong>Gerente de <?=strtoupper($plaza);?></strong></p>
+	  		<p class="text-center"><strong>GERENTE DE <?=strtoupper($plaza);?></strong></p>
 	  		<p class="text-center" style="font-size:8px;">(La firma aquí estampada no implica la aceptación de la intención manifestada por el cliente,
-	  		 sino solo la receptición de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
+	  		 sino solo receptición de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
 	  		 de dicha cantidad en caso de no concretarse la firma del contrato de arrendamiento)</p>
 	  	</div>
 	</div>
@@ -72,16 +72,24 @@
 	<div class="row">
 		<div class="col-md-6" style="width: 45%; display:inline-block;">
 	  		<hr class="signing">
-	  		<p class="text-center" style="font-size:8px;">(nombre y firma de quien manifiesta su intención)</p>
+	  		<p class="text-center" style="font-size:8px;">(Nombre y firma de quien manifiesta su intención)</p>
 	 	</div>
 	  	<div class="col-md-6" style="width: 45%; display:inline-block;">
 	  		<hr class="signing">
-	  		<p class="text-center" style="font-size:8px;"><strong>Gerente de <?=strtoupper($plaza);?></strong></p>
+	  		<p class="text-center" style="font-size:8px;"><strong>GERENTE DE <?=strtoupper($plaza);?></strong></p>
 	  		<p class="text-center" style="font-size:8px;">(La firma aquí estampada no implica la aceptación de la intención manifestada por el cliente,
-	  		 sino solo la receptición de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
+	  		 sino solo receptición de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
 	  		 de dicha cantidad en caso de no concretarse la firma del contrato de arrendamiento)</p>
 	  	</div>
 	</div>
 	<p class="text-right">NOMBRE DE LA PERSONA QUE REALIZÓ LA VENTA <span class="underline-text"><?= $vendedorNombre;?></span> TELEFONO DEL CLIENTE: <span class="underline-text"><?=$clientetelefono;?></span></p>
 	<p class="text-right">Email <span class="underline-text"><?= $clientEmail; ?></span></p>
+	<div class="small-text">
+		<p>1.- Del presente documento no se deriva obligación para esta entidad comercial, o derecho alguno para el cliente.</p>
+		<p>2.- El presente documento ampara únicamente la cantidad expresamente señalada en el mismo, no genera ninguna clase de interés y  se expide exclusivamente por el local indicado.</p>
+		<p>3.- El pago total por la operación y la documentación requerida al cliente por la entidad comercial, deberán ser cubiertos en un plazo máximo de 7 días naturales contados a partir de la fecha señalada en el presente  documento.</p>
+		<p>4.- Se entiende que una vez transcurridos los 7 días sin que el cliente liquide la totalidad de la inversión inicial o cubra los requisitos requeridos, es deseo del cliente ya no celebrar el contrato y por ende le será devuelta la cantidad señalada en el presente documento, en la cuenta bancaria que para tales efectos designo, liberando con ello de toda responsabilidad a esta entidad comercial.</p>
+		<p>5.- El presente documento no da derecho al cliente de celebrar Contrato de Cesión de Derechos con un tercero respecto del presente, ni de celebrar contrato de subarrendamiento con esta entidad comercial, ni de tomar posesión de local alguno.</p>
+		<p>6.- <strong>6.- Este documento no es oficial ni válido para efectos fiscales; una vez que el cliente haya entregado la documentación que se le requiera, celebre el contrato de subarrendamiento respectivo y haya liquidado el importe total de la operación (pago de renta, depósito en garantía y/o por el concepto que se expida, el presente le será canjeado por el (los) correspondiente(s) recibo(s) oficial(es).</strong></p>
+	</div>
 </div>

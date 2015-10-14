@@ -53,10 +53,10 @@
 	<p class="text-right">Email <span class="underline-text"><?= $clientEmail; ?></span></p>
 	<hr style="border-top: 2px dotted #000;">
 </div>
-	<p>1.- Del presente recibo no se deriva obligación paara esta entidad comercial, o derecho alguno para el cliente.</p>
-	<p>2.- El presente recibo ampara la cantidad expresamente señalada en el mismo, no genera ninguna clase de intéres y se expide exlusivamente por el local indicado.</p>
-	<p>3.- El pago total por la operación y la documentación requerida al cliente por la entidad comercial, deberán ser cubiertos en un plaza máximo de 7 días naturales a partir de la fecha señalada en el recibo.</p>
-	<p>4.- La entidad comercial no se encuentra obligada a respetar el pago total o parcial de "Apartado", después de haber transcurrido un máximo de 7 días naturales a partir de la fecha de expedición del mismo, en dicho caso el cliente podrá solicitar la devolución del importe que ampara este recibo, canjeándolo por este recibo provisional.</p>
-	<p>5.- El presente recibo no da derechos al cliente de celebrar contrato de cesión de derechos con un tercero con respecto a este recibo, ni de celebrar contrato de subarrendamiento con esta entidad comercial, ni de tomar posesión de local alguno.</p>
-	<p>6.- <strong>Este recibo no es oficial ni válido para efectos fiscales, una vez que el cliente haya entregado la documentación que se le requiera, celebre contrato subarrendamiento respectivo y haya liquidado el importe total de la operación (pago de renta, dep+osito en garantía, y/o por el concepto que se expida) el presente recibo provisional será canjeado por el (los) correspondiente (s) recibo (s) oficial (es).</strong></p>
+	<p>1.- Del presente documento no se deriva obligación para esta entidad comercial, o derecho alguno para el cliente.</p>
+	<p>2.- El presente documento ampara únicamente la cantidad expresamente señalada en el mismo, no genera ninguna clase de interés y  se expide exclusivamente por el local indicado.</p>
+	<p>3.- El pago total por la operación y la documentación requerida al cliente por la entidad comercial, deberán ser cubiertos en un plazo máximo de 7 días naturales contados a partir de la fecha señalada en el presente  documento.</p>
+	<p>4.- Se entiende que una vez transcurridos los 7 días sin que el cliente liquide la totalidad de la inversión inicial o cubra los requisitos requeridos, es deseo del cliente ya no celebrar el contrato y por ende le será devuelta la cantidad señalada en el presente documento, en la cuenta bancaria que para tales efectos designo, liberando con ello de toda responsabilidad a esta entidad comercial.</p>
+	<p>5.- El presente documento no da derecho al cliente de celebrar Contrato de Cesión de Derechos con un tercero respecto del presente, ni de celebrar contrato de subarrendamiento con esta entidad comercial, ni de tomar posesión de local alguno.</p>
+	<p>6.- <strong>6.- Este documento no es oficial ni válido para efectos fiscales; una vez que el cliente haya entregado la documentación que se le requiera, celebre el contrato de subarrendamiento respectivo y haya liquidado el importe total de la operación (pago de renta, depósito en garantía y/o por el concepto que se expida, el presente le será canjeado por el (los) correspondiente(s) recibo(s) oficial(es).</strong></p>
 </div>
