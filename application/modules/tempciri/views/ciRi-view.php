@@ -258,12 +258,13 @@
 		</tr>
 	</tbody>
 	</table>
+	<input type="hidden" name="clienteId" id="clienteId" value="" />
+	<input type="hidden" name="optionsRadios" id="cartaintencion" value="cartaintencion">
+	<button type="submit" class="mt10 mainBotton">Generar</button>
 	<br class="clear">
 	</div>
 
-	  	<input type="hidden" name="clienteId" id="clienteId" value="" />
-			 <input type="hidden" name="optionsRadios" id="cartaintencion" value="cartaintencion">
-	  	<button type="submit" class="btn btn-primary btn-lg btn-block">Generar</button>
+
 
 	</form>
 

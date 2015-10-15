@@ -21,16 +21,18 @@
 		</thead>
 		<tbody>
 	  <tr>
-	    <td class="grayField">Nombre:</td>
-			<td><?= $ci[0]->pnombre . ' ' . $ci[0]->snombre . ' ' . $ci[0]->apellidopaterno . ' ' . $ci[0]->apellidomaterno;?></td>
-			<td class="grayField">Teléfono:</td>
-			<td><?= $ci[0]->telefono;?></td>
+	    <td class="grayField"><strong>Nombre:</strong></td>
+			<td>
+				<p><?= $ci[0]->pnombre . ' ' . $ci[0]->snombre . ' ' . $ci[0]->apellidopaterno . ' ' . $ci[0]->apellidomaterno;?></p>
+			</td>
+			<td class="grayField"><strong>Teléfono:</strong></td>
+			<td><p><?= $ci[0]->telefono;?></p></td>
 		</tr>
 		<tr>
-			<td class="grayField">Email:</td>
-			<td><?= $ci[0]->email;?></td>
-			<td class="grayField">RFC:</td>
-			<td><?= $ci[0]->rfc;?></td>
+			<td class="grayField"><strong>Email:</strong></td>
+			<td><p><?= $ci[0]->email;?></p></td>
+			<td class="grayField"><strong>RFC:</strong></td>
+			<td><p><?= $ci[0]->rfc;?></p></td>
 		</tr>
 		</tbody>
 	</table>
@@ -46,20 +48,20 @@
 		</thead>
 		<tbody>
 	  <tr>
-	    <td class="grayField">Inicio:</td>
-			<td><?= $ci[0]->contraroInicioMes;?></td>
-			<td class="grayField">Duración:</td>
-			<td><?= $ci[0]->contratoDuracion;?></td>
+	    <td class="grayField"><strong>Inicio:</strong></td>
+			<td><p><?= $ci[0]->contraroInicioMes;?></p></td>
+			<td class="grayField"><strong>Duración:</strong></td>
+			<td><p><?= $ci[0]->contratoDuracion;?></p></td>
 		</tr>
 		<tr>
-			<td class="grayField">Días de gracia:</td>
-			<td><?= $ci[0]->diasGracia;?></td>
-			<td class="grayField">Local:</td>
-			<td><?= $ci[0]->local;?></td>
+			<td class="grayField"><strong>Días de gracia:</strong></td>
+			<td><p><?= $ci[0]->diasGracia;?></p></td>
+			<td class="grayField"><strong>Local:</strong></td>
+			<td><p><?= $ci[0]->local;?></p></td>
 		</tr>
 		<tr>
-			<td>Renta:</td>
-			<td><?= $ci[0]->renta;?></td>
+			<td class="grayField"><strong>Renta:</strong></td>
+			<td><p><?= $ci[0]->renta;?></p></td>
 			<td></td>
 			<td></td>
 		</tr>
@@ -68,26 +70,31 @@
 	<br class="clear">
 	</div>
 
-		<?= $this->session->flashdata('msg'); ?>
+	<div class="wrapListForm" id="wrapListForm3">
+	<?= $this->session->flashdata('msg'); ?>
 		<form method="post" action="<?= base_url();?>tempciri/functionCancelarCi" enctype="multipart/form-data">
 		<fieldset>
-			<label for="exampleInputPassword1">Motivo de cancelación</label>
-			<textarea class="form-control uppercase" name="motivoCancelacion" required></textarea>
+			<span class="secmainTit">Motivo de cancelación</span>
+			<textarea class="texBig uppercase" name="motivoCancelacion" required></textarea>
 		</fieldset>
 		<fieldset>
-			<span>
-			  <input type="checkbox" name="devolucionOn" id="devolucionOn"> Devolución
-			</span>
+			<div id="devCan">
+			  <input type="checkbox" name="devolucionOn" id="devolucionOn">
+				<span>Devolución</span>
+			</div>
 		</fieldset>
 		<fieldset id="archivoDevolucion" style="display:none;">
-			<label for="exampleInputFile">Ficha de devolución</label>
+			<span>Ficha de devolución</span>
 			<input type="file" id="fichaDevolucion" name="fichaDevolucion" />
 		</fieldset>
 		<fieldset>
 			<input type="hidden" name="ciId" value="<?= $ci[0]->id; ?>" />
-			<button type="submit" class="btn btn-default">Cancelar Documento</button>
+			<button type="submit" class="mainBotton">Cancelar Documento</button>
 		</fieldset>
 	</form>
+	<br class="clear">
+	</div>
+<br class="clear">
 </div>
 
 <script>

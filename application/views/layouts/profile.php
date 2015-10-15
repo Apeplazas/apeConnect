@@ -33,7 +33,7 @@
 <?endif?>
 </head>
 
-<body>
+<body id="bckWhite">
 <header>
 <img id="logoHeader" src="<?=base_url()?>assets/graphics/apeplazas.png" alt="Administradora de Plazas Especializadas" />
 <nav>
@@ -84,22 +84,6 @@
     </div>
   </div>
 </nav>
-
-<section id="headBus" class="f100">
-
-
-<!--<form id="search" action="">
-<span>Busqueda Avanzada: </span>
-	<fieldset>
-		<input type="text" id="avanz" placeholder="Escribe la palabra y presiona Enter"/>
-	</fieldset>
-	<fieldset class="go">
-		<input id="searchGo" type="img" src="assets/graphics/search.png"/>
-	</fieldset>
-</form> --->
-
-
-</section>
 </header>
 
 
@@ -119,7 +103,7 @@
 <?endif?>
 
 <div id="adjustWrap<?if($this->uri->segment(2)== 'finalizarCotizacion'):?>Black<?endif?>">
-	<section id="content" class="open">
+<section id="content" class="open">
 
 
 	<div id="bar" class="barIn">
@@ -146,7 +130,7 @@
 	<?= $content; ?>
 	</div>
 	<br class="clear">
-	</section>
+</section>
 </div>
 
 </section>
