@@ -2,18 +2,21 @@
 <div class="wrapList">
 
 	<div id="actions">
-	
+		<a href="<?=base_url()?>tempCiri/ciRi" title="Generar carta intencion" class="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
+			<span>Generar Carta</span>
+		</a>
 	</div>
 
 	<table id="tablaproveed">
 		<thead>
 			<tr>
 				<th>Folio</th>
-				<th>plaza</th>
+				<th>Plaza</th>
 				<th>Usuario</th>
 				<th>Cliente</th>
-				<th>Pdf</th>
-				<th>x</th>
+				<th>Estatus</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,12 +26,20 @@
 			  <th><?= $ci->plazaNombre?></th>
 			  <th><?= $ci->nombreCompleto?></th>
 			  <th><?= $ci->pnombre;?> <?= $ci->snombre;?> <?= $ci->apellidopaterno;?> <?= $ci->apellidomaterno;?></th>
-			  <th><a href="<?=URLPDF . 'CI_' . $ci->id . '.pdf';?>" ><?= $ci->pdf?> </a></th>
+
 			  <?php if($ci->estado == 'Activo'):?>
-			  	<th><a href="<?= base_url();?>tempciri/cancelarCi/<?=$ci->id;?>" title="<?=$ci->id;?>">Cancelar</a></th>
+					<th>
+						<a href="<?= base_url();?>tempciri/cancelarCi/<?=$ci->id;?>" title="<?=$ci->id;?>">CANCELAR</a>
+					</th>
 			  <?php else:?>
-			  	<th>CANCELADO</th>
+			  	<th><span class="alertTab" >CANCELADO</span></th>
 			  <?php endif;?>
+				<th>
+					<a class="svgPdf" href="<?=URLPDF . 'CI_' . $ci->id . '.pdf';?>" >
+					<img src="<?=base_url()?>assets/graphics/svg/pdf.svg" alt="Ver documento">
+					<span><?= $ci->pdf?></span>
+				</a>
+				</th>
 			  <? endforeach; ?>
 			</tr>
 		</tbody>
@@ -36,8 +47,10 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	/// Llama al plugin de datatables
-    $('#tablaproveed').dataTable();
+		/// Llama al plugin de datatables
+		$('#tablaproveed').dataTable( {
+		  "iDisplayLength": 20
+		});
     /// Genera el even de cada lista
     $('.wrapListForm fieldset:even').addClass('evenBorder');
 

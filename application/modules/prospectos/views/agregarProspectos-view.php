@@ -54,9 +54,10 @@
 	</div>
 
 	<form id="addPros" action="<?=base_url()?>prospectos/guardarProspecto" method="post">
-	<?= $this->session->flashdata('msg');?>
+
 
 	<div class="wrapListForm" id="wrapListForm1">
+	<?= $this->session->flashdata('msg');?>
 	<table>
 		<thead>
 	  <tr>
