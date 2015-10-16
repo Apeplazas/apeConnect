@@ -1340,5 +1340,41 @@ class Ajax extends MX_Controller {
 		$this->db->update('TEMORA_RI', array('estado'=>'cancelado'));
 
 	}
+	
+	function saveSingFile(){
+		
+		$return = array();
+		
+		$cartaIntId = $_POST['cartaIntId'];
+		
+		$permitidos =  array('gif','png','jpg','pdf');
+
+		$extArchivo = pathinfo($_FILES['firma']['name'], PATHINFO_EXTENSION);
+		if( !in_array($extArchivo,$permitidos) || empty($extArchivo) ) {
+
+			$return['message']	= "Favor de ingresar archivos válidos";
+			$return['success']	= false;
+			echo json_encode($return);
+			exit;
+
+		}
+		
+		//Insertar archivo comprobante de pago
+		$archivoNombre	= 'CI_'.$cartaIntId.'_firmado.'.$extArchivo;
+
+		move_uploaded_file($_FILES['firma']['tmp_name'],DIRCIDOCS.$archivoNombre);
+		$data = array(
+			'ciId'			=> $cartaIntId,
+		   	'docTipo'		=> 'documentoFirmado',
+		   	'archivoNombre'	=> $archivoNombre
+		);
+		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
+		
+		$return['message']	= "Documento cargado.";
+		$return['success']	= true;
+		echo json_encode($return);
+		exit;
+		
+	}
 
 }

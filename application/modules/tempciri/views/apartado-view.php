@@ -5,10 +5,6 @@
 			</i>
 			<span>Imprimir PDF</span>
 	</a>
-	<a class="addSmall mt10" href="<?=base_url()?>tempciri/verCi">
-		<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/back.svg" alt="Regresar"></i>
-		<span>Regresar a listado</span>
-	</a>
 	<a class="addSmall mt10 js-open-modal" href="#" data-modal-id="popup" href="#modal">
 		<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/firma.svg" alt="Regresar"></i>
 		<span>Agregar Firma</span>
@@ -27,14 +23,15 @@
     <h3>Ingreso de documentos firmado</h3>
 		<p>Como requisito para terminar el proceso necesitara adjuntar los documentos firmados y scaneados.</p>
   </div>
-  <form method="post" class="modal-body" enctype="multipart/form-data">
+  <form id="scanFileDoc" method="post" class="modal-body" enctype="multipart/form-data" action="#" method="post">
 		<fieldset>
-			<span id="hideTy"><input type="file" name="firma"></span>
+			<span id="hideTy"><input type="file" name="firma" accept=".pdf,image/*"  required /></span>
 		</fieldset>
 		<fieldset>
-			<input type="image" src="<?=base_url()?>assets/graphics/finalizarFirma.png" id="enviarFirma">
+			<input type="hidden" name="cartaIntId" id="cartaIntId" value="<?= $documentoId; ?>" />
+			<input type="image" src="<?=base_url()?>assets/graphics/finalizarFirma.png" id="enviarFirma" />
 		</fieldset>
-  </div>
+	</form>
 </div>
 
 <iframe id="iFramePdf" src="<?=URLPDF . 'CI_' . $documentoId . '.pdf';?>" style="display:none;"></iframe>
@@ -48,6 +45,19 @@ function printPDF(print){
 </script>
 
 <script type="text/javascript">
+
+window.onbeforeunload = function (e) {
+e = e || window.event;
+
+// For IE and Firefox prior to version 4
+if (e) {
+    e.returnValue = 'No recargues o abandones esta pagina hasta adjuntar el documento firmado';
+}
+
+// For Safari
+return 'No recargues o abandones esta pagina hasta adjuntar el documento firmado';
+};
+
 $(function(){
 	var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
 
@@ -74,5 +84,23 @@ $(function(){
 	});
 	});
 	$(window).resize();
+	
+	// prepare Options Object 
+	var options = { 
+	    url:        ajax_url+'saveSingFile', 
+	    dataType:	'json',
+	    success:    function(data) { 
+	        if(!data.success){
+	        	alert("Favor de ingresar archivos válidos.");
+	        }else{
+	        	window.onbeforeunload = null;
+	        	window.location.href = "<?= base_url();?>tempciri/ciRi";
+	        }
+	    } 
+	}; 
+	 
+	// pass options to ajaxForm 
+	$('#scanFileDoc').ajaxForm(options);
+	
 });
 </script>
