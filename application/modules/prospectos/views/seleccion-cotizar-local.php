@@ -1,17 +1,17 @@
-
-
-
 <link rel="stylesheet" href="<?=base_url()?>assets/js/mocha/mocha.css" />
-<script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>				
-<h3 id="mainTitPlano">Locales disponibles</h3>
-<div class="wrapListPlano">
-	<div id="actionsPlano">
+<script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
+<div id="mainTit">
+<h3 >Locales disponibles</h3>
+</div>
+<div class="wrapList">
+
+	<div id="actions">
 	<? foreach($infoPlano as $p):?>
 	<!-- Solo carga si encuentra mas pisos en los mapas -->
 	<? $pisos = $this->planogramas_model->cargarPisos($p->plaza);?>
 	<? if (count($pisos) != 1):?>
 	<form id="piFor" method="post" action="<?=base_url()?>">
-	<h1><?= $p->plaza;?> | pisos</h1>
+	<h1>pisos</h1>
 	<fieldset>
 		<select id="selPis">
 			<? foreach($pisos as $pi):?>
@@ -20,17 +20,24 @@
 		</select>
 	</fieldset>
 	</form>
+
+	<span class="back">
+	 <a class="addSmall" href="javascript:window.history.go(-1);">
+		 <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/back.svg" alt="Regresar"></i>
+		 <span>Regresar</span>
+	 </a>
+	</span>
 	<? endif; ?>
-	
+
 	<input type="hidden" id="text" style="width:100%">
 	</div>
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 	<div id="plano">
 		<div id="pan-parent">
 			<div id="panzoom">
@@ -49,9 +56,9 @@
 			<rect id="<?= $rowA->id;?>" class="areaPublica" y="<?=$rowA->y;?>" width="<?=$rowA->width;?>" height="<?=$rowA->height;?>"/>
 			<? endif;?>
 			<? endforeach; ?>
-			
-			
-			<? foreach($locales as $row): 
+
+
+			<? foreach($locales as $row):
 				$fechaExpiracion = marcaRenovaciones($row->fechaEmision);
 				$class = 'click habilitado ';
 				if ($fechaExpiracion):
@@ -71,11 +78,11 @@
 					endif;
 				endif;
 			?>
-			
-			
-			
+
+
+
 			<? if($row->tipo == 'polyline'): ?>
-			<polyline id="<?= $row->id;?>" class="<?=$class?>" 
+			<polyline id="<?= $row->id;?>" class="<?=$class?>"
 			points="<?= $row->points;?>"/>
 			<? elseif ($row->tipo == 'path'):?>
 			<path  id="<?= $row->id;?>" d="<?= $row->d;?>" class="<?=$class?>" />
@@ -87,9 +94,9 @@
 			<rect id="<?= $row->id;?>" class="<?=$class?>" x="<?=$row->x;?>" y="<?=$row->y;?>" width="<?=$row->width;?>" height="<?=$row->height;?>"/>
 			<? endif;?>
 			<? endforeach; ?>
-							
+
 			<? foreach($texto as $r):?>
-			<? $uno = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 2);?>	
+			<? $uno = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 2);?>
 				<? foreach($uno as $u):?>
 				<text id="<?=$u->id?>" title="<?=$u->Clavedelocal?>" class="texto" transform="<?=$u->transform?>" >
 				<? if ($this->uri->segment(4)):?>
@@ -99,8 +106,8 @@
 				<? endif;?>
 				</text>
 				<? endforeach; ?>
-			
-			<? $dos = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 3);?>	
+
+			<? $dos = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 3);?>
 				<? foreach($dos as $d):?>
 				<text id="<?=$d->id?>" title="<?=$d->Clavedelocal?>" class="texto" transform="<?=$d->transform?>" >
 				<? if ($this->uri->segment(5)):?>
@@ -110,8 +117,8 @@
 				<? endif;?>
 				</text>
 				<? endforeach; ?>
-						
-			<? $tres = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 4);?>	
+
+			<? $tres = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 4);?>
 				<? foreach($tres as $t):?>
 				<text id="<?=$t->id?>" title="<?=$t->Clavedelocal?>" class="texto" transform="<?=$t->transform?>" >
 				<? if ($this->uri->segment(6)):?>
@@ -122,23 +129,24 @@
 				</text>
 				<? endforeach; ?>
 			<? endforeach; ?>
-			
-			
-			
-			
-			
+
+
+
+
+
 			</g>
 			</svg>
 			</div>
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 		</div>
 	</div>
 <? endforeach; ?>
+<br class="clear">
 </div>
 
 
@@ -149,7 +157,7 @@ D3.JS CARGA FRAMEWORK PARA SV
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
-    
+
 var svg = d3.select("#Layer1").call(zoom);
 svg.on("click",click);
 svg.on("dblclick",dblclick);
@@ -174,7 +182,7 @@ function click(d){
 	    	xt = t.translate[0],
 	    	yt = t.translate[1],
 	    	s = zoom.scale();
-	
+
 		var p = d3.mouse(this);
 		var x = (p[0] - (xt))/s;
 	  	var y = (p[1] - (yt))/s;
@@ -205,7 +213,7 @@ $('#guardarPath').click(function(){
 		url : ajax_url + 'agregarPath',
 		type : 'post',
 	});
-	
+
 	var action = $("#busquedaUno").val() + "/" +$("#busquedaDos").val() + "/" +$("#busquedaTres").val();
 	$("#forma").attr("action", "<?=base_url()?>prospectos/verplano/<?=$this->uri->segment(3)?>/" + action);
 
@@ -227,7 +235,7 @@ function zoomed() {
 			var arr 		= vectorData.split('-');
 			var vectoreData = arr[2];
 			$('#'+vectoreData).attr("class","click habilitado DESOCUPADO");
-			
+
 			$.post("http://www.apeplazas.com/apeConnect/ajax/eliminarLocalCotizacion", {
 				id : vectoreData
 			}, function(data) {
@@ -240,12 +248,12 @@ jQuery(function($) {
 	$(function() {
 
 		$(".click").click(function(e){
-			
+
 			$('#winRight').removeClass('barClose');
 			$('#winRight').addClass('barOpen');
 			$('#botCot').removeClass('botAcCotNone');
 			$('#botCot').addClass('botAcCot');
-			
+
 			var vectoreData = this.id;
 			var current = this;
 			if ( $(this).attr("class").search("DESOCUPADO") > 0 ) {
@@ -263,7 +271,7 @@ jQuery(function($) {
 								var arr 		= vectorData.split('-');
 								var vectoreData = arr[2];
 								$('#'+vectoreData).attr("class","click habilitado DESOCUPADO");
-								
+
 								$.post("http://www.apeplazas.com/apeConnect/ajax/eliminarLocalCotizacion", {
 									id : vectoreData
 								}, function(data) {
@@ -289,7 +297,7 @@ jQuery(function($) {
 			}
 
 		});
-		
+
 		$(".sinAsignar, .Expirado").click(function(){
 			d3.selectAll(".click").classed( "selected", false);
 		});
@@ -299,24 +307,24 @@ jQuery(function($) {
 
 			var vectores 	= $('.selected');
 			var vectoresData = [];
-			
+
 			$.each(vectores,function(key,val){
 				vectoresData.push(val.id);
 			});
-					
+
 			$.post("http://www.apeplazas.com/apeConnect/ajax/agregarLocalCotizacion", {
 				ids : vectoresData
 			}, function(data) {
 				if (data){
-					
+
 				}else{
 					alert('No ha ajustado el texto')
 				}
 			},'json');
 		});
 
-		
-		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown 
+
+		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown
 		$("ul.topnav li span").click(function() { //Cuando el trigger acciona muestra estas etiquetas...
 		//Sigue el evento y genera un slide Down de efecto para los resultados
 		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
@@ -344,6 +352,6 @@ jQuery(function($) {
 			}
 		});
 	});
-	
+
 });
 </script>

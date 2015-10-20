@@ -22,10 +22,10 @@
 		<tbody>
 			<? foreach($cis as $ci):?>
 			<tr>
-			  <th><?= $ci->folio?></th>
-			  <th><?= $ci->plazaNombre?></th>
-			  <th><?= $ci->nombreCompleto?></th>
-			  <th><?= $ci->pnombre;?> <?= $ci->snombre;?> <?= $ci->apellidopaterno;?> <?= $ci->apellidomaterno;?></th>
+			  <th><p><?= $ci->folio?></p></th>
+			  <th><p><?= $ci->plazaNombre?></p></th>
+			  <th><p><?= $ci->nombreCompleto?></p></th>
+			  <th><p class="limitTab"><?= $ci->pnombre;?> <?= $ci->snombre;?> <?= $ci->apellidopaterno;?> <?= $ci->apellidomaterno;?></p></th>
 
 			  <?php if($ci->estado == 'Activo'):?>
 					<th>

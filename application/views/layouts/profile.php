@@ -108,7 +108,10 @@
 
 	<div id="bar" class="barIn">
 	<nav id="navMenu" class="prel">
-	<button class="">Cerrar</button>
+	<div id="butImg" >
+    <button class="arrowLeft">Cerrar</button>
+    <img id="logoSmall" class="none" src="<?=base_url()?>assets/graphics/apeplazas.png" alt="Administradora de Plazas Especializadas" />
+  </div>
   <h1><?= ucfirst($this->uri->segment(1));?></h1>
 	<ul id="padMenu">
 		<li class="main <?if($this->uri->segment(1) == 'admin'):?>bckMark<?endif?>">

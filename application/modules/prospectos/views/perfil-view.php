@@ -6,20 +6,12 @@
 
 <div class="wrapList" >
 	<div id="actions">
-		<a href="<?=base_url()?>prospectos/agregar" title="Agregar Contactos" class="addSmall">
-			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar contacto"></i>
-			<span>Agregar Contacto</span>
-		</a>
 		<a href="<?=base_url()?>prospectos/localesCotizadosProspectos/<?= $this->uri->segment(3)?>" title="Agregar Contactos" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/apartado.svg" alt="Ingresar Apartado"></i>
 			<span>Ingresar Apartado</span>
 		</a>
-		<a href="<?=base_url()?>prospectos/generarRecibo/<?= $this->uri->segment(3)?>" title="Agregar Contactos" class="addSmall">
-			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/recibo.svg" alt="Ingresar Recibo"></i>
-			<span>Ingresar Recibo</span>
-		</a>
 		<!-- Formulario para generar cotizacion -->
-		<form action="<?=base_url()?>prospectos/cotizar/<?= $this->uri->segment(3)?>" method="post">
+		<form class="fleft" action="<?=base_url()?>prospectos/cotizar/<?= $this->uri->segment(3)?>" method="post">
 		<fieldset class="addSmall">
 			<div class="fleft">
 				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/cotizarLocal.svg" alt="Cotizar Local"></i>
@@ -42,173 +34,129 @@
 
 
 			<span class="toolBar">
-			<a href="<?=base_url()?>prospectos/borrar/<?= $this->uri->segment(3)?>/borrado" class="addToolSmall" title="Borrar"><i class="iconDelete">Borrar</i></a>
+			<a href="<?=base_url()?>prospectos/borrar/<?= $this->uri->segment(3)?>/borrado" class="addToolSmall" title="Borrar">
+				<i class="iconDeleteT">
+					<img src="<?=base_url()?>assets/graphics/svg/borrar.svg" alt="Borrar Prospecto"></i>
+			</a>
 
-			<a href="<?=base_url()?>prospectos/editar/<?= $this->uri->segment(3)?>" class="addToolSmall" title="Editar"><i class="iconEdit">Editar</i></a>
+			<a href="<?=base_url()?>prospectos/editar/<?= $this->uri->segment(3)?>" class="addToolSmall" title="Editar">
+				<i class="iconEditT">
+					<img src="<?=base_url()?>assets/graphics/svg/pencilW.svg" alt="Editar Prospecto">
+				</i>
+			</a>
 			</span>
 		</div>
 
 
-	<div class="wrapListForm">
-		<span class="msgBar grayBox">Datos personales.</span>
-		<div class="divPer">
-			<div class="wrapLabelPer">
-			  <label><span class="obli">*</span>Primer nombre</label>
-			</div>
-			<p><?= $row->pnombre;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			 <label>Segundo nombre</label>
-		    </div>
-		    <p><?= $row->snombre;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label><span class="obli">*</span>Apellido paterno</label>
-		    </div>
-		    <p><?= $row->apellidop;?></p>
-		</div>
-
-		<div class="divPer">
-		   <div class="wrapLabelPer">
-			  <label><span class="obli">*</span>Apellido materno</label>
-		    </div>
-		    <p><?= $row->apellidom;?></p>
-		</div>
-
-		<div class="divPer">
-			<div class="wrapLabelPer">
-		      <label><span class="obli">*</span>Correo electrónico</label>
-			</div>
-			<p><?= $row->correo;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-		      <label><span class="obli">*</span>Teléfono</label>
-			</div>
-			<p><?= $row->telefono;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-		    <label>Celular</label>
-		    </div>
-		    <p><?= $row->celular;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label><span class="obli">*</span>Actividad</label>
-		    </div>
-		    <p><?= $row->actividad;?></p>
-		</div>
-
-		<div class="divPer">
-			<div class="wrapLabelPer">
-			  <label><span class="obli">*</span>Plaza</label>
-			</div>
-			<p id="plazaLista">
-			<? foreach($zonas as $p):?>
-				<?= $p->zona;?>,
-			<? endforeach; ?>
-			</p>
-
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label><span class="obli">*</span>Origen cliente</label>
-		    </div>
-		    <p><?= $row->origenCliente;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Giro</label>
-		    </div>
-		   <? foreach($giros as $g):?>
-			<p class="firsUp"><?= $g->giroProspecto;?> </p>
-			<? endforeach; ?>
-		</div>
+	<div class="wrapListForm" id="wrapListForm1">
 
 
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Asignado a:</label>
-		    </div>
-		    <p>
-		    <? foreach($vendedor as $e):?>
-			<?= $e->nombreCompleto;?>,
-			<? endforeach; ?>
-			</p>
-		</div>
-
+	<table>
+		<thead>
+			<tr>
+				<th colspan="4">Datos personales</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="grayField"><strong>Primer nombre</strong></td>
+				<td><p><?= $row->pnombre;?></p></td>
+				<td class="grayField"><strong>Segundo nombre</strong></td>
+				<td><p><?= $row->snombre;?></p></td>
+			</tr>
+			<tr>
+				<td class="grayField"><strong>Apellido paterno</strong></td>
+				<td><p><?= $row->apellidop;?></p></td>
+				<td class="grayField"><strong>Apellido materno</strong></td>
+				<td><p><?= $row->apellidom;?></p></td>
+			</tr>
+			<tr>
+				<td class="grayField"><strong>Correo electrónico</strong></td>
+				<td><p><?= $row->correo;?></p></td>
+				<td class="grayField"><strong>Teléfono</strong></td>
+				<td><p><?= $row->telefono;?></p></td>
+			</tr>
+			<tr>
+				<td class="grayField"><strong>Celular</strong></td>
+				<td><p><?= $row->celular;?></p></td>
+				<td class="grayField"><strong>Actividad</strong></td>
+				<td><p><?= $row->actividad;?></p></td>
+			</tr>
+			<tr>
+				<td class="grayField"><strong>Plaza</strong></td>
+				<td>
+					<p id="plazaLista">
+					<? foreach($zonas as $p):?>
+						<?= $p->zona;?>,
+					<? endforeach; ?>
+					</p>
+				</td>
+				<td class="grayField"><strong>Origen cliente</strong></td>
+				<td><p><?= $row->origenCliente;?></p></td>
+			</tr>
+			<tr>
+				<td class="grayField"><strong>Asignado a:</strong></td>
+				<td>
+					<? foreach($vendedor as $e):?>
+					<p><?= $e->nombreCompleto;?>,</p>
+					<? endforeach; ?>
+				</td>
+				<td class="grayField"><strong>Giro</strong></td>
+				<td>
+					<? foreach($giros as $g):?>
+	 					<p class="firsUp"><?= $g->giroProspecto;?> </p>
+	 				<? endforeach; ?>
+				</td>
+			</tr>
+		</tbdody>
+	</table>
+	<br class="clear">
 	</div>
 
-	<div class="wrapListForm">
-		<span class="msgBar grayBox">Detalles de la dirección</span>
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Estado</label>
-		    </div>
-		    <p><?= $row->estado;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Municipio</label>
-		    </div>
-		    <p><?= $row->municipio;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Colonia</label>
-		    </div>
-		    <p><?= $row->colonia;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Código postal</label>
-		    </div>
-		    <p><?= $row->cp;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Calle</label>
-	    	</div>
-	    	<p><?= $row->calle;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Número exterior</label>
-	    	</div>
-	    	<p><?= $row->numeroExt;?></p>
-		</div>
-
-		<div class="divPer">
-		    <div class="wrapLabelPer">
-			  <label>Número interior</label>
-	    	</div>
-	    	<p><?= $row->numeroInt;?></p>
-		</div>
+	<div class="wrapListForm"  id="wrapListForm2">
+		<table>
+			<thead>
+				<tr>
+					<th colspan="4">Detalles de la dirección</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="grayField"><strong>Estado</strong></td>
+					<td><p><?= $row->estado;?></p></td>
+					<td class="grayField"><strong>Municipio</strong></td>
+					<td><p><?= $row->municipio;?></p></td>
+				</tr>
+				<tr>
+					<td class="grayField"><strong>Colonia</strong></td>
+					<td><p><?= $row->colonia;?></p></td>
+					<td class="grayField"><strong>Municipio</strong></td>
+					<td><p><?= $row->municipio;?></p></td>
+				</tr>
+				<tr>
+					<td class="grayField"><strong>Código postal</strong></td>
+					<td><p><?= $row->cp;?></p></td>
+					<td class="grayField"><strong>Calle</strong></td>
+					<td><p><?= $row->calle;?></p></td>
+				</tr>
+				<tr>
+					<td class="grayField"><strong>Número exterior</strong></td>
+					<td><p><?= $row->numeroExt;?></p></td>
+					<td class="grayField"><strong>Número interior</strong></td>
+					<td><p><?= $row->numeroInt;?></p></td>
+				</tr>
+			</tbody>
+		</table>
+		<br class="clear">
 	</div>
 
-	<div class="wrapListForm">
-		<span class="msgBar grayBox">Información importante</span>
+
+	<div class="wrapListForm" id="wrapListForm3">
+		<span class="secmainTit">Información importante</span>
 		<div class="comenWrap">
-		    <div class="wrapLabel">
-			  <label>Comentario</label>
-	    	</div>
-	    	<p><?= $row->comentario;?></p>
+	    	<p id="comenW"><b>Comentario</b><?= $row->comentario;?> dsf asdfasdf </p>
 		</div>
+		<br class="clear">
 	</div>
 	</div>
 </div>

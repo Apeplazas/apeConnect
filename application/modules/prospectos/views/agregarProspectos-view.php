@@ -53,11 +53,11 @@
 		</span>
 	</div>
 
+	<?= $this->session->flashdata('msg');?>
+
 	<form id="addPros" action="<?=base_url()?>prospectos/guardarProspecto" method="post">
 
-
 	<div class="wrapListForm" id="wrapListForm1">
-	<?= $this->session->flashdata('msg');?>
 	<table>
 		<thead>
 	  <tr>

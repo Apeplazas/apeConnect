@@ -1,43 +1,51 @@
-<h3 id="mainTit">Selecciona las plaza que desees cotizar.</h3>
+<div id="mainTit">
+	<h3>Listado informativo de plazas.</h3>
+</div>
 
 
-<table id="tablaPlano" >
-	<thead>
-		<tr>
-			<th class="space"></th>
-			<th></th>
-			<th >Ciudad</th>
-			<th>Rentados</th>
-			<th>Disponibles</th>
-			<th>Mantenimiento</th>
-			<th>Apartados</th>
-		</tr>
-	</thead>
-	<tbody>
-		<? foreach($planos as $row):?>
-		
-			<tr class="plaza">
-				<th class="space"></th>
-				<th><a class="iconVermas" href="#" onclick="$('#<?= $row->id;?>').toggle(); return false;">Ver planogramas</a></th>
-				<th><a class="f100" href="#" onclick="$('#<?= $row->id;?>').toggle(); return false;"><?= $row->plaza;?></a></th>
-				<th><a class="f100" href="#" onclick="$('#<?= $row->id;?>').toggle(); return false;">8</a></th>
-				<th><a class="f100" href="#" onclick="$('#<?= $row->id;?>').toggle(); return false;">9</a></th>
-				<th><a class="f100" href="#" onclick="$('#<?= $row->id;?>').toggle(); return false;">2</a></th>
-				<th><a class="f100" href="#" onclick="$('#<?= $row->id;?>').toggle(); return false;">10</a></th>
-			</tr>
-			<tr class="none childTab" id="<?= $row->id;?>">
-				<th colspan="7">
-					<ul>
-					<? $list = $this->planogramas_model->cargarPisos($row->plaza);?>
-					<? foreach($list as $l):?>
-					  <li><a href="<?=base_url()?>prospectos/cotizarLocal/<?= $l->id;?>" title="Planta Baja"> &#8226; Piso <?= $l->piso;?></a></li>
-					  <? endforeach; ?>
-					</ul>
-				</th>
-			</tr>
-			<? endforeach; ?>
-	</tbody>
-</table>
+<div class="wrapList">
+	<div id="actions">
+		<span class="back">
+		 <a class="addSmall" href="javascript:window.history.go(-1);">
+			 <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/back.svg" alt="Regresar"></i>
+			 <span>Regresar</span>
+		 </a>
+		</span>
+	</div>
+
+	<div class="wrapListForm" id="wrapListForm1">
+		<table class="thbr" id="tablaPlano" >
+			<thead>
+				<tr>
+					<th>Ciudad</th>
+					<th>Rentados</th>
+					<th>Disponibles</th>
+					<th>Mantenimiento</th>
+					<th>Apartados</th>
+					<th>Pisos</th>
+				</tr>
+			</thead>
+			<tbody>
+				<? foreach($planos as $row):?>
+					<tr>
+						<th class="pl10"><?= $row->plaza;?></th>
+						<th class="pl10">8</th>
+						<th class="pl10">9</th>
+						<th class="pl10">2</th>
+						<th class="pl10">10</th>
+						<th id="asigPi">
+							<ul>
+								<? $list = $this->planogramas_model->cargarPisos($row->plaza);?>
+							<? foreach($list as $l):?>
+							<li><a href="<?=base_url()?>prospectos/cotizarLocal/<?= $l->id;?>" title="Planta Baja"><?= $l->piso;?></a></li>
+							<? endforeach; ?></th>
+							</ul>
+					</tr>
+					<? endforeach; ?>
+			</tbody>
+		</table>
+		<br class="clear">
+	</div>
 </div>
 
 
@@ -50,6 +58,6 @@ $(document).ready(function() {
         }
     });
     */
-    
+
 });
 </script>

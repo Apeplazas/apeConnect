@@ -15,9 +15,7 @@ class Tempciri extends MX_Controller {
 
 	function index()
 	{
-
 		$this->layouts->profile('index-view');
-
 	}
 
 	function ciRi(){
