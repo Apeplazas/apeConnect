@@ -22,6 +22,12 @@ class Acceso extends MX_Controller
         }
         else{
         	
+			//Codigo temporal para redirigir Gerentes a la lista de cartas de intencion
+			if($userprofile['tipoUsuario'] == "Gerente Plaza"){
+				redirect("tempciri/verCi");
+				return false;	
+			}
+				
         	$urlGuardad 		= $this->session->userdata('previous_page');
 
 			if($urlGuardad){

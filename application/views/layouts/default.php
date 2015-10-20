@@ -11,6 +11,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
 <meta name="robots" content="All,index, follow" />
 <link type="text/css" href="<?=base_url()?>assets/css/style.css" rel="stylesheet"/>
+<script> 
+	var ajax_url = "<?= BASEURL;?>ajax/"; 
+	var base_url = "<?= BASEURL;?>";
+</script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/functions.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/modernizr.js" type="text/javascript"></script>

@@ -17,10 +17,8 @@ jQuery(function($) {
                 success:  function (response) {
 					if(response['error'])
                         $(".msgBlack").html(response['error']);
-					else if(response['usuario']['fancyUrl'])
-						window.location = "perfiles/"+response['usuario']['fancyUrl'];
 					else
-						$(".msgBlack").html("Ha ocurrido un error");
+						window.location.reload();//window.location = response['usuario']['fancyUrl'];
                 }
         });
         

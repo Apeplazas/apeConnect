@@ -42,12 +42,12 @@ class User_model extends CI_Model {
 			
 			 	return $data;	 	
         	}else{
-        		$data['error'] = "Password Invalido.";
+        		$data['error'] = "Contraseña inválida.";
         		return $data;
         	}
 				
         }else{
-        	$data['error'] = "Usuaario o email invalido.";
+        	$data['error'] = "Usuario o email inválido.";
         	return $data;
         }
        	

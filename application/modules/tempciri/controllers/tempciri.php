@@ -44,6 +44,8 @@ class Tempciri extends MX_Controller {
 
 		$op 	= array();
 		$cots 	= array();
+		
+		$this->layouts->add_include('assets/js/jquery.form.js');
 
 		$tipoCarta = $_POST['optionsRadios'];
 
@@ -103,6 +105,7 @@ class Tempciri extends MX_Controller {
 		$op['rentaDepositoLet']	= num_to_letras($op['rentaDeposito']);
 		$op['plaza']			= $_POST['plazaNombre'];
 		$op['dirplaza']			= $_POST['dirplaza'];
+		$op['plazaPiso']			= $_POST['plazaPiso'];
 		$op['diasGracia']		= $_POST['diasGracia'];
 
 
@@ -166,11 +169,11 @@ class Tempciri extends MX_Controller {
 
 		if($tipoCarta == 'cartaintencion'){
 
-			$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local']);
-			if( !empty($checkRef) ){
+			$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
+			if(!empty($checkRef) && sizeof($checkRef) >= 3){
 				$this->session->set_flashdata("msg","<div class='msgFlash'>
 					<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
-					<strong>El cliente " . $op['clientNom'] . " ya ha generado anteriormente un documeto para la plaza " . $op['plaza'] . " por el local " . $op['local'] .
+					<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .
 					"</strong>
 				</div>
 				<br class='clear'>");
@@ -209,6 +212,7 @@ class Tempciri extends MX_Controller {
 					'ciId'				=> $cartaIntId,
 					'renta'				=> $op['rentaCant'],
 					'local'				=> $op['local'],
+					'piso'				=> $op['plazaPiso'],
 					'dir'        		=> $op['dirplaza']
 			);
 			$this->db->insert('TEMPORA_PLAZA_RENTAS', $rentaDatos);

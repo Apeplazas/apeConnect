@@ -14,6 +14,10 @@
 <? endforeach; ?>
 <meta name="robots" content="All,index, follow" />
 <link href='https://fonts.googleapis.com/css?family=Lato:700,300,400' rel='stylesheet' type='text/css'>
+<script> 
+	var ajax_url = "<?= BASEURL;?>ajax/"; 
+	var base_url = "<?= BASEURL;?>";
+</script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/modernizr.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.dataTables.min.js" type="text/javascript"></script>
@@ -27,7 +31,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=0, user-scalable=no, minimum-scale=1.0, maximum-scale=0">
 <?= $this->layouts->print_includes(); ?>
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/favicon.png" />
-<script> var ajax_url = "<?= BASEURL;?>ajax/"; </script>
 <? if($this->uri->segment(2) == 'finalizarCotizacion'):?>
  <style type="text/css">html{background-color:#555}</style>
 <?endif?>

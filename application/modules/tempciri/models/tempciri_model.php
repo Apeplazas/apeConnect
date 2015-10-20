@@ -187,14 +187,16 @@ class Tempciri_model extends CI_Model
 		
 	}
 	
-	function checkRefCi($clientRfc,$plaza,$local){
+	function checkRefCi($clientRfc,$plaza,$local,$dirPlaza,$pisoPlaza){
 		
 		$data = array(); 
 		$q = $this->db->query("SELECT * FROM TEMPORA_PLAZA_RENTAS r
 			LEFT JOIN TEMPORA_CLIENTES c ON c.id=r.clienteId
 			WHERE c.rfc = '$clientRfc'
 			AND r.plazaId = '$plaza'
-			AND r.local = '$local'");
+			AND r.local = '$local' 
+			AND r.dir = '$dirPlaza' 
+			AND r.piso = '$pisoPlaza'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
