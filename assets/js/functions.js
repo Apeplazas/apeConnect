@@ -56,7 +56,7 @@ var statusBar = $.cookie('statusBar');
 	$("#fancy").keyup(function() {
 		var filtro = $("#fancy").val();
 		$("#url").removeAttr("disabled");
-		$.post("http://www.apeplazas.com/obras/ajax/verificaUrl", {
+		$.post(ajax_url+"verificaUrl", {
 			filtro : filtro
 		}, function(data) { sucess:
 			$("#url").empty().append(data);
@@ -70,33 +70,11 @@ var statusBar = $.cookie('statusBar');
 	$("#emaCheck").keyup(function() {
 		var filtro = $("#emaCheck").val();
 		$("#ajaxEma").removeAttr("disabled");
-		$.post("http://localhost:8888/apeConnect/ajax/verificaEmail", {
+		$.post(ajax_url+"verificaEmail", {
 			filtro : filtro
 		}, function(data) { sucess:
 			$("#ajaxEma").empty().append(data);
 			$("#ajaxEma").removeAttr("disabled");
-		});
-
-	})
-	/********************************************************************************************************************
-	 Ajax login
-	 ********************************************************************************************************************/
-	$("#loginForm").submit(function(e) {
-		e.preventDefault();
-		$.ajax({
-			data : $(this).serialize(),
-			dataType : 'json',
-			url : 'http://localhost:8888/apeConnect/registrate/valida',
-			type : 'post',
-			beforeSend : function() {
-				$(".msgBlack").html("<span class='msg<'>Procesando, espere por favor...</span>");
-			},
-			success : function(response) {
-				if (response['error'])
-					$(".msgBlack").html(response['error']);
-				else
-					window.location.reload();
-			}
 		});
 
 	});
@@ -289,7 +267,7 @@ var statusBar = $.cookie('statusBar');
 	$("#plaza").change(function() {
 		var plaza = $("#plaza").val();
 		$("#pisos").removeAttr("disabled");
-		$.post("http://www.apeplazas.com/obras/ajax/verificaPisos", {
+		$.post(ajax_url+"verificaPisos", {
 			plaza : plaza
 		}, function(data) { sucess:
 			$("#pisos").empty().append(data);
@@ -455,7 +433,7 @@ var statusBar = $.cookie('statusBar');
 	$("#estado").change(function(){
 		var estadoFiltro = $(this).val();
 		$("#municipioDir").removeAttr("disabled");
-		$.post("http://localhost:8888/apeConnect/ajax/cargarMunicipios",{estadoFiltro:estadoFiltro},function(data){
+		$.post(ajax_url+"cargarMunicipios",{estadoFiltro:estadoFiltro},function(data){
 			sucess:
 				$("#municipio").empty().append(data);
 				$("#municipio").removeAttr("disabled");
@@ -467,7 +445,7 @@ var statusBar = $.cookie('statusBar');
 		var estadoFiltro = $("#estado").val();
 		var municipioFiltro = $(this).val();
 		$("#colonia").removeAttr("disabled");
-		$.post("http://localhost:8888/apeConnect/ajax/cargarColonias",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro},function(data){
+		$.post(ajax_url+"cargarColonias",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro},function(data){
 			sucess:
 				$("#colonia").empty().append(data);
 				$("#colonia").removeAttr("disabled");
@@ -479,7 +457,7 @@ var statusBar = $.cookie('statusBar');
 		var estadoFiltro 	= $("#estado").val();
 		var municipioFiltro = $("#municipio").val();
 		var coloniaFiltro 	= $(this).val();
-		$.post("http://localhost:8888/apeConnect/ajax/cargarCP",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro,coloniaFiltro:coloniaFiltro},function(data){
+		$.post(ajax_url+"cargarCP",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro,coloniaFiltro:coloniaFiltro},function(data){
 			sucess:
 				$("#cp").val(data);
 		});
@@ -489,7 +467,7 @@ var statusBar = $.cookie('statusBar');
 	$(".plus, .plusTwo").click(function(){
 		$(".plus").addClass("none");
 		var idPlaza 	= $("#idPlaza").val();
-		$.post("http://localhost:8888/apeConnect/ajax/cargarMasPlazas",{idPlaza:idPlaza},function(data){
+		$.post(ajax_url+"cargarMasPlazas",{idPlaza:idPlaza},function(data){
 			sucess:
 				$("#masPlazas").append(data);
 		});
@@ -534,7 +512,7 @@ var statusBar = $.cookie('statusBar');
 	/// Borra en edicion la plaza seleccionada de la bd
 	$(".delPlaza").click(function() {
 		var idPlaza = $(this).attr("id");
-		$.post("http://localhost:8888/apeConnect/ajax/borrarPlazaUsuario",{idPlaza:idPlaza},function(data){
+		$.post(ajax_url+"borrarPlazaUsuario",{idPlaza:idPlaza},function(data){
 		sucess:
 			$("#masPlazas").append(data);
 		});
@@ -548,7 +526,7 @@ var statusBar = $.cookie('statusBar');
 		if(idPlaza == ''){
 			alert("No ha seleccionado ninguna plaza");
 		}
-		$.post("http://localhost:8888/apeConnect/ajax/agregarPlazaPost",{idPlaza:idPlaza,textoPlaza:textoPlaza},function(data){
+		$.post(ajax_url+"agregarPlazaPost",{idPlaza:idPlaza,textoPlaza:textoPlaza},function(data){
 		sucess:
 			$("#masPlazas").append(data);
 		});
@@ -561,7 +539,7 @@ var statusBar = $.cookie('statusBar');
 			alert('Aun no has seleccionado una plaza.');
 		}
 		else{
-			$.post("http://localhost:8888/apeConnect/ajax/plazasEmpresas",{},function(data){
+			$.post(ajax_url+"plazasEmpresas",{},function(data){
 			sucess:
 				$("#modalPlazas").append(data);
 			});

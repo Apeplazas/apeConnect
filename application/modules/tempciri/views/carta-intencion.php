@@ -50,12 +50,12 @@
 	  		<hr class="signing">
 	  		<p class="text-center"><strong>GERENTE DE <?=strtoupper($plaza);?></strong></p>
 	  		<p class="text-center" style="font-size:8px;">(La firma aquí estampada no implica la aceptación de la intención manifestada por el cliente,
-	  		 sino solo receptición de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
+	  		 sino solo recepción de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
 	  		 de dicha cantidad en caso de no concretarse la firma del contrato de arrendamiento)</p>
 	  	</div>
 	</div>
-	<p class="text-right">NOMBRE DE LA PERSONA QUE REALIZÓ LA VENTA <span class="underline-text"><?= $vendedorNombre;?></span> TELEFONO DEL CLIENTE: <span class="underline-text"><?=$clientetelefono;?></span></p>
-	<p class="text-right">Email <span class="underline-text"><?= $clientEmail; ?></span></p>
+	<!--p class="text-right">NOMBRE DE LA PERSONA QUE REALIZÓ LA VENTA <span class="underline-text"><?= $vendedorNombre;?></span> TELEFONO DEL CLIENTE: <span class="underline-text"><?=$clientetelefono;?></span></p>
+	<p class="text-right">Email <span class="underline-text"><?= $clientEmail; ?></span></p-->
 	<hr style="border-top: 2px dotted #000;">
 	<h6 class="text-center" style="color:#FFFFFF; background-color: rgb(175, 167, 167); padding: 3px 0; font-weight: bold;">TALON COMPROBANTE</h6>
 	<br/>
@@ -78,18 +78,18 @@
 	  		<hr class="signing">
 	  		<p class="text-center" style="font-size:8px;"><strong>GERENTE DE <?=strtoupper($plaza);?></strong></p>
 	  		<p class="text-center" style="font-size:8px;">(La firma aquí estampada no implica la aceptación de la intención manifestada por el cliente,
-	  		 sino solo receptición de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
+	  		 sino solo recepción de la misma y de la cantidad descrita, obligando únicamente a esta Administración a la devolución
 	  		 de dicha cantidad en caso de no concretarse la firma del contrato de arrendamiento)</p>
 	  	</div>
 	</div>
-	<p class="text-right">NOMBRE DE LA PERSONA QUE REALIZÓ LA VENTA <span class="underline-text"><?= $vendedorNombre;?></span> TELEFONO DEL CLIENTE: <span class="underline-text"><?=$clientetelefono;?></span></p>
-	<p class="text-right">Email <span class="underline-text"><?= $clientEmail; ?></span></p>
+	<!--p class="text-right">NOMBRE DE LA PERSONA QUE REALIZÓ LA VENTA <span class="underline-text"><?= $vendedorNombre;?></span> TELEFONO DEL CLIENTE: <span class="underline-text"><?=$clientetelefono;?></span></p>
+	<p class="text-right">Email <span class="underline-text"><?= $clientEmail; ?></span></p-->
 	<div class="small-text">
 		<p>1.- Del presente documento no se deriva obligación para esta entidad comercial, o derecho alguno para el cliente.</p>
-		<p>2.- El presente documento ampara únicamente la cantidad expresamente señalada en el mismo, no genera ninguna clase de interés y  se expide exclusivamente por el local indicado.</p>
+		<p>2.- El presente documento ampara únicamente la cantidad expresamente señalada en el mismo, no genera ninguna clase de interés.</p>
 		<p>3.- El pago total por la operación y la documentación requerida al cliente por la entidad comercial, deberán ser cubiertos en un plazo máximo de 7 días naturales contados a partir de la fecha señalada en el presente  documento.</p>
 		<p>4.- Se entiende que una vez transcurridos los 7 días sin que el cliente liquide la totalidad de la inversión inicial o cubra los requisitos requeridos, es deseo del cliente ya no celebrar el contrato y por ende le será devuelta la cantidad señalada en el presente documento, en la cuenta bancaria que para tales efectos designo, liberando con ello de toda responsabilidad a esta entidad comercial.</p>
 		<p>5.- El presente documento no da derecho al cliente de celebrar Contrato de Cesión de Derechos con un tercero respecto del presente, ni de celebrar contrato de subarrendamiento con esta entidad comercial, ni de tomar posesión de local alguno.</p>
-		<p>6.- <strong>6.- Este documento no es oficial ni válido para efectos fiscales; una vez que el cliente haya entregado la documentación que se le requiera, celebre el contrato de subarrendamiento respectivo y haya liquidado el importe total de la operación (pago de renta, depósito en garantía y/o por el concepto que se expida, el presente le será canjeado por el (los) correspondiente(s) recibo(s) oficial(es).</strong></p>
+		<p>6.- <strong>Este documento no es oficial ni válido para efectos fiscales; una vez que el cliente haya entregado la documentación que se le requiera, celebre el contrato de subarrendamiento respectivo y haya liquidado el importe total de la operación (pago de renta, depósito en garantía y/o por el concepto que se expida, el presente le será canjeado por el (los) correspondiente(s) recibo(s) oficial(es).</strong></p>
 	</div>
 </div>

@@ -27,6 +27,7 @@
     <div class="login">
       <h1>Administración de Plazas Especializadas</h1>
       <form  id="loginForm"  method="post">
+      	<span><div class="msgBlack"></div></span>
         <p><input type="text" name="var" value="" placeholder="Username or Email"></p>
         <p><input type="password" name="password" value="" placeholder="Password"></p>
 
