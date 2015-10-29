@@ -26,7 +26,11 @@
 		<? $cot = $this->prospectos_model->cuentaCotizacionProspecto($this->uri->segment(3));?>
 
 		<? if ($cot[0]->cuenta > '0'):?>
-		<a href="<?=base_url()?>prospectos/cotizaciones/<?= $row->id;?>" title="Ver Cotizaciones" class="addSmall"><i class="iconPlus">Agregar</i>Ver Cotizaciones <span><?= $cot[0]->cuenta;?></span></a>
+		<a href="<?=base_url()?>prospectos/cotizaciones/<?= $row->id;?>" title="Ver Cotizaciones" class="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/ver.svg" alt="Ver cotizaciones"></i>
+			<span>Ver Cotizaciones </span>
+			<div class="countRed"><?= $cot[0]->cuenta;?></div>
+		</a>
 		<?endif?>
 
 

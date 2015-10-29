@@ -1,23 +1,24 @@
 <? foreach($perfil as $row):?>
+<div id="mainTit">
+	<h3 >Lista de locales cotizados a <?= $row->pnombre;?> <?= $row->snombre;?> <?= $row->apellidop;?> <?= $row->apellidom;?></h3>
+</div>
 
-<h3 id="mainTit">Lista de locales cotizados a <?= $row->pnombre;?> <?= $row->snombre;?> <?= $row->apellidop;?> <?= $row->apellidom;?></h3>
 <div class="wrapList">
 	<!-- No se debe borrar por que si no los estilos se rompen ese contenedor se queda especificamente para todas las acciones que se tengan que agregar-->
-	<div id="actions"></div>
 	<form id="formulario-apartado" method="post" action="<?=base_url()?>prospectos/testapartado">
 		<div>
 			<h3>Locales</h3>
-	        <section>
-	            <table id="tablaproveed">
-					<thead> 
+	    <section>
+	      <table id="tablaproveed">
+					<thead>
 						<tr>
 							<input type="hidden" value="<?= $row->id;?>" name="clienteid">
 							<th>&nbsp</th>
 							<th>Folio</th>
 							<th>Vigencia</th>
 							<th>Plazas</th>
-						</tr> 
-					</thead> 
+						</tr>
+					</thead>
 					<tbody>
 					  <? foreach($cotizaciones as $c):?>
 					  <tr>
@@ -35,16 +36,16 @@
 							 	</th>
 							 	<th>
 							 		<?= $l->localPrecio;?>
-							 	</th> 
+							 	</th>
 							</tr>
 						<? endforeach; ?>
 					  <? endforeach; ?>
-					</tbody> 
+					</tbody>
 				</table>
 	        </section>
 	        <h3>Pago</h3>
 	        <section>
-	        	
+
 	        	<div class="wrapListForm" id="wrapListForm1">
 					<fieldset class="evenBorder">
 						<div class="wrapLabel">
@@ -52,28 +53,28 @@
 						</div>
 	    	    		<input class="bigInp"  type="text" name="cantpago" />
 					</fieldset>
-	    
+
 					<fieldset>
 	    				<div class="wrapLabel">
 		 					<label>Número de identificación</label>
 	    				</div>
 	    				<input type="text" name="idnum" class="bigInp" />
 					</fieldset>
-	    
+
 					<fieldset class="evenBorder">
 	    				<div class="wrapLabel">
 		  					<label>Referencia:</label>
 	    				</div>
 	    	    		<input type="text" name="referencia" class="bigInp" />
 					</fieldset>
-	    
+
 					<fieldset>
 	   					<div class="wrapLabel">
 		  					<label>Ultimos digitos de la tarjeta</label>
 	    				</div>
 	    				<input type="number" name="ncard" class="bigInp" />
 					</fieldset>
-				</div>	
+				</div>
 	        </section>
 	        <h3>Cliente</h3>
 	        <section>
@@ -98,7 +99,7 @@
 							<option value="Diciembre">Diciembre</option>
 						</select>
 					</fieldset>
-	    
+
 					<fieldset>
 	    				<div class="wrapLabel">
 		 					<label>Duración:</label>
@@ -109,16 +110,16 @@
 	    					<option value="24 meses">24 meses</option>
 	    				</select>
 					</fieldset>
-	    
+
 	    			<span class="msgBar grayBox">Datos de devolución</span>
-	    
+
 					<fieldset class="evenBorder">
 	    				<div class="wrapLabel">
 		  					<label>Numero de cuenta</label>
 	    				</div>
 	    	    		<input type="text" name="remnumcuenta" class="bigInp" />
 					</fieldset>
-	    
+
 					<fieldset>
 	   					<div class="wrapLabel">
 		  					<label>Banco</label>
@@ -168,11 +169,11 @@
 							<option value="BANKAOOL">BANKAOOL</option>
 							<option value="BANCO INMOBILIARIO MEXICANO">BANCO INMOBILIARIO MEXICANO</option>
 							<option value="FUNDACION DONDE BANCO">FUNDACION DONDE BANCO</option>
-							<option value="BANCO BANCREA">BANCO BANCREA</option>	    
+							<option value="BANCO BANCREA">BANCO BANCREA</option>
 	    				</select>
 					</fieldset>
 				</div>
-	            
+
 	        </section>
 		</div>
 	</form>
@@ -186,17 +187,17 @@
 		form.validate({
 		    errorPlacement: function errorPlacement(error, element) { element.before(error); },
 		     rules: {
-                
+
             }
 		});
-		
+
 		// must be called after validate()
 	    $('.cotizacionIds').each(function () {
 	        $(this).rules('add', {
 	            required: true
 	        });
 	    });
-	    
+
 		form.children("div").steps({
 		    headerTag: "h3",
 		    bodyTag: "section",

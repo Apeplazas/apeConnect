@@ -39,8 +39,9 @@
       <img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/map32.svg" />
       <strong>Planogramas</strong>
       <ul class="submenu">
-        <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Planogramas</h3></li>
-        <li>
+        <li class="heading">
+          <img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Planogramas</h3>
+        </li>
         <li><a href="<?=base_url()?>planogramas">Lista planogramas</a></li>
       </ul>
 		</li>

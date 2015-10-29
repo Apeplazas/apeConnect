@@ -80,7 +80,7 @@
 						<ul>
 							<? $list = $this->planogramas_model->cargarPisos($row->plaza);?>
 						<? foreach($list as $l):?>
-						<li><a href="<?=base_url()?>prospectos/cotizarLocal/<?= $l->id;?>" title="Planta Baja"><?= $l->piso;?></a></li>
+						<li><a href="<?=base_url()?>planogramas/verplano/<?= $l->id;?>" title="Planta Baja"><?= $l->piso;?></a></li>
 						<? endforeach; ?></th>
 						</ul>
 					</th>

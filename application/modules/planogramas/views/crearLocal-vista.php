@@ -1,27 +1,35 @@
-<script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
 <? foreach($infoPlano as $p):?>
-<h3 id="mainTit">Creación de locales de Plaza <?= $p->plaza;?> | Nivel <?= $p->piso;?></h3>
-<div class="wrapListPlano">
-	<div id="actionsPlano">
-	
+<script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
+<div id="mainTit">
+<h3>Herramienta de dibujo de locales</h3>
+</div>
+
+<div class="wrapList" id="wrapListPlano">
+	<div id="actions">
 	<? $this->load->view('includes/toolbars/buscaPisos-toolbar');?>
+
+	<div id="window" class="link">
+		<div id="rigWinClose" class="popup" tabindex="-1" style="display:block">
+			<div id="planoGrama" class="textMes">
+			<strong>Instruccíones</strong><br>
+			<p>1.- Oprime la tecla shift en combinación del botón izquierdo del mouse en la sección deseada y siga dibujando sus intersecciones</p>
+			<p>2.- Para borrar un cuadro ya creado antes de presionar el boton guardar de 2 click presionando la tecla shift de su teclado.</p>
+			<form action="<?=base_url()?>ajax/agregarPath" method="post" accept-charset="utf-8">
+				<input type="hidden" id="text" name="coords" size="100" style="width:100%">
+				<input type="hidden" name="planogramaID" value="<?= $this->uri->segment(3);?>" />
+				<button class="botRed" id="guardarPath">Guardar</button>
+			</form>
+			</div>
+		</div>
+	</div>
 
 	<? $this->load->view('includes/toolbars/planoGramas');?>
 	</div>
 <?php $textsContent = '';?>
 
 
-	<div id="guar">
-	<strong>Instruccíones</strong><br>
-	<p>1.- Oprime la tecla shift en combinación del botón izquierdo del mouse en la sección deseada y siga dibujando sus intersecciones</p>
-	<p>2.- Para borrar un cuadro ya creado antes de presionar el boton guardar de 2 click presionando la tecla shift de su teclado.</p>
-	<form action="<?=base_url()?>ajax/agregarPath" method="post" accept-charset="utf-8">
-		<input type="hidden" id="text" name="coords" size="100" style="width:100%">
-		<input type="hidden" name="planogramaID" value="<?= $this->uri->segment(3);?>" />
-		<button class="botRed" id="guardarPath">Guardar</button>
-	</form>
-	</div>
-	
+
+
 	<div id="planoCreacion">
 		<div id="pan-parent">
 			<div id="panzoom">
@@ -70,7 +78,7 @@ var path = container.append("path")
     .style("stroke", "#ccc")
     .style("fill", "#eee")
     .attr("id", "newPath");
-    
+
 // This function sets the path from the input text
 function redraw() {
   path.attr("d", $('#text').val());
@@ -83,7 +91,7 @@ function click(d){
 	    	xt = t.translate[0],
 	    	yt = t.translate[1],
 	    	s = zoom.scale();
-	
+
 		var p = d3.mouse(this);
 		var x = (p[0] - (xt))/s;
 	  	var y = (p[1] - (yt))/s;
@@ -108,7 +116,7 @@ function dblclick(d) {
   	redraw();
 }
 /*****  Ajax para guardar path
-$('#guardarPath').click(function(){
+$('.guardarPath').click(function(){
 
 	var coordPath = d3.select('#newPath').attr("d");
 	var idPLano = "<?php echo $this->uri->segment(3);?>";
