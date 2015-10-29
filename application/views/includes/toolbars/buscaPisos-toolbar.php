@@ -3,7 +3,7 @@
 <? $pisos = $this->planogramas_model->cargarPisos($p->plaza);?>
 <? if (count($pisos) != 1):?>
 <form id="piFor" method="post" action="<?=base_url()?>">
-<h1><?= $p->plaza;?> | pisos</h1>
+<h1>Nivel</h1>
 <fieldset>
 	<select id="selPis">
 		<? foreach($pisos as $pi):?>

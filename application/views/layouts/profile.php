@@ -1,3 +1,4 @@
+
 <? $opt = $this->uri->segment(1);?>
 <? $op = $this->data_model->cargarOptimizacion($opt);?>
 <? $user =	$this->session->userdata('usuario'); ?>
@@ -14,8 +15,8 @@
 <? endforeach; ?>
 <meta name="robots" content="All,index, follow" />
 <link href='https://fonts.googleapis.com/css?family=Lato:700,300,400' rel='stylesheet' type='text/css'>
-<script> 
-	var ajax_url = "<?= BASEURL;?>ajax/"; 
+<script>
+	var ajax_url = "<?= BASEURL;?>ajax/";
 	var base_url = "<?= BASEURL;?>";
 </script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery-1.8.3.min.js" type="text/javascript"></script>
@@ -24,6 +25,7 @@
 <script language="javascript" src="<?=base_url()?>assets/js/functions.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.remodal.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.cookie.js" type="text/javascript"></script>
+<script language="javascript" src="<?=base_url()?>assets/js/loadImg.js" type="text/javascript"></script>
 <link type="text/css" href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet"/>
 <link type="text/css" href="<?=base_url()?>assets/css/style.css" rel="stylesheet"/>
 <link type="text/css" href="<?=base_url()?>assets/css/tables.css" rel="stylesheet"/>
@@ -36,15 +38,23 @@
 <?endif?>
 </head>
 
-<body id="bckWhite">
+<body id="bckWhite" class="<? if ($this->uri->segment(1) == 'planogramas' && $this->uri->segment(2) != ''):?>ohid<?endif;?>">
+	<script type="text/javascript">
+	$(window).load(function() {
+		// Loading de la pagina
+		$(".se-pre-con").fadeOut("slow");;
+	});
+	</script>
+<div class="se-pre-con"></div>
 <header>
 <img id="logoHeader" src="<?=base_url()?>assets/graphics/apeplazas.png" alt="Administradora de Plazas Especializadas" />
 <nav>
+	<button id="panelRight" class="panelLeft">Abrir</button>
 	<ul id="preferences">
 		<li class="prel">
 		  <a class="cheers" id="options">
         <span class="proImg"><img alt="Perfil" src="<?=base_url()?>assets/graphics/svg/profile.svg" alt="" /></span>
-        <?=$user['nombre'];?><i id="triangle"></i></a>
+        <i id="triangle"><?=$user['nombre'];?></i></a>
 		  <div id="popupPref">
 			  <ul>
 				  <li class="prel"><span id="senial"><img src="<?=base_url()?>assets/graphics/mark.png" alt="Señalizacion" /></span><a href="<?=base_url()?>">Mis Preferencias</a></li>
@@ -109,7 +119,7 @@
 <section id="content" class="open">
 
 
-	<div id="bar" class="barIn">
+	<div id="bar" class="">
 	<nav id="navMenu" class="prel">
 	<div id="butImg" >
     <button class="arrowLeft">Cerrar</button>
@@ -118,8 +128,8 @@
   <h1><?= ucfirst($this->uri->segment(1));?></h1>
 	<ul id="padMenu">
 		<?
-		//Temporal para usuarios de recibos internos y cartas de intencion 
-		if($user['tipoUsuario'] != "Gerente Plaza"):?> 
+		//Temporal para usuarios de recibos internos y cartas de intencion
+		if($user['tipoUsuario'] != "Gerente Plaza"):?>
 		<li class="main <?if($this->uri->segment(1) == 'admin'):?>bckMark<?endif?>">
      		<a href="<?=base_url()?>" title="Dashboard">
 	        	<img class="svgIcon" alt="Dashboard" src="<?=base_url()?>assets/graphics/svg/dashboardTwo.svg" />

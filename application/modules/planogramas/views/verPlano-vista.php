@@ -1,15 +1,13 @@
 <? foreach($infoPlano as $p):?>
 <script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
-
-<h3 id="mainTitPlano">Planograma <?= $p->plaza;?> | Nivel <?= $p->piso;?></h3>
-<div class="wrapListPlano">
-	<div id="actionsPlano">
+<div class="wrapList" id="wrapListPlano">
+	<div id="actions">
 		<? $this->load->view('includes/toolbars/buscaPisos-toolbar');?>
+
 		<input type="hidden" id="text" style="width:100%">
-	
+
 		<div id="window" class="link">
-			<button class="addToolPlano"><i class="iconWindow">Ventana</i></button>
-			<div class="popup" tabindex="-1">
+			<div id="rigWinClose" tabindex="-1">
 				<div  id="planoGrama" >
 				<span class="secTit"><em>Información de local</em></span>
 					<div id="formato">
@@ -26,7 +24,7 @@
 	</div>
 
 <div id="plano">
-	
+
 	<div id="pan-parent">
 		<div id="panzoom">
 		<svg class="grid" version="1.1" id="Layer1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 400" enable-background="new 0 0 800 400" xml:space="preserve">
@@ -44,9 +42,9 @@
 		<rect id="<?= $rowA->id;?>" class="areaPublica" y="<?=$rowA->y;?>" width="<?=$rowA->width;?>" height="<?=$rowA->height;?>"/>
 		<? endif;?>
 		<? endforeach; ?>
-		
-		
-		<? foreach($locales as $row): 
+
+
+		<? foreach($locales as $row):
 			$fechaExpiracion = marcaRenovaciones($row->fechaEmision);
 			$class = 'click habilitado ';
 			if ($fechaExpiracion == 'yaExpiro'):
@@ -59,11 +57,11 @@
 				endif;
 			endif;
 		?>
-		
-		
-		
+
+
+
 		<? if($row->tipo == 'polyline'): ?>
-		<polyline id="<?= $row->id;?>" class="<?=$class?>" 
+		<polyline id="<?= $row->id;?>" class="<?=$class?>"
 		points="<?= $row->points;?>"/>
 		<? elseif ($row->tipo == 'path'):?>
 		<path  id="<?= $row->id;?>" d="<?= $row->d;?>" class="<?=$class?>" />
@@ -75,9 +73,9 @@
 		<rect id="<?= $row->id;?>" class="<?=$class?>" x="<?=$row->x;?>" y="<?=$row->y;?>" width="<?=$row->width;?>" height="<?=$row->height;?>"/>
 		<? endif;?>
 		<? endforeach; ?>
-						
+
 		<? foreach($texto as $r):?>
-		<? $uno = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 2);?>	
+		<? $uno = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 2);?>
 			<? foreach($uno as $u):?>
 			<text id="<?=$u->id?>" title="<?=$u->Clavedelocal?>" class="texto" transform="<?=$u->transform?>" >
 			<? if ($this->uri->segment(4)):?>
@@ -87,8 +85,8 @@
 			<? endif;?>
 			</text>
 			<? endforeach; ?>
-		
-		<? $dos = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 3);?>	
+
+		<? $dos = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 3);?>
 			<? foreach($dos as $d):?>
 			<text id="<?=$d->id?>" title="<?=$d->Clavedelocal?>" class="texto" transform="<?=$d->transform?>" >
 			<? if ($this->uri->segment(5)):?>
@@ -98,8 +96,8 @@
 			<? endif;?>
 			</text>
 			<? endforeach; ?>
-					
-		<? $tres = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 4);?>	
+
+		<? $tres = $this->planogramas_model->traerID($r->planogramaID, $r->localID, 4);?>
 			<? foreach($tres as $t):?>
 			<text id="<?=$t->id?>" title="<?=$t->Clavedelocal?>" class="texto" transform="<?=$t->transform?>" >
 			<? if ($this->uri->segment(6)):?>
@@ -110,20 +108,20 @@
 			</text>
 			<? endforeach; ?>
 		<? endforeach; ?>
-		
-		
-		
-		
-		
+
+
+
+
+
 		</g>
 		</svg>
 		</div>
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	</div>
 </div>
 <? endforeach; ?>
@@ -135,6 +133,8 @@ $("#infLocPl").empty();
 $(function() {
 	$(".habilitado, .deshabilitado, .seleccionado, .areaPublica, .reciente").click(function(){
 		clean();
+		$("#rigWinClose").toggle();
+		$("#panelRight").toggleClass("panelRight");
 		var id = $(this).attr("id");
 		$("#forma").removeAttr("disabled");
 		$.post("<?=base_url()?>ajax/verLocalID", {
@@ -163,19 +163,19 @@ $(function() {
 				$("#statusLocal").attr("class","asignado");
 				$("#statusLocal").html("<div id='statVer'><img src='http://www.apeplazas.com/apeConnect/assets/graphics/palomita.png' /><i>Local asignado</i></div>");
 				$("#statusLocal").attr("class","asignado");
-				
+
 			}
 			$("#statusVector").attr("title",id);
 			$("#statusVector button").attr("id",data.Nvector[0].status);
-		},'json');		
+		},'json');
 	});
-	
-			
+
+
 	$("#habilitado").change(function() {
 		var id        = $('.lineAc').attr("title");
 		var status    = $(this).val();
 		$.post("<?=base_url()?>ajax/statusVector", {id : id, status : status},
-		
+
 		function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$("#statusLocal").attr("class","noAsignado");
@@ -186,7 +186,7 @@ $(function() {
 			$("#statusVector button").attr("id",data.Nvector[0].status);
 		},'json');
 	});
-			
+
 	$("#asignar").click(function() {
 		var id = $(this).attr("id");
 		$("#forma").removeAttr("disabled");
@@ -200,24 +200,24 @@ $(function() {
 			$("#statusVector").attr("title",id);
 			$("#statusVector button").attr("id","habilitado");
 		},'json');
-				
+
 	});
-			
+
 	$("#asig").submit(function(event) {
 		event.preventDefault();
 
 		var local		= $("#asigInp").val();
 		var vectores 	= $('.selected');
 		var vectoresData = [];
-		
+
 		$.each(vectores,function(key,val){
 			vectoresData.push(val.id);
 		});
-				
+
 		$.post("<?=base_url()?>ajax/asignar", {
 			ids : vectoresData,
 			local : local
-					
+
 		}, function(data) {
 			$("#statusLocal").attr("class","asignado");
 			$("#infLocPl").html('<em>Local: '+data.local[0].clavedeLocal+'</em>');
@@ -227,9 +227,9 @@ $(function() {
 			$('#asigClick').hide();
 		},'json');
 		$( "#asig" ).hide();
-			
+
 	});
-	
+
 });
 </script>
 
@@ -242,7 +242,7 @@ D3.JS CARGA FRAMEWORK PARA SV
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
-    
+
 var svg = d3.select("#Layer1").call(zoom);
 svg.on("click",click);
 svg.on("dblclick",dblclick);
@@ -267,7 +267,7 @@ function click(d){
 	    	xt = t.translate[0],
 	    	yt = t.translate[1],
 	    	s = zoom.scale();
-	
+
 		var p = d3.mouse(this);
 		var x = (p[0] - (xt))/s;
 	  	var y = (p[1] - (yt))/s;
@@ -298,7 +298,7 @@ $('#guardarPath').click(function(){
 		url : ajax_url + 'agregarPath',
 		type : 'post',
 	});
-	
+
 	var action = $("#busquedaUno").val() + "/" +$("#busquedaDos").val() + "/" +$("#busquedaTres").val();
 	$("#forma").attr("action", "<?=base_url()?>planogramas/verplano/<?=$this->uri->segment(3)?>/" + action);
 
@@ -347,8 +347,8 @@ Ajax para el autocompletar
 var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
 jQuery(function($) {
 	$(function() {
-		
-		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown 
+
+		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown
 		$("ul.topnav li span").click(function() { //Cuando el trigger acciona muestra estas etiquetas...
 		//Sigue el evento y genera un slide Down de efecto para los resultados
 		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
@@ -376,13 +376,13 @@ jQuery(function($) {
 			}
 		});
 	});
-	
+
 	$('.relB').click(function(){
 		var texto = $(this).attr('title');
 		$('#formBuscar input[name=key]').val(texto);
 		$('#formBuscar').submit();
 	});
-	
+
 	$("#formBuscar input[name=key]").keypress(function(e) {
 		$('#formBuscar input[name=hidden]').val('');
 	});

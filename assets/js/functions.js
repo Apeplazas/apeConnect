@@ -43,6 +43,10 @@ var statusBar = $.cookie('statusBar');
 	$(".menuRep").click(function() {
 		$("#subCat").toggle();
 	});
+	$("#panelRight").click(function() {
+		$("#rigWinClose").toggle();
+		$(this).toggleClass("panelRight");
+	});
 
 	$(document).bind('click', function(e) {
 		var $clicked = $(e.target);
@@ -286,28 +290,34 @@ var statusBar = $.cookie('statusBar');
 	+********************************************************************************************************************/
 	$(".link, .click").click(function(e){
     	e.preventDefault();
-		$(".popup").show();
-    });
-    $("#delTool").click(function(e){
+		$("#rigWinClose").show();
+		$("#panelRight").addClass('panelRight');
+  });
+	$("#delTool").click(function(e){
     	e.preventDefault();
 		$("#delVector").show();
-    });
-    $("#filtroTool").click(function(e){
-    	e.preventDefault();
-		$(".popupTwo").show();
-    });
-    $("#planMas").click(function(e){
+  });
+
+  $("#planMas").click(function(e){
     	e.preventDefault();
 		$("#addPlaza").show();
-    });
+  });
+
+	$("#filtroTool").click(function(){
+		$("#filtroTool").toggleClass("active");
+		$(".popupTwo").toggleClass("show");
+	});
+
 
 
 	$('html').click(function() {
-		$(".popup").hide();
+		$("#filtro").hide();
+		$(".popupTwo").removeClass("show");
 		$(".popupTwo").hide();
 		$("#addPlaza").hide();
 		$("#asig").hide();
 		$("#delVector").hide();
+		$(".active").removeClass("active");
 	});
 	$('#filtroTool').click(function() {
 		$("#addPlaza").hide();
