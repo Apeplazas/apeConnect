@@ -1,20 +1,23 @@
 <h3 id="mainTit">Listado de cotizaciones</h3>
 <div class="wrapList">
 	<div id="actions">
-		<a href="<?=base_url()?>prospectos" title="Agregar Cotizacion" class="addSmall"><i class="iconPlus">Agregar</i>Agregar Cotizacion</a>
+		<a href="<?=base_url()?>prospectos" title="Agregar Cotizacion" class="addSmall">
+			<i class="iconPlus">
+				<img src="http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg" alt="Agregar Prospecto"></i>
+			<span>Agregar Cotización</span>
+		</a>
 	</div>
-	
+
 	<table id="tablaproveed">
-		<thead> 
+		<thead>
 			<tr>
 				<th>&nbsp</th>
 				<th>Folio</th>
 				<th>Prospecto</th>
 				<th class="tcenter">Locales Cotizados</th>
 				<th>Vigencia</th>
-				
-			</tr> 
-		</thead> 
+			</tr>
+		</thead>
 		<tbody>
 			<? if(isset($prospectosCotiza)):?>
 			<script type="text/javascript">
@@ -24,7 +27,7 @@
 				/// Genera el even de cada lista
 				$('.wrapListForm fieldset:even').addClass('evenBorder');
 			});
-			</script>	
+			</script>
 				<? foreach($prospectosCotiza as $c):?>
 				<? $prospecto = $this->prospectos_model->cargarProspectoPerfil($c->prospectoID);?>
 				<? $cuenta = $this->prospectos_model->conteoLocales($c->cotizacionID);?>
@@ -47,6 +50,6 @@
 				  <th colspan="5"> <p class="msgTable">No tiene cotizaciones realizadas</p></th>
 			  <? endif;?>
 			</tr>
-		</tbody> 
+		</tbody>
 	</table>
 </div>

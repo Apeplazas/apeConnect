@@ -1,13 +1,9 @@
 <script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
 <? foreach($infoPlano as $p):?>
-<div id="mainTit">
-	<h3>Edición de planogramas <?= $p->plaza;?></h3>
-</div>
 
 <div class="wrapList" id="wrapListPlano">
 	<div id="actions">
 		<? $this->load->view('includes/toolbars/buscaPisos-toolbar');?>
-
 		<input type="hidden" id="text" style="width:100%">
 		<!-- Empieza boton con ventana de planogramas -->
 		<div id="window" class="link">
@@ -16,7 +12,6 @@
 				<div  id="planoGrama" >
 					<span class="secTit"><em>Locales por asignar</em></span>
 						<div id="actTod">
-						<i class="topArrow"><img src="<?=base_url()?>assets/graphics/topArrow.png" alt="Señalización"></i>
 						<div id="infLocPlSt"></div>
 						<div id="infLocPl"></div>
 							<div id="infoCuenta">
@@ -176,7 +171,7 @@ function test(id){
 $(".clean").click(function(){
 	var id = $(this).attr("id");
     $("#infLocPl").html(" \
-		<div class='field'><span><button onclick='test("+id+")' id='desAs' class='lightBot fleft'>Desasignar</button></div> \
+		<div class='field'><span><button onclick='test("+id+")' id='desAs' class='mainBottonSmaDes'>Desasignar</button></div> \
 	");
 });
 </script>
@@ -187,8 +182,10 @@ function clean(){
 $("#infLocPl").empty();
 }
 $(function() {
-	$(".click, .areaPublica, .cleanText").click(function(){
+	$(".click, .areaPublica, .cleanText, .clean").click(function(){
 		clean();
+		$("#rigWinClose").show();
+		$("#panelRight").addClass("panelRight");
 		var id = $(this).attr("id");
 		$("#idRec").html("*Asigna el numero de vector " + id);
 		$("#statusVector").attr("title",id);

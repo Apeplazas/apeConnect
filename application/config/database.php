@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '198.154.246.178';
-$db['default']['username'] = 'apeplaza_web';
-$db['default']['password'] = 'web@peplazas411500';
-$db['default']['database'] = 'apeplaza_apeconnec';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'root';
+$db['default']['database'] = 'apeConnect';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
