@@ -1340,13 +1340,13 @@ class Ajax extends MX_Controller {
 		$this->db->update('TEMORA_RI', array('estado'=>'cancelado'));
 
 	}
-	
+
 	function saveSingFile(){
-		
+
 		$return = array();
-		
+
 		$cartaIntId = $_POST['cartaIntId'];
-		
+
 		$permitidos =  array('gif','png','jpg','pdf');
 
 		$extArchivo = pathinfo($_FILES['firma']['name'], PATHINFO_EXTENSION);
@@ -1358,7 +1358,7 @@ class Ajax extends MX_Controller {
 			exit;
 
 		}
-		
+
 		//Insertar archivo comprobante de pago
 		$archivoNombre	= 'CI_'.$cartaIntId.'_firmado.'.$extArchivo;
 
@@ -1369,12 +1369,26 @@ class Ajax extends MX_Controller {
 		   	'archivoNombre'	=> $archivoNombre
 		);
 		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-		
+
 		$return['message']	= "Documento cargado.";
 		$return['success']	= true;
 		echo json_encode($return);
 		exit;
-		
+
+	}
+
+	function tipoDepositoVista(){
+		// Si es traspaso lo manda a la vista traspaso
+		if($this->uri->segment(3) == '1'){
+			$this->load->view('traspasoForm-view');
+		}
+		if($this->uri->segment(3) == '3'){
+			$this->load->view('depositoForm-view');
+		}
+		if($this->uri->segment(3) == '2'){
+			$this->load->view('terminalForm-view');
+		}
+
 	}
 
 }

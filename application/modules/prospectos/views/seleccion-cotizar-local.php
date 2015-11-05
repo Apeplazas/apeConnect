@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="<?=base_url()?>assets/js/mocha/mocha.css" />
 <script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
 <div id="mainTit">
-<h3 >Locales disponibles</h3>
-</div>
+<h3>Locales disponibles</h3>
+</div
+>
 <div class="wrapList">
-
 	<div id="actions">
 	<? foreach($infoPlano as $p):?>
 	<!-- Solo carga si encuentra mas pisos en los mapas -->

@@ -27,7 +27,7 @@
 
 	<div id="pan-parent">
 		<div id="panzoom">
-		<svg class="grid" version="1.1" id="Layer1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 400" enable-background="new 0 0 800 400" xml:space="preserve">
+		<svg class="grid" version="1.1" id="Layer1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 900 500" enable-background="new 0 0 900 500" xml:space="preserve">
 		<g>
 		<? foreach($areaPublica as $rowA): ?>
 		<? if($rowA->tipo == 'polyline'): ?>
@@ -133,8 +133,8 @@ $("#infLocPl").empty();
 $(function() {
 	$(".habilitado, .deshabilitado, .seleccionado, .areaPublica, .reciente").click(function(){
 		clean();
-		$("#rigWinClose").toggle();
-		$("#panelRight").toggleClass("panelRight");
+		$("#rigWinClose").show();
+		$("#panelRight").addClass("panelRight");
 		var id = $(this).attr("id");
 		$("#forma").removeAttr("disabled");
 		$.post("<?=base_url()?>ajax/verLocalID", {
@@ -142,7 +142,7 @@ $(function() {
 		}, function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$('#asigClick').show();
-				$("#statusLocal").html('<div class="field"><img src="http://www.apeplazas.com/apeConnect/assets/graphics/alert.png" /><i>Local Desocupado</i></div>');
+				$("#statusLocal").html('<div class="field"><img src="<?=base_url()?>assets/graphics/svg/warning.svg" /><i>Local Desocupado</i></div>');
 			}else{
 				$("#sel1").text(data.local[0].estatusLocal);
 				$("#infLocPl").html(" \
@@ -161,7 +161,7 @@ $(function() {
 				");
 				}
 				$("#statusLocal").attr("class","asignado");
-				$("#statusLocal").html("<div id='statVer'><img src='http://www.apeplazas.com/apeConnect/assets/graphics/palomita.png' /><i>Local asignado</i></div>");
+				$("#statusLocal").html("<div id='statVer' class='field'><img src='<?=base_url()?>assets/graphics/svg/warning.svg' /><i>Local asignado</i></div>");
 				$("#statusLocal").attr("class","asignado");
 
 			}
@@ -179,7 +179,7 @@ $(function() {
 		function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$("#statusLocal").attr("class","noAsignado");
-				$("#statusLocal").html('<div class="field"><img src="http://www.apeplazas.com/apeConnect/assets/graphics/alert.png" /><i>Local no asignado</i></div>');
+				$("#statusLocal").html('<div class="field"><img src="<?=base_url()?>assets/graphics/svg/warning.svg" /><i>Local no asignado</i></div>');
 			}
 			$("#"+id).attr("class",data.Nvector[0].status);
 			$("#statusVector").attr("title",id);
@@ -195,7 +195,7 @@ $(function() {
 		}, function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$("#statusLocal").attr("class","noAsignado");
-				$("#statusLocal").html('<div class="field"><img src="http://www.apeplazas.com/apeConnect/assets/graphics/alert.png" /><i>Local no asignado</i></div>');
+				$("#statusLocal").html('<div class="field"><img src="<?=base_url()?>assets/graphics/svg/warning.svg" /><i>Local no asignado</i></div>');
 			}
 			$("#statusVector").attr("title",id);
 			$("#statusVector button").attr("id","habilitado");
@@ -221,7 +221,7 @@ $(function() {
 		}, function(data) {
 			$("#statusLocal").attr("class","asignado");
 			$("#infLocPl").html('<em>Local: '+data.local[0].clavedeLocal+'</em>');
-			$("#statusLocal").html('<div class="field"><img src="http://www.apeplazas.com/apeConnect/assets/graphics/alert.png" /><i>Local no asignado</i></div>');
+			$("#statusLocal").html('<div class="field"><img src="<?=base_url()?>assets/graphics/svg/warning.svg" /><i>Local no asignado</i></div>');
 			$("#statusVector button").attr("id",data.Nvector[0].status);
 			$("#"+id).attr("class",data.Nvector[0].status);
 			$('#asigClick').hide();
@@ -344,7 +344,7 @@ function dragended() {
 /********************************************************************************************************************
 Ajax para el autocompletar
 ********************************************************************************************************************/
-var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
+var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "<?=base_url()?>");
 jQuery(function($) {
 	$(function() {
 

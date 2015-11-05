@@ -38,7 +38,7 @@
   		</li>
 	<?php endif;
 	if(isset($user['modulos']) && in_array('planogramas', $user['modulos'])):?>
-		<li id="planogramasHover" class="main In">
+		<li id="planogramasHover" class="main In <?if($this->uri->segment(1) == 'planogramas'):?>bckMark<?endif?>">
       <img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/map32.svg" />
       <strong>Planogramas</strong>
       <ul class="submenu">

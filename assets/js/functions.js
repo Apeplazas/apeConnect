@@ -58,6 +58,8 @@ var statusBar = $.cookie('statusBar');
 		if (! $clicked.parents().hasClass("drop"))
 			$("#subCat").hide();
 	});
+
+
 	/********************************************************************************************************************
 	 Busca y verifica si esta url disponible
 	 ********************************************************************************************************************/
@@ -304,8 +306,15 @@ var statusBar = $.cookie('statusBar');
   });
 
 	$("#filtroTool").click(function(){
-		$("#filtroTool").toggleClass("active");
-		$(".popupTwo").toggleClass("show");
+		$("#filtroTool").toggleClass("show");
+	});
+
+	$("#sCTip").click(function(){
+		$("#choTip").toggleClass("show");
+	});
+	$("#closeCho").click(function(){
+		$("#choTip").removeClass("show");
+		$("#choTip").addClass("hide");
 	});
 
 
@@ -390,8 +399,11 @@ var statusBar = $.cookie('statusBar');
 		);
 
 	$(".main strong").click(function(e){
-		$(this).siblings('.submenu').toggle();
-		$(this).toggleClass('titActive');
+		$('.submenu').hide();
+		$('li').removeClass('bckMarkActive');
+		$(this).siblings('.submenu').toggle('show');
+		$(this).parent().toggleClass("bckMarkActive");
+
     });
     //// Solo permite numeros en los inputs de telefonos y numericos
     $(".soloNumeros").keydown(function (e) {

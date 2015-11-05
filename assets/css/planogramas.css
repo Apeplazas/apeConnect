@@ -1,8 +1,8 @@
 /*Venta de comentarios e info para planogramas*/
-#Layer1 {float: left; height: 505px; padding-bottom:20px; border:1px solid #ccc;}
+#Layer1 {float: left; height: 530px; padding-bottom:20px; border:1px solid #ccc;}
 #winPlaza:hover{cursor:pointer}
 .grid{background: url(../graphics/bckGrid.png) 0 0 repeat;}
-#planoGrama{position:absolute; right:-97px; top:-166px; width:370px; background-color:#fff; border:1px solid #ccc; padding:73px 0 0 10px; z-index:9999; height:1300px;}
+#planoGrama{position:absolute; right:-50px; top:-85px; width:305px; background-color:#fff; border:1px solid #ccc; padding:70px 0 0 10px; z-index:9999; height:1300px;}
 #planoGramaAsig{position:absolute; right:-97px; top:40px; width:320px; background-color:#F1F2F1; border:1px solid #ccc; padding:10px 10px 0 10px; z-index:9999; box-shadow: 0px 2px 16px #ccc; -moz-box-shadow: 0px 2px 16px #999; -webkit-box-shadow: 0px 2px 16px #999;}
 #plano, #planoCreacion{float:left; margin:0 20px 20px;}
 #planoGrama ul{float:left; width:100%;}
@@ -12,7 +12,7 @@
 #planoGramaAsig ul li:hover, #asigUl li:hover{background: url(../graphics/sprite2.png) -456px -91px no-repeat bisque;}
 #planoGrama ul li{float:left; width:94%; font-size:.8em; font-weight:700; padding:4px 0 2px 20px; cursor:pointer; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
 .secTit{font-family:'Lato', sans-serif; ;width:100%; background-color:#163558;}
-.secTit em{font-style:normal; padding:6px 10px 5px; float:left; font-weight:400; font-size:15px; text-transform:uppercase}
+.secTit em{font-style:normal; padding:6px 10px 5px; float:left; font-weight:400; font-size:15px; text-transform:uppercase; margin-bottom:4px}
 #addPlaza{position:absolute; z-index:999999; background:#f6f9fc; border:1px solid #ccc; padding-bottom:12px; top:43px; box-shadow:2px 2px 9px #ccc; width:300px; left:-10px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; display:none}
 #filtro{position:absolute; z-index:999999; background:#f6f9fc; border:1px solid #ccc; padding-bottom:12px; top:37px; box-shadow:2px 2px 9px #ccc; width:300px; left:145px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; display:none}
 #addPlaza select, #filtro select{border:1px solid #ccc; -moz-appearance:inherit; padding:0 10px; -webkit-appearance:inherit; float:left; height:26px; text-transform:uppercase; margin:10px 0 0 0; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; background:#fff}
@@ -20,7 +20,7 @@
 #datos-cotizacion #cotizarLocal{padding:5px 10px}
 #asigInp{height:28px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border:1px solid #ccc; width:100%; margin:6px 0 0; padding:3px 15px}
 #statusLocal .field img{float:left; width:14px; margin-right:3px;}
-#statusLocal .field i{float:left; font-style:normal; font-weight:700}
+#statusLocal .field i{float:left; font-style:normal; font-weight:700; margin:1px 0 0 3px}
 #filtroTool{cursor:pointer; z-index:999999}
 #comentarios ul li{font-size:.9em; float:left; width:100%; padding:5px 0 4px; margin-bottom:6px; border-bottom:1px solid #ccc; margin-bottom:80px;}
 .rangos{float:left; margin-top:5px;}
@@ -33,7 +33,7 @@
 #asig label, #formaRen label{float: left; width:98%; text-transform: uppercase; margin:2px 0 2px 4px; font-weight:700}
 #formPlano h2, #forma h2{font-size:14px; background-color: #fff; float:left; width:100%; padding:12px 18px 8px; font-weight:400; -webkit-border-top-left-radius:4px; -webkit-border-top-right-radius:4px; -moz-border-radius-topleft:4px; -moz-border-radius-topright:4px; border-top-left-radius:4px; border-top-right-radius: 4px; border-bottom:1px solid #ccc; text-transform:uppercase}
 #formPlano select, #statusVector form, #forma select{float:left; width:100%}
-#actTod fieldset{float:left; width:155px; margin-top:8px;}
+#actTod fieldset{float:left; width:130px; margin-top:8px;}
 #actTod fieldset label{float:left; margin-right:5px; text-transform:uppercase; font-weight:700; width:90px; padding-top:3px;}
 #actTod fieldset input{float:left;}
 .topArrow{position:absolute; top:-19px; left:220px; z-index:9999}
@@ -47,14 +47,14 @@
 #infLocPl .fieldText em, #datos-cotizacion .fieldText em{font-style:normal; }
 #infLocPl .field{ margin-top:10px}
 #infLocPl img, #infLocPlSt img{float:left; width:15px}
-#infLocPl i, #infLocPlSt i{float:left; margin:3px 0 0 6px; font-weight:700; font-style:normal;}
+#infLocPl i, #infLocPlSt i, #statVer i{float:left; margin:3px 0 0 6px; font-weight:700; font-style:normal; }
+#statVer i{float:left; margin:1px 0 0 6px; font-weight:700; font-style:normal; }
 .topArrowfiltro{position:absolute; top:-15px; left:70px; z-index:9999}
 .topArrowP{position:absolute; top:-9px; left:32px; z-index:9999}
 .rnot{cursor:pointer; background: url(../graphics/sprite2.png) -458px 0px no-repeat transparent; width:13px; height:13px; text-indent:-99999px; float:left; text-indent:-99999px}
 .remove-cot{cursor:pointer; background: url(../graphics/sprite2.png) -43px -96px no-repeat transparent; width:13px; height:13px; text-indent:-99999px; float:left; text-indent:-99999px; width:20px; margin-left:5px}
 svg{width:805px; height:400px}
 .field{background-color: #f0f8ff; border: 1px solid #B7E3FF; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; text-transform:uppercase; float:left; width:284px; padding:6px 0 6px 10px; font-weight:700}
-.field span{float:left; width:100px; font-weight:700}
 .field em{float:left; margin-left: 5px; width:213px;}
 .select-wrapper-two {background: url(../graphics/sprite2.png) -375px -113px no-repeat #fff; display: block; position: relative; width: 32px; height:29px; cursor: pointer; border:1px solid #ccc}
 .select-wrapper-two:hover{background: url(../graphics/sprite2.png) -399px -113px no-repeat #e9e9e9; border:1px solid #999; box-shadow:1px 0px 3px 0px lightskyblue; -moz-box-shadow:1px 0px 3px 0px lightskyblue; -webkit-box-shadow:1px 0px 3px 0px lightskyblue;}
@@ -94,7 +94,7 @@ text.selected {fill:brown;}
 .sinAsignar {fill:#ccc; stroke:#999; stroke-width:.5px;}
 .DESOCUPADO{fill:#B3FF99; stroke:#B2DE86; stroke-width:.5px;}
 .texto {font-size: 1.2px; cursor: context-menu;}
-.RENTADO {fill: #FF4D4D; stroke: #c30; stroke-width: .5px;}
+.RENTADO {fill: #fdf8f2; stroke: #c30; stroke-width: .5px;}
 #toolbar li{float:left; position:relative}
 #actionsPlano{position:absolute; width:800px; height:34px; left:-4px; top:-30px; padding-top:11px}
 .wrapListPlano{float:left; width:100%; padding-bottom:10px; margin-top:48px}
@@ -109,7 +109,7 @@ text.selected {fill:brown;}
 .ac_results ul li strong{color:#659CEF}
 .actTool{background: url(../graphics/bckInnerShadow.png) -1px -1px no-repeat #999;}
 #planoAc{position:absolute; top:10px; height:35px !important; width:100%}
-#statVer{float:left; width:90%; padding:2px 0 4px 5px}
+#statVer{float:left; width:90%; padding:6px 0 6px 10px; margin-bottom:10px}
 #statVer img{float:left; margin-right:4px;}
 #statVer i{float:left; font-weight:400; font-style:normal; text-transform:uppercase;}
 .botRed{padding:5px 20px;}

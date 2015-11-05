@@ -320,7 +320,7 @@ class Prospectos extends MX_Controller {
 
 			if ($mail){
 
-				$this->session->set_flashdata('msg', '<div class="msgAlert">Este prospecto ya fue registrado por el usuario ' .$mail[0]->nombreCompleto, true);
+				$this->session->set_flashdata('msg', '<div class="msgAlert"><img src="../assets/graphics/alert.png" alt="Alerta" /><p>Este prospecto ya fue registrado por el usuario ' .$mail[0]->nombreCompleto.'</p></div><br class="clear">', true);
 				redirect('prospectos/agregar','refresh');
 
 			}
@@ -549,9 +549,9 @@ class Prospectos extends MX_Controller {
 		            'nombre' 		=> $nombre,
 		            'prospectoID'	=> $prospectoID,
 		            'locales'		=> array()
-	        );
-	        //guardamos los datos en la sesion
-	        $this->session->set_userdata($data);
+	      );
+	      //guardamos los datos en la sesion
+	      $this->session->set_userdata($data);
 		}
 
 		$this->layouts->profile('listaPlanogramas-vista.php', $op);

@@ -1,15 +1,15 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
- 
+
 class Planogramas_model extends CI_Model
 {
-	
+
 	public function __construct()
 	{
-		parent::__construct();	
+		parent::__construct();
 	}
-	
+
 	function traerPlano($planoId){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT v.* FROM planogramas p
 			LEFT JOIN vector v ON v.plazaId=p.id
 			WHERE p.id = '$planoId'
@@ -19,13 +19,13 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerInfoPlano($planoId){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT
 									v.id as 'id',
 									v.grupoId as 'grupoId',
@@ -63,13 +63,13 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerRenovacionesPlano($planoId){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT
 									v.id as 'id',
 									v.tipo as 'tipo',
@@ -108,13 +108,13 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerAreaPublica($planoId){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT
 									v.id as 'id',
 									v.tipo as 'tipo',
@@ -147,99 +147,99 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
-	
+
+
 	function cargarPlaza(){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT * FROM propiedades");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function buscarClaveLocalVector($id){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT localID, tipo FROM vector WHERE id='$id'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
-	
+
+
 	function cargarPlanosAsignar($planogramaID){
-		$data = array(); 
-		$q = $this->db->query("SELECT * FROM vector WHERE status ='reciente' and plazaId='$planogramaID' AND tipo='path'");
+		$data = array();
+		$q = $this->db->query("SELECT * FROM vector WHERE  plazaId='$planogramaID' AND tipo!='text'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function cargarPlanogramas(){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT * FROM planogramas GROUP BY plaza");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function cargarPlanogramasID($id){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT * FROM planogramas WHERE id='$id' and estatus='1'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function cargarPisos($plaza){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT * FROM planogramas WHERE plaza='$plaza' and estatus='1' order by piso asc ");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function cargarPisosArray($plaza){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT piso FROM planogramas WHERE plaza='$plaza'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row->piso;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function cargarTexto($planoId){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT
 								v.id as 'id',
 								p.id as 'planogramaID',
@@ -259,14 +259,14 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerID($planoId, $localID, $orden){
-		$data = array(); 
-		$q = $this->db->query("SELECT * 
+		$data = array();
+		$q = $this->db->query("SELECT *
 								FROM planogramas p
 								LEFT JOIN vector v ON v.plazaId=p.id
 								LEFT JOIN vic_local i ON i.local=v.localID
@@ -280,14 +280,14 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerIDNulos($planoId, $localID){
-		$data = array(); 
-		$q = $this->db->query("SELECT * 
+		$data = array();
+		$q = $this->db->query("SELECT *
 								FROM planogramas p
 								LEFT JOIN vector v ON v.plazaId=p.id
 								LEFT JOIN vic_local i ON i.local=v.localID
@@ -301,14 +301,14 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function cargaCamposBD(){
-		$data = array(); 
-		$q = $this->db->query("SELECT c.*, i.* FROM vic_local i 
+		$data = array();
+		$q = $this->db->query("SELECT c.*, i.* FROM vic_local i
 								LEFT JOIN contratos c ON c.Clavedelocal=i.local
 								LIMIT	 1
 								");
@@ -316,9 +316,9 @@ class Planogramas_model extends CI_Model
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-		
+
 }
