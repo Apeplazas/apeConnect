@@ -165,14 +165,14 @@
 		</tr>
 		<tr>
 			<td>
-				<? if ($user['tipoUsuario'] == 'Administrador'):?>
+			<? if ($user['tipoUsuario'] == 'Administrador' || $user['tipoUsuario'] == 'Gerente Plaza'):?>
 				<label>Asignado a:</label>
 			<? else:?>
 				<input type="hidden" name="asignado" value="<?=$user['usuarioID']?>" />
 			<?endif?>
 			</td>
 			<td>
-				<? if ($user['tipoUsuario'] == 'Administrador'):?>
+				<? if ($user['tipoUsuario'] == 'Administrador' || $user['tipoUsuario'] == 'Gerente Plaza'):?>
 				<select name="asignado" class="selBig">
 					<option value="<?=$user['usuarioID']?>" checked ><?=$user['nombre'];?></option>
 					<? foreach($vendedores as $v):?>

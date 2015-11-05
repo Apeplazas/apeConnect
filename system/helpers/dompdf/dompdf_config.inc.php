@@ -195,7 +195,7 @@ def("DOMPDF_DEFAULT_MEDIA_TYPE", "screen");
  *
  * @see CPDF_Adapter::PAPER_SIZES for valid sizes
  */
-def("DOMPDF_DEFAULT_PAPER_SIZE", "legal");
+def("DOMPDF_DEFAULT_PAPER_SIZE", "letter");
 
 /**
  * The default font family

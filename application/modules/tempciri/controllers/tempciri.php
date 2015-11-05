@@ -539,6 +539,88 @@ class Tempciri extends MX_Controller {
 
 		$ciId	= $_POST['ciId'];
 		$motivo = $_POST['motivoCancelacion'];
+
+		if(empty($motivo)){
+
+			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar motivo de cancelación.</strong></div><br class="clear">');
+			redirect("tempciri/cancelarCi/" . $ciId);
+			return false;
+
+		}
+
+		$CiData	= $this->tempciri_model->traerDatosCi($ciId);
+
+		$op['depositoLetra'] 	= num_to_letras($CiData[0]->deposito);
+		$op['vendedorNombre']	= $CiData[0]->vendedorNombre;
+
+		$op['rentanLocalLetra']	= num_to_letras($CiData[0]->renta);
+		$op['rentaCant']		= $CiData[0]->renta;
+		$op['rentaDeposito']	= $CiData[0]->renta*1.16;
+		$op['local']			= $CiData[0]->local;
+
+		$op['clientrfc']		= $CiData[0]->rfc;
+		$op['clientEmail']		= $CiData[0]->email;
+		$op['clientetelefono']	= $CiData[0]->telefono;
+		$op['clientNom']		= preg_replace('/\s+/',' ',$CiData[0]->pnombre . ' ' . $CiData[0]->snombre . ' ' . $CiData[0]->apellidopaterno . ' ' . $CiData[0]->apellidomaterno);
+
+		$op['crednum']			= $CiData[0]->rfc;
+		$op['rentmes']			= $CiData[0]->contraroInicioMes;
+		$op['rentduracion']		= $CiData[0]->contratoDuracion;
+		$op['rentant']			= $CiData[0]->deposito;
+		$op['remnumcuenta']		= $CiData[0]->devolucionCuenta;
+		$op['rembanco']			= $CiData[0]->devolucionBanco;
+		$op['fecha']			= date('d/m/Y', strtotime($CiData[0]->fecha));
+
+		$op['rentaDepositoLet']	= num_to_letras($op['rentaDeposito']);
+		$op['plaza']			= $CiData[0]->plazaNombre;
+		$op['dirplaza']			= $CiData[0]->dir;
+		$op['diasGracia']		= $CiData[0]->diasGracia;
+
+		$op['gerente']		= $CiData[0]->gerentePlaza;
+		$op['folioCompro']	= $CiData[0]->folioComprobante;
+		$op['folioDoc']		= $CiData[0]->folio;
+
+		$op['cancelarDoc']		= true;
+
+		$this->load->helper(array('dompdf', 'file'));
+		// page info here, db calls, etc.
+		$html = $this->layouts->loadpdf('carta-intencion', $op,'pdf_print', true);
+		$data = pdf_create($html, '', false);
+
+		write_file(DIRPDF.'CI_'.$ciId.'.pdf', $data);
+
+		$this->db->where('id', $ciId);
+		$this->db->update('TEMPORA_CI', array('estado'=>'cancelado','motivoCancelacion'=>$motivo));
+		redirect("tempciri/verCi");
+
+	}
+
+	function devolucionCi(){
+		
+		$user		= $this->session->userdata('usuario');
+		$ciId		= $this->uri->segment(3);
+
+		$valid = $this->user_model->verificarCiProp($user['usuarioID'],$ciId);
+		if( empty($valid) ){
+			echo "Acceso Denegado";
+			return false;
+		}
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+					  ->add_include('assets/js/jquery.autocomplete.pack.js')
+					  ->add_include('assets/js/jquery.dataTables.min.js')
+					  ->add_include('assets/css/planogramas.css');
+
+		$op['ci'] 	= $this->tempciri_model->traerDatosCi($ciId);
+
+		$this->layouts->profile('devolucionCi-view' ,$op);
+		
+	}
+	
+	function funtiondevolucionCi(){
+		
+		$ciId	= $_POST['ciId'];
+		$motivo = $_POST['motivoCancelacion'];
 		$devo	= isset($_POST['devolucionOn']) ? $_POST['devolucionOn'] : '';
 
 		if(empty($motivo)){
@@ -631,7 +713,7 @@ class Tempciri extends MX_Controller {
 		$this->db->where('id', $ciId);
 		$this->db->update('TEMPORA_CI', array('estado'=>'cancelado','motivoCancelacion'=>$motivo));
 		redirect("tempciri/verCi");
-
+		
 	}
 
 	function verCi(){

@@ -99,77 +99,6 @@ class Prospectos extends MX_Controller {
 
 	}
 
-	function testapartado(){
-
-		//Carga el javascript y CSS //
-		$this->layouts->add_include('assets/js/jquery-ui.js')
-					  ->add_include('assets/js/jquery.autocomplete.pack.js')
-					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
-
-		$op 	= array();
-		$cots 	= array();
-
-		$cotId		=	$_POST['cotId'];
-		$detalleCot = $this->prospectos_model->cargaCotizacionProspectoPorCot($cotId);
-
-		$op['usuario']	= $this->session->userdata('usuario');
-
-		$cantidad = trim($_POST['cantpago']);
-        $xcantidad = str_replace('.', '', $cantidad);
-        if (FALSE === ctype_digit($xcantidad)){
-            echo 'La cantidad introducida no es válida.';
-			return false;
-        }
-        $op['rentantLetra'] = num_to_letras($cantidad);
-
-		$op['perfil']		= $this->prospectos_model->cargarProspectoPerfil($_POST['clienteid']);
-		$op['crednum']		= $_POST['idnum'];
-		$op['rentmes']		= $_POST['mes'];
-		$op['rentduracion']	= $_POST['contratotiempo'];
-		$op['rentant']		= $_POST['cantpago'];
-		$op['remnumcuenta']	= $_POST['remnumcuenta'];
-		$op['rembanco']		= $_POST['rembanco'];
-		$op['fecha']		= date('d/m/Y');
-		$op['op']			= $op;
-		foreach($_POST['cotids'] as $cot){
-			$cots[] = $this->prospectos_model->cargaSubCotizacionProspecto($cot);
-		}
-		$detallePlaza = $this->prospectos_model->cargaPlazaInfo($cots[0][0]->claveLocal);
-
-		if(!$detalleCot[0]->cartaIntId){
-			$info = array(
-		 			'folio'				=> '',
-		 			'folioComprobante'	=> '',
-					'usuarioId'       	=> $op['usuario']['usuarioID'],
-					'ifeFolio'        	=> $op['crednum'],
-					'deposito'        	=> $cantidad,
-					'contraroInicioMes' => $op['rentmes'],
-					'contratoDuracion'  => $op['rentduracion'],
-					'devolucionCuenta'	=> $op['remnumcuenta'],
-					'devolucionBanco'   => $op['rembanco']
-			);
-			$this->db->insert('cartasIntencion', $info);
-			$cartaIntId = $this->db->insert_id();
-
-		  	$this->db->where('id', $cartaIntId);
-			$this->db->update('cartasIntencion', array('pdf'=>$cartaIntId.'_CI.pdf'));
-
-		 	$this->db->where('cotizacionID', $cotId);
-			$this->db->update('prospectoCotizacion', array('cartaIntId'=>$cartaIntId));
-
-			$this->load->helper(array('dompdf', 'file'));
-		    // page info here, db calls, etc.
-		    $html = $this->layouts->loadpdf('carta-intencion', $op,'pdf_print', true);
-		    $data = pdf_create($html, '', false);
-		    write_file(DIRPDF.$cartaIntId.'_CI.pdf', $data);
-		}
-
-		//Vista//
-		$this->layouts->pdf('apartado-view',$op);
-
-	}
-
 	function generarReciboInterno(){
 
 		$op['usuario']	= $this->session->userdata('usuario');
@@ -537,24 +466,6 @@ class Prospectos extends MX_Controller {
 			$this->db->where('id', $prospectoID);
 			$this->db->update('prospectos', $info);
 
-			$fecha = $this->prospectos_model->cargaFechaCierre($prospectoID);
-			$fechaBD = $fecha[0]->fechaCierre;
-
-			if ($fechaCierre != $fecha[0]->fechaCierre){
-
-				$fecha = array(
-				'fechaCierre' => $fechaCierre,
-				'usuarioID' => $user['usuarioID'],
-				'prospectoID' => $prospectoID,
-				'status'  => 'activado'
-				);
-				$this->db->insert('fechaCierreProspectos', $fecha);
-
-				$dataStatus = array( 'status'  => 'borrado');
-				$this->db->where('prospectoID', $prospectoID);
-				$this->db->where('fechaCierre', $fechaBD);
-				$this->db->update('fechaCierreProspectos', $dataStatus);
-			}
 			redirect('prospectos');
 		}
 	}

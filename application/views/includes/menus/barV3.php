@@ -21,6 +21,9 @@
           <li>
             <a href="<?=base_url()?>prospectos">Prospectos de plaza</a>
           </li>
+          <li>
+            <a href="<?=base_url()?>prospectos/cotizaciones">Cotizaciones</a>
+          </li>
         </ul>
   		</li>
   	<?php endif;

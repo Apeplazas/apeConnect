@@ -72,20 +72,10 @@
 
 	<div class="wrapListForm" id="wrapListForm3">
 	<?= $this->session->flashdata('msg'); ?>
-		<form method="post" action="<?= base_url();?>tempciri/functionCancelarCi" enctype="multipart/form-data">
+	<form method="post" action="<?= base_url();?>tempciri/functionCancelarCi" enctype="multipart/form-data">
 		<fieldset>
 			<span class="secmainTit">Motivo de cancelación</span>
 			<textarea class="texBig uppercase" name="motivoCancelacion" required></textarea>
-		</fieldset>
-		<fieldset>
-			<div id="devCan">
-			  <input type="checkbox" name="devolucionOn" id="devolucionOn">
-				<span>Devolución</span>
-			</div>
-		</fieldset>
-		<fieldset id="archivoDevolucion" style="display:none;">
-			<span>Ficha de devolución</span>
-			<input type="file" id="fichaDevolucion" name="fichaDevolucion" />
 		</fieldset>
 		<fieldset>
 			<input type="hidden" name="ciId" value="<?= $ci[0]->id; ?>" />
@@ -96,13 +86,3 @@
 	</div>
 <br class="clear">
 </div>
-
-<script>
-	 $('#devolucionOn').change(function() {
-        if($(this).is(":checked")) {
-            $('#archivoDevolucion').show();
-        }else{
-        	$('#archivoDevolucion').hide();
-        }
-    });
-</script>
