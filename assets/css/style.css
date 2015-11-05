@@ -13,7 +13,7 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button{cursor:pointer}
+button, #choTip{cursor:pointer}
 strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
@@ -24,10 +24,10 @@ strong{font-weight:700;}
 .ml270{margin-left:270px;}
 .mt10{margin-top:13px}
 .svgIcon{margin:0 22px 0 19px; width:24px;}
-.barOut #navMenu li img{margin:0 10px 0 16px; width:28px; max-height:27px}
+.barOut #navMenu li img{margin:4px 10px 0 16px; width:20px; max-height:19px}
 .barOut .In{border-bottom:1px solid #ccc;}
 h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#777; font-size:23px}
-.bckMark{background-color:#f0f8ff; border-bottom:1px solid #ccc; border-top:1px solid #ccc}
+.bckMark{background-color:#f0f8ff}
 a:hover{color:cornflowerblue}
 .alertTab{color:brown; font-weight:700}
 .ohid{overflow:hidden}
@@ -66,6 +66,15 @@ background: linear-gradient(to bottom, #007aff 15%,#007aff 15%,#0079f2 74%,#005e
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007aff', endColorstr='#005ec4',GradientType=0 );
 border:1px solid #005ec4; color:#fff; font-size:12px; font-weight:700; text-transform:uppercase; padding:8px 32px 6px 32px; border-radius:4px; float:right; margin-top:10px;}
 .mainBotton{background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; float:right;}
+.mainBottonSmaDes{background: #007aff; /* Old browsers */
+background: -moz-linear-gradient(top, #007aff 15%, #007aff 15%, #0079f2 74%, #005ec4 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(15%,#007aff), color-stop(15%,#007aff), color-stop(74%,#0079f2), color-stop(100%,#005ec4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* IE10+ */
+background: linear-gradient(to bottom, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007aff', endColorstr='#005ec4',GradientType=0 );
+border:1px solid #005ec4; color:#fff; font-size:12px; font-weight:700; text-transform:uppercase; padding:8px 32px 6px 32px; border-radius:4px; float:left;}
 .mainBotton:hover{background: #c47d7d; /* Old browsers */
 background: -moz-linear-gradient(top, #c47d7d 0%, #c82e29 42%, #a80200 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c47d7d), color-stop(42%,#c82e29), color-stop(100%,#a80200)); /* Chrome,Safari4+ */
@@ -77,7 +86,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c47d7d', end
 .mainBotton:active{background:#A80200}
 .f100{float:left; width:100%;}
 .wrapList{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:95px;a}
-.prel, .wrapList, .wrapListForm td{position:relative;}
+.prel, .wrapList, .wrapListForm td, .dataInf{position:relative;}
 .fleft, #search fieldset{float:left;}
 .pl10{padding-left:10px}
 .pl65{padding-left:65px}
@@ -107,23 +116,26 @@ header nav{float:right; height:65px!important;}
 .cheers span{position:absolute; background-color:#eee; padding:10px; border-radius:50%; top:-14px; left:-50px;}
 .wrapOpen{float:left; width:100%; padding-left:70px;}
 .arrowLeft{border:none; text-indent:-99999px; position:fixed; background:url(../graphics/menuSprite.png) 20px 21px no-repeat; width:69px; height:65px !important; padding:14px; border-bottom:1px solid #c8c7cc; z-index:99999999999;}
-.arrowRight{border:none; text-indent:-99999px; background:url(../graphics/menuSprite.png) 215px -56px no-repeat #fff; z-index:99999999999; width:244px; height:64px !important; padding:14px;}
+.arrowRight{border:none; text-indent:-99999px; background:url(../graphics/menuSprite.png) 218px 22px no-repeat #fff; z-index:99999999999; width:244px; height:64px !important; padding:14px;}
 .arrowLeft:hover{background:url(../graphics/menuSprite.png) 20px 21px no-repeat #eee;}
 #navMenu svg{width:32px}
 .barIn #padMenu{padding-top:64px; float:left; height:65px !important}
 .barIn .main{float:left; width:69px; padding:14px 5px; cursor:pointer; position:relative}
-.barOut #navMenu li{float:left; width:260px; padding:15px 5px 15px 0; cursor:pointer}
+.barOut #navMenu li{float:left; width:275px; padding:10px 5px 0 0; cursor:pointer}
 .barOut .main{float:left; width:260px; padding:13px 5px 0 0; cursor:pointer}
 #navMenu li img{float:left}
-#navMenu li strong, #navMenu li em{line-height:26px; padding-top:4px; float:left; text-transform:uppercase; font-weight:600; cursor:pointer; font-style:normal; color:#777; width:196px}
+#navMenu li strong, #navMenu li em{line-height:28px; padding:2px 0; float:left; font-size:14px; font-weight:200; cursor:pointer; font-style:normal; width:215px; border-bottom:1px solid #ccc;}
+.bckMarkActive{background:#eee; box-shadow:inset 0px 1px 20px -7px #777; -webkit-box-shadow:inset 0px 1px 20px -7px #777; -moz-box-shadow:inset  0px 1px 20px -7px #777;}
+.bckMark em{border-bottom:1px solid #f0f8ff !important}
 .main:hover{background:#eee}
-#navMenu h1{float:left; width:100%; padding:15px 20px; background:#007aff; border-bottom:1px solid #ccc; font-size:22px; overflow:hidden; border-top:1px solid #c8c7cc; color:#fff; font-weight:400}
+#navMenu h1{float:left; width:100%; padding:15px 20px; background:#007aff; border-bottom:1px solid #ccc; font-size:20px; overflow:hidden; border-top:1px solid #c8c7cc; color:#fff; font-weight:400}
 .wrapClose{margin-left:260px;}
 #winRight{position:absolute; top:120px; right:-181px; display:none}
-#actions{position:absolute; min-height:58px; left:17px; top:17px; width:96%; border:1px solid #B7E3FF; padding:10px 0; background-color:#f0f8ff; border-radius:4px;}
+#actions{position:absolute; min-height:52px; left:17px; top:17px; width:96%; border:1px solid #B7E3FF; padding:8px 0; background-color:#f0f8ff; border-radius:4px;}
 .barIn .submenu{position:absolute; font-size:14px; font-weight:300; top:-1px; left:69px; z-index:9999999; border:1px solid #ccc; width:265px; background:#fafafa;}
+.barOut .submenu{float:left; border-bottom:1px solid #ccc; background:url(../graphics/bckLineTree.png) 25px 18px repeat-y transparent;}
 .barOut .submenu li{padding:0 !important}
-.barOut .submenu li a{font-family:'Lato', sans-serif; font-size:14px; font-weight:300; padding:6px 0 7px 52px; float:left; width:100%; color:#333}
+.barOut .submenu li a{font-family:'Lato', sans-serif; font-size:13px; font-weight:200; padding:7px 0 7px 43px; float:left; width:100%; color:#000; border-left:3px solid #007aff}
 .barOut .submenu li a:hover{background:#007aff; color:#fff; font-weight:700}
 .submenu li{float:left; width:100%}
 .barIn .submenu li{padding-left:30px; }
@@ -153,6 +165,8 @@ table tbody tr:hover{background-color:#fafafa}
 .iconPlus img{width:20px; border-radius:4px; float:left; margin:4px 7px 3px 0; max-height:20px}
 .countRed{background-color: #C82E29; color: #fff; border-radius:50%; padding:2px 5px; font-weight:700; font-style:normal; position:absolute; top:-6px; right:-6px;}
 .addSmall{float:left; position:relative; padding:3px 10px 3px 7px; text-transform:uppercase; border:1px solid #78C1FF; color:#333; height:35px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:15px; background:#fff;}
+.addSmallGray{float:left; position:relative; padding:6px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; height:26px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:10px; background:url(../graphics/bckGray.png) 0 -29px repeat-x #fff;}
+.addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
 .addSmall span{margin-top:8px; float:left; font-style:normal}
 .addSmall:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
 background:-moz-linear-gradient(top, #ffffff 1%, #f0f9ff 56%, #cbebff 99%, #cbebff 99%, #a1dbff 100%); /* FF3.6+ */
@@ -167,12 +181,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .active span{font-weight:700; color:#555}
 .addSmall:active{background:aliceblue;}
-.iconEdit img{width:16px}
+.iconEdit img{width:16px; margin-top:2px}
 #wrapListPlano{height:640px}
 .wrapListForm{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:20px; width:96%;}
-.wrapListForm thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding: 10px 0 10px 10px;}
+.wrapListForm tbody{border:1px solid #ccc;}
+.wrapListForm thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:10px 0 10px 10px;}
 .secmainTit{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; padding: 0 0 0 10px; float:left; width:100%;}
-.bigInp{float:left; border:1px solid #fff; height:25px; padding:6px 10px 0; width:100%; border-radius:4px; text-transform:uppercase;  color:cornflowerblue;}
+.bigInp{float:left; border:1px solid #fff; height:30px; padding:6px 10px 0; width:100%; border-radius:4px; text-transform:uppercase;  color:cornflowerblue;}
 .thbr thead th{ padding:0 0 6px 10px; font-size:13px; font-weight:700}
 .thbr tbody a{float:left; width:100%; padding:6px 13px;}
 .selSma{position:absolute; left:2px;height:35px;border:1px solid #fff; background-color:#fff; width:50px; text-transform:uppercase; color:cornflowerblue; border-right:1px solid #ddd; border-radius:0;-webkit-appearance: none; -moz-appearance: none; padding-left:15px}
@@ -193,7 +208,7 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .iconDeleteT img:hover, .iconEditT img:hover{background:#0060C8;}
 #masPlazas{float:left; width:100%; border-bottom:1px solid #ddd;}
 .obli{color:#c30; font-size:18px; line-height:9px}
-.texBig{float:left; width:100%; border:1px solid #ccc; margin:15px 0; padding:8px 15px; height:62px}
+.texBig{float:left; width:100%; border:1px solid #ccc; margin:15px 0; text-transform:uppercase; padding:8px 15px; height:62px}
 .proImg img{width:22px; height:19px}
 #solicitud{background-color:#C82E29;color:#fff;border-radius:50%;padding:2px 5px;font-weight:700; font-style:normal;position:absolute;top:6px;right:28px}
 #cotLoc{margin-top:6px; padding:3px 0 0; font-size:11px; border:none; background-color:transparent; text-transform: uppercase;}
@@ -203,7 +218,7 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 #devCan{text-transform:uppercase; font-weight:700; padding:10px 10px 10px; float:left; width:100%; margin-bottom:20px; background-color:#eee; border-radius:4px; border:1px solid #ccc;}
 #devCan input{float:left; margin-right:10px; cursor:pointer}
 #devCan span{float:left; font-size:1.1em; margin-top:4px}
-.wrapListForm fieldset{float:left; width:100%;}
+.wrapListForm fieldset{float:left; width:100%; background:#f0f8ff; padding:15px}
 #archivoDevolucion{border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; padding: 10px 0; margin-bottom: 20px;}
 #archivoDevolucion span{float:left; font-size:1.1em; text-transform:uppercase; margin:3px 10px;}
 .svgPdf img{width:18px; float:left;}
@@ -272,7 +287,24 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .panelRight:hover{background:url(../graphics/rArrows.png) 8px -55px no-repeat #007aff;}
 .panelLeft:hover{background-color:#eee;}
 #triangle{background:url(../graphics/rArrows.png) center -31px no-repeat;     height:40px; float:left; max-width:100px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; font-style:normal}
-
+.msgAlert{float:left; padding:0 10px 5px;margin:0 0 10px 17px; font-weight: 400; text-transform:uppercase;}
+.msgAlert img{float:left; margin-right:5px;}
+.msgAlert p{float:left; margin-top:5px; font-weight:700}
+#msgRecAgr{float:left; border:1px solid #ccc; width:100%; margin-top:10px; position:relative;}
+#msgRecAgr .msgForm{background:#eee; float:left; width:97%; text-transform:uppercase; padding:10px; margin:10px 20px 10px 15px}
+.msgForm p{float:left; margin-top:4px; color:#000}
+.msgForm img{float:left; margin-right:10px;}
+.titFormMain{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:10px 0 10px 10px; float:left; width:100%; margin-bottom:10px;}
+.addSmallGrayBot{float:left; position:relative; padding:2px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer}
+.addSmallGrayBot span{float:left; margin-top:8px}
+#choTip{float:left; width:100%; height:100%; background:#fff; padding:15px 15px 5px 15px; display:none}
+#choTip a{border:1px solid #ccc; padding:8px 20px; text-transform: uppercase; margin: 0 10px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+#closeCho, .closeData{width:14px; position:absolute; right:6px; top:6px; border:1px solid #ccc; background:#fff; padding:2px; cursor:pointer}
+#closeCho:hover{border:1px solid #78C1FF;}
+#choTip span{margin-bottom:10px; padding:20px 0px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:475px; position:relative}
+.foDep{float:left; width:100%; border-bottom:1px solid #eee; padding:10px }
+#forAja fieldset{float:left; width:100%; background: #f0f8ff; padding:0 15px 15px 15px; border-top: 1px solid #ddd;}
+.dataInf .bigInp{background:#fff; cursor:pointer}
 /*---------------- Botones ------------------*/
 
 

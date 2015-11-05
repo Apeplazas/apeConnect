@@ -44,10 +44,8 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
-
 $active_group = 'default';
 $active_record = TRUE;
-
 $db['default']['hostname'] = '198.154.246.178';
 $db['default']['username'] = 'apeplaza_web';
 $db['default']['password'] = 'web@peplazas411500';
@@ -63,12 +61,10 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
 $tnsname = '(DESCRIPTION=
     (ADDRESS=(PROTOCOL=tcp)(HOST=172.19.202.112)(PORT=1521))
     (CONNECT_DATA=(SID=APEDEV))
   )';
-
 $db['apedev']['hostname'] = $tnsname;
 $db['apedev']['username'] = 'bolinfo';
 $db['apedev']['password'] = 'bolinfo2014';
@@ -84,7 +80,6 @@ $db['apedev']['dbcollat'] = 'utf8_general_ci';
 $db['apedev']['swap_pre'] = '';
 $db['apedev']['autoinit'] = TRUE;
 $db['apedev']['stricton'] = FALSE;
-
 $db['intelisis']['hostname'] = "192.168.1.5";
 $db['intelisis']['username'] = "Sa";
 $db['intelisis']['password'] = "";
@@ -100,7 +95,5 @@ $db['intelisis']['dbcollat'] = "utf8_general_ci";
 $db['intelisis']['swap_pre'] = '';
 $db['intelisis']['autoinit'] = TRUE;
 $db['intelisis']['stricton'] = FALSE;
-
-
 /* End of file database.php */
 /* Location: ./application/config/database.php */

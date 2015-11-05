@@ -190,7 +190,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="grayField"><label>Observaciones Adicionales</label></td>
+				<td class="grayField">
+					<label>Observaciones Adicionales</label>
+				</td>
 				<td><input class="bigInp uppercase" name="observaciones"/></td>
 				<td>&nbsp</td>
 				<td>&nbsp</td>
@@ -201,7 +203,7 @@
 	</div>
 
 
-	<div class="wrapListForm" id="wrapListForm2">
+	<div class="wrapListForm" id="wrapListForm4">
 	<table>
 	<thead>
 		<tr>
@@ -230,7 +232,35 @@
 	<br class="clear">
 	</div>
 
-	<div class="wrapListForm" id="wrapListForm2">
+	<div class="wrapListForm" id="wrapListForm4">
+		<b class="titFormMain">Recibos de deposito.</b>
+		<div id="botRecAg">
+			<div id="sCTip" class="addSmallGrayBot">
+				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Recibo" /></i>
+				<span>Agregar recibo </span>
+			</div>
+		</div>
+		<div id="msgRecAgr">
+			<div id="choTip">
+				<span>
+					<img id="closeCho" src="<?=base_url()?>assets/graphics/svg/close.svg" />
+					<a class="trasForm" href="<?=base_url()?>ajax/tipoDepositoVista/1">Traspaso SPEI</a>
+					<a class="trasForm" href="<?=base_url()?>ajax/tipoDepositoVista/2">Terminal</a>
+					<a class="trasForm" href="<?=base_url()?>ajax/tipoDepositoVista/3">Deposito bancario</a>
+				</span>
+			</div>
+			<div id="forAja"></div>
+
+			<span class="msgForm">
+				<img src="<?=base_url()?>assets/graphics/alert.png" alt="Sin información" />
+				<p>Sin recibos agregados.</p>
+			</span>
+			<br class="clear">
+		</div>
+		<br class="clear">
+	</div>
+
+	<div class="wrapListForm" id="wrapListForm3">
 	<table>
 	<thead>
 		<tr>
@@ -239,10 +269,6 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td class="grayField"><label>Comprobante de pago</label></td>
-			<td>
-				<input type="file" class="bigInp" name="documentoPago" required />
-			</td>
 			<td class="grayField"><label>Identificación</label></td>
 			<td>
 				<input type="file" class="bigInp" name="documentoIdentifi" required />
@@ -253,14 +279,12 @@
 			<td>
 				<input type="file" class="bigInp" name="documentoEstadoCuenta" />
 			</td>
-			<td></td>
-			<td></td>
 		</tr>
 	</tbody>
 	</table>
 	<input type="hidden" name="clienteId" id="clienteId" value="" />
 	<input type="hidden" name="optionsRadios" id="cartaintencion" value="cartaintencion">
-	<button type="submit" class="mt10 mainBotton">Generar</button>
+	<input type="submit" value="Generar" class="mt10 mainBotton">
 	<br class="clear">
 	</div>
 
@@ -269,7 +293,21 @@
 	</form>
 
 </div>
+<script type="text/javascript" charset="utf-8">
 
+$('.trasForm').click(function(event){
+	event.preventDefault();
+	var call = $(this).attr('href');
+	$.ajax({
+			url: call,
+			})
+			.done(function(data) {
+				$('#forAja').append(data);
+				$('#choTip').removeClass('show');
+				$('.msgForm').addClass('hide');
+		});
+});
+</script>
 
 <script>
 $(document).ready(function(){

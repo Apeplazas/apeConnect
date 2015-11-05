@@ -2,25 +2,24 @@
 
 <? foreach($infoPlano as $p):?>
 
+<div id="mainTit">
+  <h3>Asignación de locales a plano de <?= $p->plaza;?></h3>
+</div>
 
-<h3 id="mainTit">Asignación de locales a plano de <?= $p->plaza;?></h3>
-<div class="wrapListPlano">
-
-	<div id="actionsPlano">
+<div class="wrapList" id="wrapListPlano">
+	<div id="actions">
 		<? $this->load->view('includes/toolbars/buscaPisos-toolbar');?>
 		<input type="hidden" id="text" style="width:100%">
 		<!-- Empieza boton con ventana de planogramas -->
 		<div id="window" class="link">
-			<button class="addToolSmallRi"><i class="iconWindow">Ventana</i></button>
-			<div class="popup" tabindex="-1">
+			<div  id="rigWinClose" class="popup" tabindex="-1">
 				<!-- Empieza ventana informativa de planogramas -->
 				<div  id="planoGrama" >
 					<span class="secTit"><em>Locales por asignar</em></span>
 						<div id="actTod">
-						<i class="topArrow"><img src="<?=base_url()?>assets/graphics/topArrow.png" alt="Señalización"></i>
 						<div id="infLocPlSt"></div>
 						<div id="infLocPl"></div>
-							<div id="infoCuenta">	
+							<div id="infoCuenta">
 							<span id="statusVector" class="lineAc" title="">
 							<form>
 								<fieldset>
@@ -39,7 +38,7 @@
 								<label>Borrar</label>
 								<input type="radio" value="borrado" class="actionBor" name="actionMet" />
 								</fieldset>
-								<!-- Tu comentario 
+								<!-- Tu comentario
 								<select name="" id="habilitado">
 									<option id="sel1" checked value="">Selecciona una opción</option>
 									<option value="habilitado">Habilitar</option>
@@ -73,16 +72,16 @@
 			<? $this->load->view('includes/toolbars/planoGramas');?>
 		</div>
 		<!-- Cierraboton con ventana de planogramas -->
-	
-	
+
+
 <?php $textsContent = '';?>
 	<div id="plano">
 		<div id="pan-parent">
 			<div id="panzoom">
 			<svg class="grid" version="1.1" id="Layer1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 800 400" enable-background="new 0 0 800 400" xml:space="preserve">
 		 		<g>
-		 		
-			
+
+
 				<? foreach($locales as $row): ?>
 				<? if($row->tipo == 'polyline'): ?>
 				<g id="poly">
@@ -109,23 +108,23 @@
 						$textsContent .= '<text id="' . $row->id .'" transform="translate(' . $row->x . ',' . $row->y . ')" class="texto cleanText" >' . $row->contenido . '</text>';
 					else:
 						$textsContent .= '<text id="' . $row->id . '" class="texto cleanText" transform="' . $row->transform . '" >' . $row->contenido . '</text>';
-					endif;		
+					endif;
 				endif;?>
 				<? endforeach; ?>
 				<?=$textsContent;?>
 				</g>
 				</svg>
 			</div>
-			
-			
-		
+
+
+
 		</div>
-		
+
 	</div>
 </div>
 <? endforeach; ?>
 <!-- Selecciona para crear grupos de informacion -->
-<script>  
+<script>
 $(function() {
 	$(".reciente, .texto").click(function(e){
 		d3.select(this).classed( "selected", false);
@@ -135,17 +134,17 @@ $(function() {
     	}
 		$(this).attr("class",$(this).attr("class")+" selected");
 	});
-	
+
 	$(".closeup").click(function() {
 		$(".closeup").removeClass("act");
     	$(this).addClass("act");
     	$('#asig').show();
 	});
-	
+
 	$(".click, .areaPublica").click(function() {
     	$('#asig').show();
 	});
-    	
+
 });
 </script>
 <!-- Muestra boton para quitar asignacion-->
@@ -190,20 +189,20 @@ $(function() {
 				$("#infLocPl").html(" \
 				<div class='field '><img src='http://www.apeplazas.com/apeConnect/assets/graphics/alert.png' /><i>Local no asignado</i></div> \
 				");
-			
-				
+
+
 			}
-			
+
 			$("#statusVector button").attr("id",data.Nvector[0].status);
-		},'json');		
+		},'json');
 	});
-	
-			
+
+
 	$(".actionMet").click(function() {
 		var id        = $('.lineAc').attr("title");
 		var status    = $(this).val();
 		$.post("<?=base_url()?>ajax/statusVector", {id : id, status : status},
-		
+
 		function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$("#statusLocal").attr("class","noAsignado");
@@ -211,14 +210,14 @@ $(function() {
 			$("#"+id).remove();
 		},'json');
 	});
-	
+
 	$(".actionBor").click(function() {
 		var id        = $('.lineAc').attr("title");
 		var status    = $(this).val();
 		//$("polyline[id='"+id"']").remove();
 		$.post("<?=base_url()?>ajax/statusVector", {id : id, status : status},
-		
-		
+
+
 		function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$("#statusLocal").attr("class","noAsignado");
@@ -226,8 +225,8 @@ $(function() {
 			$("#"+id).remove();
 		},'json');
 	});
-	
-			
+
+
 	$("#asignar").click(function() {
 		var id = $(this).attr("id");
 		$("#forma").removeAttr("disabled");
@@ -239,9 +238,9 @@ $(function() {
 			$("#statusVector").attr("title",id);
 			$("#statusVector button").attr("id","habilitado");
 		},'json');
-				
+
 	});
-			
+
 	$("#asig").submit(function(event) {
 		event.preventDefault();
 
@@ -250,16 +249,16 @@ $(function() {
 		var vectores 	= $('.selected');
 		var vectDos		= $('.click.selected');
 		var vectoresData = [];
-		
+
 		$.each(vectores,function(key,val){
 			vectoresData.push(val.id);
 		});
-				
+
 		$.post("<?=base_url()?>ajax/asignarVectorPlano", {
 			ids : vectoresData,
 			plazaId : plazaId,
 			local : local
-					
+
 		}, function(data) {
 			console.log(data);
 			if (data){
@@ -275,9 +274,9 @@ $(function() {
 			}
 		},'json');
 		$( "#asig" ).hide();
-		
+
 	});
-	
+
 });
 
 
@@ -285,7 +284,7 @@ $(function() {
 var zoom = d3.behavior.zoom()
     .scaleExtent([1, 10])
     .on("zoom", zoomed);
-    
+
 var drag = d3.behavior.drag()
 	.on("dragstart", dragstarted)
     .on("drag", dragmove)
@@ -332,8 +331,8 @@ jQuery(function($) {
 Ajax para el autocompletar
 ********************************************************************************************************************/
 	$(function() {
-		
-		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown 
+
+		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown
 		$("ul.topnav li span").click(function() { //Cuando el trigger acciona muestra estas etiquetas...
 		//Sigue el evento y genera un slide Down de efecto para los resultados
 		$(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
@@ -361,63 +360,63 @@ Ajax para el autocompletar
 			}
 		});
 	});
-	
+
 	$('.relB').click(function(){
 		var texto = $(this).attr('title');
 		$('#formBuscar input[name=key]').val(texto);
 		$('#formBuscar').submit();
 	});
-	
+
 	$("#formBuscar input[name=key]").keypress(function(e) {
 		$('#formBuscar input[name=hidden]').val('');
 	});
-	
+
 });
 </script>
 <script>
 var width = parseInt(svg.style("width")),
     height = parseInt(svg.style("height")),
     centered;
-    
+
     d3.selectAll('.closeup').on('click',clicked);
     d3.selectAll('.click').on('click', function(d) {
-	    
+
 	d3.selectAll(".selected")
 		.classed("reciente", true);
-		
+
 	d3.selectAll(".reciente")
 		.classed("selected", false);
-		
+
 	if(this.classList.contains("reciente")) {
 		d3.selectAll(".closeup")
 		.classed("act", false);
-		
+
         var id = d3.select(this).attr('id');
-        
+
         var seleccion = d3.select("#path-"+id);
-        seleccion.classed("act", true); 
-        
-    } 
-	d3.select(this).classed("reciente", false);   
+        seleccion.classed("act", true);
+
+    }
+	d3.select(this).classed("reciente", false);
 	d3.select(this).classed("selected", true);
 
 });
 
 function clicked(d) {
   var x, y, k;
-  
+
   var vector = d3.select(this).attr('id');
   var vectorData = vector.split("-");
- 
+
   var seleccion = d3.select(vectorData[0]+"[id='"+vectorData[1]+"']");
   d3.selectAll(".selected")
       .classed("reciente", true);
   d3.selectAll(".reciente")
       .classed("selected", false);
-   
-   seleccion.classed("reciente", false);   
+
+   seleccion.classed("reciente", false);
    seleccion.classed("selected", true);
-  
+
    if (seleccion && centered !== seleccion) {
     var centroid = getCentroid(seleccion);
     console.log(centroid);
