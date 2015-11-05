@@ -131,14 +131,14 @@ class Tempciri extends MX_Controller {
 			$clienteId = $_POST['clienteId'];
 
 		}
-
+/*
 		if( empty($_FILES['documentoPago']['name']) || empty($_FILES['documentoIdentifi']['name']) ){
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar los documentos.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
 			return false;
 		}
-
+*/
 		//Validar archivos
 		$permitidos =  array('gif','png','jpg','pdf');
 
@@ -219,7 +219,7 @@ class Tempciri extends MX_Controller {
 
 			$this->db->where('id', $cartaIntId);
 			$this->db->update('TEMPORA_CI', array('pdf'=>$cartaIntId.'_CI.pdf'));
-
+/*
 			//Insertar archivo comprobante de pago
 			$archivoNombre	= 'CI_'.$cartaIntId.'_compPago.'.$extArchivo1;
 			$archivoTipo	= $_FILES['documentoPago']['type'];
@@ -232,7 +232,7 @@ class Tempciri extends MX_Controller {
 		   		'archivoNombre'	=> $archivoNombre
 			);
 			$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-
+*/
 			//Insertar archivo idenfiticacion
 			$archivoNombre	= 'CI_'.$cartaIntId.'_identif.'.$extArchivo2;
 			$archivoTipo	= $_FILES['documentoIdentifi']['type'];

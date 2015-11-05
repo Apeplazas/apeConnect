@@ -2,7 +2,7 @@
 <div class="wrapList">
 
 	<div id="actions">
-		<a href="<?=base_url()?>tempCiri/ciRi" title="Generar carta intencion" class="addSmall">
+		<a href="<?=base_url()?>tempciri/ciRi" title="Generar carta intencion" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Carta</span>
 		</a>
