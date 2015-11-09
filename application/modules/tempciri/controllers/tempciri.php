@@ -40,8 +40,8 @@ class Tempciri extends MX_Controller {
 	}
 
 
-	function generador(){
-
+	function generador(){	
+	
 		$op 	= array();
 		$cots 	= array();
 		
@@ -50,7 +50,7 @@ class Tempciri extends MX_Controller {
 		$tipoCarta = $_POST['optionsRadios'];
 
 		$op['usuario']	= $this->session->userdata('usuario');
-
+/*
 		$cantidad = trim($_POST['adelanto']);
         $xcantidad = str_replace('.', '', $cantidad);
         if (FALSE === ctype_digit($xcantidad)){
@@ -58,46 +58,23 @@ class Tempciri extends MX_Controller {
 			redirect("tempciri/ciRi/");
 			return false;
         }
+*/
 
-		$op['refCi']			= (isset($_POST['refCi'])) ? $_POST['refCi'] : null;
+		$op['rentanLocalLetra']	= num_to_letras($_POST['rentaMensual']);
+		$op['rentaCant']		= $_POST['rentaMensual'];
+		$op['rentaDeposito']	= $_POST['rentaMensual']*1.16;
+		$op['local']			= $_POST['localnum'];
 
-        $op['depositoLetra'] 	= num_to_letras($cantidad);
-
-		if(!$op['refCi']){
-
-			$op['rentanLocalLetra']	= num_to_letras($_POST['rentaMensual']);
-			$op['rentaCant']		= $_POST['rentaMensual'];
-			$op['rentaDeposito']	= $_POST['rentaMensual']*1.16;
-			$op['local']			= $_POST['localnum'];
-
-			$op['clientrfc']		= $_POST['clientrfc'];
-			$op['clientEmail']		= $_POST['clientEmail'];
-			$op['clientetelefono']	= $_POST['clientetelefono'];
-			$op['clientNom']		= preg_replace('/\s+/',' ',$_POST['cpnombre'] . ' ' . $_POST['csnombre'] . ' ' . $_POST['capaterno'] . ' ' . $_POST['camaterno']);
-
-		}else{
-
-			$previewData	= $this->tempciri_model->traerDatosCi($op['refCi']);
-
-			$op['rentanLocalLetra']	= num_to_letras($previewData[0]->renta);
-			$op['rentaCant']		= $previewData[0]->renta;
-			$op['rentaDeposito']	= $previewData[0]->renta*1.16;
-			$op['local']			= $previewData[0]->local;
-			$op['depositoCi']		= $previewData[0]->deposito;
-
-			$op['clientrfc']		= $previewData[0]->rfc;
-			$op['clientEmail']		= $previewData[0]->email;
-			$op['clientetelefono']	= $previewData[0]->telefono;
-			$op['clientNom']		= preg_replace('/\s+/',' ',$previewData[0]->pnombre . ' ' . $previewData[0]->snombre . ' ' . $previewData[0]->apellidopaterno . ' ' . $previewData[0]->apellidomaterno);
-
-		}
+		$op['clientrfc']		= $_POST['clientrfc'];
+		$op['clientEmail']		= $_POST['clientEmail'];
+		$op['clientetelefono']	= $_POST['clientetelefono'];
+		$op['clientNom']		= preg_replace('/\s+/',' ',$_POST['cpnombre'] . ' ' . $_POST['csnombre'] . ' ' . $_POST['capaterno'] . ' ' . $_POST['camaterno']);
 
 		$op['vendedorNombre']	= $_POST['vendedorNombre'];
 
 		$op['crednum']			= $_POST['folioident'];
 		$op['rentmes']			= $_POST['mes'];
 		$op['rentduracion']		= $_POST['contratotiempo'];
-		$op['rentant']			= $_POST['adelanto'];
 		$op['remnumcuenta']		= $_POST['devCuenta'];
 		$op['rembanco']			= $_POST['devBanco'];
 		$op['fecha']			= date('d/m/Y');
@@ -105,7 +82,7 @@ class Tempciri extends MX_Controller {
 		$op['rentaDepositoLet']	= num_to_letras($op['rentaDeposito']);
 		$op['plaza']			= $_POST['plazaNombre'];
 		$op['dirplaza']			= $_POST['dirplaza'];
-		$op['plazaPiso']			= $_POST['plazaPiso'];
+		$op['plazaPiso']		= $_POST['plazaPiso'];
 		$op['diasGracia']		= $_POST['diasGracia'];
 
 
@@ -139,15 +116,42 @@ class Tempciri extends MX_Controller {
 			return false;
 		}
 */
+		//Validar que se agregue al menos un recibo de deposito con datos
+		if( ( !isset($_POST['depositos']) && !isset($_POST['traspaso']) && !isset($_POST['terminal']) ) || 
+			( isset($_POST['depositos']) && ( empty($_POST['depositos']['cuenta'][0]) || empty($_POST['depositos']['numero'][0]) || empty($_POST['depositos']['fecha'][0]) || empty($_POST['depositos']['movimiento'][0]) || empty($_POST['depositos']['importe'][0]) 
+											) 
+			) || 
+			( isset($_POST['terminal']) && ( empty($_POST['terminal']['digitos'][0]) || empty($_POST['terminal']['numero'][0]) || empty($_POST['terminal']['fecha'][0]) || empty($_POST['terminal']['importe'][0])
+											) 
+			) || 
+			( isset($_POST['traspaso']) && ( empty($_POST['traspaso']['cuenta'][0]) || empty($_POST['traspaso']['digitos'][0]) || empty($_POST['traspaso']['fecha'][0]) || empty($_POST['traspaso']['numero'][0]) || empty($_POST['traspaso']['importe'][0]) || empty($_POST['traspaso']['clave'][0])  
+											) 
+			)									
+			){
+				
+			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar Recibos de deposito.</strong></div><br class="clear">');
+			redirect("tempciri/ciRi/");
+			return false;
+			
+		}
+		
+		//Validar que ingresaron al menos un archivo para los depositos	
+		if( ( !isset($_FILES['depositos']) && !isset($_FILES['traspaso']) && !isset($_FILES['terminal']) ) ){
+			
+			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos del deposito.</strong></div><br class="clear">');
+			redirect("tempciri/ciRi/");
+			return false;
+			
+		}
+
 		//Validar archivos
 		$permitidos =  array('gif','png','jpg','pdf');
 
-		$extArchivo1 = pathinfo($_FILES['documentoPago']['name'], PATHINFO_EXTENSION);
+		//$extArchivo1 = pathinfo($_FILES['documentoPago']['name'], PATHINFO_EXTENSION);
 		$extArchivo2 = pathinfo($_FILES['documentoIdentifi']['name'], PATHINFO_EXTENSION);
 		$extArchivo3 = '';
 
-		if( !in_array($extArchivo1,$permitidos) || !in_array($extArchivo2,$permitidos) ) {
-
+		if( !in_array($extArchivo2,$permitidos) ) {
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
 			return false;
@@ -167,228 +171,217 @@ class Tempciri extends MX_Controller {
 
 		}
 
-		if($tipoCarta == 'cartaintencion'){
-
-			$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
-			if(!empty($checkRef) && sizeof($checkRef) >= 3){
-				$this->session->set_flashdata("msg","<div class='msgFlash'>
-					<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
-					<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .
-					"</strong>
-				</div>
-				<br class='clear'>");
-				redirect("tempciri/ciRi/");
-				return false;
-			}
-
-			$op['gerente']		= $_POST['gerente'];
-			$op['folioCompro']	= $_POST['folioDoc'];
-			$plazaDatos 		= $this->tempciri_model->traerDatosPLaza($op['plaza']);
-			$op['folioDoc']		= $plazaDatos[0]->ci_num + 1;
-			$this->db->where('plaza', $op['plaza']);
-			$this->db->update('TEMPORA_PLAZA', array('ci_num'=>$op['folioDoc']));
-
-			$info = array(
-					'folio'				=> $op['folioDoc'],
-					'plaza'				=> $op['plaza'],
-					'clienteId'			=> $clienteId,
-					'vendedorNombre'	=> $op['vendedorNombre'],
-					'folioComprobante'	=> $op['folioCompro'],
-					'usuarioId'       	=> $op['usuario']['usuarioID'],
-					'ifeFolio'        	=> $op['crednum'],
-					'deposito'        	=> $cantidad,
-					'diasGracia'		=> $op['diasGracia'],
-					'contraroInicioMes' => $op['rentmes'],
-					'contratoDuracion'  => $op['rentduracion'],
-					'devolucionCuenta'	=> $op['remnumcuenta'],
-					'devolucionBanco'   => $op['rembanco']
-			);
-			$this->db->insert('TEMPORA_CI', $info);
-			$cartaIntId = $this->db->insert_id();
-
-			$rentaDatos = array(
-					'plazaId'			=> $op['plaza'],
-					'clienteId'			=> $clienteId,
-					'ciId'				=> $cartaIntId,
-					'renta'				=> $op['rentaCant'],
-					'local'				=> $op['local'],
-					'piso'				=> $op['plazaPiso'],
-					'dir'        		=> $op['dirplaza']
-			);
-			$this->db->insert('TEMPORA_PLAZA_RENTAS', $rentaDatos);
-
-			$this->db->where('id', $cartaIntId);
-			$this->db->update('TEMPORA_CI', array('pdf'=>$cartaIntId.'_CI.pdf'));
-/*
-			//Insertar archivo comprobante de pago
-			$archivoNombre	= 'CI_'.$cartaIntId.'_compPago.'.$extArchivo1;
-			$archivoTipo	= $_FILES['documentoPago']['type'];
-			$tamanoH		= $_FILES['documentoPago']['size'];
-
-		   	move_uploaded_file($_FILES['documentoPago']['tmp_name'],DIRCIDOCS.$archivoNombre);
-		   	$data = array(
-		   		'ciId'			=> $cartaIntId,
-		   		'docTipo'		=> 'comprobantePago',
-		   		'archivoNombre'	=> $archivoNombre
-			);
-			$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-*/
-			//Insertar archivo idenfiticacion
-			$archivoNombre	= 'CI_'.$cartaIntId.'_identif.'.$extArchivo2;
-			$archivoTipo	= $_FILES['documentoIdentifi']['type'];
-			$tamanoH		= $_FILES['documentoIdentifi']['size'];
-
-
-		   	move_uploaded_file($_FILES['documentoIdentifi']['tmp_name'],DIRCIDOCS.$archivoNombre);
-		   	$data = array(
-		   		'ciId'				=> $cartaIntId,
-		   		'docTipo'			=> 'identificacionCliente',
-		   		'archivoNombre'		=> $archivoNombre
-			);
-			$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-
-			if(!empty($_FILES['documentoEstadoCuenta']['name'])){
-				//Insertar archivo idenfiticacion
-				$archivoNombre	= 'CI_'.$cartaIntId.'_estadoCuenta.'.$extArchivo2;
-				$archivoTipo	= $_FILES['documentoEstadoCuenta']['type'];
-				$tamanoH		= $_FILES['documentoEstadoCuenta']['size'];
-
-
-			   	move_uploaded_file($_FILES['documentoEstadoCuenta']['tmp_name'],DIRCIDOCS.$archivoNombre);
-			   	$data = array(
-			   		'ciId'				=> $cartaIntId,
-			   		'docTipo'			=> 'estadoCuenta',
-			   		'archivoNombre'		=> $archivoNombre
-				);
-				$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-			}
-
-			$this->load->helper(array('dompdf', 'file'));
-		    // page info here, db calls, etc.
-			$html = $this->layouts->loadpdf('carta-intencion', $op,'pdf_print', true);
-			$data = pdf_create($html, '', false);
-
-			write_file(DIRPDF.'CI_'.$cartaIntId.'.pdf', $data);
-
-
-			$op['documentoId']	= $cartaIntId;
-			$op['op']			= $op;
-
-			//Vista//
-			$this->layouts->pdf('apartado-view',$op);
-
-		}else{
-
-			$checkRef		= $this->tempciri_model->checkRefRi($op['clientrfc'],$op['plaza'],$op['local']);
-			if(!empty($checkRef) && sizeof($checkRef) >= 2){
-				echo 'El cliente ' . $op['clientNom'] . ' ya ha generado dos documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'];
-				return false;
-			}
-
-			$op['observaciones']	= $_POST['observaciones'];
-			$plazaDatos 		= $this->tempciri_model->traerDatosPLaza($op['plaza']);
-			$op['folioDoc']		= $plazaDatos[0]->ri_num + 1;
-			$this->db->where('plaza', $op['plaza']);
-			$this->db->update('TEMPORA_PLAZA', array('ri_num'=>$op['folioDoc']));
-
-			$info = array(
-					'clienteId'			=> $clienteId,
-					'usuarioId'       	=> $op['usuario']['usuarioID'],
-					'vendedorNombre'	=> $op['vendedorNombre'],
-					'folio'				=> $op['folioDoc'],
-					'deposito'        	=> $cantidad,
-					'contratoInicio' 	=> $op['rentmes'],
-					'contratoDuracion'  => $op['rentduracion'],
-					'diasGracia'		=> $op['diasGracia'],
-					'observaciones'		=> $op['observaciones']
-			);
-			$this->db->insert('TEMORA_RI', $info);
-			$reciboIntId = $this->db->insert_id();
-
-			$this->db->where('id', $reciboIntId);
-			$this->db->update('TEMORA_RI', array('pdf'=>$reciboIntId.'_RI.pdf'));
-
-			if(!$op['refCi']){
-
-				$rentaDatos = array(
-					'plazaId'			=> $op['plaza'],
-					'clienteId'			=> $clienteId,
-					'riId'				=> $reciboIntId,
-					'renta'				=> $op['rentaCant'],
-					'local'				=> $op['local'],
-					'dir'        		=> $op['dirplaza']
-				);
-				$this->db->insert('TEMPORA_PLAZA_RENTAS', $rentaDatos);
-
-			}else{
-
-				$this->db->where('ciId', $op['refCi']);
-				$this->db->update('TEMPORA_PLAZA_RENTAS', array('riId'=>$reciboIntId));
-
-			}
-
-			//Insertar archivo comprobante de pago
-			$archivoNombre	= 'RI_'.$reciboIntId.'_compPago.'.$extArchivo1;
-			$archivoTipo	= $_FILES['documentoPago']['type'];
-			$tamanoH		= $_FILES['documentoPago']['size'];
-
-		   	move_uploaded_file($_FILES['documentoPago']['tmp_name'],DIRRIDOCS.$archivoNombre);
-		   	$data = array(
-		   		'riId'			=> $reciboIntId,
-		   		'docTipo'		=> 'comprobantePago',
-		   		'archivoNombre'	=> $archivoNombre
-			);
-			$this->db->insert('TEMPORA_RI_ARCHIVOS', $data);
-
-			//Insertar archivo idenfiticacion
-			$archivoNombre	= 'RI_'.$reciboIntId.'_identif.'.$extArchivo2;
-			$archivoTipo	= $_FILES['documentoIdentifi']['type'];
-			$tamanoH		= $_FILES['documentoIdentifi']['size'];
-
-
-		   	move_uploaded_file($_FILES['documentoIdentifi']['tmp_name'],DIRRIDOCS.$archivoNombre);
-		   	$data = array(
-		   		'riId'				=> $reciboIntId,
-		   		'docTipo'			=> 'identificacionCliente',
-		   		'archivoNombre'		=> $archivoNombre
-			);
-			$this->db->insert('TEMPORA_RI_ARCHIVOS', $data);
-
-			if(!empty($_FILES['documentoEstadoCuenta']['name'])){
-				//Insertar archivo idenfiticacion
-				$archivoNombre	= 'RI_'.$reciboIntId.'_estadoCuenta.'.$extArchivo2;
-				$archivoTipo	= $_FILES['documentoEstadoCuenta']['type'];
-				$tamanoH		= $_FILES['documentoEstadoCuenta']['size'];
-
-
-			   	move_uploaded_file($_FILES['documentoEstadoCuenta']['tmp_name'],DIRRIDOCS.$archivoNombre);
-			   	$data = array(
-			   		'riId'				=> $reciboIntId,
-			   		'docTipo'			=> 'estadoCuenta',
-			   		'archivoNombre'		=> $archivoNombre
-				);
-				$this->db->insert('TEMPORA_RI_ARCHIVOS', $data);
-			}
-
-			$this->load->helper(array('dompdf', 'file'));
-		    // page info here, db calls, etc.
-			$html = $this->layouts->loadpdf('recibo-interno', $op,'pdf_print', true);
-			$data = pdf_create($html, '', false);
-			write_file(DIRPDF.'RI_'.$reciboIntId.'.pdf', $data);
-
-			$html = $this->layouts->loadpdf('condiciones-ri', $op,'pdf_print', true);
-			$data = pdf_create($html, '', false);
-			write_file(DIRPDF.'ConRI_'.$reciboIntId.'.pdf', $data);
-
-			$op['documentoId']	= $reciboIntId;
-
-			$op['op']			= $op;
-
-			//Vista//
-			$this->layouts->pdf('reciboInterno-view',$op);
-
+		$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
+		if(!empty($checkRef) && sizeof($checkRef) >= 3){
+			$this->session->set_flashdata("msg","<div class='msgFlash'>
+				<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
+				<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .
+				"</strong>
+			</div>
+			<br class='clear'>");
+			redirect("tempciri/ciRi/");
+			return false;
 		}
 
+		$op['gerente']		= $_POST['gerente'];
+		$op['folioCompro']	= $_POST['folioDoc'];
+		$plazaDatos 		= $this->tempciri_model->traerDatosPLaza($op['plaza']);
+		$op['folioDoc']		= $plazaDatos[0]->ci_num + 1;
+		$this->db->where('plaza', $op['plaza']);
+		$this->db->update('TEMPORA_PLAZA', array('ci_num'=>$op['folioDoc']));
+
+		$info = array(
+				'folio'				=> $op['folioDoc'],
+				'plaza'				=> $op['plaza'],
+				'clienteId'			=> $clienteId,
+				'vendedorNombre'	=> $op['vendedorNombre'],
+				'folioComprobante'	=> $op['folioCompro'],
+				'usuarioId'       	=> $op['usuario']['usuarioID'],
+				'ifeFolio'        	=> $op['crednum'],
+				'deposito'        	=> 0,
+				'diasGracia'		=> $op['diasGracia'],
+				'contraroInicioMes' => $op['rentmes'],
+				'contratoDuracion'  => $op['rentduracion'],
+				'devolucionCuenta'	=> $op['remnumcuenta'],
+				'devolucionBanco'   => $op['rembanco']
+		);
+		$this->db->insert('TEMPORA_CI', $info);
+		$cartaIntId = $this->db->insert_id();
+
+		$rentaDatos = array(
+				'plazaId'			=> $op['plaza'],
+				'clienteId'			=> $clienteId,
+				'ciId'				=> $cartaIntId,
+				'renta'				=> $op['rentaCant'],
+				'local'				=> $op['local'],
+				'piso'				=> $op['plazaPiso'],
+				'dir'        		=> $op['dirplaza']
+		);
+		$this->db->insert('TEMPORA_PLAZA_RENTAS', $rentaDatos);
+
+		$this->db->where('id', $cartaIntId);
+		$this->db->update('TEMPORA_CI', array('pdf'=>$cartaIntId.'_CI.pdf'));
+/*
+		//Insertar archivo comprobante de pago
+		$archivoNombre	= 'CI_'.$cartaIntId.'_compPago.'.$extArchivo1;
+		$archivoTipo	= $_FILES['documentoPago']['type'];
+		$tamanoH		= $_FILES['documentoPago']['size'];
+
+		move_uploaded_file($_FILES['documentoPago']['tmp_name'],DIRCIDOCS.$archivoNombre);
+		$data = array(
+			'ciId'			=> $cartaIntId,
+			'docTipo'		=> 'comprobantePago',
+			'archivoNombre'	=> $archivoNombre
+		);
+		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
+*/
+
+
+		$cantidad = 0;
+
+		//Insertar archivos de deposito en caso de que existan
+		if( isset($_FILES['depositos']) && sizeof($_FILES['depositos']['name']['comprobante']) > 0 ){
+			
+			foreach($_FILES['depositos']['name']['comprobante'] as $key => $val){
+				
+				$num 			= $key + 1;
+				$extArchivo 	= pathinfo($_FILES['depositos']['name']['comprobante'][$key], PATHINFO_EXTENSION);
+				$archivoNombre	= "CI_".$cartaIntId."_compPagoDep$num.".$extArchivo;
+				$archivoTipo	= $_FILES['depositos']['type']['comprobante'][$key];
+				$tamanoH		= $_FILES['depositos']['size']['comprobante'][$key];
+				
+		
+				move_uploaded_file($_FILES['depositos']['tmp_name']['comprobante'][$key],DIRCIDOCS.$archivoNombre);
+				$data = array(
+					'ciId'			=> $cartaIntId,
+					'reciboTipo'	=> 'depositos',
+					'cuenta'		=> $_POST['depositos']['cuenta'][$key],
+					'numero'		=> $_POST['depositos']['numero'][$key],
+					'fecha'			=> $_POST['depositos']['fecha'][$key],
+					'movimiento'	=> $_POST['depositos']['movimiento'][$key],
+					'importe'		=> $_POST['depositos']['importe'][$key],
+					'archivo'		=> $archivoNombre
+				);
+				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);
+				
+				$cantidad += $_POST['depositos']['importe'][$key];	
+				
+			}
+			
+		}
+
+		//Insertar archivos de deposito en terminal en caso de que existan
+		if( isset($_FILES['terminal']) && sizeof($_FILES['terminal']['name']['comprobante']) > 0 ){
+			
+			foreach($_FILES['terminal']['name']['comprobante'] as $key => $val){
+				
+				$num 			= $key + 1;
+				$extArchivo 	= pathinfo($_FILES['terminal']['name']['comprobante'][$key], PATHINFO_EXTENSION);
+				$archivoNombre	= "CI_".$cartaIntId."_compPagoTer$num.".$extArchivo;
+				$archivoTipo	= $_FILES['terminal']['type']['comprobante'][$key];
+				$tamanoH		= $_FILES['terminal']['size']['comprobante'][$key];
+				
+		
+				move_uploaded_file($_FILES['terminal']['tmp_name']['comprobante'][$key],DIRCIDOCS.$archivoNombre);
+				$data = array(
+					'ciId'			=> $cartaIntId,
+					'reciboTipo'	=> 'terminal',
+					'digitos'		=> $_POST['terminal']['digitos'][$key],
+					'numero'		=> $_POST['terminal']['numero'][$key],
+					'fecha'			=> $_POST['terminal']['fecha'][$key],
+					'importe'		=> $_POST['terminal']['importe'][$key],
+					'archivo'		=> $archivoNombre
+				);
+				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);	
+				
+				$cantidad += $_POST['terminal']['importe'][$key];
+				
+			}
+			
+		}
+		
+		//Insertar archivos de deposito spei (traspaso) en caso de que existan
+		if( isset($_FILES['traspaso']) && sizeof($_FILES['traspaso']['name']['comprobante']) > 0 ){
+			
+			foreach($_FILES['traspaso']['name']['comprobante'] as $key => $val){
+				
+				$num 			= $key + 1;
+				$extArchivo 	= pathinfo($_FILES['traspaso']['name']['comprobante'][$key], PATHINFO_EXTENSION);
+				$archivoNombre	= "CI_".$cartaIntId."_compPagoTrasp$num.".$extArchivo;
+				$archivoTipo	= $_FILES['traspaso']['type']['comprobante'][$key];
+				$tamanoH		= $_FILES['traspaso']['size']['comprobante'][$key];
+				
+		
+				move_uploaded_file($_FILES['traspaso']['tmp_name']['comprobante'][$key],DIRCIDOCS.$archivoNombre);
+				$data = array(
+					'ciId'			=> $cartaIntId,
+					'reciboTipo'	=> 'traspaso',
+					'cuenta'		=> $_POST['traspaso']['cuenta'][$key],
+					'digitos'		=> $_POST['traspaso']['digitos'][$key],
+					'fecha'			=> $_POST['traspaso']['fecha'][$key],
+					'numero'		=> $_POST['traspaso']['numero'][$key],
+					'clave'			=> $_POST['traspaso']['clave'][$key],
+					'importe'		=> $_POST['traspaso']['importe'][$key],
+					'archivo'		=> $archivoNombre
+				);
+				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);	
+				
+				$cantidad += $_POST['traspaso']['importe'][$key];
+				
+			}
+			
+		}
+
+		$op['rentant']			= $cantidad;
+		$op['depositoLetra'] 	= num_to_letras($cantidad);
+		
+		$this->db->where('id', $cartaIntId);
+		$this->db->update('TEMPORA_CI', array('deposito'=>$cantidad));
+		
+
+		//Insertar archivo idenfiticacion
+		$archivoNombre	= 'CI_'.$cartaIntId.'_identif.'.$extArchivo2;
+		$archivoTipo	= $_FILES['documentoIdentifi']['type'];
+		$tamanoH		= $_FILES['documentoIdentifi']['size'];
+
+
+		move_uploaded_file($_FILES['documentoIdentifi']['tmp_name'],DIRCIDOCS.$archivoNombre);
+		$data = array(
+			'ciId'				=> $cartaIntId,
+			'docTipo'			=> 'identificacionCliente',
+			'archivoNombre'		=> $archivoNombre
+		);
+		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
+
+		if(!empty($_FILES['documentoEstadoCuenta']['name'])){
+			//Insertar archivo idenfiticacion
+			$archivoNombre	= 'CI_'.$cartaIntId.'_estadoCuenta.'.$extArchivo2;
+			$archivoTipo	= $_FILES['documentoEstadoCuenta']['type'];
+			$tamanoH		= $_FILES['documentoEstadoCuenta']['size'];
+
+
+		   	move_uploaded_file($_FILES['documentoEstadoCuenta']['tmp_name'],DIRCIDOCS.$archivoNombre);
+		   	$data = array(
+		   		'ciId'				=> $cartaIntId,
+		   		'docTipo'			=> 'estadoCuenta',
+		   		'archivoNombre'		=> $archivoNombre
+			);
+			$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
+		}
+
+		$this->load->helper(array('dompdf', 'file'));
+		// page info here, db calls, etc.
+		$html = $this->layouts->loadpdf('carta-intencion', $op,'pdf_print', true);
+		$data = pdf_create($html, '', false);
+
+		write_file(DIRPDF.'CI_'.$cartaIntId.'.pdf', $data);
+
+
+		$op['documentoId']	= $cartaIntId;
+		$op['op']			= $op;
+
+		//Vista//
+		$this->layouts->pdf('apartado-view',$op);
 
 	}
 

@@ -32,7 +32,7 @@
 						<a href="<?= base_url();?>tempciri/cancelarCi/<?=$ci->id;?>" title="<?=$ci->id;?>">CANCELAR</a>
 					</th>
 			  <?php else:?>
-			  	<th><span class="alertTab" >CANCELADO</span></th>
+			  	<th><span class="alertTab" ><?= $ci->estado;?></span></th>
 			  <?php endif;?>
 				<th>
 					<a class="svgPdf" href="<?=URLPDF . 'CI_' . $ci->id . '.pdf';?>" >

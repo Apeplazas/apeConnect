@@ -182,12 +182,10 @@
 			<tr>
 				<td class="grayField"><label>Renta mensual sin IVA</label></td>
 				<td>
-					<input type="text" class="bigInp soloNumeros blockClear" name="rentaMensual" id="rentaMensual" required>
+					<input type="text" class="bigInp soloNumeros" name="rentaMensual" id="rentaMensual" required>
 				</td>
-				<td class="grayField"><label>Cantidad pagada</label></td>
-				<td>
-					<input type="text" class="bigInp soloNumeros" name="adelanto" required>
-				</td>
+				<td>&nbsp</td>
+				<td>&nbsp</td>
 			</tr>
 			<tr>
 				<td class="grayField">
@@ -353,84 +351,11 @@ $(document).ready(function(){
 	}
 
 
-
-	$('.toggleri').hide();
-
-
 	$("#plazaPiso").change(function(){
 
 		clearClientId();
 		mostrarPlazaDir();
-		mostrarFolio();
-		mostrarFolioCi();
 		unblockFields();
-
-	});
-
-	$('#refCi').change(function(){
-
-		clearClientId();
-		clearFields();
-		var ciId = $(this).val();
-		$.ajax({
-			data : {'ciId':ciId},
-			dataType : 'json',
-			url : ajax_url + 'traeCiDatos',
-			type : 'post',
-			success : function(response) {
-				if($.isEmptyObject(response)){
-						alert("Ocurrio un error, intentelo de nuevo");
-					}else{
-
-						$('#clienteId').val(response.clienteId);
-
-						$('#cpnombre').val(response.pnombre);
-						$('#csnombre').val(response.snombre);
-						$('#capaterno').val(response.apellidopaterno);
-						$('#camaterno').val(response.apellidomaterno);
-						$('#clienteFecha').val(response.fechaNacimiento);
-
-						$('#clientEmail').val(response.email);
-						$('#clientetelefono').val(response.telefono);
-						$('#clientrfc').val(response.rfc);
-
-						$('#mes').empty();
-						$option = $("<option></option>")
-					    .attr("value", response.contraroInicioMes)
-					    .text(response.contraroInicioMes);
-					    $('#mes').append($option);
-
-					    $('#clienteTipo').empty();
-					    $option = $("<option></option>")
-					    .attr("value", response.tipoCliente)
-					    .text(response.tipoCliente);
-					    $('#clienteTipo').append($option);
-
-					    $('#contratotiempo').empty();
-						$option = $("<option></option>")
-					    .attr("value", response.contratoDuracion)
-					    .text(response.contratoDuracion);
-					    $('#contratotiempo').append($option);
-
-					    $('#diasGracia').empty();
-						$option = $("<option></option>")
-					    .attr("value", response.diasGracia)
-					    .text(response.diasGracia);
-					    $('#diasGracia').append($option);
-
-					    $('#dirplaza').empty();
-						$option = $("<option></option>")
-					    .attr("value", response.dir)
-					    .text(response.dir);
-					    $('#dirplaza').append($option);
-
-					    $('#localnum').val(response.local);
-						$('#rentaMensual').val(response.renta);
-
-				   	}
-			}
-		});
-		blockFields();
 
 	});
 
@@ -516,42 +441,6 @@ $(document).ready(function(){
 					$('#folioAgenerar').html(+response);
 				}
 			});
-		}
-
-	}
-
-	function mostrarFolioCi(){
-
-		if($("input[type=radio][name=optionsRadios]:checked").val() == 'recibointernoci'){
-			var self, $option;
-    		$('#refCi').empty();
-    		self = $('#refCi');
-			$.ajax({
-				data : {'plaza':$("#plazaNombre").val()},
-				dataType : 'json',
-				url : ajax_url + 'traeCiPorPlaza',
-				type : 'post',
-				success : function(response) {
-					if($.isEmptyObject(response)){
-						$option = $("<option></option>")
-					    .attr("value", "")
-					    .text("No existen folios en esta plaza");
-					    self.append($option);
-					}else{
-						$option = $("<option></option>")
-					    .attr("value", "")
-					    .text("Seleccione un folio");
-					    self.append($option);
-						$.each(response, function(index, option) {
-					    	$option = $("<option></option>")
-					        .attr("value", option.id)
-					        .text(option.folio);
-					      	self.append($option);
-					    });
-				   	}
-				}
-			});
-			$('#showrefCi').show();
 		}
 
 	}

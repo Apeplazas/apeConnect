@@ -9,19 +9,19 @@
   <tbody>
     <tr>
       <td class="grayField"><label>Cuatro ultimos digitos de la tarjeta</label></td>
-      <td><input type="text" name="" value="" class="bigInp soloLetras"></td>
+      <td><input type="text" name="terminal[digitos][]" value="" class="bigInp soloLetras" required /></td>
       <td class="grayField"><label>Numero de autorización</label></td>
-      <td><input type="text" class="bigInp" name="name" value=""></td>
+      <td><input type="text" class="bigInp" name="terminal[numero][]" value="" required /></td>
     </tr>
     <tr>
       <td class="grayField"><label>Fecha de pago</label></td>
-      <td><input type="text" name="" value="" class="bigInp"></td>
+      <td><input type="text" name="terminal[fecha][]" value="" class="bigInp fechaTernimal" required /></td>
       <td class="grayField"><label>Importe</label></td>
-      <td><input type="text" name="" value="" class="bigInp"></td>
+      <td><input type="text" name="terminal[importe][]" value="" class="bigInp soloNumeros" required /></td>
     </tr>
     <tr>
       <td class="grayField"><label>Comprobante</label></td>
-      <td><input type="file" class="bigInp" name="" required=""></td>
+      <td><input type="file" class="bigInp" name="terminal[comprobante][]" required=""></td>
     </tr>
   </tbody>
 </table>
@@ -35,4 +35,12 @@
       $('.msgForm').removeClass('hide');
     }
   });
+  
+  $(".fechaTernimal").datepicker({
+    	dateFormat: 'yy-mm-dd',
+    	changeMonth: true,
+   		changeYear: true,
+   		yearRange: "-100:+0"
+   });
+  
 </script>

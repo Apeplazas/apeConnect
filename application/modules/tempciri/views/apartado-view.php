@@ -94,7 +94,7 @@ $(function(){
 	        	alert("Favor de ingresar archivos válidos.");
 	        }else{
 	        	window.onbeforeunload = null;
-	        	window.location.href = "<?= base_url();?>tempciri/ciRi";
+	        	window.location.href = "<?= base_url();?>tempciri/verCi";
 	        }
 	    } 
 	}; 

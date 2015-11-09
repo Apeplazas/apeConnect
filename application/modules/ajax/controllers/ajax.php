@@ -1369,6 +1369,9 @@ class Ajax extends MX_Controller {
 		   	'archivoNombre'	=> $archivoNombre
 		);
 		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
+		
+		$this->db->where('id', $cartaIntId);
+		$this->db->update('TEMPORA_CI', array('estado'=>'Activo'));
 
 		$return['message']	= "Documento cargado.";
 		$return['success']	= true;
