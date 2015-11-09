@@ -24,15 +24,15 @@
 	<br/>
 	<p>En relación al local que deseo arrendarles, les pido sean consideradas las siguientes condiciones básicas:<br/>
 	Contrato a partir del mes de <span class="underline-text"><?= $rentmes;?></span> con una duración de <span class="underline-text"><?= $rentduracion;?></span> 
-	con <span class="underline-text"><?=$diasGracia;?></span> días de gracia con una renta mensual de <span class="underline-text"><?=10.0 //money_format('%(#10n',$rentaCant);?></span> mas I.V.A. (<span class="underline-text"><?=$rentanLocalLetra;?></span>) 
-	una renta de deposito de <span class="underline-text"><?= 10.0 //money_format('%(#10n',$rentant);?></span></p>
+	con <span class="underline-text"><?=$diasGracia;?></span> días de gracia con una renta mensual de <span class="underline-text"><?=money_format('%(#10n',$rentaCant);?></span> mas I.V.A. (<span class="underline-text"><?=$rentanLocalLetra;?></span>) 
+	una renta de deposito de <span class="underline-text"><?= money_format('%(#10n',$rentant);?></span></p>
 	<br/>
 	<p>Por la presente, ruego a la administración de <strong><?=strtoupper($plaza);?></strong>, darme una OPCION para celebrar el correspondiente contrato de 
 	ARRENDAMIENTO, quedando en el entendido de que el plazo para concretar el contrato sera de 7 días contados a partir de la presente fecha.
 	Plazo en el que me comprometo a entregar toda la documentación solicitada y cubrir requisitos que me sean requeridos.</p>
 	<br/>
 	<p>Y en señal de mi deseo de efectuar la referida operación, en este acto, entrego a la Administración de este Centro Comercial
-	la suma de <span class="underline-text"><?= 10.0 //money_format('%(#10n',$rentant);?></span> (<span class="underline-text"><?= $depositoLetra;?></span>) suma que, para el caso de que por cualquier 
+	la suma de <span class="underline-text"><?= money_format('%(#10n',$rentant);?></span> (<span class="underline-text"><?= $depositoLetra;?></span>) suma que, para el caso de que por cualquier 
 	situación no se logre la firma del contrato de arrendamiento sea por cuestiones imputables a mi, o a que la Administración de este Centro Comercial no me 
 	otorgue el correspondiente contrato de Arrendamiento, acepto que la cantidad de dinero por mi entregada, me sea reintegrada al transcurrir los 7 días señalados 
 	anteriormente, ya sea depositado al número de cuenta <span class="underline-text"><?= $remnumcuenta;?></span> del banco <span class="underline-text"><?= $rembanco;?></span> 
@@ -64,7 +64,7 @@
 	<p>Relacionado con la carta intención con número de Folio <span class="underline-text"><?=$folioCompro;?></span> de fecha <span class="underline-text"><?= $fecha;?></span> mediante
 	la cual el C. <span class="underline-text"><?= $clientNom; ?></span>
 	manifiesta su deseo de adquirir en arrendamiento un local comercial dentro de <strong><?=strtoupper($plaza);?></strong> y entrego a esta administración la cantidad de 
-	<span class="underline-text"><?= 10.0 //money_format('%(#10n',$rentant);?></span> (<span class="underline-text"><?= $depositoLetra;?></span>) amparando el comprobante dicha cantidad, sin generarle ningún derecho
+	<span class="underline-text"><?= money_format('%(#10n',$rentant);?></span> (<span class="underline-text"><?= $depositoLetra;?></span>) amparando el comprobante dicha cantidad, sin generarle ningún derecho
 	mas que la devolucón de la cantidad descrita para el caso de que en un plazo de 7 días contados a partir de esta fecha no se celebre el contrato de arrendamiento correspondiente.</p>
 	<br/>
 	<br/>
