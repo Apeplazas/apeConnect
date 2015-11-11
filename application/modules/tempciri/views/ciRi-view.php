@@ -33,7 +33,7 @@
 			</td>
 			<td class="grayField"><label>Segundo nombre</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras blockClear" name="csnombre" id="csnombre" required>
+				<input type="text" class="bigInp soloLetras blockClear" name="csnombre" id="csnombre">
 			</td>
 		</tr>
 		<tr>
@@ -43,7 +43,7 @@
 			</td>
 			<td class="grayField"><label>Apellido Materno</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras blockClear" name="camaterno" id="camaterno" required>
+				<input type="text" class="bigInp soloLetras blockClear" name="camaterno" id="camaterno">
 			</td>
 		</tr>
 		<tr>
