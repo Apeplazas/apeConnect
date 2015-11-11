@@ -36,6 +36,21 @@ class Tempciri_model extends CI_Model
 		
 	}
 	
+	function traerGerentePLaza($plazaId){
+		
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios WHERE plazaId = '$plazaId' 
+		AND puesto = 'GERENTE DE PLAZA'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
 	function cargarCiPorPLaza($plaza){
 		
 		$data = array(); 

@@ -28,11 +28,15 @@ class Tempciri extends MX_Controller {
 			return false;
 		}
 
-		$this->layouts->add_include('assets/js/jquery-ui.js')
+		$this->layouts->add_include('assets/js/jquery.validate.js')
+					  ->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
 					  ->add_include('assets/js/jquery-datepicker.js');
 
+		$datosGerente		= $this->tempciri_model->traerGerentePLaza($plaza[0]->id);
+
 		$op['plaza'] 		= $plaza[0];
+		$op['gerente'] 		= $datosGerente[0]->nombreCompleto;
 		$op['user'] 		= $user;
 		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
 		$this->layouts->profile('ciRi-view',$op);
@@ -183,7 +187,8 @@ class Tempciri extends MX_Controller {
 			return false;
 		}
 
-		$op['gerente']		= $_POST['gerente'];
+		$datosGerente		= $this->tempciri_model->traerGerentePLaza($_POST['plazaId']);
+		$op['gerente']		= $datosGerente[0]->nombreCompleto;
 		$op['folioCompro']	= $_POST['folioDoc'];
 		$plazaDatos 		= $this->tempciri_model->traerDatosPLaza($op['plaza']);
 		$op['folioDoc']		= $plazaDatos[0]->ci_num + 1;
@@ -193,6 +198,7 @@ class Tempciri extends MX_Controller {
 		$info = array(
 				'folio'				=> $op['folioDoc'],
 				'plaza'				=> $op['plaza'],
+				'gerentePlaza'		=> $op['gerente'],
 				'clienteId'			=> $clienteId,
 				'vendedorNombre'	=> $op['vendedorNombre'],
 				'folioComprobante'	=> $op['folioCompro'],

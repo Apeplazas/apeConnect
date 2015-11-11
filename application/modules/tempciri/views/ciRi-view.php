@@ -4,7 +4,7 @@
 
 
 <div class="wrapList">
-<form class="form-horizontal" method="post" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
+<form class="form-horizontal" method="post" id="generateCi" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
 
 	<div id="actions">
 		<span class="back">
@@ -33,7 +33,7 @@
 			</td>
 			<td class="grayField"><label>Segundo nombre</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras blockClear" name="csnombre" id="csnombre">
+				<input type="text" class="bigInp soloLetras blockClear" name="csnombre" id="csnombre" required>
 			</td>
 		</tr>
 		<tr>
@@ -43,7 +43,7 @@
 			</td>
 			<td class="grayField"><label>Apellido Materno</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras blockClear" name="camaterno" id="camaterno">
+				<input type="text" class="bigInp soloLetras blockClear" name="camaterno" id="camaterno" required>
 			</td>
 		</tr>
 		<tr>
@@ -66,7 +66,7 @@
 		<tr>
 			<td class="grayField"><label>Gerente de la plaza</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras" name="gerente" value="<?= $user['nombre'];?>" readonly/>
+				<input type="text" class="bigInp soloLetras" name="gerente" value="<?= $gerente;?>" readonly/>
 			</td>
 			<td class="grayField"><label>Persona que realizó la venta</label></td>
 			<td>
@@ -87,7 +87,7 @@
 		<tr>
 			<td class="grayField"><label>Fecha de nacimiento o alta SAT</label></td>
 			<td>
-				<input name="clienteFecha" type="text" id="clienteFecha" placeholder="año/mes/dia" class="bigInp blockClear"><img class="calInp" src="<?=base_url()?>assets/graphics/svg/calendario.svg" alt="Fecha Nacimiento" />
+				<input name="clienteFecha" type="text" id="clienteFecha" placeholder="año/mes/dia" class="bigInp blockClear" required><img class="calInp" src="<?=base_url()?>assets/graphics/svg/calendario.svg" alt="Fecha Nacimiento" />
 			</td>
 			<td class="grayField"><label>Telefono del cliente</label></td>
 			<td>
@@ -211,16 +211,16 @@
 	<tbody>
 		<tr>
 			<td class="grayField"><label>Número de cuenta</label></td>
-			<td><input type="text" class="bigInp soloNumeros" name="devCuenta"></td>
+			<td><input type="text" class="bigInp soloNumeros" name="devCuenta" maxlength="18" required></td>
 			<td class="grayField"><label>CLABE</label></td>
 			<td>
-				<input class="bigInp soloNumeros" name="devClabe" pattern=".{18,}" maxlength="18">
+				<input class="bigInp soloNumeros" name="devClabe" maxlength="18" required>
 			</td>
 		</tr>
 		<tr>
 			<td class="grayField"><label>Banco</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras" name="devBanco">
+				<input type="text" class="bigInp soloLetras" name="devBanco" required>
 			</td>
 			<td></td>
 			<td></td>
@@ -479,6 +479,22 @@ $(document).ready(function(){
 			});
 
 	}
+	
+	// validate signup form on keyup and submit
+	$.validator.messages.required = 'campo requerido';
+	$("#generateCi").validate({
+        rules: {
+          devClabe:{
+            required: true,
+            rangelength:[18,18]
+          }
+        },
+		messages: {
+			devClabe: {
+				rangelength: "La clabe tiene que ser de 18 digitos"
+			}		
+		}
+      });
 
 });
 </script>
