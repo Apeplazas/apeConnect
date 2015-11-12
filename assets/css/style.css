@@ -33,6 +33,15 @@ a:hover{color:cornflowerblue}
 .ohid{overflow:hidden}
 
 /*---------------- Cargador ------------------*/
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('../graphics/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+}
 .no-js #loader {display:none; }
 .js #loader {display:block; position:absolute; left:100px; top:0; }
 .se-pre-con {position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:99999999999; background:#fff;}
@@ -229,7 +238,7 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 #enviarFirma:hover{background:#ccc: color:#333; box-shadow:5px 0px 11px 2px #ccc; -moz-box-shadow:5px 0px 11px 2px #ccc; -webkit-box-shadow:5px 0px 11px 2px #ccc; border:1px solid #fff;}
 #enviarFirma{border:1px solid #fff;}
 .botCart{float:left; margin-right:10pxf}
-.calInp{position:absolute; top:8px; width:16px; right:7px; z-index: 9999;}
+.calInp{position:absolute; top:8px; width:16px; right:7px; z-index: 999;}
 
 /*---------------- Login  ------------------*/
 .conLog{position:absolute; top:150px; width:430px;  margin-left:-215px; left:50%; text-align:center; font-family: 'Oswald', sans-serif; }
@@ -317,6 +326,11 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 
 /*---------------- Dashboard ------------------*/
 
+/*---------------- General ------------------*/
+.error{
+	color: red;
+    padding-left: 10px;
+}
 
 @media (min-width:640px) {
 

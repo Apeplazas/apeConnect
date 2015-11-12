@@ -2,7 +2,7 @@
 <h3>Generador cartas de intención.</h3>
 </div>
 
-
+<div class="loader" style="display:none;"></div>
 <div class="wrapList">
 <form class="form-horizontal" method="post" id="generateCi" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
 
@@ -282,7 +282,7 @@
 	</table>
 	<input type="hidden" name="clienteId" id="clienteId" value="" />
 	<input type="hidden" name="optionsRadios" id="cartaintencion" value="cartaintencion">
-	<input type="submit" value="Generar" class="mt10 mainBotton">
+	<input type="submit" id="submit" value="Generar" class="mt10 mainBotton">
 	<br class="clear">
 	</div>
 
@@ -493,6 +493,12 @@ $(document).ready(function(){
 			devClabe: {
 				rangelength: "La clabe tiene que ser de 18 digitos"
 			}		
+		},
+		submitHandler: function(form) {
+			$('#submit').prop( "disabled", true );
+			$(".loader").fadeIn("slow");
+			//Delay form submit to let the loader show
+		    $(form).unbind('submit').delay(2000).submit();
 		}
       });
 

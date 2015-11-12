@@ -18,7 +18,7 @@
 	<br/>
 	<p>Yo <span class="underline-text"><?= $clientNom; ?></span> 
 	con credencial para votar con fotografía con número de folio <span class="underline-text"><?= $crednum;?></span> por la presente le hago 
-	saber a la administración de este centro comercial : Que tengo la intenión de adquirir en ARRENDAMIENTO uno de los locales
+	saber a la administración de este centro comercial : Que tengo la intención de adquirir en ARRENDAMIENTO uno de los locales
 	comerciales que se encuentran ubicados dentro del Centro Comercial que usted administra y que se encuentra ubicado en:
 	<span class="underline-text"><?=$dirplaza;?></span></p>
 	<br/>

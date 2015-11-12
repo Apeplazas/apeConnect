@@ -5,7 +5,7 @@ class Tempciri extends MX_Controller {
 	function tempciri()
 	{
 		parent::__construct();
-		//$this->user_model->checkuser();
+		$this->user_model->checkuser();
 		$this->load->model('tempciri/tempciri_model');
 		setlocale(LC_MONETARY, 'es_MX');
 		if( ! ini_get('date.timezone') ){
@@ -20,6 +20,7 @@ class Tempciri extends MX_Controller {
 
 	function ciRi(){
 
+		$this->user_model->checkuserSection();
 		$user	= $this->session->userdata('usuario');
 		$plaza	= $this->tempciri_model->traerPlazaUsuario($user['usuarioID']);
 
@@ -393,6 +394,7 @@ class Tempciri extends MX_Controller {
 
 	function cancelarCi(){
 
+		$this->user_model->checkuserSection();
 		$user		= $this->session->userdata('usuario');
 		$ciId		= $this->uri->segment(3);
 
@@ -717,6 +719,7 @@ class Tempciri extends MX_Controller {
 
 	function verCi(){
 
+		$this->user_model->checkuserSection();
 		$user		= $this->session->userdata('usuario');
 		$op['cis'] 	= $this->tempciri_model->cargarCis($user['usuarioID']);
 
@@ -730,6 +733,39 @@ class Tempciri extends MX_Controller {
 		//Vista//
 		$this->layouts->profile('cis-view' ,$op);
 
+	}
+	
+	function detalleCis(){
+		
+		$this->user_model->checkuserSection();
+		$op['cis'] 	= $this->tempciri_model->cargarTodoCis();
+
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+					  ->add_include('assets/js/jquery.form.js')
+					  ->add_include('assets/js/jquery.autocomplete.pack.js')
+					  ->add_include('assets/js/jquery.dataTables.min.js')
+					  ->add_include('assets/css/planogramas.css');
+
+		//Vista//
+		$this->layouts->profile('detalleCis-view' ,$op);
+		
+	}
+	
+	function detalleCi(){
+		
+		$this->user_model->checkuserSection();
+		$ciId		= $this->uri->segment(3);
+
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+					  ->add_include('assets/js/jquery.autocomplete.pack.js')
+					  ->add_include('assets/js/jquery.dataTables.min.js')
+					  ->add_include('assets/css/planogramas.css');
+
+		$op['ci'] 	= $this->tempciri_model->traerDatosCi($ciId);
+		$this->layouts->profile('detalleCi-view' ,$op);
+		
 	}
 
 	function verRi(){

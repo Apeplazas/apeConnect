@@ -109,6 +109,28 @@ class Tempciri_model extends CI_Model
 		
 	}
 	
+	function cargarTodoCis(){
+		
+		$data = array(); 
+		$q = $this->db->query("SELECT ci.id as 'cartaIntId',ci.contraroInicioMes,ci.estado,ci.pdf,ci.contratoDuracion, ci.diasGracia,ci.id,ci.deposito,ci.ifeFolio,ci.devolucionCuenta,ci.devolucionBanco,ci.diasGracia,ci.gerentePlaza,ci.folioComprobante,ci.folio,ci.fecha,
+			c.id as 'clienteId',c.pnombre,c.snombre,c.apellidopaterno,c.apellidomaterno,c.telefono,c.email,c.rfc,
+			pr.dir,pr.local,pr.renta,pr.plazaId as 'plazaNombre',pr.dir,
+			u.nombreCompleto
+			FROM TEMPORA_CI ci 
+			LEFT JOIN TEMPORA_CLIENTES c ON c.id = ci.clienteId
+			LEFT JOIN TEMPORA_PLAZA_RENTAS pr ON pr.ciId=ci.id
+			LEFT JOIN usuarios u ON u.usuarioID = ci.usuarioId
+			GROUP BY ci.id");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
 	function cargarRis($userId){
 		
 		$data = array(); 
@@ -154,6 +176,38 @@ class Tempciri_model extends CI_Model
 			LEFT JOIN TEMPORA_CLIENTES c ON c.id = ci.clienteId
 			LEFT JOIN TEMPORA_PLAZA_RENTAS pr ON pr.ciId=ci.id
 			WHERE ci.id = '$ciId'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
+	function traerDepositosCi($ciId){
+		
+		$data = array(); 
+		$q = $this->db->query("SELECT *
+			FROM tempora_ci_detalle_depositos
+			WHERE ciId = '$ciId'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
+	function traerDocumentosCi($ciId){
+		
+		$data = array(); 
+		$q = $this->db->query("SELECT *
+			FROM tempora_ci_archivos
+			WHERE ciId = '$ciId'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

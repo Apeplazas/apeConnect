@@ -35,7 +35,7 @@
 			  	<th>
 			  		<span class="alertTab" ><?= $ci->estado;?></span>
 			  		<?php if($ci->estado == 'En Proceso'):?>
-			  			<a class="mt10 js-open-modal" href="#" data-modal-id="popup" href="#modal" title="<?= $ci->cartaIntId;?>">
+			  			<a class="mt10 js-open-modal" data-modal-id="popup" href="#modal" title="<?= $ci->cartaIntId;?>">
 							<span>Agregar Firma</span>
 						</a>
 			  		<?php endif;?>			
