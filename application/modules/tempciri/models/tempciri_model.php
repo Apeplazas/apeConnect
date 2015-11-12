@@ -190,7 +190,7 @@ class Tempciri_model extends CI_Model
 		
 		$data = array(); 
 		$q = $this->db->query("SELECT *
-			FROM tempora_ci_detalle_depositos
+			FROM TEMPORA_CI_DETALLE_DEPOSITOS
 			WHERE ciId = '$ciId'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
@@ -206,7 +206,7 @@ class Tempciri_model extends CI_Model
 		
 		$data = array(); 
 		$q = $this->db->query("SELECT *
-			FROM tempora_ci_archivos
+			FROM TEMPORA_CI_ARCHIVOS
 			WHERE ciId = '$ciId'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
