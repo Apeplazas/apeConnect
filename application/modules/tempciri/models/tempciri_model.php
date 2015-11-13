@@ -296,4 +296,19 @@ class Tempciri_model extends CI_Model
 		
 	}
 	
+	function clientExist($rfc){
+		
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM TEMPORA_CLIENTES
+			WHERE rfc = '$rfc'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
 }

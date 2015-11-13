@@ -94,19 +94,29 @@ class Tempciri extends MX_Controller {
 
 		if(!$_POST['clienteId']){
 
-			$info = array(
-				'pnombre'			=> $_POST['cpnombre'],
-				'rfc'				=> $_POST['clientrfc'],
-				'telefono'			=> $_POST['clientetelefono'],
-				'snombre'			=> $_POST['csnombre'],
-				'email'				=> $_POST['clientEmail'],
-				'tipo'				=> $_POST['clienteTipo'],
-				'fechaNacimiento'	=> date('Y-m-d', strtotime($_POST['clienteFecha'])),
-				'apellidopaterno'   => $_POST['capaterno'],
-				'apellidomaterno'   => $_POST['camaterno']
-			);
-			$this->db->insert('TEMPORA_CLIENTES', $info);
-			$clienteId = $this->db->insert_id();
+			$clienteExist = $this->tempciri_model->clientExist($_POST['clientrfc']);
+
+			if(empty($clienteExist)){
+				
+				$info = array(
+					'pnombre'			=> $_POST['cpnombre'],
+					'rfc'				=> $_POST['clientrfc'],
+					'telefono'			=> $_POST['clientetelefono'],
+					'snombre'			=> $_POST['csnombre'],
+					'email'				=> $_POST['clientEmail'],
+					'tipo'				=> $_POST['clienteTipo'],
+					'fechaNacimiento'	=> date('Y-m-d', strtotime($_POST['clienteFecha'])),
+					'apellidopaterno'   => $_POST['capaterno'],
+					'apellidomaterno'   => $_POST['camaterno']
+				);
+				$this->db->insert('TEMPORA_CLIENTES', $info);
+				$clienteId = $this->db->insert_id();
+			
+			}else{
+				
+				$clienteId = $clienteExist[0]->id;
+				
+			}
 
 		}else{
 
