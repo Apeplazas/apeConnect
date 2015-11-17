@@ -6,6 +6,7 @@ class Tempciri extends MX_Controller {
 	{
 		parent::__construct();
 		//$this->user_model->checkuser();
+		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('tempciri/tempciri_model');
 		setlocale(LC_MONETARY, 'es_MX');
 		if( ! ini_get('date.timezone') ){
@@ -30,13 +31,40 @@ class Tempciri extends MX_Controller {
 
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
-					  ->add_include('assets/js/jquery-datepicker.js');
+					  ->add_include('assets/js/jquery-datepicker.js')
+						->add_include('assets/js/jquery.autocomplete.pack.js');
 
 		$op['plaza'] 		= $plaza[0];
 		$op['user'] 		= $user;
 		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
 		$this->layouts->profile('ciRi-view',$op);
+	}
 
+	function ciriVarias(){
+		$op['cotizacionID'] = $cotizacionID	= $_POST['boxCheca'];
+		$lastID = end($cotizacionID);
+		$user	= $this->session->userdata('usuario');
+		$plaza	= $this->tempciri_model->traerPlazaUsuario($user['usuarioID']);
+
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+									->add_include('assets/css/jquery-datepicker.css')
+									->add_include('assets/js/jquery-datepicker.js')
+									->add_include('assets/js/jquery.autocomplete.pack.js')
+									->add_include('assets/css/jquery-steps.css')
+									->add_include('assets/js/jquery.steps.js');
+
+		if(empty($plaza)){
+			echo "No tiene permiso para ingesar a esta página";
+			return false;
+		}
+
+		$op['cotizacion'] 	=  $this->prospectos_model->cargarInfoCompletaCotizacion($lastID);
+
+		$op['plaza'] 		= $plaza[0];
+		$op['user'] 		= $user;
+		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
+
+		$this->layouts->profile('ciRiVarias-view',$op);
 	}
 
 
@@ -44,7 +72,7 @@ class Tempciri extends MX_Controller {
 
 		$op 	= array();
 		$cots 	= array();
-		
+
 		$this->layouts->add_include('assets/js/jquery.form.js');
 
 		$tipoCarta = $_POST['optionsRadios'];
