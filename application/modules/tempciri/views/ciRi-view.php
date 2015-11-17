@@ -2,9 +2,9 @@
 <h3>Generador cartas de intención.</h3>
 </div>
 
-
+<div class="loader" style="display:none;"></div>
 <div class="wrapList">
-<form class="form-horizontal" method="post" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
+<form class="form-horizontal" method="post" id="generateCi" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
 
 	<div id="actions">
 		<? $this->load->view('includes/toolbars/buscaProspectos');?>
@@ -73,7 +73,7 @@
 		<tr>
 			<td class="grayField"><label>Gerente de la plaza</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras" name="gerente" value="<?= $user['nombre'];?>" readonly/>
+				<input type="text" class="bigInp soloLetras" name="gerente" value="<?= $gerente;?>" readonly/>
 			</td>
 			<td class="grayField"><label>Persona que realizó la venta</label></td>
 			<td>
@@ -94,7 +94,7 @@
 		<tr>
 			<td class="grayField"><label>Fecha de nacimiento o alta SAT</label></td>
 			<td>
-				<input name="clienteFecha" type="text" id="clienteFecha" placeholder="año/mes/dia" class="bigInp blockClear"><img class="calInp" src="<?=base_url()?>assets/graphics/svg/calendario.svg" alt="Fecha Nacimiento" />
+				<input name="clienteFecha" type="text" id="clienteFecha" placeholder="año/mes/dia" class="bigInp blockClear" required><img class="calInp" src="<?=base_url()?>assets/graphics/svg/calendario.svg" alt="Fecha Nacimiento" />
 			</td>
 			<td class="grayField"><label>Telefono del cliente</label></td>
 			<td>
@@ -189,12 +189,10 @@
 			<tr>
 				<td class="grayField"><label>Renta mensual sin IVA</label></td>
 				<td>
-					<input type="text" class="bigInp soloNumeros blockClear" name="rentaMensual" id="rentaMensual" required>
+					<input type="text" class="bigInp soloNumeros" name="rentaMensual" id="rentaMensual" required>
 				</td>
-				<td class="grayField"><label>Cantidad pagada</label></td>
-				<td>
-					<input type="text" class="bigInp soloNumeros" name="adelanto" required>
-				</td>
+				<td>&nbsp</td>
+				<td>&nbsp</td>
 			</tr>
 			<tr>
 				<td class="grayField">
@@ -220,16 +218,16 @@
 	<tbody>
 		<tr>
 			<td class="grayField"><label>Número de cuenta</label></td>
-			<td><input type="text" class="bigInp soloNumeros" name="devCuenta"></td>
+			<td><input type="text" class="bigInp soloNumeros" name="devCuenta" maxlength="18" required></td>
 			<td class="grayField"><label>CLABE</label></td>
 			<td>
-				<input class="bigInp soloNumeros" name="devClabe" pattern=".{18,}" maxlength="18">
+				<input class="bigInp soloNumeros" name="devClabe" maxlength="18" required>
 			</td>
 		</tr>
 		<tr>
 			<td class="grayField"><label>Banco</label></td>
 			<td>
-				<input type="text" class="bigInp soloLetras" name="devBanco">
+				<input type="text" class="bigInp soloLetras" name="devBanco" required>
 			</td>
 			<td></td>
 			<td></td>
@@ -291,7 +289,7 @@
 	</table>
 	<input type="hidden" name="clienteId" id="clienteId" value="" />
 	<input type="hidden" name="optionsRadios" id="cartaintencion" value="cartaintencion">
-	<input type="submit" value="Generar" class="mt10 mainBotton">
+	<input type="submit" id="submit" value="Generar" class="mt10 mainBotton">
 	<br class="clear">
 	</div>
 
@@ -360,16 +358,10 @@ $(document).ready(function(){
 	}
 
 
-
-	$('.toggleri').hide();
-
-
 	$("#plazaPiso").change(function(){
 
 		clearClientId();
 		mostrarPlazaDir();
-		mostrarFolio();
-		mostrarFolioCi();
 		unblockFields();
 	});
 
@@ -527,42 +519,6 @@ $(document).ready(function(){
 
 	}
 
-	function mostrarFolioCi(){
-
-		if($("input[type=radio][name=optionsRadios]:checked").val() == 'recibointernoci'){
-			var self, $option;
-    		$('#refCi').empty();
-    		self = $('#refCi');
-			$.ajax({
-				data : {'plaza':$("#plazaNombre").val()},
-				dataType : 'json',
-				url : ajax_url + 'traeCiPorPlaza',
-				type : 'post',
-				success : function(response) {
-					if($.isEmptyObject(response)){
-						$option = $("<option></option>")
-					    .attr("value", "")
-					    .text("No existen folios en esta plaza");
-					    self.append($option);
-					}else{
-						$option = $("<option></option>")
-					    .attr("value", "")
-					    .text("Seleccione un folio");
-					    self.append($option);
-						$.each(response, function(index, option) {
-					    	$option = $("<option></option>")
-					        .attr("value", option.id)
-					        .text(option.folio);
-					      	self.append($option);
-					    });
-				   	}
-				}
-			});
-			$('#showrefCi').show();
-		}
-
-	}
-
 	function mostrarPlazaDir(){
 
 		var self, $option;
@@ -597,6 +553,28 @@ $(document).ready(function(){
 			});
 
 	}
+
+	// validate signup form on keyup and submit
+	$.validator.messages.required = 'campo requerido';
+	$("#generateCi").validate({
+        rules: {
+          devClabe:{
+            required: true,
+            rangelength:[18,18]
+          }
+        },
+		messages: {
+			devClabe: {
+				rangelength: "La clabe tiene que ser de 18 digitos"
+			}
+		},
+		submitHandler: function(form) {
+			$('#submit').prop( "disabled", true );
+			$(".loader").fadeIn("slow");
+			//Delay form submit to let the loader show
+		    $(form).unbind('submit').delay(2000).submit();
+		}
+      });
 
 });
 </script>

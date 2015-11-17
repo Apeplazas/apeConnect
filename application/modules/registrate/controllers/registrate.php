@@ -342,8 +342,15 @@ class Registrate extends MX_Controller {
 
 		if ($u && !isset($u['error'])){
 			
-			$user_moduls = $this->user_model->traemodulos($u[0]->idrole);
+			$user_moduls 	= $this->user_model->traemodulos($u[0]->idrole);
+			$modules		= array();
 			
+			foreach($user_moduls as $val){
+				
+				$modules[$val] 	= $this->user_model->traeSeccionesModulos($val,$u[0]->idrole);
+									
+			}
+				
 			$data['usuario'] = array(
 				'usuarioID'       => $u[0]->usuarioID,
 				'tipoUsuario'	  => $u[0]->tipoUsuario,
@@ -351,7 +358,7 @@ class Registrate extends MX_Controller {
 				'email'           => $u[0]->email,
 				'idrole'           => $u[0]->idrole,
 				'fancyUrl'        => $u[0]->fancyUrl,
-				'modulos'		  => $user_moduls,
+				'modulos'		  => $modules,
 				'is_logged_in'    => true
 			    );
 			 //guardamos los datos en la sesion

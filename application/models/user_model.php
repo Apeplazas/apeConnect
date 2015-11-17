@@ -68,6 +68,22 @@ class User_model extends CI_Model {
 		return $data;
 	}
 	
+	function traeSeccionesModulos($modulo,$roleid){
+		$data = array(); 
+		$q = $this->db->query("SELECT s.seccion 
+			FROM modulos_secciones s
+			LEFT JOIN modulos m ON m.id=s.moduloId
+			WHERE m.nombre='$modulo' 
+			AND s.idrole='$roleid'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row->seccion;
+			}
+			$q->free_result();	
+		}
+		return $data;
+	}
+	
 	function checkuser(){
 		$user = $this->session->userdata('usuario');
         if(!isset($user) || $user != true)
@@ -75,7 +91,18 @@ class User_model extends CI_Model {
         	$this->session->set_userdata(array('previous_page'=> uri_string()));
          	redirect('');
         }else{
-        	if(!in_array($this->uri->segment(1), $user['modulos']))
+        	if(!in_array($this->uri->segment(1), array_keys($user['modulos'])))
+				redirect('');
+        }
+	}
+	
+	function checkuserSection(){
+		$user = $this->session->userdata('usuario');
+        if(!isset($user) || $user != true){
+        	$this->session->set_userdata(array('previous_page'=> uri_string()));
+         	redirect('');
+        }else{
+        	if(!in_array($this->uri->segment(2), $user['modulos'][$this->uri->segment(1)]))
 				redirect('');
         }
 	}

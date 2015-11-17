@@ -9,25 +9,25 @@
   <tbody>
     <tr>
       <td class="grayField"><label>Nombre de cuenta deposito</label></td>
-      <td><input type="text" name="" value="" class="bigInp soloLetras"></td>
+      <td><input type="text" name="traspaso[cuenta][]" value="" class="bigInp soloLetras" required /></td>
       <td class="grayField"><label>Ultimos cuatro digitos de cuenta</label></td>
-      <td><input type="text" class="bigInp" name="name" value=""></td>
+      <td><input type="text" class="bigInp" name="traspaso[digitos][]" value="" required /></td>
     </tr>
     <tr>
       <td class="grayField"><label>Fecha de pago</label></td>
-      <td><input type="text" name="" value="" class="bigInp"></td>
+      <td><input type="text" name="traspaso[fecha][]" value="" class="bigInp fechaTraspaso" required /></td>
       <td class="grayField"><label>Numero de autorización</label></td>
-      <td><input type="text" class="bigInp" name="name" value=""></td>
+      <td><input type="text" class="bigInp" name="traspaso[numero][]" value="" required /></td>
     </tr>
     <tr>
       <td class="grayField"><label>Importe</label></td>
-      <td><input type="text" name="" value="" class="bigInp"></td>
+      <td><input type="text" name="traspaso[importe][]" value="" class="bigInp soloNumeros" required /></td>
       <td class="grayField"><label>Clave de Rastreo</label></td>
-      <td><input type="text" class="bigInp" name="" value=""></td>
+      <td><input type="text" class="bigInp" name="traspaso[clave][]" value="" required /></td>
     </tr>
     <tr>
       <td class="grayField"><label>Comprobante</label></td>
-      <td><input type="file" class="bigInp" name="" required=""></td>
+      <td><input type="file" class="bigInp" name="traspaso[comprobante][]" required=""></td>
     </tr>
   </tbody>
 </table>
@@ -41,4 +41,13 @@
       $('.msgForm').removeClass('hide');
     }
   });
+  
+  $(".fechaTraspaso").datepicker({
+    	dateFormat: 'yy-mm-dd',
+    	changeMonth: true,
+   		changeYear: true,
+   		yearRange: "-100:+0"
+   });
+  
+  
 </script>
