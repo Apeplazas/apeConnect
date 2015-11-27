@@ -17,6 +17,22 @@ class Tempciri extends MX_Controller {
 	{
 		$this->layouts->profile('index-view');
 	}
+	
+	function testburo(){
+		
+/*	
+		$this->load->helper(array('dompdf', 'file'));
+		// page info here, db calls, etc.
+		$html = $this->layouts->loadpdf('carta-intencion', $op,'pdf_print', true);
+		$data = pdf_create($html, '', false);
+
+		$op['documentoId']	= $cartaIntId;
+		$op['op']			= $op;
+*/
+		//Vista//
+		$this->layouts->pdf('autorizacion-buro-view');
+		
+	}
 
 	function ciRi(){
 

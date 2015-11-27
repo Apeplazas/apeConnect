@@ -1,3 +1,10 @@
+<?php 
+$nombresArchivos = array(
+	'estadoCuenta' 				=> 'Estado de cuenta',
+	'identificacionCliente'		=> 'Identificación cliente',
+	'documentoFirmado'			=> 'Carta de inteción firmada'
+);
+?>
 <div id="mainTit">
 	<h3>Detalle de carta de intención</h3>
 </div>
@@ -102,10 +109,24 @@
 		<?php $depositos = $this->tempciri_model->traerDepositosCi($ci[0]->id);?>
 		<?php foreach($depositos as $dep):?>
 	  	<tr>
-	    	<td class="grayField"><strong>Archivo de <?= $dep->reciboTipo; ?>:</strong></td>
+	    	<td class="grayField"><label>Comprobante</label></td>
 			<td>
 				<p><a href="<?= URLCIDOCS . $dep->archivo;?>" >Ver Archivo</a></p>
 			</td>
+			<td class="grayField"><label>Importe</label></td>
+		    <td><p><?= $dep->importe; ?></p></td>
+		</tr>
+		<tr>
+			<td class="grayField"><label>Nombre de cuenta deposito</label></td>
+		   	<td><p><?= $dep->cuenta; ?></p></td>
+		    <td class="grayField"><label>Numero de cuenta</label></td>
+		    <td><p><?= $dep->numero; ?></p></td>
+		</tr>
+		<tr>
+			<td class="grayField"><label>Fecha de pago</label></td>
+		    <td><p><?= $dep->fecha; ?></p></td>
+		    <td class="grayField"><label>Numero de movimiento</label></td>
+		    <td><p><?= $dep->movimiento; ?></p></td>
 		</tr>
 		<?php endforeach;?>
 		</tbody>
@@ -124,10 +145,12 @@
 		<?php $documentos = $this->tempciri_model->traerDocumentosCi($ci[0]->id);?>
 		<?php foreach($documentos as $doc):?>
 	  	<tr>
-	    	<td class="grayField"><strong>Archivo de <?= $doc->docTipo; ?>:</strong></td>
+	    	<td class="grayField"><strong>Archivo de <?= $nombresArchivos[$doc->docTipo]; ?>:</strong></td>
 			<td>
 				<p><a href="<?= URLCIDOCS . $doc->archivoNombre;?>" >Ver Archivo</a></p>
 			</td>
+			<td></td>
+			<td></td>
 		</tr>
 		<?php endforeach;?>
 		</tbody>
