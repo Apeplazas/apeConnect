@@ -270,7 +270,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', end
 
 /*---------------- pdf cartas intencion  ------------------*/
 .pdf-container{padding:20px 20px 0;font-size:10px;font-family:"Myriad Pro",arial,helvetica,sans-serif!important}
-.underline-text{text-decoration:underline;font-weight:700}
+.underline-text{text-decoration:underline;font-weight:700;}
 hr.signing{margin-bottom:0;border-color:#000}
 .small-text{font-size:7px}
 #adjustWrapBlack form{float:left;width:730px;background:#fff;padding:30px;margin-top:15px;box-shadow:0 4px 7px #000;-moz-box-shadow:0 4px 7px #000;-webkit-box-shadow:0 4px 7px #000}
@@ -330,6 +330,10 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .error{
 	color: red;
     padding-left: 10px;
+}
+
+.personagen,.personafisica,.personamoral{
+	display:none;
 }
 
 @media (min-width:640px) {

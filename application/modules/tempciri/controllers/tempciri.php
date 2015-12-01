@@ -37,8 +37,9 @@ class Tempciri extends MX_Controller {
 	function ciRi(){
 
 		$this->user_model->checkuserSection();
-		$user	= $this->session->userdata('usuario');
-		$plaza	= $this->tempciri_model->traerPlazaUsuario($user['usuarioID']);
+		$user		= $this->session->userdata('usuario');
+		$plazaid 	= (isset($user['plaza'])) ? $user['plaza'] : '';
+		$plaza	= $this->tempciri_model->traerPlazaUsuario($user['usuarioID'],$plazaid);
 
 		if(empty($plaza)){
 			echo "No tiene permiso para ingesar a esta página";
@@ -57,6 +58,133 @@ class Tempciri extends MX_Controller {
 		$op['user'] 		= $user;
 		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
 		$this->layouts->profile('ciRi-view',$op);
+
+	}
+	
+	function preview_generador(){	
+	
+		$op 	= array();
+		$cots 	= array();
+		
+		$this->layouts->add_include('assets/js/jquery.form.js');
+
+		$op['usuario']	= $this->session->userdata('usuario');
+
+		$op['rentanLocalLetra']	= num_to_letras($_POST['rentaMensual']);
+		$op['rentaCant']		= $_POST['rentaMensual'];
+		$op['rentaDeposito']	= $_POST['rentaMensual']*1.16;
+		$op['local']			= $_POST['localnum'];
+
+		$op['clientrfc']		= $_POST['clientrfc'];
+		$op['clientEmail']		= $_POST['clientEmail'];
+		$op['clientetelefono']	= $_POST['clientetelefono'];
+		$op['clientNom']		= preg_replace('/\s+/',' ',$_POST['cpnombre'] . ' ' . $_POST['csnombre'] . ' ' . $_POST['capaterno'] . ' ' . $_POST['camaterno']);
+
+		$op['vendedorNombre']	= $_POST['vendedorNombre'];
+
+		$op['crednum']			= $_POST['folioident'];
+		$op['rentmes']			= $_POST['mes'];
+		$op['rentduracion']		= $_POST['contratotiempo'];
+		$op['remnumcuenta']		= $_POST['devCuenta'];
+		$op['rembanco']			= $_POST['devBanco'];
+		$op['fecha']			= date('d/m/Y');
+
+		$op['rentaDepositoLet']	= num_to_letras($op['rentaDeposito']);
+		$op['plaza']			= $_POST['plazaNombre'];
+		$op['dirplaza']			= $_POST['dirplaza'];
+		$op['plazaPiso']		= $_POST['plazaPiso'];
+		$op['diasGracia']		= $_POST['diasGracia'];
+
+		//Validar que se agregue al menos un recibo de deposito con datos
+		if( ( !isset($_POST['depositos']) && !isset($_POST['traspaso']) && !isset($_POST['terminal']) ) || 
+			( isset($_POST['depositos']) && ( empty($_POST['depositos']['cuenta'][0]) || empty($_POST['depositos']['numero'][0]) || empty($_POST['depositos']['fecha'][0]) || empty($_POST['depositos']['movimiento'][0]) || empty($_POST['depositos']['importe'][0]) 
+											) 
+			) || 
+			( isset($_POST['terminal']) && ( empty($_POST['terminal']['digitos'][0]) || empty($_POST['terminal']['numero'][0]) || empty($_POST['terminal']['fecha'][0]) || empty($_POST['terminal']['importe'][0])
+											) 
+			) || 
+			( isset($_POST['traspaso']) && ( empty($_POST['traspaso']['cuenta'][0]) || empty($_POST['traspaso']['digitos'][0]) || empty($_POST['traspaso']['fecha'][0]) || empty($_POST['traspaso']['numero'][0]) || empty($_POST['traspaso']['importe'][0]) || empty($_POST['traspaso']['clave'][0])  
+											) 
+			)									
+			){
+				
+			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar Recibos de deposito.</strong></div><br class="clear">');
+			redirect("tempciri/ciRi/");
+			return false;
+			
+		}
+		
+		//Validar que ingresaron al menos un archivo para los depositos	
+		if( ( !isset($_FILES['depositos']) && !isset($_FILES['traspaso']) && !isset($_FILES['terminal']) ) ){
+			
+			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos del deposito.</strong></div><br class="clear">');
+			redirect("tempciri/ciRi/");
+			return false;
+			
+		}
+
+		//Validar archivos
+		$permitidos =  array('gif','png','jpg','pdf');
+
+		//$extArchivo1 = pathinfo($_FILES['documentoPago']['name'], PATHINFO_EXTENSION);
+		$extArchivo2 = pathinfo($_FILES['documentoIdentifi']['name'], PATHINFO_EXTENSION);
+		$extArchivo3 = '';
+
+		if( !in_array($extArchivo2,$permitidos) ) {
+			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
+			redirect("tempciri/ciRi/");
+			return false;
+
+		}
+
+		if(!empty($_FILES['documentoEstadoCuenta']['name'])){
+
+			$extArchivo3 = pathinfo($_FILES['documentoEstadoCuenta']['name'], PATHINFO_EXTENSION);
+			if( !in_array($extArchivo3,$permitidos) ){
+
+				$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
+				redirect("tempciri/ciRi/");
+				return false;
+
+			}
+
+		}
+
+		$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
+		if(!empty($checkRef) && sizeof($checkRef) >= 3){
+			$this->session->set_flashdata("msg","<div class='msgFlash'>
+				<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
+				<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .
+				"</strong>
+			</div>
+			<br class='clear'>");
+			redirect("tempciri/ciRi/");
+			return false;
+		}
+
+		$datosGerente		= $this->tempciri_model->traerGerentePLaza($_POST['plazaId']);
+		$op['gerente']		= $datosGerente[0]->nombreCompleto;
+		$op['folioCompro']	= $_POST['folioDoc'];
+		$plazaDatos 		= $this->tempciri_model->traerDatosPLaza($op['plaza']);
+		$op['folioDoc']		= $plazaDatos[0]->ci_num + 1;
+		$this->db->where('plaza', $op['plaza']);
+		$this->db->update('TEMPORA_PLAZA', array('ci_num'=>$op['folioDoc']));
+
+		$cantidad = 0;
+
+		$op['rentant']			= $cantidad;
+		$op['depositoLetra'] 	= num_to_letras($cantidad);
+
+		$this->load->helper(array('dompdf', 'file'));
+		// page info here, db calls, etc.
+		$html = $this->layouts->loadpdf('carta-intencion', $op,'pdf_print', true);
+		$data = pdf_create($html, '', false);
+		
+		$op['documentoId']	= $cartaIntId;
+		$op['op']			= $op;
+
+		//Vista//
+		$this->layouts->pdf('apartado-view',$op);
 
 	}
 
@@ -89,7 +217,8 @@ class Tempciri extends MX_Controller {
 		$op['clientrfc']		= $_POST['clientrfc'];
 		$op['clientEmail']		= $_POST['clientEmail'];
 		$op['clientetelefono']	= $_POST['clientetelefono'];
-		$op['clientNom']		= preg_replace('/\s+/',' ',$_POST['cpnombre'] . ' ' . $_POST['csnombre'] . ' ' . $_POST['capaterno'] . ' ' . $_POST['camaterno']);
+		$op['clientNom']		= ($_POST['clienteTipo'] == "FISICA") ? preg_replace('/\s+/',' ',$_POST['cpnombre'] . ' ' . $_POST['csnombre'] . ' ' . $_POST['capaterno'] . ' ' . $_POST['camaterno'])
+		: $_POST['empresanombre'] . " REPRESENTADA POR " . preg_replace('/\s+/',' ',$_POST['cpnombre'] . ' ' . $_POST['csnombre'] . ' ' . $_POST['capaterno'] . ' ' . $_POST['camaterno']);
 
 		$op['vendedorNombre']	= $_POST['vendedorNombre'];
 
@@ -121,6 +250,7 @@ class Tempciri extends MX_Controller {
 					'snombre'			=> $_POST['csnombre'],
 					'email'				=> $_POST['clientEmail'],
 					'tipo'				=> $_POST['clienteTipo'],
+					'empresa'			=> ( $_POST['clienteTipo'] == "MORAL" ) ? $_POST['empresanombre'] : "",
 					'fechaNacimiento'	=> date('Y-m-d', strtotime($_POST['clienteFecha'])),
 					'apellidopaterno'   => $_POST['capaterno'],
 					'apellidomaterno'   => $_POST['camaterno']
@@ -203,7 +333,7 @@ class Tempciri extends MX_Controller {
 		}
 
 		$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
-		if(!empty($checkRef) && sizeof($checkRef) >= 3){
+		if(!empty($checkRef) && sizeof($checkRef) >= 6){
 			$this->session->set_flashdata("msg","<div class='msgFlash'>
 				<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
 				<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .

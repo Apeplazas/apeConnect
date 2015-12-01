@@ -25,8 +25,29 @@
 		</tr>
 		</thead>
 		<tbody>
-
+			
 		<tr>
+			<td class="grayField"><label>Tipo persona</label></td>
+			<td colspan="3">
+				<select class="selBig" name="clienteTipo" id="clienteTipo" required>
+					<option value="">Seleccione una opción</option>
+					<option value="MORAL">MORAL</option>
+					<option value="FISICA">FISICA</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr class="personamoral">
+			<td class="grayField"><label>Nombre de la empresa</label></td>
+			<td colspan="3">
+					<input type="text" class="bigInp blockClear" name="empresanombre" id="empresanombre" required>
+			</td>
+		</tr>
+		<tr class="personamoral">
+			<td colspan="4"><label style="text-align: center;">Representante legal</label></td>
+		</tr>
+
+		<tr class="personagen">
 			<td class="grayField"><label>Primer nombre</label></td>
 			<td>
 					<input type="text" class="bigInp soloLetras blockClear" name="cpnombre" id="cpnombre" required>
@@ -36,7 +57,7 @@
 				<input type="text" class="bigInp soloLetras blockClear" name="csnombre" id="csnombre">
 			</td>
 		</tr>
-		<tr>
+		<tr class="personagen">
 			<td class="grayField"><label>Apellido Paterno</label></td>
 			<td>
 				<input type="text" class="bigInp soloLetras blockClear" name="capaterno" id="capaterno" required>
@@ -73,18 +94,6 @@
 				<input type="text" class="bigInp soloLetras" name="vendedorNombre" id="vendedorNombre" required>
 			</td>
 		<tr>
-			<td class="grayField"><label>Folio documento</label></td>
-			<td><input type="text" class="bigInp uppercase" name="folioDoc"></td>
-			<td class="grayField"><label>Tipo persona</label></td>
-			<td>
-				<select class="selBig" name="clienteTipo" id="clienteTipo" required>
-					<option value="">Seleccione una opción</option>
-					<option value="MORAL">MORAL</option>
-					<option value="FISICA">FISICA</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
 			<td class="grayField"><label>Fecha de nacimiento o alta SAT</label></td>
 			<td>
 				<input name="clienteFecha" type="text" id="clienteFecha" placeholder="año/mes/dia" class="bigInp blockClear" required><img class="calInp" src="<?=base_url()?>assets/graphics/svg/calendario.svg" alt="Fecha Nacimiento" />
@@ -119,8 +128,8 @@
 				<option value="">Seleccione una plaza...</option>
 			</select>
 			</td>
-			<td></td>
-			<td></td>
+			<td class="grayField"><label>Folio documento</label></td>
+			<td><input type="text" class="bigInp uppercase" name="folioDoc"></td>
 		</tr>
 		</tbody>
 	</table>
@@ -322,6 +331,16 @@ $(document).ready(function(){
    	});
 
    	$("#clienteTipo").change(function(){
+   		$('.personagen').show();
+   		if( $(this).val() == "MORAL" ){
+   			$('.personafisica').hide();
+   			$('.personamoral').show();
+   		}
+   		else if( $(this).val() == "FISICA" ){
+   			$('.personamoral').hide();
+   			$('.personafisica').show();
+   		}
+   		console.log();
    		generarRFC();
    	});
 
@@ -332,7 +351,7 @@ $(document).ready(function(){
    	function generarRFC(){
 
    		if( $("#clienteFecha").val() && $("#clienteTipo").val() && $("#cpnombre").val() ){
-	   		var cNombre = $.trim( $("#cpnombre").val() + ' ' + $("#csnombre").val() + ' ' + $("#capaterno").val() + ' ' + $("#camaterno").val() + ' ' );
+	   		var cNombre = ( $("#clienteTipo").val() == "FISICA" ) ? $.trim( $("#cpnombre").val() + ' ' + $("#csnombre").val() + ' ' + $("#capaterno").val() + ' ' + $("#camaterno").val() + ' ' ) : $("#empresanombre").val();
 	   		cNombre = cNombre.replace(/\s\s+/g, ' ');
 	   		var cFecha = $("#clienteFecha").val();
 	   		var cTipo = $("#clienteTipo").val();

@@ -356,9 +356,10 @@ class Registrate extends MX_Controller {
 				'tipoUsuario'	  => $u[0]->tipoUsuario,
 				'nombre'          => $u[0]->nombreCompleto,
 				'email'           => $u[0]->email,
-				'idrole'           => $u[0]->idrole,
+				'idrole'          => $u[0]->idrole,
 				'fancyUrl'        => $u[0]->fancyUrl,
 				'modulos'		  => $modules,
+				'plaza'			  => $u[0]->plazaId,
 				'is_logged_in'    => true
 			    );
 			 //guardamos los datos en la sesion

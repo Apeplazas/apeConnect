@@ -39,8 +39,10 @@ class Tempciri_model extends CI_Model
 	function traerGerentePLaza($plazaId){
 		
 		$data = array(); 
-		$q = $this->db->query("SELECT * FROM usuarios WHERE plazaId = '$plazaId' 
-		AND puesto = 'GERENTE DE PLAZA'");
+		$q = $this->db->query("SELECT u.* 
+		FROM TEMPORA_PLAZA p
+		LEFT JOIN usuarios u ON u.usuarioID = p.gerente
+		WHERE p.id = '$plazaId'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -149,13 +151,14 @@ class Tempciri_model extends CI_Model
 		
 	}
 	
-	function traerPlazaUsuario($usuarioId){
+	function traerPlazaUsuario($usuarioId,$plazaid = false){
+		$extraData = (!empty($plazaid)) ? "AND p.id = '$plazaid'" : "";
 			
 		$data = array(); 
 		$q = $this->db->query("SELECT p.*
 			FROM TEMPORA_PLAZA p
 			LEFT JOIN usuarios u ON u.plazaId = p.id
-			WHERE u.usuarioID = '$usuarioId'");
+			WHERE u.usuarioID = '$usuarioId' $extraData");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
