@@ -5,6 +5,7 @@ class Ajax extends MX_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('data_model');
 		$this->load->model('proyectos/proyecto_model');
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('planogramas/planogramas_model');
@@ -1350,6 +1351,7 @@ class Ajax extends MX_Controller {
 		$permitidos =  array('gif','png','jpg','pdf');
 
 		$extArchivo = pathinfo($_FILES['firma']['name'], PATHINFO_EXTENSION);
+
 		if( !in_array($extArchivo,$permitidos) || empty($extArchivo) ) {
 
 			$return['message']	= "Favor de ingresar archivos válidos";
@@ -1369,7 +1371,7 @@ class Ajax extends MX_Controller {
 		   	'archivoNombre'	=> $archivoNombre
 		);
 		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-		
+
 		$this->db->where('id', $cartaIntId);
 		$this->db->update('TEMPORA_CI', array('estado'=>'Activo'));
 
@@ -1391,6 +1393,53 @@ class Ajax extends MX_Controller {
 		if($this->uri->segment(3) == '2'){
 			$this->load->view('terminalForm-view');
 		}
+
+	}
+
+	function cargarProspectos(){
+		$filtro = $this->uri->segment(3);
+		if(!$filtro){
+			echo '<span class="errorAjax">Escriba un dato valido</span>';
+		}
+		else{
+			$op['data']	= $email = $this->prospectos_model->cargarProspectosCotizacion($filtro);
+			if($email){
+			$this->load->view('resultadoProspectos-view' ,$op);
+		}
+		else{
+			$op['data']	= $cotizacion = $this->prospectos_model->cargarCotizacion($filtro);
+			if($cotizacion){
+				$this->load->view('resultadoCotizacion-view' ,$op);
+			}
+			else{
+				echo '<span class="errorAjax">No se encontro ningun cliente con esa información</span>';
+				}
+			}
+		}
+	}
+
+	function cargarResultado(){
+		$prospectoID = $this->uri->segment(3);
+		$op['data'] = $this->prospectos_model->cuentaCotizacionProspectoActivas($prospectoID);
+
+		$this->load->view('resultadoCotizacionProspecto-view' ,$op);
+
+	}
+
+	function cargarLocalesBusquedaRapida(){
+		$busqueda = $this->uri->segment(3);
+		$op['data'] = $this->prospectos_model->cargarLocalesCotizacionID($busqueda);
+
+		$this->load->view('resFinal-view' ,$op);
+
+	}
+
+	function cargarResultadoCartas(){
+		$data 		= $_POST['alldata'];
+
+		$op['data'] = $this->tempciri_model->busquedaCartasIntencion($data);
+
+		$this->load->view('busquedaCIAvanzada-view' ,$op);
 
 	}
 

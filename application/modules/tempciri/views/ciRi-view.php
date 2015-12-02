@@ -7,6 +7,9 @@
 <form class="form-horizontal" method="post" id="generateCi" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
 
 	<div id="actions">
+		<div class="busquedaForm">
+			<!-- <? $this->load->view('includes/toolbars/buscaProspectos');?>--->
+		</div>
 		<span class="back">
 		 <a class="addSmall" href="javascript:window.history.go(-1);">
 			 <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/back.svg" alt="Regresar"></i>
@@ -16,6 +19,13 @@
 	</div>
 
 	<?= $this->session->flashdata('msg'); ?>
+
+
+	<div id="resultadosView">
+		<span id="loading" style="display:none; margin-top:20px; text-align:center;"><img width="30" src="<?=base_url()?>assets/graphics/svg/loading.svg" alt="Cargando" /></span>
+		<br class="clear">
+	</div>
+<br class="clear">
 
 	<div class="wrapListForm" id="wrapListForm1">
 	<table>
@@ -375,6 +385,73 @@ $(document).ready(function(){
 		clearClientId();
 		mostrarPlazaDir();
 		unblockFields();
+	});
+
+//Pega valores de cotizacion en formulario
+	$('#refCi').change(function(){
+
+		clearClientId();
+		clearFields();
+		var ciId = $(this).val();
+		$.ajax({
+			data : {'ciId':ciId},
+			dataType : 'json',
+			url : ajax_url + 'traeCiDatos',
+			type : 'post',
+			success : function(response) {
+				if($.isEmptyObject(response)){
+						alert("Ocurrio un error, intentelo de nuevo");
+					}else{
+
+						$('#clienteId').val(response.clienteId);
+
+						$('#cpnombre').val(response.pnombre);
+						$('#csnombre').val(response.snombre);
+						$('#capaterno').val(response.apellidopaterno);
+						$('#camaterno').val(response.apellidomaterno);
+						$('#clienteFecha').val(response.fechaNacimiento);
+
+						$('#clientEmail').val(response.email);
+						$('#clientetelefono').val(response.telefono);
+						$('#clientrfc').val(response.rfc);
+
+						$('#mes').empty();
+						$option = $("<option></option>")
+					    .attr("value", response.contraroInicioMes)
+					    .text(response.contraroInicioMes);
+					    $('#mes').append($option);
+
+					    $('#clienteTipo').empty();
+					    $option = $("<option></option>")
+					    .attr("value", response.tipoCliente)
+					    .text(response.tipoCliente);
+					    $('#clienteTipo').append($option);
+
+					    $('#contratotiempo').empty();
+						$option = $("<option></option>")
+					    .attr("value", response.contratoDuracion)
+					    .text(response.contratoDuracion);
+					    $('#contratotiempo').append($option);
+
+					    $('#diasGracia').empty();
+						$option = $("<option></option>")
+					    .attr("value", response.diasGracia)
+					    .text(response.diasGracia);
+					    $('#diasGracia').append($option);
+
+					    $('#dirplaza').empty();
+						$option = $("<option></option>")
+					    .attr("value", response.dir)
+					    .text(response.dir);
+					    $('#dirplaza').append($option);
+
+					    $('#localnum').val(response.local);
+						$('#rentaMensual').val(response.renta);
+
+				   	}
+			}
+		});
+		blockFields();
 
 	});
 
@@ -498,7 +575,7 @@ $(document).ready(function(){
 			});
 
 	}
-	
+
 	// validate signup form on keyup and submit
 	$.validator.messages.required = 'campo requerido';
 	$("#generateCi").validate({
@@ -511,7 +588,7 @@ $(document).ready(function(){
 		messages: {
 			devClabe: {
 				rangelength: "La clabe tiene que ser de 18 digitos"
-			}		
+			}
 		},
 		submitHandler: function(form) {
 			$('#submit').prop( "disabled", true );

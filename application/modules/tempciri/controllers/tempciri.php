@@ -6,12 +6,14 @@ class Tempciri extends MX_Controller {
 	{
 		parent::__construct();
 		$this->user_model->checkuser();
+		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('tempciri/tempciri_model');
 		setlocale(LC_MONETARY, 'es_MX');
 		if( ! ini_get('date.timezone') ){
 		    date_default_timezone_set('America/Mexico_City');
 		}
 	}
+
 
 	function index()
 	{
@@ -49,7 +51,8 @@ class Tempciri extends MX_Controller {
 		$this->layouts->add_include('assets/js/jquery.validate.js')
 					  ->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
-					  ->add_include('assets/js/jquery-datepicker.js');
+					  ->add_include('assets/js/jquery-datepicker.js')
+						->add_include('assets/js/jquery.autocomplete.pack.js');
 
 		$datosGerente		= $this->tempciri_model->traerGerentePLaza($plaza[0]->id);
 
@@ -58,7 +61,33 @@ class Tempciri extends MX_Controller {
 		$op['user'] 		= $user;
 		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
 		$this->layouts->profile('ciRi-view',$op);
+	}
 
+	function ciriVarias(){
+		$op['cotizacionID'] = $cotizacionID	= $_POST['boxCheca'];
+		$lastID = end($cotizacionID);
+		$user	= $this->session->userdata('usuario');
+		$plaza	= $this->tempciri_model->traerPlazaUsuario($user['usuarioID']);
+
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+									->add_include('assets/css/jquery-datepicker.css')
+									->add_include('assets/js/jquery-datepicker.js')
+									->add_include('assets/js/jquery.autocomplete.pack.js')
+									->add_include('assets/css/jquery-steps.css')
+									->add_include('assets/js/jquery.steps.js');
+
+		if(empty($plaza)){
+			echo "No tiene permiso para ingesar a esta página";
+			return false;
+		}
+
+		$op['cotizacion'] 	=  $this->prospectos_model->cargarInfoCompletaCotizacion($lastID);
+
+		$op['plaza'] 		= $plaza[0];
+		$op['user'] 		= $user;
+		$op['plazaPisos'] 	= $this->tempciri_model->traerPlazaPisos($plaza[0]->id);
+
+		$this->layouts->profile('ciRiVarias-view',$op);
 	}
 	
 	function preview_generador(){	
@@ -189,11 +218,11 @@ class Tempciri extends MX_Controller {
 	}
 
 
-	function generador(){	
-	
+	function generador(){
+
 		$op 	= array();
 		$cots 	= array();
-		
+
 		$this->layouts->add_include('assets/js/jquery.form.js');
 
 		$tipoCarta = $_POST['optionsRadios'];
@@ -242,7 +271,7 @@ class Tempciri extends MX_Controller {
 			$clienteExist = $this->tempciri_model->clientExist($_POST['clientrfc']);
 
 			if(empty($clienteExist)){
-				
+
 				$info = array(
 					'pnombre'			=> $_POST['cpnombre'],
 					'rfc'				=> $_POST['clientrfc'],
@@ -257,11 +286,11 @@ class Tempciri extends MX_Controller {
 				);
 				$this->db->insert('TEMPORA_CLIENTES', $info);
 				$clienteId = $this->db->insert_id();
-			
+
 			}else{
-				
+
 				$clienteId = $clienteExist[0]->id;
-				
+
 			}
 
 		}else{
@@ -278,31 +307,31 @@ class Tempciri extends MX_Controller {
 		}
 */
 		//Validar que se agregue al menos un recibo de deposito con datos
-		if( ( !isset($_POST['depositos']) && !isset($_POST['traspaso']) && !isset($_POST['terminal']) ) || 
-			( isset($_POST['depositos']) && ( empty($_POST['depositos']['cuenta'][0]) || empty($_POST['depositos']['numero'][0]) || empty($_POST['depositos']['fecha'][0]) || empty($_POST['depositos']['movimiento'][0]) || empty($_POST['depositos']['importe'][0]) 
-											) 
-			) || 
+		if( ( !isset($_POST['depositos']) && !isset($_POST['traspaso']) && !isset($_POST['terminal']) ) ||
+			( isset($_POST['depositos']) && ( empty($_POST['depositos']['cuenta'][0]) || empty($_POST['depositos']['numero'][0]) || empty($_POST['depositos']['fecha'][0]) || empty($_POST['depositos']['movimiento'][0]) || empty($_POST['depositos']['importe'][0])
+											)
+			) ||
 			( isset($_POST['terminal']) && ( empty($_POST['terminal']['digitos'][0]) || empty($_POST['terminal']['numero'][0]) || empty($_POST['terminal']['fecha'][0]) || empty($_POST['terminal']['importe'][0])
-											) 
-			) || 
-			( isset($_POST['traspaso']) && ( empty($_POST['traspaso']['cuenta'][0]) || empty($_POST['traspaso']['digitos'][0]) || empty($_POST['traspaso']['fecha'][0]) || empty($_POST['traspaso']['numero'][0]) || empty($_POST['traspaso']['importe'][0]) || empty($_POST['traspaso']['clave'][0])  
-											) 
-			)									
+											)
+			) ||
+			( isset($_POST['traspaso']) && ( empty($_POST['traspaso']['cuenta'][0]) || empty($_POST['traspaso']['digitos'][0]) || empty($_POST['traspaso']['fecha'][0]) || empty($_POST['traspaso']['numero'][0]) || empty($_POST['traspaso']['importe'][0]) || empty($_POST['traspaso']['clave'][0])
+											)
+			)
 			){
-				
+
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar Recibos de deposito.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
 			return false;
-			
+
 		}
-		
-		//Validar que ingresaron al menos un archivo para los depositos	
+
+		//Validar que ingresaron al menos un archivo para los depositos
 		if( ( !isset($_FILES['depositos']) && !isset($_FILES['traspaso']) && !isset($_FILES['terminal']) ) ){
-			
+
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos del deposito.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
 			return false;
-			
+
 		}
 
 		//Validar archivos
@@ -404,16 +433,16 @@ class Tempciri extends MX_Controller {
 
 		//Insertar archivos de deposito en caso de que existan
 		if( isset($_FILES['depositos']) && sizeof($_FILES['depositos']['name']['comprobante']) > 0 ){
-			
+
 			foreach($_FILES['depositos']['name']['comprobante'] as $key => $val){
-				
+
 				$num 			= $key + 1;
 				$extArchivo 	= pathinfo($_FILES['depositos']['name']['comprobante'][$key], PATHINFO_EXTENSION);
 				$archivoNombre	= "CI_".$cartaIntId."_compPagoDep$num.".$extArchivo;
 				$archivoTipo	= $_FILES['depositos']['type']['comprobante'][$key];
 				$tamanoH		= $_FILES['depositos']['size']['comprobante'][$key];
-				
-		
+
+
 				move_uploaded_file($_FILES['depositos']['tmp_name']['comprobante'][$key],DIRCIDOCS.$archivoNombre);
 				$data = array(
 					'ciId'			=> $cartaIntId,
@@ -426,25 +455,25 @@ class Tempciri extends MX_Controller {
 					'archivo'		=> $archivoNombre
 				);
 				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);
-				
-				$cantidad += $_POST['depositos']['importe'][$key];	
-				
+
+				$cantidad += $_POST['depositos']['importe'][$key];
+
 			}
-			
+
 		}
 
 		//Insertar archivos de deposito en terminal en caso de que existan
 		if( isset($_FILES['terminal']) && sizeof($_FILES['terminal']['name']['comprobante']) > 0 ){
-			
+
 			foreach($_FILES['terminal']['name']['comprobante'] as $key => $val){
-				
+
 				$num 			= $key + 1;
 				$extArchivo 	= pathinfo($_FILES['terminal']['name']['comprobante'][$key], PATHINFO_EXTENSION);
 				$archivoNombre	= "CI_".$cartaIntId."_compPagoTer$num.".$extArchivo;
 				$archivoTipo	= $_FILES['terminal']['type']['comprobante'][$key];
 				$tamanoH		= $_FILES['terminal']['size']['comprobante'][$key];
-				
-		
+
+
 				move_uploaded_file($_FILES['terminal']['tmp_name']['comprobante'][$key],DIRCIDOCS.$archivoNombre);
 				$data = array(
 					'ciId'			=> $cartaIntId,
@@ -455,26 +484,26 @@ class Tempciri extends MX_Controller {
 					'importe'		=> $_POST['terminal']['importe'][$key],
 					'archivo'		=> $archivoNombre
 				);
-				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);	
-				
+				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);
+
 				$cantidad += $_POST['terminal']['importe'][$key];
-				
+
 			}
-			
+
 		}
-		
+
 		//Insertar archivos de deposito spei (traspaso) en caso de que existan
 		if( isset($_FILES['traspaso']) && sizeof($_FILES['traspaso']['name']['comprobante']) > 0 ){
-			
+
 			foreach($_FILES['traspaso']['name']['comprobante'] as $key => $val){
-				
+
 				$num 			= $key + 1;
 				$extArchivo 	= pathinfo($_FILES['traspaso']['name']['comprobante'][$key], PATHINFO_EXTENSION);
 				$archivoNombre	= "CI_".$cartaIntId."_compPagoTrasp$num.".$extArchivo;
 				$archivoTipo	= $_FILES['traspaso']['type']['comprobante'][$key];
 				$tamanoH		= $_FILES['traspaso']['size']['comprobante'][$key];
-				
-		
+
+
 				move_uploaded_file($_FILES['traspaso']['tmp_name']['comprobante'][$key],DIRCIDOCS.$archivoNombre);
 				$data = array(
 					'ciId'			=> $cartaIntId,
@@ -487,20 +516,20 @@ class Tempciri extends MX_Controller {
 					'importe'		=> $_POST['traspaso']['importe'][$key],
 					'archivo'		=> $archivoNombre
 				);
-				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);	
-				
+				$this->db->insert('TEMPORA_CI_DETALLE_DEPOSITOS', $data);
+
 				$cantidad += $_POST['traspaso']['importe'][$key];
-				
+
 			}
-			
+
 		}
 
 		$op['rentant']			= $cantidad;
 		$op['depositoLetra'] 	= num_to_letras($cantidad);
-		
+
 		$this->db->where('id', $cartaIntId);
 		$this->db->update('TEMPORA_CI', array('deposito'=>$cantidad));
-		
+
 
 		//Insertar archivo idenfiticacion
 		$archivoNombre	= 'CI_'.$cartaIntId.'_identif.'.$extArchivo2;
@@ -753,7 +782,7 @@ class Tempciri extends MX_Controller {
 	}
 
 	function devolucionCi(){
-		
+
 		$user		= $this->session->userdata('usuario');
 		$ciId		= $this->uri->segment(3);
 
@@ -771,11 +800,11 @@ class Tempciri extends MX_Controller {
 		$op['ci'] 	= $this->tempciri_model->traerDatosCi($ciId);
 
 		$this->layouts->profile('devolucionCi-view' ,$op);
-		
+
 	}
-	
+
 	function funtiondevolucionCi(){
-		
+
 		$ciId	= $_POST['ciId'];
 		$motivo = $_POST['motivoCancelacion'];
 		$devo	= isset($_POST['devolucionOn']) ? $_POST['devolucionOn'] : '';
@@ -870,7 +899,7 @@ class Tempciri extends MX_Controller {
 		$this->db->where('id', $ciId);
 		$this->db->update('TEMPORA_CI', array('estado'=>'cancelado','motivoCancelacion'=>$motivo));
 		redirect("tempciri/verCi");
-		
+
 	}
 
 	function verCi(){
@@ -890,11 +919,13 @@ class Tempciri extends MX_Controller {
 		$this->layouts->profile('cis-view' ,$op);
 
 	}
-	
+
 	function detalleCis(){
-		
+
 		$this->user_model->checkuserSection();
 		$op['cis'] 	= $this->tempciri_model->cargarTodoCis();
+		$op['ci'] 	= $this->tempciri_model->cargaCIPlazas();
+		$op['est'] 	= $this->tempciri_model->cargaCIEstatus();
 
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
@@ -905,11 +936,11 @@ class Tempciri extends MX_Controller {
 
 		//Vista//
 		$this->layouts->profile('detalleCis-view' ,$op);
-		
+
 	}
-	
+
 	function detalleCi(){
-		
+
 		$this->user_model->checkuserSection();
 		$ciId		= $this->uri->segment(3);
 
@@ -921,7 +952,7 @@ class Tempciri extends MX_Controller {
 
 		$op['ci'] 	= $this->tempciri_model->traerDatosCi($ciId);
 		$this->layouts->profile('detalleCi-view' ,$op);
-		
+
 	}
 
 	function verRi(){

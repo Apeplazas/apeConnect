@@ -477,7 +477,6 @@ var statusBar = $.cookie('statusBar');
 				$("#colonia").empty().append(data);
 				$("#colonia").removeAttr("disabled");
 		});
-
 	});
 	//Para cargar C.P.
 	$("#colonia").change(function(){
@@ -607,8 +606,17 @@ var statusBar = $.cookie('statusBar');
 		$("#popupQuick, #popupPref").hide();
 	});
 	$('#options, #add, #winPlaza').click(function(event){
-    	event.stopPropagation();
-    });
+    event.stopPropagation();
+  });
 
+
+	//Busca prospectos para jalar datos a formulario de carta de intencion
+	$("#enviarProspecto").click(function(){
+		var prospectoID 	= $(this).val();
+		$.post(ajax_url+"cargar",{municipioFiltro:municipioFiltro,estadoFiltro:estadoFiltro,coloniaFiltro:coloniaFiltro},function(data){
+			sucess:
+				$("#cp").val(data);
+		});
+	});
 
 });

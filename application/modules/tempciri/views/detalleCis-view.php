@@ -6,15 +6,25 @@
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Carta</span>
 		</a>
+		<a id="bAva" title="Generar carta intencion" class ="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/search.svg" alt="Generar carta intencion"></i>
+			<span>Busqueda Avanzada</span>
+		</a>
+		<a id="bAva" title="Generar carta intencion" class ="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/excelIcon.svg" alt="Generar carta intencion"></i>
+			<span>Exportar excel</span>
+		</a>
 	</div>
+
+	<? $this->load->view('includes/toolbars/busquedaAvanzadaCartasIntencion')?>
 
 	<table id="tablaproveed">
 		<thead>
 			<tr>
 				<th>Folio</th>
+				<th>Cliente</th>
 				<th>Plaza</th>
 				<th>Usuario</th>
-				<th>Cliente</th>
 				<th>Deposito</th>
 				<th>Estatus</th>
 				<!--th></th-->
@@ -24,10 +34,10 @@
 			<? foreach($cis as $ci):?>
 			<tr>
 			  <th><p><?= $ci->folio?></p></th>
+				<th><p class="limitTab"><?= $ci->pnombre;?> <?= $ci->snombre;?> <?= $ci->apellidopaterno;?> <?= $ci->apellidomaterno;?></p></th>
 			  <th><p><?= $ci->plazaNombre?></p></th>
 			  <th><p><?= $ci->nombreCompleto?></p></th>
-			  <th><p class="limitTab"><?= $ci->pnombre;?> <?= $ci->snombre;?> <?= $ci->apellidopaterno;?> <?= $ci->apellidomaterno;?></p></th>
-			  <th><?= money_format('%(#10n',$ci->deposito);?></th>
+			  <th>$ <?= number_format("$ci->deposito",2);?></th>
 			  	<th>
 			  		<a class="mt10" href="<?=base_url()?>tempciri/detalleCi/<?= $ci->cartaIntId;?>" >
 			  			<span class="alertTab" ><?= $ci->estado;?></span>
@@ -62,14 +72,19 @@
 </div>
 
 <script type="text/javascript">
+$("#bAva").click(function() {
+	$("#busAvan").toggle();
+	$(this).toggleClass("addSmall").toggleClass("addSmallClick");
+});
+
 $(document).ready(function() {
 	/// Llama al plugin de datatables
 	$('#tablaproveed').dataTable( {
 		"iDisplayLength": 20
 	});
-    /// Genera el even de cada lista
-    $('.wrapListForm fieldset:even').addClass('evenBorder');
-    
+  /// Genera el even de cada lista
+  $('.wrapListForm fieldset:even').addClass('evenBorder');
+
 	var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
 
 	$('a[data-modal-id]').click(function(e) {
@@ -97,22 +112,22 @@ $(document).ready(function() {
 	});
 	});
 	$(window).resize();
-	
-	// prepare Options Object 
-	var options = { 
-	    url:        ajax_url+'saveSingFile', 
+
+	// prepare Options Object
+	var options = {
+	    url:        ajax_url+'saveSingFile',
 	    dataType:	'json',
-	    success:    function(data) { 
+	    success:    function(data) {
 	        if(!data.success){
 	        	alert("Favor de ingresar archivos válidos.");
 	        }else{
 	        	window.onbeforeunload = null;
 	        	window.location.href = "<?= base_url();?>tempciri/verCi";
 	        }
-	    } 
-	}; 
-	
-	// pass options to ajaxForm 
+	    }
+	};
+
+	// pass options to ajaxForm
 	$('#scanFileDoc').ajaxForm(options);
 
 });
