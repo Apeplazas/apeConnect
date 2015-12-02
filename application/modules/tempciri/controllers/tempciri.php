@@ -14,6 +14,7 @@ class Tempciri extends MX_Controller {
 		}
 	}
 
+
 	function index()
 	{
 		$this->layouts->profile('index-view');
@@ -777,6 +778,8 @@ class Tempciri extends MX_Controller {
 
 		$this->user_model->checkuserSection();
 		$op['cis'] 	= $this->tempciri_model->cargarTodoCis();
+		$op['ci'] 	= $this->tempciri_model->cargaCIPlazas();
+		$op['est'] 	= $this->tempciri_model->cargaCIEstatus();
 
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')

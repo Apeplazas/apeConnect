@@ -5,7 +5,7 @@ class User_model extends CI_Model {
 /****************************************
 *	Funciones generaless				*
 *****************************************/
-	
+
 	//Funcion para validar login
 	function validateLogin($var, $password)
     {
@@ -13,49 +13,49 @@ class User_model extends CI_Model {
         //si no existen los datos regresamos false
         if(empty($var) || empty($password) || !isset($var) || !isset($password) )
             return false;
-		
+
 		//Verificar si usuario o email existen
 		$check_user_mail = $this->db->query("SELECT * FROM usuarios
-        							WHERE fancyUrl='$var' 
+        							WHERE fancyUrl='$var'
         							OR email='$var'
         							");
-        
+
 		if($check_user_mail->num_rows() > 0){
-			
+
             $check_user_mail->free_result();
-		
+
 			//si todo va bien, creamos el md5 del pwd.
         	$passwordShai = md5($password);
-				
-			$query = $this->db->query("SELECT 
+
+			$query = $this->db->query("SELECT
 				u.*,
 				r.nombre as tipoUsuario
 				FROM usuarios u
 				LEFT JOIN roles r ON r.id=u.idrole
-				WHERE (fancyUrl='$var' OR email='$var') 
-				AND hash='$passwordShai'"); 
+				WHERE (fancyUrl='$var' OR email='$var')
+				AND hash='$passwordShai'");
 			if($query->num_rows() > 0) {
             	foreach($query->result() as $row){
                 	$data[] = $row;
             	}
-            	$query->free_result(); 
-			
-			 	return $data;	 	
+            	$query->free_result();
+
+			 	return $data;
         	}else{
         		$data['error'] = "Contraseña inválida.";
         		return $data;
         	}
-				
+
         }else{
         	$data['error'] = "Usuario o email inválido.";
         	return $data;
         }
-       	
+
     }
 
 	function traemodulos($roleid){
-		$data = array(); 
-		$q = $this->db->query("SELECT m.nombre 
+		$data = array();
+		$q = $this->db->query("SELECT m.nombre
 			FROM modulos m
 			LEFT JOIN roles_modulos rm ON rm.idmodulo=m.id
 			WHERE rm.idrole=$roleid");
@@ -63,27 +63,27 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row->nombre;
 			}
-			$q->free_result();	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traeSeccionesModulos($modulo,$roleid){
-		$data = array(); 
-		$q = $this->db->query("SELECT s.seccion 
+		$data = array();
+		$q = $this->db->query("SELECT s.seccion
 			FROM modulos_secciones s
 			LEFT JOIN modulos m ON m.id=s.moduloId
-			WHERE m.nombre='$modulo' 
+			WHERE m.nombre='$modulo'
 			AND s.idrole='$roleid'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row->seccion;
 			}
-			$q->free_result();	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function checkuser(){
 		$user = $this->session->userdata('usuario');
         if(!isset($user) || $user != true)
@@ -92,10 +92,11 @@ class User_model extends CI_Model {
          	redirect('');
         }else{
         	if(!in_array($this->uri->segment(1), array_keys($user['modulos'])))
-				redirect('');
+					redirect('');
+
         }
 	}
-	
+
 	function checkuserSection(){
 		$user = $this->session->userdata('usuario');
         if(!isset($user) || $user != true){
@@ -106,9 +107,9 @@ class User_model extends CI_Model {
 				redirect('');
         }
 	}
-	
+
 	function traevista($userid,$modulo){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT rv.vista
 			FROM roles_vistas rv
 			LEFT JOIN usuarios u ON u.idrole=rv.idrole
@@ -118,27 +119,27 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data = $row->vista;
 			}
-			$q->free_result();	
+			$q->free_result();
 		}
 		return $data;
 	}
 
 	function numero_mensajes($user_id){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT
 			(SELECT count(leido) FROM mensajes_usuarios_roles WHERE usuarioid=$user_id AND leido=0) + (SELECT count(id) FROM mensajes_usuarios WHERE usuarioid=$user_id AND leido=0) as total");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data = $row->total;
 			}
-			$q->free_result();	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	//Ver si el usuario puede ejecutar una accion
 	function puedeEjecAcc($userId,$moduloId,$accionId,$seccionId = 0){
-		$data = array(); 		
+		$data = array();
 		$q = $this->db->query("SELECT ac.usuarioId
 			FROM acciones_usuarios ac
 			WHERE ac.usuarioId='$userId' AND ac.moduloId='$moduloId' AND ac.seccionId='$seccionId' AND ac.accionId='$accionId'");
@@ -146,7 +147,7 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
@@ -154,20 +155,20 @@ class User_model extends CI_Model {
 /****************************************
 *	Funciones proveedores				*
 *****************************************/
-	
+
 	//Funcion para traer datos de un proveedor
 	function traeproveedor($id){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT p.*,u.fancyUrl as fancyUrl,u.nombreCompleto as nombreAdmin FROM proveedores p LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID WHERE p.usuarioID='$id'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traeProveeedorEmail($idProv){
 		$data = array();
 		$q = $this->db->query("SELECT u.email
@@ -178,11 +179,11 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data = $row->email;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerproveedordetails($fancyUrl){
 		$data = array();
 		$q = $this->db->query("SELECT
@@ -197,11 +198,11 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerproveedorestados($idproveedor){
 		$data = array();
 		$q = $this->db->query("SELECT
@@ -214,11 +215,11 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traerproveedor_proyectos($idproveedor,$tipoproyecto){
 		$data = array();
 		$q = $this->db->query("SELECT
@@ -230,15 +231,15 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	//Proyectos recomendados para proveedor
 	function cargarProyectosRecomendacion($usuarioID){
-		$data = array(); 
-		$q = $this->db->query("SELECT 
+		$data = array();
+		$q = $this->db->query("SELECT
 								p.zonasid as 'zonaID', p.descripcionProyecto as 'descripcion', 	p.fechaAltaProyecto as 'fechaAltaProyecto', p.fechaCierreProyecto as 'cierreProyecto', p.tituloProyecto as 'tituloProyecto', p.idProyecto,
 								e.claveEstado as 'estadosID',
 								c.rangoMinimo as 'rangoMinimo', c.rangoMaximo as 'rangoMaximo',
@@ -259,39 +260,39 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traeproveedores(){
-	
-		$data = array(); 
+
+		$data = array();
 		$q = $this->db->query("SELECT p.*,u.fancyUrl as fancyUrl FROM proveedores p LEFT JOIN usuarios u ON p.usuarioID=u.usuarioID WHERE p.statusProveedor!='Borrado'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
-	
+
 	}
-	
+
 	function checkdocs($idproveedor){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT certificado,actasConstitutivas,cedulas,shcp,edoCuenta,comprobanteDomicilio,credencialElector,IMSS FROM proveedores WHERE idProveedor=$idproveedor LIMIT 1");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function hacotizado($idproyecto,$userid){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT c.id
 			FROM cotizaciones c
 			LEFT JOIN proveedores p ON p.idProveedor=c.idproveedor
@@ -300,66 +301,66 @@ class User_model extends CI_Model {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
-	
+
+
 /****************************************
 *	Funciones Administradores			*
 *****************************************/
-	
+
 	function traeadministradores(){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT * FROM usuarios WHERE idrole=1");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function traeadmin($id){
-		$data = array(); 
+		$data = array();
 		$q = $this->db->query("SELECT u.*,u.nombreCompleto nombreAdmin FROM usuarios u WHERE u.usuarioID='$id'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
 	}
-	
+
 	function verificarCiProp($userId,$ciId){
-			
-		$data = array(); 
+
+		$data = array();
 		$q = $this->db->query("SELECT * FROM TEMPORA_CI c WHERE c.usuarioId='$userId' AND c.id = '$ciId'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
-		return $data;	
-		
+		return $data;
+
 	}
-	
+
 	function verificarRiProp($userId,$riId){
-			
-		$data = array(); 
+
+		$data = array();
 		$q = $this->db->query("SELECT * FROM TEMORA_RI r WHERE r.usuarioId='$userId' AND r.id = '$riId'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
-		return $data;	
-		
+		return $data;
+
 	}
-	
-}	
+
+}

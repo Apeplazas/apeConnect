@@ -13,11 +13,11 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button, #choTip{cursor:pointer}
+button, #choTip, .callId{cursor:pointer}
 strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
-.dnone, .submenu, .barIn h1, .barIn strong, .barIn em, .barOut .heading, #popupQuick, #rigWinClose{display:none}
+.dnone, .submenu, .barIn h1, .barIn strong, .barIn em, .barOut .heading, #popupQuick, #rigWinClose, #busPros{display:none}
 .barOut .heading h3{float:left; padding-left:30px; display:block}
 .dblock, .barOut h1{display:block}
 .ml85{margin-left:85px;}
@@ -174,12 +174,18 @@ table tbody tr:hover{background-color:#fafafa}
 #mainTitPlano h1, #mainTitPlano h2, #mainTitPlano h3, #mainTitPlano h4{text-transform:uppercase; font-size:18px}
 #mainTit p{font-family:Lato,sans-serif; font-size:16px; padding:3px 0;}
 #mainTit strong{font-weight:400; color:#777}
+#titAva{float:left; width:100%; font-size:18px; margin:0 0 10px 0; margin-left:20px;}
 .iconPlus img{width:20px; border-radius:4px; float:left; margin:4px 7px 3px 0; max-height:20px}
 .countRed{background-color: #C82E29; color: #fff; border-radius:50%; padding:2px 5px; font-weight:700; font-style:normal; position:absolute; top:-6px; right:-6px;}
-.addSmall{float:left; position:relative; padding:3px 10px 3px 7px; text-transform:uppercase; border:1px solid #78C1FF; color:#333; height:35px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:15px; background:#fff;}
+.addSmall{float:left; position:relative; padding:3px 10px 3px 7px; text-transform:uppercase; border:1px solid #78C1FF; color:#333; height:35px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:15px; background:#fff; cursor:pointer}
+.addSmallClick{float:left; position:relative; padding:3px 10px 3px 7px; text-transform:uppercase; border:1px solid #78C1FF; color:#333; height:35px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:15px; background:#fff; cursor:pointer; background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgb(255,255,255) 0%, rgb(203,235,255) 3%, rgb(255,255,255) 77%, rgb(255,255,255) 98%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgb(255,255,255) 0%,rgb(203,235,255) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(203,235,255) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
 .addSmallGray{float:left; position:relative; padding:6px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; height:26px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:10px; background:url(../graphics/bckGray.png) 0 -29px repeat-x #fff;}
 .addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
-.addSmall span{margin-top:8px; float:left; font-style:normal}
+.addSmall span, .addSmallClick span{margin-top:8px; float:left; font-style:normal}
 .addSmall:hover, .valGen:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
 background:-moz-linear-gradient(top, #ffffff 1%, #f0f9ff 56%, #cbebff 99%, #cbebff 99%, #a1dbff 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(56%,#f0f9ff), color-stop(99%,#cbebff), color-stop(99%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
@@ -192,12 +198,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 -moz-box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75);
 box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .active span{font-weight:700; color:#555}
-.addSmall:active{background:aliceblue;}
+.addSmall:active, .addSmallClick:active{background:aliceblue;}
 .iconEdit img{width:16px; margin-top:2px}
 #wrapListPlano{height:640px}
 .wrapListForm{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:2px 20px 20px; width:96%; position:relative}
+.busquedaForm{margin-left:17px; width:96%; position:relative}
+.busquedaForm label{position:absolute;}
+.busquedaForm input{float:left; margin:1px 0px 0 13px; border:1px solid #ccc; height: 25px; width:360px; padding:0 10px; text-transform:uppercase; border-radius:3px; background-color:#fafafa;}
+#busPros{width:540px}
 .wrapListForm tbody{border:1px solid #ccc;}
-.wrapListForm thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:10px 0 10px 10px;}
+.wrapListForm thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:13px 0 13px 10px;}
 .secmainTit{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; padding:15px 0 0 0; float:left; width:100%;}
 .bigInp{float:left; border:1px solid #fff; height:36px; padding:0 10px 0; width:100%; text-transform:uppercase;  color:cornflowerblue;}
 .thbr thead th{ padding:0 0 6px 10px; font-size:13px; font-weight:700}
@@ -209,7 +219,7 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .delToolSmall{border-top:1px solid #ddd}
 .wrapListForm table{float:left; width:100%}
 .wrapListForm tr{border-bottom:1px solid #ddd;}
-.wrapListForm label, .wrapListForm strong{text-align:left; padding:10px 15px 6px 26px; text-transform:uppercase; font-weight:400; float:left; width:100%;}
+.wrapListForm label, .wrapListForm strong{text-align:left; padding:12px 15px 8px 26px; text-transform:uppercase; font-weight:400; float:left; width:100%;}
 .wrapListForm td p{float:left; width:100%; padding:0 10px; text-transform:uppercase}
 .grayField{background:#eee}
 .plus{position:absolute; top:0px; right:0px; border-left:1px solid #ddd; height:34px !important; background-color:#fff;}
@@ -224,7 +234,6 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .proImg img{width:22px; height:19px}
 #solicitud{background-color:#C82E29;color:#fff;border-radius:50%;padding:2px 5px;font-weight:700; font-style:normal;position:absolute;top:6px;right:28px}
 #cotLoc{margin-top:6px; padding:3px 0 0; font-size:11px; border:none; background-color:transparent; text-transform: uppercase;}
-#folioAgenerar{color:cornflowerblue;}
 .botCart input{margin-right:5px}
 .botCart label{margin-top:3px}
 #devCan{text-transform:uppercase; font-weight:700; padding:10px 10px 10px; float:left; width:100%; margin-bottom:20px; background-color:#eee; border-radius:4px; border:1px solid #ccc;}
@@ -240,14 +249,10 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .msgFlash strong{font-size:12px; margin-top:5px; float:left; text-transform:uppercase; color:brown;}
 #enviarFirma:hover{background:#ccc: color:#333; box-shadow:5px 0px 11px 2px #ccc; -moz-box-shadow:5px 0px 11px 2px #ccc; -webkit-box-shadow:5px 0px 11px 2px #ccc; border:1px solid #fff;}
 #enviarFirma{border:1px solid #fff;}
-.botCart{float:left; margin-right:10pxf}
-<<<<<<< HEAD
-.calInp{position:absolute; top:8px; width:16px; right:7px; z-index: 9999;}
-input[type=file]{padding-top:5px;}
-=======
+.botCart{float:left; margin-right:10px}
 .calInp{position:absolute; top:8px; width:16px; right:7px; z-index: 999;}
+input[type=file]{padding-top:5px;}
 
->>>>>>> master
 /*---------------- Login  ------------------*/
 .conLog{position:absolute; top:150px; width:430px;  margin-left:-215px; left:50%; text-align:center; font-family: 'Oswald', sans-serif; }
 .bckIndex{font:13px/20px 'Lucida Grande',Tahoma,Verdana,sans-serif;color:#404040;background:url(../graphics/blurbcks/13.jpg) center no-repeat}
@@ -316,15 +321,15 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .addSmallGrayBot span{float:left; margin-top:8px}
 #choTip{float:left; width:100%; height:100%; background:#fff; padding:15px 15px 5px 15px; display:none}
 #choTip a{border:1px solid #ccc; padding:8px 20px; text-transform: uppercase; margin: 0 10px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
-#closeCho, .closeData{width:14px; position:absolute; right:6px; top:6px; border:1px solid #ccc; background:#fff; padding:2px; cursor:pointer}
+#closeCho, .closeData{width:14px; position:absolute; right:6px; top:6px; border:1px solid #78C1FF; background:#fff; padding:2px; cursor:pointer}
 #closeCho:hover{border:1px solid #78C1FF;}
 #choTip span{margin-bottom:10px; padding:20px 0px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:475px; position:relative}
 .foDep{float:left; width:100%; border-bottom:1px solid #eee; padding:10px }
 #forAja fieldset{float:left; width:100%; background: #f0f8ff; padding:0 15px 15px 15px; border-top: 1px solid #ddd;}
 .dataInf .bigInp{background:#fff; cursor:pointer}
 .ac_results{width:100%}
-#resultadosView{float:left; width:96%; position:relative; margin-left:17px; padding:15px 19px 10px;}
-#dataPro{border:1px solid #B7E3FF; background:#f0f8ff; float:left; width:100%; position:relative}
+#resultadosView{float:left; width:96%; position:relative; margin-left:17px; padding:15px 19px 0;}
+#dataPro{border:1px solid #B7E3FF; background:#f0f8ff; float:left; width:100%; position:relative; margin-bottom:25px}
 #dataPro table{float:left; width:100%;}
 #dataPro table th{font-family: 'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom:1px solid #ddd; padding:5px 10px; background:#fff}
 #dataPro tbody tr:hover{background:#eee; border-bottom:1px solid #ccc; border-top:1px solid #ccc}
@@ -351,13 +356,14 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 #copyDatos label{float:right; line-height:1.6em; width:48px; margin:0; text-align:right; background-color:#eee; padding:5px 6px 4px; border:1px solid #c9c9c9; border-radius:3px; margin-left:5px; font-weight:700; cursor:pointer}
 #copyDatos input{float:right; margin:1px 0 0 4px;}
 #copyDatos p{float:right; font-weight:700; margin-top:7px; padding-right:10px;}
-.valAdd{position:absolute; top:-50px; right:0; border:1px solid #007aff; background:#007aff; cursor:default; text-transform:uppercase; color:#fff; margin:10px 0 0 0; padding:5px 14px 3px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; cursor:pointer; font-weight:800}
+.valAdd{float:right; margin-left:10px; border:1px solid #007aff; background:#007aff; cursor:default; text-transform:uppercase; color:#fff; margin:10px 0 0 0; padding:10px 14px 8px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; cursor:pointer; font-weight:800}
 .valAdd:hover{background:#005FCB; box-shadow:1px 0px 3px 0px #999; -moz-box-shadow:1px 0px 3px 0px #999; -webkit-box-shadow:1px 0px 3px 0px #999; border:1px solid #fff; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;}
-.valGen{position:absolute; top:-50px; right:180px; border:1px solid #007aff; cursor:default; text-transform:uppercase; color:#fff; margin:10px 10px 0 0; padding:5px 14px 3px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; cursor:pointer;}
+.valGen{float:right; border:1px solid #007aff; cursor:default; text-transform:uppercase; color:#fff; margin:10px 10px 0 0; padding:10px 14px 8px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; cursor:pointer;}
 .valGen p{color:cornflowerblue; font-weight:800}
-#folioPrint{position:absolute; right:18px; top:9px; background-color:aliceblue; padding:6px 20px; border: 1px solid #B7E3FF; border-radius:3px; text-transform: uppercase;}
+#folioPrint{position:absolute; right:18px; top:7px; background-color:aliceblue; padding:6px 20px 5px; border: 1px solid #B7E3FF; border-radius:3px; text-transform: uppercase; font-size:13px}
 #folioPrint em{font-weight:700; font-style:normal; margin-right:4px;}
 #folioPrint span{font-weight:700}
+.errorAjax{color:brown; padding:5px 10px; float:left; width:96%; text-transform:uppercase; position:absolute; top:-15px;}
 
 /*---------------- Botones ------------------*/
 

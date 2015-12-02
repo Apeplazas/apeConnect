@@ -7,7 +7,9 @@
 <form class="form-horizontal" method="post" id="generateCi" action="<?=base_url();?>tempciri/generador" enctype="multipart/form-data">
 
 	<div id="actions">
-		<? $this->load->view('includes/toolbars/buscaProspectos');?>
+		<div class="busquedaForm">
+			<!-- <? $this->load->view('includes/toolbars/buscaProspectos');?>--->
+		</div>
 		<span class="back">
 		 <a class="addSmall" href="javascript:window.history.go(-1);">
 			 <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/back.svg" alt="Regresar"></i>
@@ -18,11 +20,12 @@
 
 	<?= $this->session->flashdata('msg'); ?>
 
+
 	<div id="resultadosView">
 		<span id="loading" style="display:none; margin-top:20px; text-align:center;"><img width="30" src="<?=base_url()?>assets/graphics/svg/loading.svg" alt="Cargando" /></span>
 		<br class="clear">
 	</div>
-
+<br class="clear">
 
 	<div class="wrapListForm" id="wrapListForm1">
 	<table>

@@ -85,7 +85,7 @@
     display: block;
     width: auto;
     margin: 0 0.5em 0.5em;
-    padding:12px 12px 10px;
+    padding:13px 17px 13px;
     text-decoration: none;
 
     -webkit-border-radius:3px;
@@ -217,7 +217,7 @@
 
 .wizard.vertical > .actions > ul > li{margin: 0 0 0 1em;}
 
-.wizard > .actions a{text-align:center; background:#C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; float:right;}
+.wizard > .actions a{text-align:center; background:#C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:12px 32px 10px 32px; border-radius:4px; float:right;}
 .wizard > .actions a:hover{color:#fff; background:#B42A25;}
 .wizard > .actions a:active{background:#A80200}
 
@@ -226,18 +226,8 @@
 .wizard > .actions .disabled a:active
 {
     background: #eee;
-    color: #aaa;
+    color: #777;
 }
-
-.wizard > .loading
-{
-}
-
-.wizard > .loading .spinner
-{
-}
-
-
 
 /*
     Tabcontrol

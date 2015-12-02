@@ -1,5 +1,5 @@
 
-<form action="<?=base_url()?>tempCiri/ciriVarias" method="post">
+<form action="<?=base_url()?>tempciri/ciriVarias" method="post">
 <button id="bac"><img src="<?=base_url()?>assets/graphics/svg/regresarDos.svg" alt="regresar"></button>
 <h3>Lista de cotizaciones</h3>
 <span id="headCot">

@@ -723,6 +723,68 @@ $('.valAdd').click(function () {
 	$(this).parent().find('.optional input').val('');
 	$(this).parent().find('.optional').removeClass('hide');
 });
+
+$('#siInf').click( function(){
+
+	$('.wrapListForm').find('.optional').addClass('hide');
+
+	var cpnombre = $('#cpnombre').val();
+	var csnombre = $('#csnombre').val();
+	var capaterno = $('#capaterno').val();
+	var camaterno = $('#camaterno').val();
+	var clientEmail = $('#clientEmail').val();
+	var clientetelefono = $('#clientetelefono').val();
+	var clienteFecha = $('#clienteFecha').val();
+	var clientrfc = $('#clientrfc').val();
+	var folioident = $('#folioident').val();
+	var clienteTipo = $('#clienteTipo').val();
+
+	$('.wrapListForm').find('.optional input').val('');
+	$('.wrapListForm').find('.cpnombre').val(cpnombre);
+	$('.wrapListForm').find('.csnombre').val(csnombre);
+	$('.wrapListForm').find('.capaterno').val(capaterno);
+	$('.wrapListForm').find('.camaterno').val(camaterno);
+	$('.wrapListForm').find('.clientEmail').val(clientEmail);
+	$('.wrapListForm').find('.clientetelefono').val(clientetelefono);
+	$('.wrapListForm').find('.clienteFecha').val(clienteFecha);
+	$('.wrapListForm').find('.clientrfc').val(clientrfc);
+	$('.wrapListForm').find('.folioident').val(folioident);
+	$('.wrapListForm').find('.clienteTipo').val(clienteTipo);
+});
+
+$('#noInf').click( function(){
+
+	$('.wrapListForm').find('.hide').removeClass();
+	$('.wrapListForm').find('.optional input').val('');
+
+	var cpnombre = $('#cpnombre').val();
+	var csnombre = $('#csnombre').val();
+	var capaterno = $('#capaterno').val();
+	var camaterno = $('#camaterno').val();
+	var clientEmail = $('#clientEmail').val();
+	var clientetelefono = $('#clientetelefono').val();
+	var clienteFecha = $('#clienteFecha').val();
+	var clientrfc = $('#clientrfc').val();
+	var folioident = $('#folioident').val();
+	var clienteTipo = $('#clienteTipo').val();
+
+});
+
+
+// llama el iframe de depositos
+$('.trasForm').click(function(event){
+	event.preventDefault();
+	var call = $(this).attr('href');
+	$.ajax({
+			url: call,
+			})
+			.done(function(data) {
+				$('#forAja').append(data);
+				$('#choTip').removeClass('show');
+				$('.msgForm').addClass('hide');
+		});
+});
+
 $('.valGen').click(function () {
 	var cpnombre = $('#cpnombre').val();
 	var csnombre = $('#csnombre').val();

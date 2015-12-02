@@ -1371,7 +1371,7 @@ class Ajax extends MX_Controller {
 		   	'archivoNombre'	=> $archivoNombre
 		);
 		$this->db->insert('TEMPORA_CI_ARCHIVOS', $data);
-		
+
 		$this->db->where('id', $cartaIntId);
 		$this->db->update('TEMPORA_CI', array('estado'=>'Activo'));
 
@@ -1399,7 +1399,7 @@ class Ajax extends MX_Controller {
 	function cargarProspectos(){
 		$filtro = $this->uri->segment(3);
 		if(!$filtro){
-			echo 'Escriba un dato valido';
+			echo '<span class="errorAjax">Escriba un dato valido</span>';
 		}
 		else{
 			$op['data']	= $email = $this->prospectos_model->cargarProspectosCotizacion($filtro);
@@ -1412,7 +1412,7 @@ class Ajax extends MX_Controller {
 				$this->load->view('resultadoCotizacion-view' ,$op);
 			}
 			else{
-				echo 'No se encontro ningun cliente con esa información';
+				echo '<span class="errorAjax">No se encontro ningun cliente con esa información</span>';
 				}
 			}
 		}
@@ -1431,6 +1431,15 @@ class Ajax extends MX_Controller {
 		$op['data'] = $this->prospectos_model->cargarLocalesCotizacionID($busqueda);
 
 		$this->load->view('resFinal-view' ,$op);
+
+	}
+
+	function cargarResultadoCartas(){
+		$data 		= $_POST['alldata'];
+
+		$op['data'] = $this->tempciri_model->busquedaCartasIntencion($data);
+
+		$this->load->view('busquedaCIAvanzada-view' ,$op);
 
 	}
 
