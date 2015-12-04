@@ -938,6 +938,20 @@ class Tempciri extends MX_Controller {
 		$this->layouts->profile('detalleCis-view' ,$op);
 
 	}
+	
+	function exportarExcel(){
+	
+		$header = array(
+			'Folio','Cliente','PLaza','Usuario','Deposito','Estatus'
+		);
+		
+		$serach = (isset($_GET['search'])) ? json_decode($_GET['search']) : '';
+
+		$cis	= $this->tempciri_model->busquedaCartasIntencion('');
+	
+		$this->data_model->genera_excel($header,$cis);
+		
+	}
 
 	function detalleCi(){
 

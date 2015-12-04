@@ -77,22 +77,25 @@ function buscaResultados(){
   var estatus = $('#estAja').val();
   var fechaDe = $('#deFecAka').val();
   var fechaA = $('#aFecAja').val();
-
-  $.post(ajax_url+"cargarResultadoCartas", {
-    alldata : {
+  
+  var alldata = {
     plaza : plaza,
     cliente : cliente,
     gerente : gerente,
     estatus : estatus,
     fechaDe : fechaDe,
     fechaA : fechaA
-    }
+   };
+
+  $.post(ajax_url+"cargarResultadoCartas", {
+    alldata : alldata
   },
 
   function(data) { sucess:
     $("#tablaproveed_wrapper").hide();
 
-  $("#ajaxAva").empty().append(data);
+  	$("#ajaxAva").empty().append(data);
+  	$('#exportarExcel').attr("href","<?= base_url();?>tempciri/exportarExcel?search="+JSON.stringify(alldata));
 
   });
 };

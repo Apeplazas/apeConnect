@@ -116,7 +116,7 @@ class Tempciri_model extends CI_Model
 
 		$data = array();
 		$q = $this->db->query("SELECT ci.id as 'cartaIntId',ci.contraroInicioMes,ci.estado,ci.pdf,ci.contratoDuracion, ci.diasGracia,ci.id,ci.deposito,ci.ifeFolio,ci.devolucionCuenta,ci.devolucionBanco,ci.diasGracia,ci.gerentePlaza,ci.folioComprobante,ci.folio,ci.fecha,
-			c.id as 'clienteId',c.pnombre,c.snombre,c.apellidopaterno,c.apellidomaterno,c.telefono,c.email,c.rfc,
+			c.id as 'clienteId',if(c.tipo = 'FISICA',CONCAT_WS(' ',c.pnombre,c.snombre,c.apellidopaterno,c.apellidomaterno),c.empresa) as 'cliente',c.telefono,c.email,c.rfc,
 			pr.dir,pr.local,pr.renta,pr.plazaId as 'plazaNombre',pr.dir,
 			u.nombreCompleto
 			FROM TEMPORA_CI ci
@@ -320,60 +320,66 @@ class Tempciri_model extends CI_Model
 
 		$cadena = '';
     $i = 1;
-    foreach ($data as $key => $value) {
+    if($data){
+	    foreach ($data as $key => $value) {
+	
+	      if($key == "plaza" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "t.plaza='$value'";
+	          ++$i;
+	      }
+	      if($key == "cliente" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "CONCAT_WS(' ', c.pnombre, c.snombre, c.apellidopaterno, c.apellidomaterno) like '%$value%'";
+	          ++$i;
+	      }
+	      if($key == "gerente" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "u.nombreCompleto like '%$value%'";
+	          ++$i;
+	      }
+	      if($key == "estatus" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "t.estado = '$value'";
+	          ++$i;
+	      }
+	      if($key == "fechaDe" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= " t.fecha>=('$value')";
+	          ++$i;
+	      }
+	      if($key == "fechaA" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "t.fecha< ('$value')";
+	          ++$i;
+	      }
+	
+	    }
+    }
+	
+	if (!empty($cadena))
+		$cadena = "WHERE $cadena";
 
-      if($key == "plaza" && !empty($value)){
-        if($i > 1) {
-          $cadena .= " AND ";
-        }
-          $cadena .= "t.plaza='$value'";
-          ++$i;
-      }
-      if($key == "cliente" && !empty($value)){
-        if($i > 1) {
-          $cadena .= " AND ";
-        }
-          $cadena .= "CONCAT_WS(' ', c.pnombre, c.snombre, c.apellidopaterno, c.apellidomaterno) like '%$value%'";
-          ++$i;
-      }
-      if($key == "gerente" && !empty($value)){
-        if($i > 1) {
-          $cadena .= " AND ";
-        }
-          $cadena .= "u.nombreCompleto like '%$value%'";
-          ++$i;
-      }
-      if($key == "estatus" && !empty($value)){
-        if($i > 1) {
-          $cadena .= " AND ";
-        }
-          $cadena .= "t.estado = '$value'";
-          ++$i;
-      }
-      if($key == "fechaDe" && !empty($value)){
-        if($i > 1) {
-          $cadena .= " AND ";
-        }
-          $cadena .= " t.fecha>=('$value')";
-          ++$i;
-      }
-      if($key == "fechaA" && !empty($value)){
-        if($i > 1) {
-          $cadena .= " AND ";
-        }
-          $cadena .= "t.fecha< ('$value')";
-          ++$i;
-      }
-
-    };
-
-		$data = array();
-		$q = $this->db->query("
-		SELECT *
+	$data = array();
+	$q = $this->db->query("
+		SELECT t.folio,if(c.tipo = 'FISICA',CONCAT_WS(' ',c.pnombre,c.snombre,c.apellidopaterno,c.apellidomaterno),c.empresa) as 'cliente',t.plaza,
+		u.nombreCompleto,t.deposito,t.estado,t.id as cartaIntId
 		FROM TEMPORA_CI t
 		LEFT JOIN TEMPORA_CLIENTES c ON c.id=t.clienteId
 		LEFT JOIN usuarios u ON u.usuarioID=t.usuarioID
-		WHERE $cadena
+		$cadena
     ");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
