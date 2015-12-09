@@ -135,10 +135,10 @@ class Planogramas_model extends CI_Model
 									v.points as 'points',
 									v.transform as 'transform',
 									v.localID as 'localID',
-									a.vicEstatus as 'status'
+									a.DISPOSICION as 'status'
 								FROM planogramas p
 								LEFT JOIN vector v ON v.plazaId=p.id
-								LEFT JOIN Art a ON a.Articulo=v.localID
+								LEFT JOIN V_MiguelWEB a ON a.Local=v.localID
 								WHERE p.id = '$planoId'
 								AND v.status ='areaPublica'
 								AND v.tipo !='text'
@@ -244,10 +244,10 @@ class Planogramas_model extends CI_Model
 								v.id as 'id',
 								p.id as 'planogramaID',
 								v.transform as 'transform',
-								a.Articulo as 'localID'
+								a.Local as 'localID'
 								FROM planogramas p
 								LEFT JOIN vector v ON v.plazaId=p.id
-								LEFT JOIN Art a ON a.Articulo=v.localID
+								LEFT JOIN V_MiguelWEB a ON a.Local=v.localID
 								WHERE p.id = '$planoId'
 								AND v.status !='borrado'
 								AND v.tipo ='text'

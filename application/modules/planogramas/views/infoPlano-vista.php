@@ -46,11 +46,11 @@
 							</span>
 							</div>
 						</div>
-					<ul id="asigUl">
+					<!--ul id="asigUl">
 					<? foreach($asignar as $l):?>
 						<li id="<?= $l->tipo;?>-<?= $l->id;?>" class="closeup"> <?= $l->id;?> - Creado: <?= $l->date;?></li>
 					<? endforeach; ?>
-					</ul>
+					</ul-->
 					<form id="asig" method="post" class="mt10" >
 						<fieldset>
 							<label id="idRec">*Asigna el numero de local</label>
@@ -357,10 +357,14 @@ Ajax para el autocompletar
 			$(this).removeClass("subhover"); //remueve la clase subhover
 		});
 		/*CODIGO PARA generar la busqueda del resultado por ajax*/
-		$("#asigInp").autocomplete(ajax_url+"asignarLocales", {
-			width: 650,
-			selectFirst: false
+		$("#asigInp").autocomplete({
+			source: ajax_url+"asignarLocales",
+			open: function(){
+		        $(this).autocomplete('widget').css('z-index', 9999);
+		        return false;
+		    }
 		});
+	/*
 		$("#asigInp").result(function(event, data, formatted) {
 		if (data == '<h1>Busqueda por tipo</h1>' || data == '<h1>Busqueda por marca</h1>'){
 			$("#bckBuscar").val('');
@@ -371,6 +375,7 @@ Ajax para el autocompletar
 			$("#formBuscar").submit();
 			}
 		});
+	*/
 	});
 
 	$('.relB').click(function(){

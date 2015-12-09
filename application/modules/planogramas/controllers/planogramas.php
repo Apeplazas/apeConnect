@@ -178,8 +178,8 @@ class Planogramas extends MX_Controller
 
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
-					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
+					  ->add_include('assets/css/jquery-ui.css')
 					  ->add_include('assets/css/planogramas.css');
 
 		$op['locales']        = $this->planogramas_model->traerPlano($planoId);

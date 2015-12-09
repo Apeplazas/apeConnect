@@ -752,15 +752,17 @@ class Ajax extends MX_Controller {
 
 	function asignarLocales()
 	{
-		$op['filtro']	= $filtro = strtolower($_POST['q']);
+		$op['filtro']	= $filtro = strtolower($_GET['term']);
 		//consulta a catalogoLocalesAsignados
 		$localID	= $this->data_model->cargarCatalogoLocalesAsignados();
 
 		$implode = implode('', $localID);
-	    $op['local']	= $this->data_model->asignarAjaxLocales($filtro, $implode);
+	    $local	= $this->data_model->asignarAjaxLocales($filtro, $implode);
 
 		//Vista//
-		$this->load->view('busqueda-view' ,$op);
+		//$this->load->view('busqueda-view' ,$op);
+		echo json_encode($local);
+		exit;
 	}
 
 	function asignar()
