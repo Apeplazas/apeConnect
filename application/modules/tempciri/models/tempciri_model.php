@@ -51,7 +51,6 @@ class Tempciri_model extends CI_Model
 			$q->free_result();
 		}
 		return $data;
-
 	}
 
 	function cargarCiPorPLaza($plaza){
@@ -366,7 +365,7 @@ class Tempciri_model extends CI_Model
       }
 
     };
-		
+
 		$data = array();
 		$q = $this->db->query("
 		SELECT *

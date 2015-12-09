@@ -4,8 +4,8 @@
 <thead>
   <tr>
     <th>Folio</th>
-    <th>Plaza</th>
     <th>Cliente</th>
+    <th>Plaza</th>
     <th>Usuario</th>
     <th>Deposito</th>
     <th>Estatus</th>
@@ -15,11 +15,17 @@
   <? foreach($data as $row):?>
   <tr>
     <th><p><?=$row->folio;?></p></th>
+    <th><p><?=$row->cliente;?></p></th>
     <th><p><?=$row->plaza;?></p></th>
-    <th><p><?=$row->pnombre;?> <?=$row->snombre;?> <?=$row->apellidopaterno;?> <?=$row->apellidomaterno;?></p></th>
     <th><p><?=$row->nombreCompleto;?></p></th>
     <th><p><?=$row->deposito;?></p></th>
-    <th><p><?=$row->estado;?></p></th>
+    <th>
+    	<p>
+    		<a class="mt10" href="<?=base_url()?>tempciri/detalleCi/<?= $row->cartaIntId;?>" >
+    			<?=$row->estado;?>
+    		</a>
+    	</p>
+    </th>
   </tr>
   <?endforeach; ?>
 </tbody>

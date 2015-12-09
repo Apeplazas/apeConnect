@@ -10,7 +10,7 @@
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/search.svg" alt="Generar carta intencion"></i>
 			<span>Busqueda Avanzada</span>
 		</a>
-		<a id="bAva" title="Generar carta intencion" class ="addSmall">
+		<a id="exportarExcel" title="Generar carta intencion" class ="addSmall" href="<?= base_url();?>tempciri/exportarExcel">
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/excelIcon.svg" alt="Generar carta intencion"></i>
 			<span>Exportar excel</span>
 		</a>
@@ -34,7 +34,7 @@
 			<? foreach($cis as $ci):?>
 			<tr>
 			  <th><p><?= $ci->folio?></p></th>
-				<th><p class="limitTab"><?= $ci->pnombre;?> <?= $ci->snombre;?> <?= $ci->apellidopaterno;?> <?= $ci->apellidomaterno;?></p></th>
+				<th><p class="limitTab"><?= $ci->cliente;?></p></th>
 			  <th><p><?= $ci->plazaNombre?></p></th>
 			  <th><p><?= $ci->nombreCompleto?></p></th>
 			  <th>$ <?= number_format("$ci->deposito",2);?></th>

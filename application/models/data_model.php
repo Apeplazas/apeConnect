@@ -309,7 +309,7 @@ class Data_model extends CI_Model {
 								AND local LIKE '%$filtro%'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
-				$data[] = $row;
+				$data[] = $row->local;
 			}
 			$q->free_result();
 		}
