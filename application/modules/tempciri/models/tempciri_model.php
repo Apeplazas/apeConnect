@@ -366,7 +366,7 @@ class Tempciri_model extends CI_Model
       }
 
     };
-
+		
 		$data = array();
 		$q = $this->db->query("
 		SELECT *
