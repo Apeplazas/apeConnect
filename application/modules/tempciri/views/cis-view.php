@@ -51,24 +51,23 @@
 			</tr>
 		</tbody>
 	</table>
-
-<div id="popup" class="modal-box">
-  <div>
-    <a href="#" class="js-modal-close cerrar"><img src="<?=base_url()?>assets/graphics/svg/close.svg" alt="Cerrar"></a>
-    <h3>Ingreso de documento firmado</h3>
-		<p>Como requisito para terminar el proceso necesitara adjuntar el documento scaneado y firmado.</p>
-  </div>
-  <form id="scanFileDoc" method="post" class="modal-body" enctype="multipart/form-data" action="#" method="post">
-		<fieldset>
-			<span id="hideTy"><input type="file" name="firma" accept=".pdf,image/*"  required /></span>
-		</fieldset>
-		<fieldset>
-			<input type="hidden" name="cartaIntId" id="cartaIntId" value="" />
-			<input type="image" src="<?=base_url()?>assets/graphics/finalizarFirma.png" id="enviarFirma" />
-		</fieldset>
-	</form>
 </div>
-
+<div id="popup" class="modal-box">
+	  <div>
+	    <a href="#" class="js-modal-close cerrar"><img src="<?=base_url()?>assets/graphics/svg/close.svg" alt="Cerrar"></a>
+	    <h3>Ingreso de documento firmado</h3>
+			<p>Como requisito para terminar el proceso necesitara adjuntar el documento scaneado y firmado.</p>
+	  </div>
+	  <form id="scanFileDoc" method="post" class="modal-body" enctype="multipart/form-data" action="#" method="post">
+			<fieldset>
+				<span id="hideTy"><input type="file" name="firma" accept=".pdf,image/*"  required /></span>
+			</fieldset>
+			<fieldset>
+				<input type="hidden" name="cartaIntId" id="cartaIntId" value="" />
+				<input type="image" src="<?=base_url()?>assets/graphics/finalizarFirma.png" id="enviarFirma" />
+			</fieldset>
+		</form>
+	</div>
 <script type="text/javascript">
 $(document).ready(function() {
 	/// Llama al plugin de datatables
@@ -80,7 +79,7 @@ $(document).ready(function() {
     
 	var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
 
-	$('a[data-modal-id]').click(function(e) {
+	$('a[data-modal-id]').live('click',function(e) {
 		e.preventDefault();
 		var cartaId = $(this).attr('title');
 		$('#cartaIntId').val(cartaId);
@@ -125,4 +124,3 @@ $(document).ready(function() {
 
 });
 </script>
-</div>
