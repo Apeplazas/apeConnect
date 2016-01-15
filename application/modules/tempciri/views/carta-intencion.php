@@ -25,7 +25,7 @@
 	<p>En relación al local que deseo arrendarles, les pido sean consideradas las siguientes condiciones básicas:<br/>
 	Contrato a partir del mes de<?= " &nbsp;";?><span class="underline-text"><?= $rentmes;?></span><?= " &nbsp;";?>con una duración de<?= " &nbsp;";?><span class="underline-text"><?= $rentduracion;?></span><?= " &nbsp;";?>
 	con<?= " &nbsp;";?><span class="underline-text"><?=$diasGracia;?></span><?= " &nbsp;";?>días de gracia con una renta mensual de<?= " &nbsp;";?><span class="underline-text"><?=money_format('%(#10n',$rentaCant);?></span><?= " &nbsp;";?>mas I.V.A.<?= " &nbsp;";?>(<span class="underline-text"><?=$rentanLocalLetra;?></span>)<?= " &nbsp;";?>
-	una renta de deposito de<?= " &nbsp;";?><span class="underline-text"><?= money_format('%(#10n',$rentant);?></span></p>
+	una renta de deposito de<?= " &nbsp;";?><span class="underline-text"><?= money_format('%(#10n',$rentaCant*1.16);?></span></p>
 	<br/>
 	<p>Por la presente, ruego a la administración de<?= " &nbsp;";?><strong><?=strtoupper($plaza);?></strong>,<?= " &nbsp;";?>darme una OPCION para celebrar el correspondiente contrato de 
 	ARRENDAMIENTO, quedando en el entendido de que el plazo para concretar el contrato sera de 7 días contados a partir de la presente fecha.
