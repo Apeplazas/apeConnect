@@ -31,7 +31,7 @@
 				<p>El trabajo en equipo comienza construyendo confianza</p>
 			</span>
       <form  id="loginForm"  method="post">
-				<span><div class="msgBlack"></div></span>
+				<div><div class="msgBlack"></div></div>
         <p>
 					<label>Correo Electronico</label>
 					<input class="inpLog" type="text" name="var" value="" placeholder="Escribe tu email"></p>

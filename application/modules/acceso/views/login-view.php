@@ -5,7 +5,7 @@
 	<h1 class="fOne">Bienvenido.</h1>
 	<p>No cuentas con una cuenta,  <a class="sans fOne" title="Registrate aquí" href="<?=base_url()?>registrate">Registrate ahora!</a></p>
   </div>
-  <span><div class="msgBlack"></div></span>
+  <div><div class="msgBlack"></div></div>
   <fieldset class="bbW">
     <label>Usuario or Email</label>
 	<input class="sans inBut" type="text" name="var" placeholder="Username or email" />

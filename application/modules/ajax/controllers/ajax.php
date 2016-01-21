@@ -9,6 +9,7 @@ class Ajax extends MX_Controller {
 		$this->load->model('proyectos/proyecto_model');
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('planogramas/planogramas_model');
+		$this->load->model('evaluaciones/evaluaciones_model');
 		$this->load->model('notificaciones/notificaciones_model');
 		$this->load->model('user_model');
 
@@ -26,6 +27,77 @@ class Ajax extends MX_Controller {
          	redirect('');
         }
     }
+
+
+	function addCategoriasEva(){
+		$value = $_POST['value'];
+		$query = $this->db->query("SELECT * FROM evaluacion_categorias WHERE evaluacionCategoriaID='$value'");
+
+
+		foreach($query->result() as $row){
+			$data = "
+			<div class='sinPre' id='preg".$row->evaluacionCategoriaID."'>
+			<fieldset>
+			<label>
+				<a href='http://localhost:8888/apeConnect/prospectos/borrar/4/borrado' class='addToolSmall remove' title='Borrar'>
+				<i class='removeT'></i>
+				</a>
+				<div class='catNomEva'>".$row->categoriaNombre."</div>
+			</label>
+			<div class='secPreg'>
+			<input name='categ[]' id='".$row->evaluacionCategoriaID."' type='hidden' value='".$row->evaluacionCategoriaID."'/>
+			<input class='noMsgEv' placeholder='Agrega aqui tu  pregunta'/>
+			</div>
+			<a href='../ajax/agregaPreguntasEvaluacion' id='sCTip' title='".$row->evaluacionCategoriaID."' class='addPreg addSmallGrayBot'>
+  				<i class='iconPlus'><img src='http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg' alt='Agregar Pregunta'></i>
+  				<span>Agregar Pregunta</span>
+  			</a>
+			</fieldset>
+			</div>
+
+			<script type='text/javascript'>
+			$('.sinPre').click(function(event){
+				event.preventDefault();
+      });
+			$('.remove').click(function(){
+				$(this).parent().parent().remove();
+			});
+
+			$('.addPreg').click(function(){
+				event.preventDefault();
+				var call = $(this).attr('href');
+				var value = $(this).attr('title');
+				var tthis = $(this);
+
+				$.ajax({
+					data : {'value':value},
+					dataType : 'json',
+					url : call,
+					type : 'post',
+					success : function(data) {
+						tthis.before(data);
+						$('.sinPre p').addClass('hide');
+					}
+				});
+			});
+			</script>";
+		}
+
+		echo json_encode($data);
+	}
+
+	function agregaPreguntasEvaluacion(){
+		echo json_encode("<div class='secPreg'>
+			<span class='borrar'>x</span>
+			<input name='preg[]' type='text' placeholder='Agrega aquí tu pregunta.'/>
+		</div>
+		<script type='text/javascript'>
+		$('.borrar').click(function(){
+			$(this).parent().remove();
+		});
+		</script>");
+
+	}
 
 	function verificaUrl()
 	{
@@ -1442,6 +1514,22 @@ class Ajax extends MX_Controller {
 		$op['data'] = $this->tempciri_model->busquedaCartasIntencion($data);
 
 		$this->load->view('busquedaCIAvanzada-view' ,$op);
+
+	}
+
+	function cargarUsuarios(){
+		$data 		= $_POST['alldata'];
+		$op['data'] = $this->evaluaciones_model->busquedaUsuariosAjax($data);
+
+		$this->load->view('busquedaUsuariosAvanzada-view' ,$op);
+
+	}
+
+	function cargarUsuariosAcalificar(){
+		$data 		= $_POST['alldata'];
+		$op['data'] = $this->evaluaciones_model->busquedaUsuariosAjax($data);
+
+		$this->load->view('busquedaUsuariosAvanzadaAcalificar-view' ,$op);
 
 	}
 

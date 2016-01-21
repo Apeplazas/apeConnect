@@ -84,7 +84,7 @@
 {
     display: block;
     width: auto;
-    margin: 0 0.5em 0.5em;
+    margin: 0 1em 0 0;
     padding:13px 17px 13px;
     text-decoration: none;
 
@@ -193,6 +193,7 @@
     display: block;
     text-align: right;
     width:96%;
+    margin-top:15px;
 }
 
 .wizard.vertical > .actions
