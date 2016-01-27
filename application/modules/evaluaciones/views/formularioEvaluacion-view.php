@@ -313,12 +313,25 @@ $(".datePick").datepicker({
 $("#clickAdd").click(function(){
   var califica = $('#busColOne').val();
   var acalificar = $('#busColTwo').val();
-  var calificaID = $('#busColONe').attr('id');
-  var acalificaID = $('#busColTwo').attr('id');
+  var calificaID = $('#busColONe').attr('data-text');
+  var acalificaID = $('#busColTwo').attr('data-text');
 
-  
-  alert(califica);
+  if(califica){
+      $("#busFinal").append('<div class="agreCali"><a href="#" class="rem"></a><input type="hidden" value="'+califica+'"/> <i>'+califica+'</i><em>Calificara a</em><input type="hidden" name="caliID[]" value="'+calificaID+'"/><input type="text" value="'+acalificar+'"/> <input type="hidden" name="calificacoID[]" value="'+acalificaID+'"/></div>');
+      $( "#tablaUsu" ).empty();
+      $('#busColOne').val('');
+      $('#busColTwo').val('');
+  }else{
+    alert('No ha escogido a ningun colaborador que participe en su encuesta');
+    $( "#tablaUsu" ).empty();
+    $('#busColOne').val();
+    $('#busColTwo').val();
+  }
 
+  $(".rem").click(function(event){
+    event.preventDefault();
+    $(this).parent().remove();
+  });
 });
 </script>
 

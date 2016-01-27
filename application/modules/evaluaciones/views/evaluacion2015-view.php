@@ -89,7 +89,7 @@
       <thead>
         <tr>
           <!--- Primer Segmento--->
-          <th class="bigTb"><em><?=$row->categoria;?></em></th>
+          <th class="bigTb"><em><?=$row->categoriaNombre;?></em></th>
           <!--- Segundo Segmento--->
           <? if ($usuarioSesion['usuarioID'] == $this->uri->segment(3) ||  $this->uri->segment(4) == 4):?>
           <th class="smaTb">Autoevaluado</th>
@@ -154,10 +154,12 @@
 
     </table>
     <?endforeach; ?>
+    <? if(isset($resp)):?>
     <input type="hidden" name="campania" value="<?=$this->uri->segment(5);?>">
     <input type="hidden" name="tipo" value="<?=$this->uri->segment(4);?>">
     <input type="hidden" name="usuarioAcalificar" value="<?=$this->uri->segment(3);?>">
     <input type="submit" id="submit" value="Enviar información" class="mt10 mainBotton">
+    <?endif?>
     </form>
     <br class="clear">
   </div>

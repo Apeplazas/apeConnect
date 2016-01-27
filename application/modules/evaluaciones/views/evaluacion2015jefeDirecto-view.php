@@ -84,7 +84,7 @@
     <table class="infoEva">
       <thead>
         <tr>
-          <th class="bigTb"><em><?=$row->categoria;?></em></th>
+          <th class="bigTb"><em><?=$row->categoriaNombre;?></em></th>
           <th class="smaTb">Autoevaluado</th>
           <? if ($this->uri->segment(4) != '1'):?>
           <th class="smaTb">Jefe Directo</th>

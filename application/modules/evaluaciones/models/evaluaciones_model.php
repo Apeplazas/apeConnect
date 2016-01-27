@@ -10,7 +10,9 @@ class Evaluaciones_model extends CI_Model
 
 	function evaluacionListaCategorias(){
 		$data = array();
-		$q = $this->db->query("SELECT categoria FROM evaluacion_preguntas GROUP BY categoria order by preguntaID asc");
+		$q = $this->db->query("SELECT * FROM evaluacion_preguntas e
+			LEFT JOIN evaluacion_categorias ec ON e.categoria=ec.evaluacionCategoriaID
+			GROUP BY categoria order by preguntaID asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -119,9 +121,29 @@ class Evaluaciones_model extends CI_Model
 		return $data;
 	}
 
+	function checaContestacionesCampaniaUsuario($campaniaID, $usuarioAcalificar){
+		$data = array();
+		$q = $this->db->query("SELECT usuarioAcalificar as 'usuario'
+														FROM evaluacion_respuestas er
+														LEFT JOIN evaluacion_preguntas ep ON er.preguntaID=ep.preguntaID
+														where ep.campaniaID='$campaniaID'
+														and usuarioAcalificar='$usuarioAcalificar'
+														group by ep.campaniaID='$campaniaID'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+
 	function cargaListadeEvaluaciones($usuarioID,$campaniaID){
 		$data = array();
 		$q = $this->db->query("SELECT
+			ec.fechaInicio as 'Inicia',
+			ec.fechaFin as 'Finaliza',
+			ec.campaniaStatus as 'status',
 			ece.campaniaID as 'campaniaID',
 			ece.usuarioAcalificarID as 'usuarioID',
 			u.nombreCompleto as 'nombreCompleto',

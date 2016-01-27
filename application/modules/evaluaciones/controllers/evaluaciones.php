@@ -11,7 +11,7 @@ class Evaluaciones extends MX_Controller {
 	}
 
 	function guardarCampaniaEvaluacion(){
-var_dump($_POST);
+
 		//Insertar evaluacuón
 		$evalData = array(
 			'campaniaNombre'			=> $_POST['campaniaNombre'],
@@ -94,7 +94,7 @@ var_dump($_POST);
 			
 		}
 		
-		//redirect('evaluaciones/generaPreguntas/'.$this->db->insert_id());
+		redirect('evaluaciones/generaPreguntas/'.$evalID);
 	}
 
 	//Funcion para enviar mails
@@ -160,7 +160,7 @@ var_dump($_POST);
 		$this->layouts->profile('listas-view', $op);
 	}
 
-	function usuario($usuarioID,$tipo){
+	function usuario($usuarioID,$tipo,$campaniaID){
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 				= $this->user_model->traeadmin($usuarioID);
 		$this->load->model('evaluaciones/evaluaciones_model');
@@ -174,21 +174,21 @@ var_dump($_POST);
 		}
 		// Si el tipo de evauluacion sen encuentra en 2 o 3 se verifica el role
 		if($tipo == '2' && $usuarioSesion['usuarioID'] != $usuario[0]->jefeDirectoID ){
-			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/1/'.$this->uri->segment(5));
+			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/1/'.$campaniaID);
 		}
 		else if($tipo == '1' && $usuarioSesion['usuarioID'] != $usuarioID ){
-			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$this->uri->segment(5));
+			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$campaniaID);
 		}
 		else if($tipo == '3' && empty($valida)){
-			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$this->uri->segment(5));
+			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$campaniaID);
 		}
 
-		$verifica = $this->evaluaciones_model->verificaRespuesta($usuarioID, $tipo);
+		$verifica = $this->evaluaciones_model->verificaRespuesta($usuarioID, $tipo, $usuarioSesion['usuarioID']);
 		if(empty($verifica)){
 			$this->layouts->profile('evaluacion2015-view', $op);
 		}
 		else{
-			redirect('evaluaciones');
+			$this->layouts->profile('evaluaciones-resultados', $op);
 		}
 
 	}
