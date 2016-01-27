@@ -1,4 +1,4 @@
-<form action="<?=base_url()?>evaluaciones/guardarCampaniaEvaluacion" method="post">
+<form action="<?=base_url()?>evaluaciones/guardarCampaniaEvaluacion" method="post" id="guardarForm">
 <div id="mainTit">
   <h3>Agrega tu evaluación</h3>
 </div>
@@ -46,10 +46,9 @@
       <table>
       <tr id="tipForm">
         <td>
-          <span><input type="checkbox" name="tipoEnvio" value="2"><em>Jefe Directo</em></span>
-          <span><input type="checkbox" name="tipoEnvio" value="2"><em>Autoevaluación</em></span>
-          <span><input id="colabSta" type="checkbox" name="tipoEnvio" value="3"><em>Colaborador vs Colaborador</em></span>
-          <span><input id="areSta" type="checkbox" name="tipoEnvio" value="3"><em>Evaluacion colaborador</em></span>
+          <span><input type="checkbox" name="jefeDirecto"><em>Jefe Directo</em></span>
+          <span><input id="colabSta" type="checkbox" name="colaboradores"><em>Colaborador vs Colaborador</em></span>
+          <span><input id="areSta" type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
         </td>
       </tr>
       </table>
@@ -201,11 +200,13 @@
       <div id="wrapColabora">
       <div class="span">
       <b>¿Quien quieres que califica?</b>
-      <input id="busColOne" class="kUpOne" type="text" name="tipoEnvio" value="">
+      <input id="busColOne" class="kUpOne" type="text" value="">
+      <input id="busColOneHide" type="hidden" name="colQCalif[]" value="">
       </div>
       <div class="span">
         <b>¿A quien quieres que evalue?</b>
-        <input id="busColTwo" class="kUpTwo" type="text" name="tipoEnvio" value="">
+        <input id="busColTwo" class="kUpTwo" type="text" value="">
+        <input id="busColTwoHide" type="hidden" name="colACalif[]" value="">
       </div>
       <div class="span">
           <div id="clickAdd" class="addSmallGrayBot">
@@ -238,7 +239,7 @@
            <?foreach ($dat as $varB): ?>
            <?if($dat):?>
            <tr>
-             <td><input type="checkbox" name="selected[]" id="box_1" value="1" /></td>
+             <td><input type="checkbox" name="userAutoEval[]" id="box_1" value="<?php echo $varB->usuarioID ?>" /></td>
              <td><?=$varB->numeroEmpleado;?></td>
              <td><?=$varB->nombreCompleto;?></td>
              <td><?=$varB->email;?></td>

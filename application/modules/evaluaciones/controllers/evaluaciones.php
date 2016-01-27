@@ -11,21 +11,97 @@ class Evaluaciones extends MX_Controller {
 	}
 
 	function guardarCampaniaEvaluacion(){
-
-		$data = array(
+var_dump($_POST);
+		//Insertar evaluacuón
+		$evalData = array(
 			'campaniaNombre'			=> $_POST['campaniaNombre'],
 			'campaniaStatus'			=> $_POST['campaniaStatus'],
 			'fechaInicio' 				=> $_POST['fechaInicio'],
 			'fechaFin' 						=> $_POST['fechaFin'],
 			'campaniaNombre'		=> $_POST['campaniaNombre'],
-			'campaniaDescripcion'	=> $_POST['campaniaDescripcion'],
-			'rangoSueldoMinimo'		=> $_POST['rangoSueldoMinimo'],
-			'rangoSueldoMaximo'		=> $_POST['rangoSueldoMaximo'],
+			'campaniaDescripcion'	=> $_POST['campaniaDescripcion']
 		);
 
-		$this->db->insert('evaluacion_campanias', $data);
+		$this->db->insert('evaluacion_campanias', $evalData);
+		$evalID = $this->db->insert_id();
+		
+		//Insertar preguntas
+		$preguntas 		= $_POST['categ'];
+		$preguntasData	= array();
+		foreach($preguntas as $cat => $pregDat){
+			
+			foreach($pregDat as $preg){
+				
+				$preguntasData[] = array(				
+					'pregunta'		=> $preg,
+					'categoria'		=> $cat,
+					'campaniaID'	=> $evalID 
+				);
+				
+			}
+			
+		}
+		$this->db->insert_batch('evaluacion_preguntas', $preguntasData);
+		
+		//Insertar Usuarios ----AUTOEVALUACION
+		if($_POST['autoEval'] == 'on'){
+			$autoEvalData 		= array();
+			foreach($_POST['userAutoEval'] as $userId){
+				
+				$userTemp		= $this->user_model->traeadmin($userId);
+				
+				$autoEvalData[] = array(
+					'usuarioAcalificarID'	=> $userId,
+					'usuarioQuecalifica'	=> $userId,
+					'campaniaID'			=> $evalID
+				);
+				
+				$this->enviarEmail($userTemp[0]->email);
+				
+				//Insertar Usuarios ----JEFEDIRECTO
+				if( $_POST['jefeDirecto'] == 'on' && !empty($userTemp[0]->jefeDirectoI) ){
+					$autoEvalData[] = array(
+						'usuarioAcalificarID'	=> $userId,
+						'usuarioQuecalifica'	=> $userTemp[0]->jefeDirectoID,
+						'campaniaID'			=> $evalID
+					);
+					$tempJefeDir = $this->user_model->traeadmin($userTemp[0]->jefeDirectoID);
+					$this->enviarEmail($tempJefeDir[0]->email);
+				}
+				
+			}
+			$this->db->insert_batch('evaluacion_catalogoevaluadores', $autoEvalData);
+			
+		}
+		
+		//Insertar Usuarios ----COLABORADORES
+		if($_POST['colaboradores'] == 'on'){
+			$colEvalData = array();
+			foreach($_POST['colACalif'] as $key => $userId){
+				$usuarioQCalif	= $_POST['colQCalif'][$key];
+				$userTemp		= $this->user_model->traeadmin($usuarioQCalif);
+				
+				$colEvalData[] = array(
+					'usuarioAcalificarID'	=> $userId,
+					'usuarioQuecalifica'	=> $usuarioQCalif,
+					'campaniaID'			=> $evalID
+				);
+				
+				$this->enviarEmail($userTemp[0]->email);
+				
+			}
+			$this->db->insert_batch('evaluacion_catalogoevaluadores', $colEvalData);
+			
+		}
+		
+		//redirect('evaluaciones/generaPreguntas/'.$this->db->insert_id());
+	}
 
-		redirect('evaluaciones/generaPreguntas/'.$this->db->insert_id());
+	//Funcion para enviar mails
+	private	function enviarEmail($email){
+			
+			
+			
 	}
 
 	function generaPreguntas($campaniaID){

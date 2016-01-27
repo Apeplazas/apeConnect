@@ -26,7 +26,7 @@ $(document).ready(function(){
     var text = $(this).attr('data-text');
 
     $('#busColTwo').val(text);
-    $('#busColTwo').attr('id', id);
+    $('#busColTwoHide').val(id);
     $( "#ajaxUsu" ).empty();
   });
 });

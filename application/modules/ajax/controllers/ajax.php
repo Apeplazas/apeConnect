@@ -45,8 +45,7 @@ class Ajax extends MX_Controller {
 				<div class='catNomEva'>".$row->categoriaNombre."</div>
 			</label>
 			<div class='secPreg'>
-			<input name='categ[]' id='".$row->evaluacionCategoriaID."' type='hidden' value='".$row->evaluacionCategoriaID."'/>
-			<input class='noMsgEv' placeholder='Agrega aqui tu  pregunta'/>
+			<input name='categ[".$row->evaluacionCategoriaID."][]' class='noMsgEv' placeholder='Agrega aqui tu  pregunta'/>
 			</div>
 			<a href='../ajax/agregaPreguntasEvaluacion' id='sCTip' title='".$row->evaluacionCategoriaID."' class='addPreg addSmallGrayBot'>
   				<i class='iconPlus'><img src='http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg' alt='Agregar Pregunta'></i>
@@ -89,7 +88,7 @@ class Ajax extends MX_Controller {
 	function agregaPreguntasEvaluacion(){
 		echo json_encode("<div class='secPreg'>
 			<span class='borrar'>x</span>
-			<input name='preg[]' type='text' placeholder='Agrega aquí tu pregunta.'/>
+			<input name='categ[".$_POST['value']."][]' type='text' placeholder='Agrega aquí tu pregunta.'/>
 		</div>
 		<script type='text/javascript'>
 		$('.borrar').click(function(){
