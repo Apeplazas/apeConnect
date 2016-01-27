@@ -15,35 +15,52 @@
 	</div>
   <div class="wrapListFormThree" >
     <h3><?=$info->campaniaNombre;?></h3>
-		<div id="tabsE<? if($contestacion):?>va<?endif?>">
+    <p class="mainSub"><?=$info->campaniaDescripcion;?></p>
+    <? if(empty($contestacion)):?>
+    <a class="contesta" href="<?=base_url()?>evaluaciones/usuario/<?=$usuarioSesion['usuarioID']?>/1/<?=$this->uri->segment(3);?>" title="Contestar evaluación" class="addSmall">
+			<i class="iconPlus"><img src="http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
+			<span>Contesta tu evaluación aqui</span>
+		</a>
+    <br class="clear">
+    <?else:?>
+
+		<div id="tabsEva">
 		  <ul>
         <?if($evaluaciones):?>
-		    <li><a href="#tab2">Lista de usuarios por evaluar</a></li>
+		    <li><a href="#tab2">Evalua a tus colaboradores</a></li>
         <?endif;?>
 		    <li>
-          <a <? if($contestacion):?>href="#tab1"
-            <?else:?>class='acti' href="<?=base_url()?>evaluaciones/usuario/<?=$usuarioSesion['usuarioID']?>/1/<?=$this->uri->segment(3);?>"<?endif?>>Tu evaluación</a>
+          <a href="#tab1">Tu evaluación</a>
         </li>
 		  </ul>
       <?if($evaluaciones):?>
 		  <div id="tab2">
-
 				<table id="tablaproveed" class="dataEva">
 		      <thead>
 		        <tr>
+              <th></th>
               <th>Status</th>
-		          <th>Nombre Completo</th>
-		          <th>Correo Electronico</th>
-		          <th>Posición / Puesto</th>
+		          <th>Encuesta enviada por:</th>
+              <th>Posición / Puesto</th>
+		          <th>Inicio</th>
+              <th>Finaliza</th>
+
 		        </tr>
 		      </thead>
 		      <tbody>
 						<?foreach ($evaluaciones as $var): ?>
-		        <tr onclick="window.location.href='<?=base_url()?>evaluaciones/usuario/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'">
+
+            <? $verifica = $this->evaluaciones_model->checaContestacionesCampaniaUsuario($this->uri->segment(3) ,$var->usuarioID);?>
+
+
+		        <tr data="<?=$var->usuarioID;?>"
+              <?if ($var->usuarioID != $usuarioSesion['usuarioID']):?> onclick="window.location.href='<?=base_url()?>evaluaciones/usuario/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"<?else:?>class='alertClick'<?endif?>>
 
               <? $consulta = $this->evaluaciones_model->verificaProceso($var->usuarioID);?>
               <? $conteo = sizeof($consulta) ?>
-
+              <th>
+                <?if (empty($verifica[0]->usuario)):?><span class="palomita" title="Esta evaluación ya fue contestada"></span><?else:?><span class="espera" title="En espera a ser contestada"></span><?endif?>
+              </th>
               <th>
                 <? if ($conteo > 2):?>
                 <img src="<?=base_url()?>assets/graphics/4evaluacion.png" alt="Proceso" />
@@ -58,9 +75,13 @@
                 <? endif?>
               </th>
 
-		          <th><?=$var->nombreCompleto;?></th>
-		          <th><?=$var->email;?></th>
-		          <th><?=$var->puesto;?></th>
+		          <th class="ingo">
+                <em><?=$var->usuarioID?> - <?=$usuarioSesion['usuarioID']?> \ <?=$var->nombreCompleto;?></em>
+                <span ><?=$var->email;?></span>
+              </th>
+              <th><?=$var->puesto;?></th>
+		          <th><?=$var->Inicia;?></th>
+              <th><?=$var->Finaliza;?></th>
 		        </tr>
 						<?endforeach?>
 		      </tbody>
@@ -69,8 +90,6 @@
 		  </div>
       <?endif?>
 
-
-<?if($contestacion):?>
 		  <div id="tab1">
 
         <?
@@ -81,11 +100,13 @@
         <table class="infoEva">
           <thead>
             <tr>
-              <th class="bigTb"><em><?=$row->categoria;?></em></th>
+              <th class="bigTb"><em><?=$row->categoriaNombre;?></em></th>
               <th class="smaTb">Autoevaluado</th>
               <th class="smaTb">Jefe Directo</th>
               <th class="smaTb">Promedio</th>
+              <? if ($usuarioSesion['idrole'] != 8):?>
               <th class="medTb">Planes de Acción</th>
+              <?endif?>
             </tr>
           </thead>
 
@@ -108,7 +129,9 @@
             <td class="tcenter"><?=$data->autoevaluacion;?></td>
             <td class="tcenter"><?=$data->jefeDirecto;?></td>
             <td class="tcenter"><?=$data->promedio;?></td>
+            <? if ($usuarioSesion['idrole'] != 8):?>
             <td><p class="evaDes"><?=$data->plandeaccion;?></p></td>
+            <?endif?>
           </tr>
           <?endforeach; ?>
           <?$sumSizeOf += (($conteo * 4)*2)?>
@@ -118,7 +141,9 @@
             <td class="tcenter"><?=$autoSum?></td>
             <td class="tcenter"><?=$jefeSum?></td>
             <td class="tcenter"><?=$promSum?></td>
+            <? if ($usuarioSesion['idrole'] != 8):?>
             <td></td>
+            <?endif?>
           </tr>
           </tbody>
         </table>
@@ -136,14 +161,21 @@
               <?endif?>
               <?=$puntos?>
             </td>
-            <td></td>
+            <? if ($usuarioSesion['idrole'] != 8):?>
+            <td> <textarea name="name" rows="8" cols="40"></textarea> </td>
+            <?endif?>
           </tr>
         </table>
 
         <br class="clear">
 		  </div>
-      <?endif?>
+
+
+
+
 		</div>
+
+    <?endif;?>
 	</div>
 </div>
 <?endforeach; ?>
@@ -151,4 +183,9 @@
 	$(function() {
 		$( "#tabsEva" ).tabs();
 	});
+
+  $('.alertClick').click(function(){
+    alert('Esta evaluacion ya fue contestada');
+  });
+
 </script>

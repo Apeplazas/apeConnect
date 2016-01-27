@@ -13,7 +13,7 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button, #choTip, .callId, #choTipEva{cursor:pointer}
+button, #choTip, .callId, #choTipEva, .cPointer{cursor:pointer}
 strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
@@ -33,6 +33,7 @@ h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#777; fon
 a:hover{color:cornflowerblue}
 .alertTab{color:brown; font-weight:700}
 .ohid{overflow:hidden}
+.alertClick{background:#F5F5DC}
 
 /*---------------- Cargador ------------------*/
 .loader {
@@ -185,8 +186,8 @@ background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(233,234,234) 3%,r
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
 .addSmallGray{float:left; position:relative; padding:6px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; height:26px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:10px; background:url(../graphics/bckGray.png) 0 -29px repeat-x #fff;}
 .addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover, #choTipEva a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
-.addSmall span, .addSmallClick span{margin-top:8px; float:left; font-style:normal}
-.addSmall:hover, .valGen:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
+.addSmall span, .addSmallClick span, .contesta span{margin-top:8px; float:left; font-style:normal}
+.addSmall:hover, .valGen:hover, .contesta:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
 background:-moz-linear-gradient(top, #ffffff 1%, #f0f9ff 56%, #cbebff 99%, #cbebff 99%, #a1dbff 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(56%,#f0f9ff), color-stop(99%,#cbebff), color-stop(99%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top, #ffffff 1%,#f0f9ff 56%,#cbebff 99%,#cbebff 99%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
@@ -392,9 +393,9 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .dataEva{border:1px solid #ccc; border-bottom:none; margin:0 !important}
 .dataEva thead{background:#fafafa}
 .dataEva thead th{font-size:12px; font-weight:700; padding:10px 10px 8px !important;}
-.dataEva tbody th{padding:10px 10px 8px !important; cursor:pointer}
+.dataEva tbody th{padding:7px 10px 5px !important; cursor:pointer}
 .dataEva .des{font-size:10px; line-height:15px; float:left; width:100%; font-style:normal; font-weight:700;}
-#tabsEva, #tabsE{margin-top:15px}
+#tabsEva, #tabsE{margin-top:20px}
 #tabsEva ul, #tabsE ul{float:left; width:100%; border-bottom:none;}
 #tabsEva li a, #tabsE li a{padding:6px 30px 4px; float:left; width:100%;}
 #tabsEva ul li, #tabsE ul li{float:left; border:1px solid #ccc; border-bottom:none; text-transform:uppercase}
@@ -453,12 +454,31 @@ border-bottom-right-radius: 5px; }
 #colabora .blueHead{font-weight:700; padding:6px 10px}
 #colabora .span{float:left; width:290px; padding-top:10px;}
 #colabora b{text-transform:uppercase; width:200px; float:left; line-height:24px; font-weight:700}
-#colabora .kUpOne,#colabora .kUpTwo{border:1px solid #ccc; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; width:280px; height:30px; padding:0 10px}
+#colabora .kUpOne,#colabora .kUpTwo{border:1px solid #ccc; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; width:280px; height:30px; padding:0 10px; text-transform:uppercase}
 #ajaxUsu{float:left; width:100%}
-.addID{cursor:pointer}
+.addID{cursor:pointer; background:#fff}
 #wrapColabora{float:left; width: 100%; border: 1px solid #ccc; padding: 0 10px 10px; margin: 10px 0; border-radius: 5px; background-color: #fafafa;}
 #wrapColabora .addSmallGrayBot{margin-top:22px}
-
+#busFinal{margin-top: 10px; float:left; width:100%; border-left:3px solid #007aff}
+.agreCali{float: left; width: 100%; padding:5px 9px 3px; border-bottom: 1px solid #ccc; background:#fff; text-transform:uppercase; border-top:1px solid #fff}
+.agreCali input{border:none; background:transparent}
+#ajaxUsu .msgAva{margin-top:25px}
+#tablaUsu th{padding:0 10px}
+.agreCali i{color:#007aff;}
+.agreCali em{line-height:18px; font-style:normal; margin-right:5px;}
+.agreCali input{text-transform:uppercase; font-weight:700; color: dodgerblue; color:dodgerblue;}
+#ajaxUsu #msgAva{margin:10px 0}
+.addID:hover{cursor:pointer; background-color:#fafafa}
+.addID th{border:1px solid #eee}
+.rem{background:url('../graphics/sprite2.png') -311px 1px no-repeat; float:left; width:20px; height:20px}
+.subTit{float: left; width: 100%; padding:0 0 10px 10px; font-weight:700; font-size:1.1em;}
+.mainSub{font-size: 1.2em; line-height:28px; text-transform:uppercase}
+#consultaEval td{font-weight:400; text-transform:uppercase; padding:10px 10px 8px 10px; text-align:left;}
+.palomita{background:url('../graphics/sprite2.png') -283px 1px no-repeat; float:left; width:20px; height:20px}
+.espera{background:url('../graphics/sprite2.png') -45px -21px no-repeat; float:left; width:20px; height:20px}
+.contesta{float: left; position: relative; padding: 3px 10px 3px 7px; text-transform: uppercase; border: 1px solid #78C1FF; color: #333; height: 35px!important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; margin: 15px 0; background: #fff; cursor: pointer;}
+.dataEva .ingo span{float:left; width:100%; text-transform:lowercase; margin-top:3px;}
+.dataEva .ingo em{font-size:1.2em; font-style:normal}
 /*---------------- Botones ------------------*/
 
 
