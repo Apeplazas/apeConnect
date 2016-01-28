@@ -17,7 +17,7 @@
 #tablaproveed thead, #tablaAvan thead{font-size:13px; text-transform:capitalize;}
 #tablaproveed tr, #tablaAvan tr{border-bottom:1px solid #e2e2e4}
 #tablaproveed tr th, #tablaAvan tr th{padding:10px 0 8px;}
-#tablaproveed tbody th, #tablaAvan tbody th{font-weight:400}
+#tablaproveed tbody th, #tablaAvan tbody th{font-weight:400; text-transform:uppercase}
 #tablaproveed tbody th p, #tablaAvan tbody th p{max-width:280px; }
 #tablaproveed tr a, #tablaAvan tr a{float:left; width:100%; text-transform:uppercase;}
 #tablaproveed_length select{background: transparent; width:48px; padding:4px 4px 5px 8px; font-size:13px; border:0; border-radius:0; height:32px; -webkit-appearance:none;}

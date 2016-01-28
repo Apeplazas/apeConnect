@@ -68,7 +68,7 @@
 		<?
 		$datosGrupos = array(); 
 		foreach($locales as $row):
-			$fechaExpiracion = marcaRenovaciones($row->fechaEmision);
+			$fechaExpiracion = '';//marcaRenovaciones($row->fechaEmision);
 			$class = 'click habilitado ';
 			if(!empty($row->grupoId)){
 				$datosGrupos[$row->grupoId] = $this->renovaciones_model->obtener_grupo($row->grupoId);

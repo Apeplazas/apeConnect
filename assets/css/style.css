@@ -13,7 +13,7 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button, #choTip, .callId{cursor:pointer}
+button, #choTip, .callId, #choTipEva, .cPointer{cursor:pointer}
 strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
@@ -33,6 +33,7 @@ h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#777; fon
 a:hover{color:cornflowerblue}
 .alertTab{color:brown; font-weight:700}
 .ohid{overflow:hidden}
+.alertClick{background:#F5F5DC}
 
 /*---------------- Cargador ------------------*/
 .loader {
@@ -54,7 +55,7 @@ a:hover{color:cornflowerblue}
 .darkBottom:hover{background:#0060C8}
 
 /*---------------- Generales  ------------------*/
-.none{display:none}
+.none, #butEva{display:none}
 #bckWhite{background-color:#f7f7f8;} #bckDark{background:#333}
 #mainContainerBlack{background:#fff; margin:110px auto 0; width:730px}
 .back{float:right; margin-right:10px}
@@ -179,14 +180,14 @@ table tbody tr:hover{background-color:#fafafa}
 .countRed{background-color: #C82E29; color: #fff; border-radius:50%; padding:2px 5px; font-weight:700; font-style:normal; position:absolute; top:-6px; right:-6px;}
 .addSmall{float:left; position:relative; padding:3px 10px 3px 7px; text-transform:uppercase; border:1px solid #78C1FF; color:#333; height:35px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:15px; background:#fff; cursor:pointer}
 .addSmallClick{float:left; position:relative; padding:3px 10px 3px 7px; text-transform:uppercase; border:1px solid #78C1FF; color:#333; height:35px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:15px; background:#fff; cursor:pointer; background: rgb(255,255,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgb(255,255,255) 0%, rgb(203,235,255) 3%, rgb(255,255,255) 77%, rgb(255,255,255) 98%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgb(255,255,255) 0%,rgb(203,235,255) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(203,235,255) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background: -moz-linear-gradient(top, rgb(255,255,255) 0%, rgb(233,234,234) 3%, rgb(255,255,255) 77%, rgb(255,255,255) 98%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgb(255,255,255) 0%,rgb(233,234,234) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(233,234,234) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
 .addSmallGray{float:left; position:relative; padding:6px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; height:26px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:10px; background:url(../graphics/bckGray.png) 0 -29px repeat-x #fff;}
-.addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
-.addSmall span, .addSmallClick span{margin-top:8px; float:left; font-style:normal}
-.addSmall:hover, .valGen:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
+.addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover, #choTipEva a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
+.addSmall span, .addSmallClick span, .contesta span{margin-top:8px; float:left; font-style:normal}
+.addSmall:hover, .valGen:hover, .contesta:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
 background:-moz-linear-gradient(top, #ffffff 1%, #f0f9ff 56%, #cbebff 99%, #cbebff 99%, #a1dbff 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(56%,#f0f9ff), color-stop(99%,#cbebff), color-stop(99%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top, #ffffff 1%,#f0f9ff 56%,#cbebff 99%,#cbebff 99%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
@@ -202,12 +203,13 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .iconEdit img{width:16px; margin-top:2px}
 #wrapListPlano{height:640px}
 .wrapListForm{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:2px 20px 20px; width:96%; position:relative}
+.wrapListFormThree{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:20px; width:96%; position:relative}
 .busquedaForm{margin-left:17px; width:96%; position:relative}
 .busquedaForm label{position:absolute;}
 .busquedaForm input{float:left; margin:1px 0px 0 13px; border:1px solid #ccc; height: 25px; width:360px; padding:0 10px; text-transform:uppercase; border-radius:3px; background-color:#fafafa;}
 #busPros{width:540px}
-.wrapListForm tbody{border:1px solid #ccc;}
-.wrapListForm thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:13px 0 13px 10px;}
+.wrapListForm tbody, .wrapListFormThree tbody{border:1px solid #ccc;}
+.wrapListForm thead th, .wrapListFormThree thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:13px 0 13px 10px;}
 .secmainTit{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; padding:15px 0 0 0; float:left; width:100%;}
 .bigInp{float:left; border:1px solid #fff; height:36px; padding:0 10px 0; width:100%; text-transform:uppercase;  color:cornflowerblue;}
 .thbr thead th{ padding:0 0 6px 10px; font-size:13px; font-weight:700}
@@ -217,10 +219,10 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .medInpSpe{float:left; width:100%; height:34px; margin-top:1px; border:1px solid #fff; text-transform:uppercase; color:cornflowerblue; padding-left:65px}
 .selBig, .selMed, .selExtra{float:left; border:none; height:33px; margin-top:2px; background-color:#fff; width:100%; text-transform:uppercase; color:cornflowerblue; border-radius:0; -webkit-appearance: none; -moz-appearance:none; padding-left:15px}
 .delToolSmall{border-top:1px solid #ddd}
-.wrapListForm table{float:left; width:100%}
-.wrapListForm tr{border-bottom:1px solid #ddd;}
-.wrapListForm label, .wrapListForm strong{text-align:left; padding:12px 15px 8px 26px; text-transform:uppercase; font-weight:400; float:left; width:100%;}
-.wrapListForm td p{float:left; width:100%; padding:0 10px; text-transform:uppercase}
+.wrapListForm table, .wrapListFormThree table{float:left; width:100%}
+.wrapListForm tr, .wrapListFormThree tr{border-bottom:1px solid #ddd;}
+.wrapListForm label, .wrapListForm strong, .wrapListFormThree label, .wrapListFormThree strong{text-align:left; padding:10px 15px 8px 26px; text-transform:uppercase; font-weight:400; float:left; width:100%;}
+.wrapListForm td p, .wrapListFormThree td p{float:left; width:100%; padding:0 10px; text-transform:uppercase}
 .grayField{background:#eee}
 .plus{position:absolute; top:0px; right:0px; border-left:1px solid #ddd; height:34px !important; background-color:#fff;}
 .plus img, .plusTwo img{width:20px; margin:8px; cursor:pointer}
@@ -254,16 +256,17 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 input[type=file]{padding-top:5px;}
 
 /*---------------- Login  ------------------*/
-.conLog{position:absolute; top:150px; width:430px;  margin-left:-215px; left:50%; text-align:center; font-family: 'Oswald', sans-serif; }
-.bckIndex{font:13px/20px 'Lucida Grande',Tahoma,Verdana,sans-serif;color:#404040;background:url(../graphics/blurbcks/13.jpg) center no-repeat}
+.conLog{position:absolute; top:150px; width:400px;  margin-left:-215px; left:50%; text-align:center; font-family: 'Oswald', sans-serif; }
+.bckIndex{font:13px/20px 'Lucida Grande',Tahoma,Verdana,sans-serif;color:#404040;background:#eee}
 .login{float:left; width:100%; background:#fff; padding-bottom: 20px; border-bottom:4px solid #4F9CD4; border-top:4px solid #4F9CD4; border-radius:5px; box-shadow:2px 5px 14px #333; -webkit-box-shadow:2px 5px 14px #333; -moz-box-shadow:2px 5px 14px #333;}
-.login h1{font-size:26px; color:#fff; font-weight:400; font-family: 'Oswald', sans-serif; float:left; width:100%;}
+.login h1{font-size:22px; color:#fff; margin:0; font-weight:400; font-family: 'Oswald', sans-serif; float:left; width:100%;}
 .login p{font-size:13px; float:left; padding-top:4px; color:#fff; font-family: 'Oswald', sans-serif; font-weight:300; float:left; width:100%;}
-.login span{padding:20px; background-color:#4F9CD4; float:left; text-transform:uppercase;}
+.login span{padding:10px 20px; background-color:#4F9CD4; float:left; text-transform:uppercase;}
+.msgBlack{float:left; width:100%; padding-top:20px; text-transform:uppercase}
 #loginForm form{float:left; padding:20px 0;}
-#loginForm label{display:block; color:#666; text-align:left; padding:20px 0 8px 10px; text-transform: uppercase; font-weight:300;font-size:17px}
-#loginForm p{float:left; width:390px; padding:0 20px}
-.inpLog{height:38px; font-size:13px; border:1px solid #ccc; background:#f9f9f9; padding:0 10px; width:370px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;}
+#loginForm label{display:block; color:#666; text-align:left; padding:20px 0 8px 10px; text-transform: uppercase; font-weight:300;font-size:15px}
+#loginForm p{float:left; width:360px; padding:0 20px}
+.inpLog{height:38px; font-size:13px; border:1px solid #ccc; background:#f9f9f9; padding:0 10px; width:340px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;}
 .submit input{cursor:pointer; background:#5db2ed; background:-moz-linear-gradient(top, #5db2ed 1%, #2989d8 94%, #7db9e8 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#5db2ed), color-stop(94%,#2989d8), color-stop(100%,#7db9e8)); background: -webkit-linear-gradient(top, #5db2ed 1%,#2989d8 94%,#7db9e8 100%);
     background: -o-linear-gradient(top, #5db2ed 1%,#2989d8 94%,#7db9e8 100%);
     background: -ms-linear-gradient(top, #5db2ed 1%,#2989d8 94%,#7db9e8 100%);
@@ -278,8 +281,8 @@ background: -o-linear-gradient(top, #2989d8 0%,#2989d8 93%,#7db9e8 100%,#7db9e8 
 background: -ms-linear-gradient(top, #2989d8 0%,#2989d8 93%,#7db9e8 100%,#7db9e8 101%); /* IE10+ */
 background: linear-gradient(to bottom, #2989d8 0%,#2989d8 93%,#7db9e8 100%,#7db9e8 101%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#7db9e8',GradientType=0 ); }
-#mesLog{color:#fff; float:left; width:100%; margin:20px 0; font-size:16px; font-weight:300}
-#mesLog a{color:#fff; font-weight:400}
+#mesLog{float:left; width:100%; margin:20px 0; font-size:16px; font-weight:300}
+#mesLog a{color:brown; font-weight:400}
 
 /*---------------- pdf cartas intencion  ------------------*/
 .pdf-container{padding:20px 20px 0;font-size:10px;font-family:"Myriad Pro",arial,helvetica,sans-serif!important}
@@ -317,15 +320,17 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .msgForm p{float:left; margin-top:4px; color:#000}
 .msgForm img{float:left; margin-right:10px;}
 .titFormMain{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:10px 0 10px 10px; float:left; width:100%; margin-bottom:10px;}
-.addSmallGrayBot{float:left; position:relative; padding:2px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer}
+.addSmallGrayBot{float:left; height:33px; position:relative; padding:2px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer}
 .addSmallGrayBot span{float:left; margin-top:8px}
-#choTip{float:left; width:100%; height:100%; background:#fff; padding:15px 15px 5px 15px; display:none}
+#choTip, #choTipEva{float:left; width:100%; height:100%; background:#fff; padding:15px 15px 5px 15px; display:none}
 #choTip a{border:1px solid #ccc; padding:8px 20px; text-transform: uppercase; margin: 0 10px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+#choTipEva a{color:#007aff}
 #closeCho, .closeData{width:14px; position:absolute; right:6px; top:6px; border:1px solid #78C1FF; background:#fff; padding:2px; cursor:pointer}
 #closeCho:hover{border:1px solid #78C1FF;}
 #choTip span{margin-bottom:10px; padding:20px 0px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:475px; position:relative}
+#choTipEva span{margin-bottom:10px; padding:20px 20px 0 20px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:495px; position:relative}
 .foDep{float:left; width:100%; border-bottom:1px solid #eee; padding:10px }
-#forAja fieldset{float:left; width:100%; background: #f0f8ff; padding:0 15px 15px 15px; border-top: 1px solid #ddd;}
+#forAja fieldset{float:left; width:100%; background: #f0f8ff; padding:0 0 15px 0; border-top: 1px solid #ddd;}
 .dataInf .bigInp{background:#fff; cursor:pointer}
 .ac_results{width:100%}
 #resultadosView{float:left; width:96%; position:relative; margin-left:17px; padding:15px 19px 0;}
@@ -364,7 +369,116 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 #folioPrint em{font-weight:700; font-style:normal; margin-right:4px;}
 #folioPrint span{font-weight:700}
 .errorAjax{color:brown; padding:5px 10px; float:left; width:96%; text-transform:uppercase; position:absolute; top:-15px;}
-
+#contentEva table{margin:10px 0;}
+#contentEva h3{margin:16px 0 8px; font-size:16px; font-weight:700}
+#contentEva p{font-size:11px; line-height:24px; text-transform:uppercase;}
+#contentEva i{float:left; font-style:normal; margin-right:5px; font-weight:700; line-height:18px; height:18px}
+.infoEva thead em, #infoEva thead em{float:left; font-size:1.1em; text-align:left; padding:5px 10px; text-transform:uppercase; font-style:normal}
+.infoEva tbody em{float:left; text-align:left; padding:5px 10px; font-size:1.1em; font-style:normal}
+.infoEva thead th, #infoEva thead th{font-size:14px; padding:2px 0; text-align:center}
+.totEva{font-weight:700; padding:10px; background: #fafafa}
+.bckEva{background:#fafafa}
+#infoEva th{text-align:left}
+.infoEva span{float:left; width:100%; text-align:center; border-left:1px solid #ccc; line-height:24px; height:24px;}
+.infoEva thead, #infoEva thead{background:#eee; border:1px solid #ccc}
+.infoEva tbody th{ padding:6px 0; text-align:center}
+#infoEva tbody td{font-size:1em; padding:4px 10px; text-align:left; border-right:1px solid #ccc}
+.infoEva tbody input{height: 23px; width:100%; background:transparent; border-bottom: none; border-top:none; border-right:none; border-left: 1px solid#ccc; text-align:center; font-weight:700}
+.infoEva thead .bigTb{font-size:14px;}
+.infoEva thead .smaTb, .infoEva thead .medTb{font-size:9px; text-transform:uppercase; font-weight:700}
+.bigTb{width:53%;}
+.smaTb{width:9%;}
+.medTb{width:20%}
+.wrapListFormThree fieldset{position:relative}
+.dataEva{border:1px solid #ccc; border-bottom:none; margin:0 !important}
+.dataEva thead{background:#fafafa}
+.dataEva thead th{font-size:12px; font-weight:700; padding:10px 10px 8px !important;}
+.dataEva tbody th{padding:7px 10px 5px !important; cursor:pointer}
+.dataEva .des{font-size:10px; line-height:15px; float:left; width:100%; font-style:normal; font-weight:700;}
+#tabsEva, #tabsE{margin-top:20px}
+#tabsEva ul, #tabsE ul{float:left; width:100%; border-bottom:none;}
+#tabsEva li a, #tabsE li a{padding:6px 30px 4px; float:left; width:100%;}
+#tabsEva ul li, #tabsE ul li{float:left; border:1px solid #ccc; border-bottom:none; text-transform:uppercase}
+.ui-state-active, .acti{background: #eeeeee; /* Old browsers */
+background: -moz-linear-gradient(top, #eeeeee 73%, #eeeeee 73%, #e5e5e5 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #eeeeee 73%,#eeeeee 73%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #eeeeee 73%,#eeeeee 73%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#e5e5e5',GradientType=0 );}
+.ui-state-active a, .acti{color: cornflowerblue}
+.evaDes{padding:10px !important}
+.desCen td{text-align:center}
+.spaHead input{margin-left:8px}
+.calen{position:absolute; right:0; top:10px; z-index:9999}
+.usuaInfo{float:left; margin:0 !important;}
+#usersEva{float:left; width:100%; border-bottom:1px solid #ccc; display:none}
+#usersEva li .actEva{float:left; width:100%;}
+.areaN{color:#333; cursor:pointer; font-weight: 400; text-transform:uppercase;}
+.steps .content{padding:0 20px;}
+#usersEva .spaHead, .blueHead{float:left; font-size: 1em; background-color:#f0f8ff; text-transform:uppercase; font-weight:400; border:1px solid #B7E3FF; width:100%}
+#usersEva em{font-style:normal; margin-left:6px; font-weight:700}
+.actEva .firInp{margin:0 8px 8px; float:left;}
+.actEvaUse{border:1px solid #eee; float:left; width:100%; padding:3px 2px 0 2px; margin-bottom:10px}
+#allCheck{margin:8px}
+.usuaInfo td{padding:5px 7px; background:#fff; font-weight:400; text-transform:uppercase}
+.areaDiv{border-left:1px solid #ccc; border-right:1px solid #ccc; padding:10px 0 0; background:#fafafa; border-bottom:1px solid #fff}
+.actb{background: url('../graphics/sprite2.png') -409px -97px  no-repeat; float:left; width:20px; height:20px}
+.deactb{background: url('../graphics/sprite2.png') -434px -97px  no-repeat}
+#choTipEva select{border: 1px solid #ccc; background-color: #fff; height: 29px; text-transform: uppercase; float:left;}
+#butEva{position:absolute; top:20px; left:225px; width:100px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; padding:4px 5px 0; border:1px solid #B7E3FF; height:29px;-webkit-border-top-right-radius: 5px;
+-webkit-border-bottom-right-radius: 5px;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-bottomright: 5px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px; }
+#butEva img{width:18px; margin:1px 0 0 0; float:left}
+#choTipEva p{float:left; width:100%; margin-top:8px}
+#contentEva .steps{margin:0 0 10px !important} #contentEva .wrapListForm{margin-left:0 !important}
+#choTipEva b{font-size:11px; margin:4px 6px 2px 6px; float:left; text-transform:uppercase;}
+.sinPre label{background:#fafafa; border-bottom:1px solid #ccc; float:left; width:100%; height:28px}
+.sinPre .remove{margin:0 0 0 5px !important; float:left;}
+.sinPre label{padding:6px !important; margin:0 !important}
+#msgRecAgr #botRecAg{margin:15px}
+.removeT{background: url('../graphics/sprite2.png') -312px 1px  no-repeat; float:left; width:20px; height:13px}
+.noMsgEv{background:#fff; float:left; width:100%; padding:8px 10px 7px; text-transform:uppercase; border:none; border-bottom:1px solid #ccc}
+#forAja a{margin:10px 0 10px 10px;}
+.secPreg{float:left; width:100%; background:#fff; position:relative; border-bottom:1px solid #ccc}
+.secPreg input{float:left; width:100%; border:none; background:#fff; text-transform:uppercase; padding-left:30px; height:26px}
+.secPreg .borrar{position:absolute; left:5px; top:0; padding:6px; height:24px}
+.catNomEva{float:left; padding:2px 0}
+.tipForm{float:left; background-color:#eee; width:200px; text-transform:uppercase; padding: 10px 0 8px 10px; height:130px;}
+.tipFormTwo{float:left; width:200px; text-transform:uppercase; padding: 10px 0 8px 10px;}
+#tipForm span{float:left; padding:8px; width:100%}
+#tipForm input{float:left;margin-right:5px; text-transform:uppercase; cursor:pointer}
+#tipForm em{float:left; padding:3px 8px 0; font-style:normal; text-transform:uppercase}
+#colabora{display:none; float:left; width:100%;; border:1px solid #ccc; padding:10px; margin-bottom:15px}
+#colabora .blueHead{font-weight:700; padding:6px 10px}
+#colabora .span{float:left; width:290px; padding-top:10px;}
+#colabora b{text-transform:uppercase; width:200px; float:left; line-height:24px; font-weight:700}
+#colabora .kUpOne,#colabora .kUpTwo{border:1px solid #ccc; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; width:280px; height:30px; padding:0 10px; text-transform:uppercase}
+#ajaxUsu{float:left; width:100%}
+.addID{cursor:pointer; background:#fff}
+#wrapColabora{float:left; width: 100%; border: 1px solid #ccc; padding: 0 10px 10px; margin: 10px 0; border-radius: 5px; background-color: #fafafa;}
+#wrapColabora .addSmallGrayBot{margin-top:22px}
+#busFinal{margin-top: 10px; float:left; width:100%; border-left:3px solid #007aff}
+.agreCali{float: left; width: 100%; padding:5px 9px 3px; border-bottom: 1px solid #ccc; background:#fff; text-transform:uppercase; border-top:1px solid #fff}
+.agreCali input{border:none; background:transparent}
+#ajaxUsu .msgAva{margin-top:25px}
+#tablaUsu th{padding:0 10px}
+.agreCali i{color:#007aff;}
+.agreCali em{line-height:18px; font-style:normal; margin-right:5px;}
+.agreCali input{text-transform:uppercase; font-weight:700; color: dodgerblue; color:dodgerblue;}
+#ajaxUsu #msgAva{margin:10px 0}
+.addID:hover{cursor:pointer; background-color:#fafafa}
+.addID th{border:1px solid #eee}
+.rem{background:url('../graphics/sprite2.png') -311px 1px no-repeat; float:left; width:20px; height:20px}
+.subTit{float: left; width: 100%; padding:0 0 10px 10px; font-weight:700; font-size:1.1em;}
+.mainSub{font-size: 1.2em; line-height:28px; text-transform:uppercase}
+#consultaEval td{font-weight:400; text-transform:uppercase; padding:10px 10px 8px 10px; text-align:left;}
+.palomita{background:url('../graphics/sprite2.png') -283px 1px no-repeat; float:left; width:20px; height:20px}
+.espera{background:url('../graphics/sprite2.png') -45px -21px no-repeat; float:left; width:20px; height:20px}
+.contesta{float: left; position: relative; padding: 3px 10px 3px 7px; text-transform: uppercase; border: 1px solid #78C1FF; color: #333; height: 35px!important; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; margin: 15px 0; background: #fff; cursor: pointer;}
+.dataEva .ingo span{float:left; width:100%; text-transform:lowercase; margin-top:3px;}
+.dataEva .ingo em{font-size:1.2em; font-style:normal}
 /*---------------- Botones ------------------*/
 
 
@@ -380,7 +494,7 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 /*---------------- General ------------------*/
 .error{
 	color: red;
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .personagen,.personafisica,.personamoral{

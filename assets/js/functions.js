@@ -310,11 +310,11 @@ var statusBar = $.cookie('statusBar');
 	});
 
 	$("#sCTip").click(function(){
-		$("#choTip").toggleClass("show");
+		$("#choTip, #choTipEva").toggleClass("show");
 	});
 	$("#closeCho").click(function(){
-		$("#choTip").removeClass("show");
-		$("#choTip").addClass("hide");
+		$("#choTip #choTipEva").removeClass("show");
+		$("#choTip #choTipEva").addClass("hide");
 	});
 
 
