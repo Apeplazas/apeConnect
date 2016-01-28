@@ -281,6 +281,7 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
+var form = $("#guardarForm");
 $("#steps").steps({
     headerTag: "h6",
     bodyTag: "section",
@@ -292,6 +293,10 @@ $("#steps").steps({
         next: "Siguiente",
         previous: "Anterior",
         loading: "Cargando ..."
+    },
+    onFinished: function (event, currentIndex)
+    {
+        form.submit();
     },
     autoFocus: true
 });
