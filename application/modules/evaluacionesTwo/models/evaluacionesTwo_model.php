@@ -227,7 +227,7 @@ class EvaluacionesTwo_model extends CI_Model
 
 	function respuestasPorPregunta($preguntaID,$usuarioID){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM evaluacion_respuestas where preguntaID='1' and usuarioAcalificar='$usuarioID'");
+		$q = $this->db->query("SELECT * FROM evaluacion_respuestas where preguntaID='$preguntaID' and usuarioAcalificar='$usuarioID'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

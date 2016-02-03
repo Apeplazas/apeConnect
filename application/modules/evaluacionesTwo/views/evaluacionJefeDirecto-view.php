@@ -96,7 +96,7 @@
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria);?>
+      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria, $this->uri->segment(3));?>
       <? foreach ($pregunta as $var): ?>
       <tr>
         <td><em><?=$var->pregunta;?></em></td>

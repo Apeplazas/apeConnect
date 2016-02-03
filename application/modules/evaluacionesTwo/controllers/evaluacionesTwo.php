@@ -190,7 +190,7 @@ class EvaluacionesTwo extends MX_Controller {
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 				= $this->user_model->traeadmin($usuarioID);
 		$this->load->model('evaluaciones/evaluacionesTwo_model');
-		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias();
+		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias($campaniaID);
 		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
 
 		//Carga el javascript y CSS //
