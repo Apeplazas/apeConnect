@@ -20,8 +20,6 @@ class cambiopass extends MX_Controller {
 					  ->add_include('assets/css/bootstrap.min.css')
 					  ->add_include('assets/js/user.js');
 
-
-
 		$this->load->view('cambio-view');
 	}
 
@@ -29,7 +27,12 @@ class cambiopass extends MX_Controller {
 		$pwd1 	= $this->input->post('pass1');
 		$pwd2 	= $this->input->post('pass2');
 		$email 	= $this->input->post('email');
-		$link 	= $this->input->post('link');
+		$link		= $this->session->userdata('previous_page');
+
+		if($link){
+			if(!strpos($link, "http://") === true){				$link= site_url($link);
+			}
+		}
 
 		$hash = md5($pwd2);#<-- Genero el nuevo hash, basandome en como lo crean en registrate/guardarRegistro
 		//$hash = $userprofile['contrasenia'];
@@ -47,6 +50,8 @@ class cambiopass extends MX_Controller {
 					$modules[$val] 	= $this->user_model->traeSeccionesModulos($val,$u[0]->idrole);
 				}
 
+
+
 				$data['usuario'] = array(
 					'usuarioID'       => $u[0]->usuarioID,
 					'tipoUsuario'	  	=> $u[0]->tipoUsuario,
@@ -59,8 +64,12 @@ class cambiopass extends MX_Controller {
 					'plaza'			  	=> $u[0]->plazaId,
 					'is_logged_in'    => true
 						);
+
+
+
 				 //guardamos los datos en la sesion
 				 $this->session->set_userdata($data);
+				 $this->session->unset_userdata('cambiopass');
 
 				redirect($link);
 			}

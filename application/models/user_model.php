@@ -12,28 +12,22 @@ class User_model extends CI_Model {
         $data = array();
         //si no existen los datos regresamos false
         if(empty($var) || empty($password) || !isset($var) || !isset($password) )
-            return false;
+				return false;
+				//Verificar si usuario o email existen
+				$check_user_mail = $this->db->query("SELECT * FROM usuarios WHERE fancyUrl='$var' OR email='$var'");
 
-		//Verificar si usuario o email existen
-		$check_user_mail = $this->db->query("SELECT * FROM usuarios
-        							WHERE fancyUrl='$var'
-        							OR email='$var'
-        							");
-
-		if($check_user_mail->num_rows() > 0){
-
-            $check_user_mail->free_result();
-
-			//si todo va bien, creamos el md5 del pwd.
+				if($check_user_mail->num_rows() > 0){
+					$check_user_mail->free_result();
+					//si todo va bien, creamos el md5 del pwd.
         	$passwordShai = md5($password);
 
-			$query = $this->db->query("SELECT
-				u.*,
-				r.nombre as tipoUsuario
-				FROM usuarios u
-				LEFT JOIN roles r ON r.id=u.idrole
-				WHERE (fancyUrl='$var' OR email='$var')
-				AND hash='$passwordShai'");
+					$query = $this->db->query("SELECT
+						u.*,
+						r.nombre as tipoUsuario
+						FROM usuarios u
+						LEFT JOIN roles r ON r.id=u.idrole
+						WHERE (fancyUrl='$var' OR email='$var')
+						AND hash='$passwordShai'");
 			if($query->num_rows() > 0) {
             	foreach($query->result() as $row){
                 	$data[] = $row;
@@ -85,15 +79,15 @@ class User_model extends CI_Model {
 	}
 
 	function checkuser(){
+
 		$user = $this->session->userdata('usuario');
-        if(!isset($user) || $user != true)
+			if(!isset($user) || $user != true)
         {
         	$this->session->set_userdata(array('previous_page'=> uri_string()));
          	redirect('');
-        }else{
-        	if(!in_array($this->uri->segment(1), array_keys($user['modulos'])))
-					redirect('');
-
+      }else{
+        if(!in_array($this->uri->segment(1), array_keys($user['modulos'])))
+				redirect('');
         }
 	}
 

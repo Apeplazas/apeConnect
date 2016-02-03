@@ -347,33 +347,18 @@ class Registrate extends MX_Controller {
 
 				if ($u && !isset($u['error'])){
 
-					$user_moduls 	= $this->user_model->traemodulos($u[0]->idrole);
-					$modules		= array();
 
-					foreach($user_moduls as $val){
-						$modules[$val] 	= $this->user_model->traeSeccionesModulos($val,$u[0]->idrole);
-					}
 
-					$data['usuario'] = array(
-						'usuarioID'       => $u[0]->usuarioID,
-						'tipoUsuario'	  	=> $u[0]->tipoUsuario,
-						'link'	  				=> $this->input->post('link'),
-						'nombre'          => $u[0]->nombreCompleto,
+					$data['cambiopass'] = array(
 						'email'           => $u[0]->email,
-						'idrole'          => $u[0]->idrole,
-						'fancyUrl'        => $u[0]->fancyUrl,
-						'contrasena'	  	=> 'cambiar',
-						'modulos'		  => $modules,
-						'plaza'			  => $u[0]->plazaId,
-						'is_logged_in'    => true
-					    );
+						'nombreCompleto'        => $u[0]->nombreCompleto,
+					  );
+
 					 //guardamos los datos en la sesion
 					 $this->session->set_userdata($data);
-					 $u = $data;
-					 if($previous_page && !isset($u['error']))
-					$u = site_url($previous_page);
-				echo json_encode($u);
-				exit();
+
+					 echo json_encode($u);
+					 exit();
 			}
 		}
 

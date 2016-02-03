@@ -1,4 +1,4 @@
-<? $user	= $this->session->userdata('usuario');?>
+<? $user	= $this->session->userdata('cambiopass');?>
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/bootstrap-responsive.min.css">
 <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/style.css">
@@ -22,7 +22,7 @@
                     <div class="panel-heading">
                     	<center><h2 class="panel-title">ADMINISTRACIÓN DE PLAZAS ESPECIALIZADAS</h2></center>
                     	<br />
-                        <h3 class="panel-title">Cambio de contraseña</h3>
+                        <h3 class="panel-title">Hola <?=$user['nombreCompleto'];?> ayudanos cambiando tu contraseña por seguridad</h3>
                         <br />
                 		<p class="">Elige una contraseña nueva para tu proximo inicio de sesion</p>
                     </div>
@@ -37,7 +37,6 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input type="hidden" name="email" value="<?=$user['email'];?>">
-                                <input type="hidden" name="link" value="<?=$user['link'];?>">
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Cambiar Contraseña!</button>
                             </fieldset>
                         </form>
@@ -46,7 +45,7 @@
             </div>
         </div>
     </div>
-<?$this->session->sess_destroy();?>
+
 <script>
 $(document).keydown(function(e) {
 var element = e.target.nodeName.toLowerCase();
