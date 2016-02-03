@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Registrate extends MX_Controller {
-	
+
 	function registrate()
 	{
 		parent::__construct();
@@ -13,28 +13,28 @@ class Registrate extends MX_Controller {
 		//Genera metatags
         $url = $this->uri->segment(1);
         $op['tags'] = $this->data_model->cargarOptimizacion($url);
-        
+
         //Carga estados de Mexico
         $op['estados']	= $this->registrate_model->estados();
         $op['tipos'] 	= $this->data_model->cargarTipoCompania();
-        	
+
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery.fileupload.css');
-		
+
 		//Vista//
 		$this->layouts->index('registrate-view', $op);
 	}
-	
+
 	function formFisica()
 	{
 		$this->load->view('formFisica');
 	}
-	
+
 	function formMoral()
 	{
 		$this->load->view('formMoral');
 	}
-	
+
 	function guardarRegistro()
 	{
 		$this->load->library('form_validation');
@@ -51,8 +51,8 @@ class Registrate extends MX_Controller {
 		$this->form_validation->set_rules('password', 'Contraseña', 'required');
 		$this->form_validation->set_rules('admEma', 'Email', 'required');
 		$this->form_validation->set_rules('estado', 'Estados', 'required');
-		
-		
+
+
 		$gComp        = $this->input->post('gComp');
 		$rfc          = $this->input->post('rfc');
 		$repLegal     = $this->input->post('repLegal');
@@ -71,14 +71,14 @@ class Registrate extends MX_Controller {
 		$admEma       = $this->input->post('admEma');
 		$password     = $this->input->post('password');
 		$fecha        = date('Y-m-d');
-		$user_estados = $this->input->post('estado'); 
+		$user_estados = $this->input->post('estado');
 
 		if ($this->form_validation->run() == FALSE)
 		{
         	//Genera metatags
         	$url = $this->uri->segment(1);
         	$op['tags'] = $this->data_model->cargarOptimizacion($url);
-        
+
         	//Carga estados de Mexico
         	$op['estados']	= $this->registrate_model->estados();
         	$op['tipos'] 	= $this->data_model->cargarTipoCompania();
@@ -86,10 +86,10 @@ class Registrate extends MX_Controller {
 			$this->layouts->index('registrate-view', $op);
 		}
 		else
-		{	
+		{
 			$mail 		= $this->registrate_model->confirmaEmail($admName);
 			$vanityUrl 	= $this->registrate_model->confirmaUrl($fancyUrl);
-			
+
 			if ($mail && $vanityUrl){
 				$this->session->set_flashdata('mail','<div class="msg">Su email o Usuario ya han sido escogidos, por favor intente nuevamente.</div>');
 				redirect('registrate');
@@ -102,7 +102,7 @@ class Registrate extends MX_Controller {
 				$this->session->set_flashdata('mail','<div class="msg">Este email ya se encuentra registrado, por favor intente nuevamente.</div>');
 				redirect('registrate');
 			}
-			
+
 			elseif (!$mail && !$vanityUrl) {
 				if(isset($_FILES['ced'])){
 					// Recibo los datos del track
@@ -113,7 +113,7 @@ class Registrate extends MX_Controller {
 				}else{
 					$imagenE	= null;
 				}
-				
+
 				if(isset($_FILES['shcp'])){
 					// Recibo los datos del track
 					$imagenF	= $_FILES['shcp']['name'];
@@ -123,7 +123,7 @@ class Registrate extends MX_Controller {
 				}else{
 					$imagenF	= null;
 				}
-				
+
 				if(isset($_FILES['cuenta'])){
 					// Recibo los datos del track
 					$imagenG	= $_FILES['cuenta']['name'];
@@ -153,7 +153,7 @@ class Registrate extends MX_Controller {
 				}else{
 					$imagenI	= null;
 				}
-				
+
 				if(strtoupper($rTipo) == 'MORAL'){
 					if(isset($_FILES['cer'])){
 						// Recibo los datos del track
@@ -164,7 +164,7 @@ class Registrate extends MX_Controller {
 					}else{
 						$imagenC	= null;
 					}
-					
+
 					if(isset($_FILES['act'])){
 						// Recibo los datos del track
 						$imagenD	= $_FILES['act']['name'];
@@ -178,7 +178,7 @@ class Registrate extends MX_Controller {
 					$imagenC	= null;
 					$imagenD	= null;
 				}
-				
+
 				if(strtoupper($rTipo) == 'FISICA'){
 					if(isset($_FILES['imss'])){
 						// Recibo los datos del track
@@ -191,10 +191,10 @@ class Registrate extends MX_Controller {
 					}
 				}else{
 					$imagenJ	= null;
-				} 
-				
+				}
+
 				$user_data = array();
-				
+
 				//Obtener ip de usuario
 				if ( isset($_SERVER['HTTP_CLIENT_IP']) && ! empty($_SERVER['HTTP_CLIENT_IP'])) {
 				    $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -203,10 +203,10 @@ class Registrate extends MX_Controller {
 				} else {
 				    $ip = (isset($_SERVER['REMOTE_ADDR'])) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
 				}
-				
+
 				$ip = filter_var($ip, FILTER_VALIDATE_IP);
 				$ip = ($ip === false) ? '0.0.0.0' : $ip;
-				
+
 				//Insertar Usuario
 				$user_data['user'] = array(
 					'nombreCompleto'	=> $admName,
@@ -221,7 +221,7 @@ class Registrate extends MX_Controller {
 				);
 				$this->db->insert('usuarios', $user_data['user']);
 				$user_id = $this->db->insert_id();
-				
+
 				if( $rTipo == 'fisica' && !empty($imagenE) && !empty($imagenF) && !empty($imagenG) && !empty($imagenH) && !empty($imagenI) && !empty($imagenJ) ){
 					$documentacionCompleta = '1';
 				}else{
@@ -232,11 +232,11 @@ class Registrate extends MX_Controller {
 				}else{
 					$documentacionCompleta = '0';
 				}
-						
+
 				//Insertar Proveedor
 				$user_data['proveedor'] = array(
 					'usuarioID'				=> $user_id,
-					'idRango'				=> 1, 
+					'idRango'				=> 1,
 				    'razonSocial'           => $rfc,
 				    'tipoRegistro'          => $rTipo,
 				    'paisCompania'          => $estComp,
@@ -261,25 +261,25 @@ class Registrate extends MX_Controller {
 				);
 				$this->db->insert('proveedores', $user_data['proveedor']);
 				$proveedor_id = $this->db->insert_id();
-				
+
 				//Insertar estados - proveedor
 				foreach($user_estados as $ekey => $eval){
 					$user_data['pestados'][] = array(
 						'proveedoresid'			=> $proveedor_id,
-						'claveEstado'			=> $ekey  
+						'claveEstado'			=> $ekey
 					);
 				}
 				$this->db->insert_batch('proveedores_estadosMexico', $user_data['pestados']);
-				
+
 				//Insertar giros del proveedor
 				foreach($gComp as $gkey => $gval){
 					$user_data['pgiros'][] = array(
 						'idProveedor'			=> $proveedor_id,
-						'idTipo'			=> $gkey  
+						'idTipo'			=> $gkey
 					);
 				}
 				$this->db->insert_batch('proveedores_obrasTipo', $user_data['pgiros']);
-				
+
 				//Guardar datos en sesssion
 				$data['usuario'] = array(
 					'usuarioID'       => $user_id,
@@ -288,17 +288,18 @@ class Registrate extends MX_Controller {
 					'email'           => $admEma,
 					'rango'           => 1,
 					'estadoID'        => $user_estados,
+					'contrasena'	  	=> 'cambiada',
 					'fancyUrl'        => $fancyUrl,
 					'is_logged_in'    => true
 			    );
 				$this->session->set_userdata($data);
-				
+
 				$this->load->library('email');
 				$this->email->set_newline("\r\n");
 				$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
 				$this->email->to('muribe@apeplazas.com');
 				$this->email->cc('mdiaz@apeplazas.com');
-				$this->email->subject('Registro proveedor APE Plazas');		
+				$this->email->subject('Registro proveedor APE Plazas');
 				$this->email->message('
 					<html>
 						<head>
@@ -316,41 +317,79 @@ class Registrate extends MX_Controller {
 						$this->session->set_flashdata('msg','<div class="msg">¡Te has registrado con éxito!</div>');
 				redirect('perfiles/'.$fancyUrl);
 					}
-		
+
 					else{
 						show_error($this->email->print_debugger()); /* Muestra error de envio de email */
 					}
-				
+
 			}
-			
+
 		}
 	}
-			
+
 	function valida()
 	{
 		$var			= $this->input->post('var');
 		$password	 	= $this->input->post('password');
 		$previous_page = $this->session->userdata('previous_page');
-		
+		$contra = md5($password);
+
 		if(empty($var) || empty($password)){
 			$u['error'] = "Por favor ingrese su usuario y password";
 			echo json_encode($u);
 			exit();
 		}
-		
+
+
+		if($contra == '827ccb0eea8a706c4c34a16891f84e7b'){
+
+			$u = $this->user_model->validateLogin($var, $password);
+
+				if ($u && !isset($u['error'])){
+
+					$user_moduls 	= $this->user_model->traemodulos($u[0]->idrole);
+					$modules		= array();
+
+					foreach($user_moduls as $val){
+						$modules[$val] 	= $this->user_model->traeSeccionesModulos($val,$u[0]->idrole);
+					}
+
+					$data['usuario'] = array(
+						'usuarioID'       => $u[0]->usuarioID,
+						'tipoUsuario'	  	=> $u[0]->tipoUsuario,
+						'link'	  				=> $this->input->post('link'),
+						'nombre'          => $u[0]->nombreCompleto,
+						'email'           => $u[0]->email,
+						'idrole'          => $u[0]->idrole,
+						'fancyUrl'        => $u[0]->fancyUrl,
+						'contrasena'	  	=> 'cambiar',
+						'modulos'		  => $modules,
+						'plaza'			  => $u[0]->plazaId,
+						'is_logged_in'    => true
+					    );
+					 //guardamos los datos en la sesion
+					 $this->session->set_userdata($data);
+					 $u = $data;
+					 if($previous_page && !isset($u['error']))
+					$u = site_url($previous_page);
+				echo json_encode($u);
+				exit();
+			}
+		}
+
 		$u = $this->user_model->validateLogin($var, $password);
 
 		if ($u && !isset($u['error'])){
-			
+
 			$user_moduls 	= $this->user_model->traemodulos($u[0]->idrole);
 			$modules		= array();
-			
+
 			foreach($user_moduls as $val){
-				
+
 				$modules[$val] 	= $this->user_model->traeSeccionesModulos($val,$u[0]->idrole);
-									
+
 			}
-				
+
 			$data['usuario'] = array(
 				'usuarioID'       => $u[0]->usuarioID,
 				'tipoUsuario'	  => $u[0]->tipoUsuario,
@@ -358,16 +397,17 @@ class Registrate extends MX_Controller {
 				'email'           => $u[0]->email,
 				'idrole'          => $u[0]->idrole,
 				'fancyUrl'        => $u[0]->fancyUrl,
-				'modulos'		  => $modules,
+				'modulos'		  		=> $modules,
+				'contrasena'	  	=> 'cambiada',
 				'plaza'			  => $u[0]->plazaId,
 				'is_logged_in'    => true
 			    );
 			 //guardamos los datos en la sesion
 			 $this->session->set_userdata($data);
 			 $u = $data;
-			
+
 		}
-		
+
 		if($previous_page && !isset($u['error']))
 			$u = site_url($previous_page);
 		echo json_encode($u);
@@ -379,59 +419,59 @@ class Registrate extends MX_Controller {
 		//Optimizacion y conexion de tags para SEO//
 		$opt         		= $this->uri->segment(1);
 		$op['opt']    		= $this->data_model->cargarOptimizacion($opt);
-		
+
 		//validacion para identificar tipo de usuario y desglosar info
 		$user				= $this->session->userdata('user');
 		$op['info']			= array();
-		
+
 		if ($user['uid'] != '') {
 			$tipo = 'info_'.$user['tipoUsuario'];
 			$op['info']	= $this->data_model->$tipo($user['uid']);
 		}
-		
+
 		//Vista//
 		$this->layouts->index('recuperarContrasenia-view' ,$op);
 	}
-	
+
 	function recuperar_hash()
 	{
 		$correo_usuario = trim($_POST["email"]);
-		
+
 		if( empty($correo_usuario) || !isset($correo_usuario) )
 		{
 			echo"Imposible continuar, se necesita correo";
 			exit;
 		}
-		
+
 		$u = $this->db->query("SELECT * FROM usuarios WHERE email='$correo_usuario'")->result();
-	
+
 		if ($u) {
 			$id 	= $u[0]->usuarioID;
 			$name 	= $u[0]->alias;
 			$email 	= $u[0]->email;
 			$tipo 	= 'usuario';
-			
+
 		} else {
-			
+
 				$l = $this->db->query("SELECT * FROM locatarios WHERE localEmail='$correo_usuario'")->result();
-				
+
 				if ($l) {
 					$id 	= $l[0]->localID;
 					$name 	= $l[0]->localNombre;
 					$email 	= $l[0]->localEmail;
 					$tipo 	= 'local';
-				} 
-				
+				}
+
 				else {
 					$this->session->set_flashdata('msg','<div class="msg">El email ó contraseña han sido incorrectos, intenta de nuevo.</div>');
 					redirect('registrate/iniciar_sesion');
 				}
 			}
-			
+
 			$fecha_actual = date("y-m-d");
 			$key_word = $correo_usuario.$fecha_actual;
 	        $hash = sha1($key_word);
-	        
+
 	        $var = array('usuarioID'=>$id,'hash_pwd'=>$hash,'usuarioTipo'=>$tipo);
 	        $this->db->insert('recuperar_pwd', $var);
 	        $link = "http://www.plazadelatecnologia.com/registrate/recuperar_contrasenia.php";
@@ -443,17 +483,17 @@ class Registrate extends MX_Controller {
 			$link_text="Hola $name !!! Da click aquí para generar su nueva contraseña <a href=\"http://www.plazadelatecnologia.com/brayant/registrate/ok/hash/$hash\">Recuperar Contraseña</a>";
 			$this->email->message($link_text);
 			$this->email->send();
-			
+
 			redirect('gracias/recuperarContrasenia');
-		
+
 	}
 	function ok()
 	{
 		$hash = $this->uri->segment(4);
 		$hash = trim($hash);
-		
+
 		$query = $this->db->query("SELECT * from recuperar_pwd WHERE hash_pwd='$hash'");
-		
+
 		if( $query->num_rows()>0 )
 		{
 			foreach ($query->result() as $row)
@@ -467,38 +507,38 @@ class Registrate extends MX_Controller {
 			//podemos redireccionar o escribimos algo
 			echo"no corresponde el hash al enviado";
 		}
-		
+
 		$opt         		= $this->uri->segment(1);
 		$op['opt']    		= $this->data_model->cargarOptimizacion($opt);
-		
+
 		//validacion para identificar tipo de usuario y desglosar info
 		$user				= $this->session->userdata('user');
 		$op['info']			= array();
-		
+
 		if ($user['uid'] != '') {
 			$tipo = 'info_'.$user['tipoUsuario'];
 			$op['info']	= $this->data_model->$tipo($user['uid']);
 		}
-		
+
 		$op['query'] = $query->result();
 		$this->layouts->index('psw-view', $op);
 	}
-	
+
 	function pwd()
 	{
 		$pwd  = trim($_POST["new_pwd"]);
 		$pwd1 = trim($_POST["new_pwd_again"]);
 		$tipo = $_POST["tipo"];
 		$hash = $_POST["hash"];
-		
+
 		if( strcmp($pwd,$pwd1) == 0 )
 		{
 			$c = $this->db->query("SELECT * FROM recuperar_pwd WHERE hash_pwd='$hash'");
-			
+
 			foreach($c->result() as $row){
 				$usuarioID = $row->usuarioID;
 			}
-			
+
 			$sha1_pwd = sha1($pwd);
 			$data = array('contrasenia',$sha1_pwd);
 			if($tipo == 'usuario'){
@@ -507,7 +547,7 @@ class Registrate extends MX_Controller {
 			else{
 				$this->db->query("UPDATE locatarios SET contrasenia='$sha1_pwd' WHERE localID='$usuarioID'");
 			}
-			
+
 			$this->session->set_flashdata('msg','<em class="msg">Te contraseña ha sido cambiada exitosamente. Inicia Sesión.</em>');
 			redirect('registrate/iniciar_sesion');
 		}
@@ -517,13 +557,11 @@ class Registrate extends MX_Controller {
 			redirect('registrate/ok/hash/'.$hash.'');
 		}
 	}
-	
+
 	function salir()
 	{
 		$this->session->sess_destroy();
 		redirect('');
 	}
-	
+
 }
-
-

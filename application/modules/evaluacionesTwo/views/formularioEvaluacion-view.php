@@ -1,4 +1,4 @@
-<form action="<?=base_url()?>evaluaciones/guardarCampaniaEvaluacion" method="post" id="guardarForm">
+<form action="<?=base_url()?>evaluacionesTwo/guardarCampaniaEvaluacion" method="post" id="guardarForm">
 <div id="mainTit">
   <h3>Agrega tu evaluación</h3>
 </div>
@@ -41,7 +41,55 @@
     <br class="clear">
     </div>
 
+    <div class="wrapListForm" id="wrapListForm3">
+      <span class='secmainTit'>Tipo de esquema</span>
+      <table>
+      <tr id="tipForm">
+        <td>
+          <span><input type="checkbox" name="jefeDirecto"><em>Jefe Directo</em></span>
+          <span><input id="colabSta" type="checkbox" name="colaboradores"><em>Colaborador vs Colaborador</em></span>
+          <span><input id="areSta" type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
+        </td>
+      </tr>
+      </table>
+      <br class="clear">
 
+
+      <script type="text/javascript">
+        $('.kUpOne').keyup(function(event){
+          buscaUsuariosCalifica();
+        });
+        $('.kUpTwo').keyup(function(event){
+          buscaUsuariosAcalificar();
+        });
+
+        function buscaUsuariosCalifica(){
+          var alldata = $('#busColOne').val();
+
+          $.post(ajax_url+"cargarUsuarios", {
+            alldata : alldata
+          },
+
+          function(data) { sucess:
+            $("#ajaxUsu").empty().append(data);
+          });
+        };
+
+        function buscaUsuariosAcalificar(){
+          var alldata = $('#busColTwo').val();
+
+          $.post(ajax_url+"cargarUsuariosAcalificar", {
+            alldata : alldata
+          },
+
+          function(data) { sucess:
+            $("#ajaxUsu").empty().append(data);
+          });
+        };
+      </script>
+
+
+    </div>
 
     <div class="wrapListForm" id="wrapListForm2">
   		<span class="secmainTit">Descriptivo de evaluación</span>
@@ -146,56 +194,6 @@
   </section>
   <h6>Agregar personas a evaluación</h6>
   <section>
-    <div class="wrapListForm" id="wrapListForm3">
-      <span class='secmainTit'>Tipo de esquema</span>
-      <table>
-      <tr id="tipForm">
-        <td>
-          <span class="none"><input type="checkbox" checked name="jefeDirecto"><em>Jefe Directo</em></span>
-          <span><input id="colabSta" type="checkbox" name="colaboradores"><em>Colaborador vs Colaborador</em></span>
-          <span class="none"><input checked id="areSta" type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
-        </td>
-      </tr>
-      </table>
-      <br class="clear">
-
-
-      <script type="text/javascript">
-        $('.kUpOne').keyup(function(event){
-          buscaUsuariosCalifica();
-        });
-        $('.kUpTwo').keyup(function(event){
-          buscaUsuariosAcalificar();
-        });
-
-        function buscaUsuariosCalifica(){
-          var alldata = $('#busColOne').val();
-
-          $.post(ajax_url+"cargarUsuarios", {
-            alldata : alldata
-          },
-
-          function(data) { sucess:
-            $("#ajaxUsu").empty().append(data);
-          });
-        };
-
-        function buscaUsuariosAcalificar(){
-          var alldata = $('#busColTwo').val();
-
-          $.post(ajax_url+"cargarUsuariosAcalificar", {
-            alldata : alldata
-          },
-
-          function(data) { sucess:
-            $("#ajaxUsu").empty().append(data);
-          });
-        };
-      </script>
-
-
-    </div>
-
   <div id="colabora">
 
       <div class="blueHead">Buscar Colaborador</div>
@@ -228,7 +226,7 @@
       <input id="allCheck" type="checkbox" name="all" id="all" /><em>Todos</em>
       </div>
     <?foreach ($areas as $varA): ?>
-    <? $dat = $this->evaluaciones_model->cargaUsuariosDepartamentos($varA->areaID);?>
+    <? $dat = $this->evaluacionesTwo_model->cargaUsuariosDepartamentos($varA->areaID);?>
     <ul>
      <li>
        <div class="areaDiv actEva">
@@ -283,7 +281,6 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
-var form = $("#guardarForm");
 $("#steps").steps({
     headerTag: "h6",
     bodyTag: "section",
@@ -295,10 +292,6 @@ $("#steps").steps({
         next: "Siguiente",
         previous: "Anterior",
         loading: "Cargando ..."
-    },
-    onFinished: function (event, currentIndex)
-    {
-        form.submit();
     },
     autoFocus: true
 });

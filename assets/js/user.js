@@ -3,13 +3,13 @@ jQuery(function($) {
 	Menu on Click
 	********************************************************************************************************************/
 	$("#loginForm").submit(function(e) {
-		
+
 		e.preventDefault();
-		
+
 		 $.ajax({
                 data:  $(this).serialize(),
-				dataType : 'json',
-                url:   'registrate/valida',
+								dataType : 'json',
+                url:   'http://localhost:8888/apeConnect/registrate/valida',
                 type:  'post',
                 beforeSend: function () {
                         $(".msgBlack").html("Procesando, espere por favor...");
@@ -21,7 +21,6 @@ jQuery(function($) {
 						window.location.reload();//window.location = response['usuario']['fancyUrl'];
                 }
         });
-        
+
 	});
 });
-

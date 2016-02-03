@@ -1,11 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Acceso extends MX_Controller
+class Enlaces extends MX_Controller
 {
 
-	function index()
+	function links($var)
 	{
-			$userprofile = $this->session->userdata('usuario');
+		$userprofile = $this->session->userdata('usuario');
 
 			if(!isset($userprofile) || $userprofile != true){
 
@@ -28,6 +28,7 @@ class Acceso extends MX_Controller
 				redirect("tempciri/verCi");
 				return false;
 			}
+
 			//codigo para hacer el cambio de contraseña
 			if($userprofile['contrasena'] == 'cambiar'){
 				redirect("cambiopass");

@@ -2,7 +2,7 @@
 
 class Admin extends MX_Controller
 {
-	
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -11,7 +11,7 @@ class Admin extends MX_Controller
 		$this->load->model('user_model');
 		$this->load->model('proyectos/proyecto_model');
 	}
-	
+
 	//verifica que la sesion esta inciada para poder dar acceso a modulo
 	function is_logged_in()
     {
@@ -22,14 +22,14 @@ class Admin extends MX_Controller
          	redirect('');
         }
     }
-	
+
 function testmail(){
-		
+
 		$this->load->library('email');
 				$this->email->set_newline("\r\n");
 				$this->email->from('contacto@apeplazas.com', 'Reparadores.mx');
 				$this->email->to("bcarrera@apeplazas.com");
-				$this->email->subject('email del servidor de ape');		
+				$this->email->subject('email del servidor de ape');
 				$this->email->message('
 					<html>
 						<head>
@@ -42,20 +42,20 @@ function testmail(){
 					</html>
 				');
 				$this->email->send();
-		
-	}	
-    
+
+	}
+
 	function index()
 	{
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js');
-					  
+
 		//Informacion perfil general//
 		$user         = $this->session->userdata('usuario');
 		$user_type    = strtoupper($user['tipoUsuario']);
-		
+
 		$op['no_cotizaciones']            = $info = $this->admin_model->trae_numcotizaciones();
 		$op['no_proveedores_inscitos']    = $this->admin_model->trae_proveedores_estadi();
 		$op['ultimos_prov_inscritos']     = $this->admin_model->trae_ultimos_proveedores_inscritos();
@@ -69,9 +69,9 @@ function testmail(){
 		$op['total_pagado']		          = $this->admin_model->tre_totalpagado();
 		$op['mensajes']                   = $this->admin_model->cargaMensajes($user['usuarioID']);
 		$op['no_notificaciones']          = $this->user_model->numero_mensajes($user['usuarioID']);
-		
+
 		$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
-		
+
 		if($user['idrole'] == '4'){
 			$this->layouts->profile('dashboardVentas-view', $op);
 		}
@@ -79,7 +79,7 @@ function testmail(){
 			$this->layouts->profile('dashboard-view', $op);
 		}
 	}
-	
+
 	function info($fancyUrl){
 		$op['proveedor']	= $this->user_model->traerproveedordetails($fancyUrl);
 		$op['estados']      = $this->user_model->traerproveedorestados($op['proveedor'][0]->idProveedor);
@@ -88,24 +88,24 @@ function testmail(){
 		$op['costoRango']	= $this->data_model->costoRango();
 		$this->layouts->profile('proveedor-details-view', $op);
 	}
-	
+
 	function perfil($fancyUrl){
 		$user	= $this->session->userdata('usuario');
-		$op['user']	= $user; 
+		$op['user']	= $user;
 		$this->layouts->profile('perfile-view', $op);
 	}
-	
+
 	function borrarProveedor($idProveedor)
 	{
 		$proveedor   = $this->uri->segment(3);
-		
+
 		$data = array(
                'statusProveedor' => 'Borrado'
             );
 
 		$this->db->where('idProveedor', $proveedor);
-		$this->db->update('proveedores', $data); 
-		
+		$this->db->update('proveedores', $data);
+
 		redirect("proveedores");
 	}
 
@@ -132,12 +132,11 @@ function testmail(){
 		echo json_encode("El proveedor fue actualizado");
 		exit();
 	}
-	
+
 	function salir()
 	{
 		$this->session->sess_destroy();
 		redirect('');
 	}
-	
-}
 
+}

@@ -1,13 +1,59 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Evaluaciones extends MX_Controller {
+class EvaluacionesTwo extends MX_Controller {
 
-	function evaluaciones()
+	function evaluacionesTwo()
 	{
 		parent::__construct();
 		$this->user_model->checkuser();
 		$this->load->model('prospectos/prospectos_model');
-		$this->load->model('evaluaciones/evaluaciones_model');
+		$this->load->model('evaluacionesTwo/evaluacionesTwo_model');
+	}
+
+	function index(){
+		$this->layouts->add_include('assets/js/jquery-ui.js');
+		$this->load->model('evaluacionesTwo/evaluacionesTwo_model');
+		$usuarioSesion	= $this->session->userdata('usuario');
+
+		$op['campanias'] = $this->evaluacionesTwo_model->cargaCampaniasEvaluaciones($usuarioSesion['usuarioID']);
+
+		$this->layouts->profile('colaboradorIndex-view', $op);
+	}
+
+	function usuarioColaborador($usuarioID,$tipo,$campaniaID){
+
+		$usuarioSesion	= $this->session->userdata('usuario');
+		$usuario 				= $this->user_model->traeadmin($usuarioID);
+
+		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias($campaniaID);
+		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+		$eva = $this->evaluacionesTwo_model->validaEvala($usuarioSesion['usuarioID'],$usuarioID,$campaniaID);
+
+		if($usuarioSesion['usuarioID'] == $usuarioID && $eva){
+			redirect('evaluacionesTwo/campania/'.$campaniaID);
+		}
+		else{
+			if(isset($valida) && empty($eva)){
+				$this->layouts->profile('usuarioColaboradorResultados-view', $op);
+			}
+			else{
+			echo 'No tiene permiso para visualizar o actualizar esta evaluacion';
+			}
+
+		}
+
+	}
+
+	function campania($campaniaID){
+		$this->layouts->add_include('assets/js/jquery-ui.js');
+		$usuarioSesion	= $this->session->userdata('usuario');
+
+		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias($campaniaID);
+		$op['campania'] = $this->evaluacionesTwo_model->infoCampania($campaniaID);
+
+		$op['evaluaciones'] = $this->evaluacionesTwo_model->cargaListadeEvaluaciones($usuarioSesion['usuarioID'],$campaniaID);
+
+		$this->layouts->profile('listas-view', $op);
 	}
 
 	function guardarCampaniaEvaluacion(){
@@ -75,7 +121,7 @@ class Evaluaciones extends MX_Controller {
 		}
 
 		//Insertar Usuarios ----COLABORADORES
-		if(isset($_POST['colaboradores']) && $_POST['colaboradores'] == 'on'){
+		if($_POST['colaboradores'] == 'on'){
 			$colEvalData = array();
 			foreach($_POST['colACalif'] as $key => $userId){
 				$usuarioQCalif	= $_POST['colQCalif'][$key];
@@ -98,32 +144,9 @@ class Evaluaciones extends MX_Controller {
 	}
 
 	//Funcion para enviar mails
-	private function enviarEmail($email){
+	private	function enviarEmail($email){
 
-	 $this->load->library('email');
-		 $this->email->set_newline("\r\n");
-		 $this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
-		 $this->email->to($email);
-		 $this->email->subject('Evaluación');
-		 $this->email->message('
-			<html>
-			 <head>
-				<title>Evaluación</title>
-			 </head>
-			 <body>
-				<p>Evaluación Test</p>
-			 </body>
-			</html>
-		 ');
-		if($this->email->send()){
 
-		 redirect();
-
-		}else{
-
-		 echo "error";
-
-		}
 
 	}
 
@@ -131,17 +154,17 @@ class Evaluaciones extends MX_Controller {
 		$this->layouts->add_include('assets/js/jquery-ui.js');
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['campanias'] = $this->evaluaciones_model->cargaTodasEvaluaciones();
+		$op['campanias'] = $this->evaluacionesTwo_model->cargaTodasEvaluaciones();
 
 		$this->layouts->profile('agregarPreguntas-view', $op);
 	}
 
 	function listaEvaluaciones(){
 		$this->layouts->add_include('assets/js/jquery-ui.js');
-		$this->load->model('evaluaciones/evaluaciones_model');
+		$this->load->model('evaluaciones/evaluacionesTwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['campanias'] = $this->evaluaciones_model->cargaTodasEvaluaciones();
+		$op['campanias'] = $this->evaluacionesTwo_model->cargaTodasEvaluaciones();
 
 		$this->layouts->profile('listaEvaluacionesGenerales-view', $op);
 	}
@@ -153,94 +176,52 @@ class Evaluaciones extends MX_Controller {
 
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['areas'] = $this->evaluaciones_model->cargaAreas();
-		$op['cat'] = $this->evaluaciones_model->listaCategoriasCatalogo();
-		$op['campanias'] = $this->evaluaciones_model->cargaTodasEvaluaciones();
+		$op['areas'] = $this->evaluacionesTwo_model->cargaAreas();
+		$op['cat'] = $this->evaluacionesTwo_model->listaCategoriasCatalogo();
+		$op['campanias'] = $this->evaluacionesTwo_model->cargaTodasEvaluaciones();
 
 		$this->layouts->profile('formularioEvaluacion-view', $op);
 	}
 
-	function index(){
-		$this->layouts->add_include('assets/js/jquery-ui.js');
-		$this->load->model('evaluaciones/evaluaciones_model');
-		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['campanias'] = $this->evaluaciones_model->cargaCampaniasEvaluaciones($usuarioSesion['usuarioID']);
 
-		$this->layouts->profile('index-view', $op);
-	}
 
-	function campania($campaniaID){
-		$this->layouts->add_include('assets/js/jquery-ui.js');
-		$this->load->model('evaluaciones/evaluaciones_model');
-		$usuarioSesion	= $this->session->userdata('usuario');
-
-		$op['categorias'] = $this->evaluaciones_model->evaluacionListaCategorias();
-		$op['campania'] = $this->evaluaciones_model->infoCampania($campaniaID);
-
-		$op['evaluaciones'] = $this->evaluaciones_model->cargaListadeEvaluaciones($usuarioSesion['usuarioID'],$campaniaID);
-
-		$this->layouts->profile('listas-view', $op);
-	}
-
-	function usuario($usuarioID,$tipo,$campaniaID){
+	function evaluacionJefeDirecto($usuarioID,$tipo,$campaniaID){
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 				= $this->user_model->traeadmin($usuarioID);
-		$this->load->model('evaluaciones/evaluaciones_model');
-		$op['categorias'] = $this->evaluaciones_model->evaluacionListaCategorias();
-		$valida = $this->evaluaciones_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+		$this->load->model('evaluaciones/evaluacionesTwo_model');
+		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias();
+		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
 
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery.validate.js');
 		if(empty($this->uri->segment(5))){
 			redirect('evaluaciones');
 		}
-		// Si el tipo de evauluacion sen encuentra en 2 o 3 se verifica el role
-		if($tipo == '2' && $usuarioSesion['usuarioID'] != $usuario[0]->jefeDirectoID ){
-			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/1/'.$campaniaID);
-		}
-		else if($tipo == '1' && $usuarioSesion['usuarioID'] != $usuarioID ){
-			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$campaniaID);
-		}
-		else if($tipo == '3' && empty($valida)){
-			redirect('evaluaciones/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$campaniaID);
-		}
 
-		$verifica = $this->evaluaciones_model->verificaRespuesta($usuarioID, $tipo, $usuarioSesion['usuarioID']);
+		$verifica = $this->evaluacionesTwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
+
 		if(empty($verifica)){
-			$this->layouts->profile('evaluacion2015-view', $op);
+			$this->layouts->profile('evaluacionJefeDirecto-view', $op);
 		}
 		else{
-			$this->layouts->profile('evaluaciones-resultados', $op);
+
+			redirect('evaluacionesTwo/campania/'.$campaniaID);
 		}
 
 	}
 
-	function guardarEvaluacion(){
+	function guardarEvaluacionColaborador(){
 		$this->load->model('evaluaciones/evaluaciones_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 				= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
-		$valida = $this->evaluaciones_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
-		$tipo = $_POST['tipo'];
-
-		if($tipo == '1' && $usuarioSesion['usuarioID'] != $_POST['usuarioAcalificar']){
-			echo 'Tu usuario ha sido almacenado y puesto en observacion fraudulenta';
-			die;
-		}
-		else if($tipo == '2' && $usuarioSesion['usuarioID'] != $usuario[0]->jefeDirectoID){
-			echo 'Tu usuario ha sido almacenado y puesto en observacion fraudulenta';
-			die;
-		}
-		else if($tipo == '3' && !$valida){
-			echo 'Tu usuario ha sido almacenado y puesto en observacion fraudulenta';
-			die;
-		}
+		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 		$data = array();
 		foreach ($_POST['evaluacion'] as $key => $value) {
 
 			if (empty($value)){
-				redirect('evaluaciones/usuario/'.$_POST['usuarioAcalificar'].'/'.$tipo.'/'.$_POST['campania']);
+				redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
 			}
 
 			$data[] = array(
@@ -248,12 +229,45 @@ class Evaluaciones extends MX_Controller {
 				'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
 				'preguntaID' 					=> $key,
 				'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
-				'tipo'								=> $tipo
+				'tipo'								=> '1'
 			);
 		}
 		$this->db->insert_batch('evaluacion_respuestas', $data);
 
-		redirect('evaluaciones/campania/'.$_POST['campania']);
+		redirect('evaluacionesTwo/campania/'.$_POST['campania']);
+	}
+
+
+	function guardarEvaluacionJefeDirecto(){
+		$this->load->model('evaluaciones/evaluacionesTwo_model');
+		$usuarioSesion	= $this->session->userdata('usuario');
+		$usuario 				= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
+
+
+		if($valida){
+			$data = array();
+			foreach ($_POST['evaluacion'] as $key => $value) {
+
+				if (empty($value)){
+					redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
+				}
+
+				$data[] = array(
+					'respuesta'						=> $value,
+					'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
+					'preguntaID' 					=> $key,
+					'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
+					'tipo'								=> '2'
+				);
+			}
+			$this->db->insert_batch('evaluacion_respuestas', $data);
+			redirect('evaluacionesTwo/campania/'.$_POST['campania']);
+		}
+		else{
+			echo "No tiene permiso";
+		}
+
 	}
 
 }
