@@ -1,21 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class EvaluacionesTwo extends MX_Controller {
+class evaluacionestwo extends MX_Controller {
 
-	function evaluacionesTwo()
+	function evaluacionestwo()
 	{
 		parent::__construct();
 		$this->user_model->checkuser();
 		$this->load->model('prospectos/prospectos_model');
-		$this->load->model('evaluacionesTwo/evaluacionesTwo_model');
+		$this->load->model('evaluacionestwo/evaluacionestwo_model');
 	}
 
 	function index(){
 		$this->layouts->add_include('assets/js/jquery-ui.js');
-		$this->load->model('evaluacionesTwo/evaluacionesTwo_model');
+		$this->load->model('evaluacionestwo/evaluacionestwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['campanias'] = $this->evaluacionesTwo_model->cargaCampaniasEvaluaciones($usuarioSesion['usuarioID']);
+		$op['campanias'] = $this->evaluacionestwo_model->cargaCampaniasEvaluaciones($usuarioSesion['usuarioID']);
 
 		$this->layouts->profile('colaboradorIndex-view', $op);
 	}
@@ -25,12 +25,12 @@ class EvaluacionesTwo extends MX_Controller {
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 				= $this->user_model->traeadmin($usuarioID);
 
-		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias($campaniaID);
-		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
-		$eva = $this->evaluacionesTwo_model->validaEvala($usuarioSesion['usuarioID'],$usuarioID,$campaniaID);
+		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
+		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+		$eva = $this->evaluacionestwo_model->validaEvala($usuarioSesion['usuarioID'],$usuarioID,$campaniaID);
 
 		if($usuarioSesion['usuarioID'] == $usuarioID && $eva){
-			redirect('evaluacionesTwo/campania/'.$campaniaID);
+			redirect('evaluacionestwo/campania/'.$campaniaID);
 		}
 		else{
 			if(isset($valida) && empty($eva)){
@@ -48,10 +48,10 @@ class EvaluacionesTwo extends MX_Controller {
 		$this->layouts->add_include('assets/js/jquery-ui.js');
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias($campaniaID);
-		$op['campania'] = $this->evaluacionesTwo_model->infoCampania($campaniaID);
+		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
+		$op['campania'] = $this->evaluacionestwo_model->infoCampania($campaniaID);
 
-		$op['evaluaciones'] = $this->evaluacionesTwo_model->cargaListadeEvaluaciones($usuarioSesion['usuarioID'],$campaniaID);
+		$op['evaluaciones'] = $this->evaluacionestwo_model->cargaListadeEvaluaciones($usuarioSesion['usuarioID'],$campaniaID);
 
 		$this->layouts->profile('listas-view', $op);
 	}
@@ -154,17 +154,17 @@ class EvaluacionesTwo extends MX_Controller {
 		$this->layouts->add_include('assets/js/jquery-ui.js');
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['campanias'] = $this->evaluacionesTwo_model->cargaTodasEvaluaciones();
+		$op['campanias'] = $this->evaluacionestwo_model->cargaTodasEvaluaciones();
 
 		$this->layouts->profile('agregarPreguntas-view', $op);
 	}
 
 	function listaEvaluaciones(){
 		$this->layouts->add_include('assets/js/jquery-ui.js');
-		$this->load->model('evaluaciones/evaluacionesTwo_model');
+		$this->load->model('evaluaciones/evaluacionestwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['campanias'] = $this->evaluacionesTwo_model->cargaTodasEvaluaciones();
+		$op['campanias'] = $this->evaluacionestwo_model->cargaTodasEvaluaciones();
 
 		$this->layouts->profile('listaEvaluacionesGenerales-view', $op);
 	}
@@ -176,9 +176,9 @@ class EvaluacionesTwo extends MX_Controller {
 
 		$usuarioSesion	= $this->session->userdata('usuario');
 
-		$op['areas'] = $this->evaluacionesTwo_model->cargaAreas();
-		$op['cat'] = $this->evaluacionesTwo_model->listaCategoriasCatalogo();
-		$op['campanias'] = $this->evaluacionesTwo_model->cargaTodasEvaluaciones();
+		$op['areas'] = $this->evaluacionestwo_model->cargaAreas();
+		$op['cat'] = $this->evaluacionestwo_model->listaCategoriasCatalogo();
+		$op['campanias'] = $this->evaluacionestwo_model->cargaTodasEvaluaciones();
 
 		$this->layouts->profile('formularioEvaluacion-view', $op);
 	}
@@ -189,9 +189,9 @@ class EvaluacionesTwo extends MX_Controller {
 	function evaluacionJefeDirecto($usuarioID,$tipo,$campaniaID){
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 				= $this->user_model->traeadmin($usuarioID);
-		$this->load->model('evaluaciones/evaluacionesTwo_model');
-		$op['categorias'] = $this->evaluacionesTwo_model->evaluacionListaCategorias($campaniaID);
-		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+		$this->load->model('evaluaciones/evaluacionestwo_model');
+		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
+		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
 
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery.validate.js');
@@ -199,13 +199,13 @@ class EvaluacionesTwo extends MX_Controller {
 			redirect('evaluaciones');
 		}
 
-		$verifica = $this->evaluacionesTwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
+		$verifica = $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
 
 		//if(empty($verifica)){
 			$this->layouts->profile('evaluacionJefeDirecto-view', $op);
 		//}else{
 
-			//redirect('evaluacionesTwo/campania/'.$campaniaID);
+			//redirect('evaluacionestwo/campania/'.$campaniaID);
 		//}
 
 	}
@@ -214,13 +214,13 @@ class EvaluacionesTwo extends MX_Controller {
 		$this->load->model('evaluaciones/evaluaciones_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
-		$valida 		= $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
+		$valida 		= $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 		$data = array();
 		foreach ($_POST['evaluacion'] as $key => $value) {
 
 			if (empty($value)){
-				redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
+				redirect('evaluacionestwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
 			}
 
 			$data[] = array(
@@ -255,16 +255,16 @@ class EvaluacionesTwo extends MX_Controller {
 
 		}
 
-		redirect('evaluacionesTwo/campania/'.$_POST['campania']);
+		redirect('evaluacionestwo/campania/'.$_POST['campania']);
 	}
 
 
 	function guardarEvaluacionJefeDirecto(){
-		$this->load->model('evaluaciones/evaluacionesTwo_model');
+		$this->load->model('evaluaciones/evaluacionestwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
 		$tipo			= $_POST['tipo'];
-		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
+		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 
 		if($valida){
@@ -272,7 +272,7 @@ class EvaluacionesTwo extends MX_Controller {
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
 				if (empty($value)){
-					redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
+					redirect('evaluacionestwo/usuario/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
 				}
 
 				$data[] = array(
@@ -284,7 +284,7 @@ class EvaluacionesTwo extends MX_Controller {
 				);
 			}
 			$this->db->insert_batch('evaluacion_respuestas', $data);
-			redirect('evaluacionesTwo/campania/'.$_POST['campania']);
+			redirect('evaluacionestwo/campania/'.$_POST['campania']);
 		}
 		else{
 			echo "No tiene permiso";

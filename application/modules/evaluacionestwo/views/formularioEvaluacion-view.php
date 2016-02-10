@@ -1,4 +1,4 @@
-<form action="<?=base_url()?>evaluacionesTwo/guardarCampaniaEvaluacion" method="post" id="guardarForm">
+<form action="<?=base_url()?>evaluacionestwo/guardarCampaniaEvaluacion" method="post" id="guardarForm">
 <div id="mainTit">
   <h3>Agrega tu evaluación</h3>
 </div>
@@ -226,7 +226,7 @@
       <input id="allCheck" type="checkbox" name="all" id="all" /><em>Todos</em>
       </div>
     <?foreach ($areas as $varA): ?>
-    <? $dat = $this->evaluacionesTwo_model->cargaUsuariosDepartamentos($varA->areaID);?>
+    <? $dat = $this->evaluacionestwo_model->cargaUsuariosDepartamentos($varA->areaID);?>
     <ul>
      <li>
        <div class="areaDiv actEva">

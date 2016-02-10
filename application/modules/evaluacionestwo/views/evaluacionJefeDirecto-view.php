@@ -78,7 +78,7 @@
     -->
 
     <h3>Contesta el siguiente formulario</h3>
-    <form class="" action="<?=base_url()?>evaluacionesTwo/guardarEvaluacionJefeDirecto" method="post">
+    <form class="" action="<?=base_url()?>evaluacionestwo/guardarEvaluacionJefeDirecto" method="post">
 
     <? foreach ($categorias as $row): ?>
     <table class="infoEva">
@@ -96,11 +96,11 @@
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria, $this->uri->segment(5));?>
+      <? $pregunta = $this->evaluacionestwo_model->preguntasCategorias($row->categoria, $this->uri->segment(5));?>
       <? foreach ($pregunta as $var): ?>
       <tr>
         <td><em><?=$var->pregunta;?></em></td>
-        <? $resp = $this->evaluacionesTwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
+        <? $resp = $this->evaluacionestwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
 
 		<?foreach ($resp as $var2):?>
         <td><span><?=$var2->respuesta;?></span></td>
