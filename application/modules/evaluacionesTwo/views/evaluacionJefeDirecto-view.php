@@ -89,21 +89,22 @@
           <? if ($this->uri->segment(4) != '1'):?>
           <th class="smaTb">Jefe Directo</th>
           <?endif?>
-          <? if ($this->uri->segment(4) == '4'):?>
+          <? if ($this->uri->segment(4) == '3'):?>
           <th class="medTb">Planes de Acción</th>
           <?endif;?>
         </tr>
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria, $this->uri->segment(3));?>
+      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria, $this->uri->segment(5));?>
       <? foreach ($pregunta as $var): ?>
       <tr>
         <td><em><?=$var->pregunta;?></em></td>
         <? $resp = $this->evaluacionesTwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
 
-        <td><span><?foreach ($resp as $var2):?><?=$var2->respuesta;?><?endforeach;?></span>
-        </td>
+		<?foreach ($resp as $var2):?>
+        <td><span><?=$var2->respuesta;?></span></td>
+        <?endforeach;?>
         <!--- Muestra solamente al supervisor que lo calificara y al final de la evaluacion--->
 
 
@@ -127,7 +128,7 @@
     </table>
     <?endforeach; ?>
     <input type="hidden" name="campania" value="<?=$this->uri->segment(5);?>">
-    <input type="hidden" name="tipo" value="2">
+    <input type="hidden" name="tipo" value="<?=$this->uri->segment(4);?>">
     <input type="hidden" name="usuarioAcalificar" value="<?=$this->uri->segment(3);?>">
     <input type="submit" id="submit" value="Enviar información" class="mt10 mainBotton">
     </form>

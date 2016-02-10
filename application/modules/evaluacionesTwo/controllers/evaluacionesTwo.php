@@ -262,7 +262,8 @@ class EvaluacionesTwo extends MX_Controller {
 	function guardarEvaluacionJefeDirecto(){
 		$this->load->model('evaluaciones/evaluacionesTwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
-		$usuario 				= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$tipo			= $_POST['tipo'];
 		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 
@@ -271,15 +272,15 @@ class EvaluacionesTwo extends MX_Controller {
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
 				if (empty($value)){
-					redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
+					redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
 				}
 
 				$data[] = array(
-					'respuesta'						=> $value,
+					'respuesta'				=> $value,
 					'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
-					'preguntaID' 					=> $key,
+					'preguntaID' 			=> $key,
 					'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
-					'tipo'								=> '2'
+					'tipo'					=> $tipo
 				);
 			}
 			$this->db->insert_batch('evaluacion_respuestas', $data);

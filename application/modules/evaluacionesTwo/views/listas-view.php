@@ -50,13 +50,17 @@
 						<?foreach ($evaluaciones as $var): ?>
 
             <? $verifica = $this->evaluacionesTwo_model->checaContestacionesCampaniaUsuario($this->uri->segment(3) ,$var->usuarioID);?>
-
+			<? $consulta = $this->evaluacionesTwo_model->verificaProceso($var->usuarioID);?>
+            <? $conteo = sizeof($consulta) ?>
 
 		        <tr data="<?=$var->usuarioID;?>"
-              <?if ($var->usuarioID != $usuarioSesion['usuarioID']):?> class='alertClick'<?else:?>class='alertClick'<?endif?>>
-
-              <? $consulta = $this->evaluacionesTwo_model->verificaProceso($var->usuarioID);?>
-              <? $conteo = sizeof($consulta) ?>
+              	<? if ($conteo > 1):?>
+              	onclick="window.location.href='<?=base_url()?>evaluacionesTwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+                <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+                onclick="window.location.href='<?=base_url()?>evaluacionesTwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+                <? else:?>
+                class='alertSinAut'
+                <? endif?>              
               <th>
                 <?if (empty($verifica[0]->usuario)):?><span class="palomita" title="Esta evaluación ya fue contestada"></span><?else:?><span class="espera" title="En espera a ser contestada"></span><?endif?>
               </th>
@@ -180,6 +184,10 @@
 
   $('.alertClick').click(function(){
     alert('Esta evaluacion ya fue contestada');
+  });
+  
+  $('.alertSinAut').click(function(){
+    alert('El usuario aún no contesta su auto evaluación');
   });
 
 </script>
