@@ -108,7 +108,7 @@
         <!--- Muestra solamente al supervisor que lo calificara y al final de la evaluacion--->
 
 
-        <? if ($this->uri->segment(4) == '2' || $this->uri->segment(4) == '3'):?>
+        <? if ($this->uri->segment(4) == '2'):?>
         <td>
           <fieldset>
             <input type="txt" required class="<?= strtok($row->categoria,' ');?>t2" maxlength="1"  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
