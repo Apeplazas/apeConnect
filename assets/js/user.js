@@ -9,7 +9,7 @@ jQuery(function($) {
 		 $.ajax({
                 data:  $(this).serialize(),
 								dataType : 'json',
-                url:   'http://localhost:8888/apeConnect/registrate/valida',
+                url:   base_url+'registrate/valida',
                 type:  'post',
                 beforeSend: function () {
                         $(".msgBlack").html("Procesando, espere por favor...");

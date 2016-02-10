@@ -201,17 +201,20 @@ class EvaluacionesTwo extends MX_Controller {
 
 		$verifica = $this->evaluacionesTwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
 
+		//if(empty($verifica)){
 			$this->layouts->profile('evaluacionJefeDirecto-view', $op);
+		//}else{
 
-
+			//redirect('evaluacionesTwo/campania/'.$campaniaID);
+		//}
 
 	}
 
 	function guardarEvaluacionColaborador(){
 		$this->load->model('evaluaciones/evaluaciones_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
-		$usuario 				= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
-		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
+		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$valida 		= $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 		$data = array();
 		foreach ($_POST['evaluacion'] as $key => $value) {
@@ -230,6 +233,28 @@ class EvaluacionesTwo extends MX_Controller {
 		}
 		$this->db->insert_batch('evaluacion_respuestas', $data);
 
+		if($usuario[0]->jefeDirectoID){
+
+			$jefeDirecto = $this->user_model->traeadmin($usuario[0]->jefeDirectoID);
+			$this->load->library('email');
+			$this->email->set_newline("\r\n");
+			$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
+			$this->email->to($jefeDirecto[0]->email);
+			$this->email->subject('Evaluación pendiente');
+			$this->email->message('
+					<html>
+						<head>
+							<title>Evaluación pendiente</title>
+						</head>
+						<body>
+							<p>El usuario ' . $usuario[0]->nombreCompleto . ' necesita ser evaluado.</p>
+						</body>
+					</html>
+			');
+			$this->email->send();
+
+		}
+
 		redirect('evaluacionesTwo/campania/'.$_POST['campania']);
 	}
 
@@ -237,7 +262,8 @@ class EvaluacionesTwo extends MX_Controller {
 	function guardarEvaluacionJefeDirecto(){
 		$this->load->model('evaluaciones/evaluacionesTwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
-		$usuario 				= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$tipo			= $_POST['tipo'];
 		$valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 
@@ -246,15 +272,15 @@ class EvaluacionesTwo extends MX_Controller {
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
 				if (empty($value)){
-					redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
+					redirect('evaluacionesTwo/usuario/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
 				}
 
 				$data[] = array(
-					'respuesta'						=> $value,
+					'respuesta'				=> $value,
 					'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
-					'preguntaID' 					=> $key,
+					'preguntaID' 			=> $key,
 					'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
-					'tipo'								=> '2'
+					'tipo'					=> $tipo
 				);
 			}
 			$this->db->insert_batch('evaluacion_respuestas', $data);
