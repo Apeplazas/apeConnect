@@ -84,11 +84,6 @@
 				</span>
 			</div>
 
-      <script type="text/javascript">
-      $("#areSta").change(function(){
-        $("#usersEva").toggleClass("show");
-      });
-      </script>
 
       <script type="text/javascript">
       $("#colabSta").change(function(){
@@ -146,14 +141,14 @@
   </section>
   <h6>Agregar personas a evaluación</h6>
   <section>
-    <div class="wrapListForm" id="wrapListForm3">
+    <div class="wrapForm" id="wrapListForm3">
       <span class='secmainTit'>Tipo de esquema</span>
       <table>
       <tr id="tipForm">
         <td>
           <span class="none"><input type="checkbox" checked name="jefeDirecto"><em>Jefe Directo</em></span>
           <span><input id="colabSta" type="checkbox" name="colaboradores"><em>Colaborador vs Colaborador</em></span>
-          <span class="none"><input checked id="areSta" type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
+          <span class="none"><input checked type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
         </td>
       </tr>
       </table>
@@ -179,6 +174,7 @@
             $("#ajaxUsu").empty().append(data);
           });
         };
+
 
         function buscaUsuariosAcalificar(){
           var alldata = $('#busColTwo').val();
@@ -220,19 +216,44 @@
 
     <div id="ajaxUsu"></div>
     <div id="busFinal"></div>
+
+    <div id="sCTipCol" class="addSmallGrayBot">
+      <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Recibo"></i>
+      <span>Agregar categoria para pregunta a colaborador</span>
+    </div>
+
+    <div id="choTipEvaCol">
+      <span>
+        <select id="catEvaList" name="categorias">
+          <option value="0">Escoge una categoria</option>
+          <?foreach ($cat as $var): ?>
+          <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
+          <?endforeach; ?>
+          <option value="1">Liderazgo</option>
+          <option value="2">Atención a Clientes</option>
+        </select>
+        <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
+        <img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
+        <p>Si no encuentra la categoria de su gusto, puede agregar una nueva <a href="#">aquí</a></p>
+      <fieldset class="none">
+        <input type="text" name="name" value="categoria">
+      </fieldset>
+      </span>
+    </div>
+
     </div>
   </div>
   <ul id="usersEva">
     <li>
       <div class="spaHead">
-      <input id="allCheck" type="checkbox" name="all" id="all" /><em>Todos</em>
+      <input id="allCheck" type="checkbox" checked name="all" id="all" /><em>Todos</em>
       </div>
     <?foreach ($areas as $varA): ?>
     <? $dat = $this->evaluaciones_model->cargaUsuariosDepartamentos($varA->areaID);?>
     <ul>
      <li>
        <div class="areaDiv actEva">
-       <input class="firInp" type="checkbox" name="title" id="" />
+       <input checked class="firInp" type="checkbox" name="title" id="" />
        <span onclick="$('#open<?=$varA->areaID?>').toggle(); return false;" class="areaN" ><b class="actb"></b><?=$varA->area;?></span>
        </div>
        <ul id="open<?=$varA->areaID?>" class="none">
@@ -241,7 +262,7 @@
            <?foreach ($dat as $varB): ?>
            <?if($dat):?>
            <tr>
-             <td><input type="checkbox" name="userAutoEval[]" id="box_1" value="<?php echo $varB->usuarioID ?>" /></td>
+             <td><input checked type="checkbox" name="userAutoEval[]" id="box_1" value="<?php echo $varB->usuarioID ?>" /></td>
              <td><?=$varB->numeroEmpleado;?></td>
              <td><?=$varB->nombreCompleto;?></td>
              <td><?=$varB->email;?></td>

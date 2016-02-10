@@ -619,4 +619,5 @@ var statusBar = $.cookie('statusBar');
 		});
 	});
 
+
 });

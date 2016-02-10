@@ -89,14 +89,14 @@
           <? if ($this->uri->segment(4) != '1'):?>
           <th class="smaTb">Jefe Directo</th>
           <?endif?>
-          <? if ($this->uri->segment(4) == '4'):?>
+          <? if ($this->uri->segment(4) == '3'):?>
           <th class="medTb">Planes de Acción</th>
           <?endif;?>
         </tr>
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria, $this->uri->segment(3));?>
+      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria, $this->uri->segment(5));?>
       <? foreach ($pregunta as $var): ?>
       <tr>
         <td><em><?=$var->pregunta;?></em></td>
@@ -116,7 +116,7 @@
         <?endif?>
 
         <!--- Muestra solamente al final de la evaluacion --->
-        <? if ($this->uri->segment(4) == '4'):?>
+        <? if ($this->uri->segment(4) == '3'):?>
         <td><input type="txt" class="big" name="evaluacion[<?=$var->preguntaID;?>]" ></td>
         <?endif?>
       </tr>

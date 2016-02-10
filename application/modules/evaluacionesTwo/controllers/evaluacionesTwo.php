@@ -201,13 +201,9 @@ class EvaluacionesTwo extends MX_Controller {
 
 		$verifica = $this->evaluacionesTwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
 
-		if(empty($verifica)){
 			$this->layouts->profile('evaluacionJefeDirecto-view', $op);
-		}
-		else{
 
-			redirect('evaluacionesTwo/campania/'.$campaniaID);
-		}
+
 
 	}
 

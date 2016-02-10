@@ -79,6 +79,10 @@ class Ajax extends MX_Controller {
 					}
 				});
 			});
+
+			$('.noMsgEv').keyup(function(event){
+				buscaPregunta();
+			});
 			</script>";
 		}
 
@@ -88,14 +92,38 @@ class Ajax extends MX_Controller {
 	function agregaPreguntasEvaluacion(){
 		echo json_encode("<div class='secPreg'>
 			<span class='borrar'>x</span>
-			<input name='categ[".$_POST['value']."][]' type='text' placeholder='Agrega aquí tu pregunta.'/>
+			<input class='noMsgEv' name='categ[".$_POST['value']."][]' type='text' placeholder='Agrega aquí tu pregunta.'/>
 		</div>
 		<script type='text/javascript'>
 		$('.borrar').click(function(){
 			$(this).parent().remove();
 		});
+
+		$('.noMsgEv').keyup(function(event){
+			var busca = $(this).val();
+			var este = $(this);
+			$('.tablaPreg').remove();
+
+			$.post(ajax_url+'buscaPreguntas', {
+	    busca : busca
+			},
+
+			function(data) { sucess:
+
+		  	este.parent().append(data);
+			});
+
+		});
 		</script>");
 
+	}
+
+	function buscaPreguntas(){
+
+		$var = $_POST['busca'];
+		$op['data'] = $this->evaluaciones_model->buscaPregunta($var);
+
+		$this->load->view('busquedaPreguntas' ,$op);
 	}
 
 	function verificaUrl()

@@ -22,6 +22,27 @@ class Evaluaciones_model extends CI_Model
 		return $data;
 	}
 
+	function buscaPregunta($var){
+		$data = array();
+		$q = $this->db->query("SELECT
+				ep.pregunta as pregunta,
+				ep.preguntaId as preguntaID,
+				ec.categoriaNombre as categoria
+			FROM evaluacion_preguntas ep
+				LEFT JOIN evaluacion_categorias ec ON ec.evaluacionCategoriaID=ep.categoria
+				WHERE ep.pregunta
+				LIKE '%$var%'
+			");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+
+
 	function listaCategoriasCatalogo(){
 		$data = array();
 		$q = $this->db->query("SELECT * from evaluacion_categorias");

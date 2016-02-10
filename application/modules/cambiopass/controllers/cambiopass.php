@@ -51,7 +51,6 @@ class cambiopass extends MX_Controller {
 				}
 
 
-
 				$data['usuario'] = array(
 					'usuarioID'       => $u[0]->usuarioID,
 					'tipoUsuario'	  	=> $u[0]->tipoUsuario,
@@ -60,8 +59,8 @@ class cambiopass extends MX_Controller {
 					'idrole'          => $u[0]->idrole,
 					'fancyUrl'        => $u[0]->fancyUrl,
 					'contrasena'	  	=> $u[0]->contrasenia,
-					'modulos'		  		=> $modules,
-					'plaza'			  	=> $u[0]->plazaId,
+					'modulos'					=> $modules,
+					'plaza'						=> $u[0]->plazaId,
 					'is_logged_in'    => true
 						);
 

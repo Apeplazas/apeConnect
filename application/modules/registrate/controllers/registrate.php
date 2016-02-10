@@ -346,9 +346,6 @@ class Registrate extends MX_Controller {
 			$u = $this->user_model->validateLogin($var, $password);
 
 				if ($u && !isset($u['error'])){
-
-
-
 					$data['cambiopass'] = array(
 						'email'           => $u[0]->email,
 						'nombreCompleto'        => $u[0]->nombreCompleto,
