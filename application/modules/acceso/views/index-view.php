@@ -8,6 +8,12 @@
 <title><?= $rowOpt->enlaceTitulo;?></title>
 <meta name="description" content="<?=$rowOpt->enlaceDescripcion;?>" />
 <? endforeach; ?>
+
+<script> 
+	var ajax_url = "<?= BASEURL;?>ajax/"; 
+	var base_url = "<?= BASEURL;?>";
+</script>
+
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
 <meta name="robots" content="All,index, follow" />
 <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>

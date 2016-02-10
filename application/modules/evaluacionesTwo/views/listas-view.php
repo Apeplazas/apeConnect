@@ -53,7 +53,7 @@
 
 
 		        <tr data="<?=$var->usuarioID;?>"
-              <?if ($var->usuarioID != $usuarioSesion['usuarioID']):?> onclick="window.location.href='<?=base_url()?>evaluacionesTwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"<?else:?>class='alertClick'<?endif?>>
+              <?if ($var->usuarioID != $usuarioSesion['usuarioID']):?> class='alertClick'<?else:?>class='alertClick'<?endif?>>
 
               <? $consulta = $this->evaluacionesTwo_model->verificaProceso($var->usuarioID);?>
               <? $conteo = sizeof($consulta) ?>
