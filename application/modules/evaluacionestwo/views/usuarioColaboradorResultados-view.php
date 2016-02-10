@@ -76,10 +76,10 @@
 
 
     <h3>CONTESTA EL SIGUIENTE FORMULARIO</h3>
-    <form class="" action="<?=base_url()?>evaluacionesTwo/guardarEvaluacionColaborador" method="post">
+    <form class="" action="<?=base_url()?>evaluacionestwo/guardarEvaluacionColaborador" method="post">
 
     <? foreach ($categorias as $row): ?>
-    <? $valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$this->uri->segment(3));?>
+    <? $valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$this->uri->segment(3));?>
 
 
     <table class="infoEva">
@@ -103,12 +103,12 @@
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria,$this->uri->segment(5));?>
+      <? $pregunta = $this->evaluacionestwo_model->preguntasCategorias($row->categoria,$this->uri->segment(5));?>
       <? foreach ($pregunta as $var): ?>
       <tr>
         <!--- Primer Segmento--->
         <td><em><?=$var->pregunta;?></em></td>
-        <? $resp = $this->evaluacionesTwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
+        <? $resp = $this->evaluacionestwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
 
         <!--  Segundo segmento --->
         <? if ($usuarioSesion['usuarioID'] == $this->uri->segment(3) ||  $this->uri->segment(4) == 4):?>

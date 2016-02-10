@@ -4,7 +4,7 @@
 </div>
 <div class="wrapList">
   <div id="actions">
-    <a href="<?=base_url()?>evaluacionesTwo/formEvaluacion" title="Generar carta intencion" class="addSmall">
+    <a href="<?=base_url()?>evaluacionestwo/formEvaluacion" title="Generar carta intencion" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url();?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Evaluación</span>
 		</a>
@@ -22,8 +22,8 @@
 		  </thead>
 		  <tbody>
 				<?foreach ($campanias as $var): ?>
-        <? $ver = $this->evaluacionesTwo_model->verificaRespuestaIndexColaborador($var->campaniaID,$usuarioSesion['usuarioID']);?>
-		      <tr onclick="window.location.href='<?=base_url()?>evaluacionesTwo/usuarioColaborador/<?=$usuarioSesion['usuarioID']?>/1/<?=$var->campaniaID;?>'">
+        <? $ver = $this->evaluacionestwo_model->verificaRespuestaIndexColaborador($var->campaniaID,$usuarioSesion['usuarioID']);?>
+		      <tr onclick="window.location.href='<?=base_url()?>evaluacionestwo/usuarioColaborador/<?=$usuarioSesion['usuarioID']?>/1/<?=$var->campaniaID;?>'">
 		        <th><p><?=$var->campaniaNombre;?><br><em class="des"><?=$var->campaniaDescripcion;?></em></p></th>
 		        <th><?=$var->fechaInicio;?></th>
 		        <th><?=$var->fechaFin;?></th>

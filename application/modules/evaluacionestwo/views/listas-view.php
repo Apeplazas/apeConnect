@@ -1,5 +1,5 @@
 <? $usuarioSesion	= $this->session->userdata('usuario');?>
-<? $contestacion = $this->evaluacionesTwo_model->validaContestacion($this->uri->segment(3),$usuarioSesion['usuarioID']);?>
+<? $contestacion = $this->evaluacionestwo_model->validaContestacion($this->uri->segment(3),$usuarioSesion['usuarioID']);?>
 <?foreach ($campania as $info): ?>
 <div id="mainTit">
   <h3>Evaluaciones y Encuestas APE Plazas </h3>
@@ -17,7 +17,7 @@
     <h3><?=$info->campaniaNombre;?></h3>
     <p class="mainSub"><?=$info->campaniaDescripcion;?></p>
     <? if(empty($contestacion)):?>
-    <a class="contesta" href="<?=base_url()?>evaluacionesTwo/usuario/<?=$usuarioSesion['usuarioID']?>/1/<?=$this->uri->segment(3);?>" title="Contestar evaluación" class="addSmall">
+    <a class="contesta" href="<?=base_url()?>evaluacionestwo/usuario/<?=$usuarioSesion['usuarioID']?>/1/<?=$this->uri->segment(3);?>" title="Contestar evaluación" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Contesta tu evaluación aqui</span>
 		</a>
@@ -49,15 +49,15 @@
 		      <tbody>
 						<?foreach ($evaluaciones as $var): ?>
 
-            <? $verifica = $this->evaluacionesTwo_model->checaContestacionesCampaniaUsuario($this->uri->segment(3) ,$var->usuarioID);?>
-			<? $consulta = $this->evaluacionesTwo_model->verificaProceso($var->usuarioID);?>
+            <? $verifica = $this->evaluacionestwo_model->checaContestacionesCampaniaUsuario($this->uri->segment(3) ,$var->usuarioID);?>
+			<? $consulta = $this->evaluacionestwo_model->verificaProceso($var->usuarioID);?>
             <? $conteo = sizeof($consulta) ?>
 
 		        <tr data="<?=$var->usuarioID;?>"
               	<? if ($conteo > 1):?>
-              	onclick="window.location.href='<?=base_url()?>evaluacionesTwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+              	onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
                 <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
-                onclick="window.location.href='<?=base_url()?>evaluacionesTwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+                onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
                 <? else:?>
                 class='alertSinAut'
                 <? endif?>              
@@ -113,7 +113,7 @@
           </thead>
 
           <tbody>
-          <? $respuesta = $this->evaluacionesTwo_model->respuestasCategorias($row->categoria,$usuarioSesion['usuarioID'],$this->uri->segment(3));?>
+          <? $respuesta = $this->evaluacionestwo_model->respuestasCategorias($row->categoria,$usuarioSesion['usuarioID'],$this->uri->segment(3));?>
           <? $conteo = sizeof($respuesta);?>
           <?
           $autoSum = 0;

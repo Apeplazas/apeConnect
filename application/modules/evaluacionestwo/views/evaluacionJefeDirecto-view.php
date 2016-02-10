@@ -78,7 +78,7 @@
     -->
 
     <h3>Contesta el siguiente formulario</h3>
-    <form class="" action="<?=base_url()?>evaluacionesTwo/guardarEvaluacionJefeDirecto" method="post">
+    <form class="" action="<?=base_url()?>evaluacionestwo/guardarEvaluacionJefeDirecto" method="post">
 
     <? foreach ($categorias as $row): ?>
     <table class="infoEva">

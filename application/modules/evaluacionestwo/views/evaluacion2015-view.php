@@ -82,7 +82,7 @@
     <form class="" action="<?=base_url()?>evaluaciones/guardarEvaluacion" method="post">
 
     <? foreach ($categorias as $row): ?>
-    <? $valida = $this->evaluacionesTwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$this->uri->segment(3));?>
+    <? $valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$this->uri->segment(3));?>
 
 
     <table class="infoEva">
@@ -105,12 +105,12 @@
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionesTwo_model->preguntasCategorias($row->categoria);?>
+      <? $pregunta = $this->evaluacionestwo_model->preguntasCategorias($row->categoria);?>
       <? foreach ($pregunta as $var): ?>
       <tr>
         <!--- Primer Segmento--->
         <td><em><?=$var->pregunta;?></em></td>
-        <? $resp = $this->evaluacionesTwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
+        <? $resp = $this->evaluacionestwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
 
         <td>
           <?if($this->uri->segment(4) != 4):?>
