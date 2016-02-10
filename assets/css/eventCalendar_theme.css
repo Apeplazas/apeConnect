@@ -125,7 +125,7 @@
 				color:#fff
 			}
 				li.eventsCalendar-day.current a:hover {
-					
+
 					background:url(../graphics/point.png) center bottom no-repeat;
 				}
 		.eventsCalendar-loading {
@@ -215,7 +215,7 @@
 			height:95%;
 			font-weight:bold;
 		}
-		
+
 		.eventsCalendar-noEvents{
 			position: absolute;
 			width: 381px;

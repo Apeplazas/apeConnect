@@ -13,7 +13,7 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr{cursor:pointer}
+button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr, #colPr{cursor:pointer}
 strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
@@ -185,7 +185,7 @@ background: -webkit-linear-gradient(top, rgb(255,255,255) 0%,rgb(233,234,234) 3%
 background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(233,234,234) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
 .addSmallGray{float:left; position:relative; padding:6px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; height:26px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:10px; background:url(../graphics/bckGray.png) 0 -29px repeat-x #fff;}
-.addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover, #choTipEva a:hover, #choTipEvaCol a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
+.addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover, #choTipEva a:hover, #choTipEvaCol a:hover, #colPr a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
 .addSmall span, .addSmallClick span, .contesta span{margin-top:8px; float:left; font-style:normal}
 .addSmall:hover, .valGen:hover, .contesta:hover{border:1px solid #ccc; background:#fff; /* Old browsers */
 background:-moz-linear-gradient(top, #ffffff 1%, #f0f9ff 56%, #cbebff 99%, #cbebff 99%, #a1dbff 100%); /* FF3.6+ */
@@ -319,13 +319,13 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .titFormMain{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:10px 0 10px 10px; float:left; width:100%; margin-bottom:10px;}
 .addSmallGrayBot{float:left; height:33px; position:relative; padding:2px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer}
 .addSmallGrayBot span{float:left; margin-top:8px}
-#choTip, #choTipEva, #choTipEvaCol{float:left; width:100%; height:100%; background:#fff; padding:15px 15px 5px 15px; display:none}
+#choTip, #choTipEva, #choTipEvaCol, #colPr{float:left; width:100%; height:100%; background:#fff; padding:15px 15px 5px 15px; display:none}
 #choTip a{border:1px solid #ccc; padding:8px 20px; text-transform: uppercase; margin: 0 10px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; cursor:pointer; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
-#choTipEva a, #choTipEvaCol a{color:#007aff}
+#choTipEva a, #choTipEvaCol a, #colPr a{color:#007aff}
 #closeCho, .closeData{width:14px; position:absolute; right:6px; top:6px; border:1px solid #78C1FF; background:#fff; padding:2px; cursor:pointer}
 #closeCho:hover{border:1px solid #78C1FF;}
 #choTip span{margin-bottom:10px; padding:20px 0px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:475px; position:relative}
-#choTipEva span, #choTipEvaCol span{margin-bottom:10px; padding:20px 20px 0 20px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:495px; position:relative}
+#choTipEva span, #choTipEvaCol span, #colPr span{margin-bottom:10px; padding:20px 20px 0 20px; border:1px solid #78C1FF; border-radius:4px; background:#f0f8ff; float:left; width:495px; position:relative}
 .foDep{float:left; width:100%; border-bottom:1px solid #eee; padding:10px }
 #forAja fieldset{float:left; width:100%; background: #f0f8ff; padding:0 0 15px 0; border-top: 1px solid #ddd;}
 .dataInf .bigInp{background:#fff; cursor:pointer}
@@ -428,9 +428,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 border-top-right-radius: 5px;
 border-bottom-right-radius: 5px; }
 #butEva img{width:18px; margin:1px 0 0 0; float:left}
-#choTipEva p, #choTipEvaCol p{float:left; width:100%; margin-top:8px}
+#choTipEva p, #choTipEvaCol p, #colPr p{float:left; width:100%; margin-top:8px}
 #contentEva .steps, #choTipEvaCol .steps{margin:0 0 10px !important} #contentEva .wrapListForm{margin-left:0 !important}
-#choTipEva b, #choTipEvaCol b{font-size:11px; margin:4px 6px 2px 6px; float:left; text-transform:uppercase;}
+#choTipEva b, #choTipEvaCol b, #colPr b{font-size:11px; margin:4px 6px 2px 6px; float:left; text-transform:uppercase;}
 .sinPre label{background:#fafafa; border-bottom:1px solid #ccc; float:left; width:100%; height:28px}
 .sinPre .remove{margin:0 0 0 5px !important; float:left;}
 .sinPre label{padding:6px !important; margin:0 !important}
@@ -440,7 +440,7 @@ border-bottom-right-radius: 5px; }
 #forAja a{margin:10px 0 10px 10px;}
 .secPreg{float:left; width:100%; background:#fff; position:relative; border-bottom:1px solid #ccc}
 .secPreg input{float:left; width:100%; border:none; background:#fff; text-transform:uppercase; padding-left:30px; height:26px}
-.secPreg .borrar{position:absolute; left:5px; top:0; padding:6px; height:24px}
+.secPreg .borrar{position:absolute; left:5px; top:0; padding:6px; height:24px; cursor:pointer}
 .catNomEva{float:left; padding:2px 0}
 .tipForm{float:left; background-color:#eee; width:200px; text-transform:uppercase; padding: 10px 0 8px 10px; height:130px;}
 .tipFormTwo{float:left; width:200px; text-transform:uppercase; padding: 10px 0 8px 10px;}
@@ -478,7 +478,8 @@ border-bottom-right-radius: 5px; }
 .dataEva .ingo em{font-size:1.2em; font-style:normal}
 #cambiopass{width:360px; margin:60px auto 0}
 .alert-warning{float:left; width:100%; padding:6px 0; text-align:center; text-transform:uppercase}
-.tablaPreg{position:absolute; background-color:aliceblue; top:18px; left:0px; z-index:9999;}
+.tablaPreg{position:absolute; background-color:#FFFFE0; top:16px; left:-1px; z-index:9999; width:750px !important}
+.tablaPreg p{padding:3px 6px;} .tablaPreg em{font-style:normal; text-transform:uppercase; padding:3px 6px}
 
 /*---------------- Botones ------------------*/
 

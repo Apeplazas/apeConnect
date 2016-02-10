@@ -81,7 +81,18 @@ class Ajax extends MX_Controller {
 			});
 
 			$('.noMsgEv').keyup(function(event){
-				buscaPregunta();
+				var busca = $(this).val();
+				var este = $(this);
+				$('.tablaPreg').remove();
+
+				$.post(ajax_url+'buscaPreguntas', {
+		    busca : busca
+				},
+
+				function(data) { sucess:
+			  	este.parent().append(data);
+				});
+
 			});
 			</script>";
 		}
@@ -109,7 +120,6 @@ class Ajax extends MX_Controller {
 			},
 
 			function(data) { sucess:
-
 		  	este.parent().append(data);
 			});
 

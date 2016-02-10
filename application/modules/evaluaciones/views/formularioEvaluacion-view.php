@@ -72,8 +72,6 @@
             <?foreach ($cat as $var): ?>
             <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
             <?endforeach; ?>
-					  <option value="1">Liderazgo</option>
-            <option value="2">Atención a Clientes</option>
 					</select>
           <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
 					<img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
@@ -219,7 +217,27 @@
 
     <div id="sCTipCol" class="addSmallGrayBot">
       <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Recibo"></i>
-      <span>Agregar categoria para pregunta a colaborador</span>
+      <span id="pregCol">Agregar categoria para pregunta a colaborador</span>
+
+      <div id="colPr">
+        <span>
+          <select id="catEvaList" name="categorias">
+            <option value="0">Escoge una categoria</option>
+            <?foreach ($cat as $var): ?>
+            <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
+            <?endforeach; ?>
+            <option value="1">Liderazgo</option>
+            <option value="2">Atención a Clientes</option>
+          </select>
+          <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
+          <img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
+          <p>Si no encuentra la categoria de su gusto, puede agregar una nueva <a href="#">aquí</a></p>
+        <fieldset class="none">
+          <input type="text" name="name" value="categoria">
+        </fieldset>
+        </span>
+      </div>
+
     </div>
 
     <div id="choTipEvaCol">
@@ -360,6 +378,10 @@ $("#clickAdd").click(function(){
     event.preventDefault();
     $(this).parent().remove();
   });
+});
+
+$("#pregCol").click({
+
 });
 </script>
 
