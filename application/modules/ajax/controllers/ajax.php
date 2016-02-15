@@ -1567,7 +1567,10 @@ class Ajax extends MX_Controller {
 		$op['data'] = $this->evaluaciones_model->busquedaUsuariosAjax($data);
 
 		$this->load->view('busquedaUsuariosAvanzadaAcalificar-view' ,$op);
+	}
 
+	function calificaCalificador(){
+		$this->load->view('formCalificaCalificador-view');
 	}
 
 }

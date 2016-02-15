@@ -56,6 +56,19 @@ class evaluacionestwo extends MX_Controller {
 		$this->layouts->profile('listas-view', $op);
 	}
 
+	function evaluacionColaborador($usuarioQueCalifica,$tipo,$campania){
+		$this->layouts->add_include('assets/js/jquery-ui.js');
+
+		$usuarioSesion	= $this->session->userdata('usuario');
+
+		$op['usuarioCalificar'] = $this->user_model->traeadmin($usuarioQueCalifica);
+		$op['areas'] = $this->evaluacionestwo_model->cargaAreas();
+		$op['cat'] = $this->evaluacionestwo_model->listaCategoriasCatalogo();
+		$op['campanias'] = $this->evaluacionestwo_model->cargaTodasEvaluaciones();
+
+		$this->layouts->profile('evaluacionColaborador-view', $op);
+	}
+
 	function guardarCampaniaEvaluacion(){
 
 		//Insertar evaluacuón

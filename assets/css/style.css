@@ -14,10 +14,10 @@ p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
 button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr, #colPr{cursor:pointer}
-strong{font-weight:700;}
+strong, #forAjaTwo strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
-.dnone, .submenu, .barIn h1, .barIn strong, .barIn em, .barOut .heading, #popupQuick, #rigWinClose, #busPros{display:none}
+.dnone, #formPre, .submenu, .barIn h1, .barIn strong, .barIn em, .barOut .heading, #popupQuick, #rigWinClose, #busPros{display:none}
 .barOut .heading h3{float:left; padding-left:30px; display:block}
 .dblock, .barOut h1{display:block}
 .ml85{margin-left:85px;}
@@ -30,7 +30,7 @@ strong{font-weight:700;}
 .barOut .In{border-bottom:1px solid #ccc;}
 h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#777; font-size:23px; margin-top:10px}
 .bckMark{background-color:#f0f8ff}
-a:hover{color:cornflowerblue}
+a:hover{color:#6495ED}
 .alertTab{color:brown; font-weight:700}
 .ohid{overflow:hidden}
 .alertClick{background:#F5F5DC}
@@ -55,7 +55,7 @@ a:hover{color:cornflowerblue}
 .darkBottom:hover{background:#0060C8}
 
 /*---------------- Generales  ------------------*/
-.none, #butEva{display:none}
+.none, #butEva, #butEvaCol{display:none}
 #bckWhite{background-color:#f7f7f8;} #bckDark{background:#333}
 #mainContainerBlack{background:#fff; margin:110px auto 0; width:730px}
 .back{float:right; margin-right:10px}
@@ -184,6 +184,7 @@ background: -moz-linear-gradient(top, rgb(255,255,255) 0%, rgb(233,234,234) 3%, 
 background: -webkit-linear-gradient(top, rgb(255,255,255) 0%,rgb(233,234,234) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, rgb(255,255,255) 0%,rgb(233,234,234) 3%,rgb(255,255,255) 77%,rgb(255,255,255) 98%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
+#formPre{position:absolute; left:12px; bottom:4px;}
 .addSmallGray{float:left; position:relative; padding:6px 10px; text-transform:uppercase; border:1px solid #ccc; color:#333; height:26px!important; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-left:10px; background:url(../graphics/bckGray.png) 0 -29px repeat-x #fff;}
 .addSmallGray:hover, .addSmallGrayBot:hover, #choTip a:hover, #choTipEva a:hover, #choTipEvaCol a:hover, #colPr a:hover{border:1px solid #78C1FF; background:url(../graphics/bckGray.png) 0 0px repeat-x #fff;}
 .addSmall span, .addSmallClick span, .contesta span{margin-top:8px; float:left; font-style:normal}
@@ -212,13 +213,13 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .wrapListForm tbody, .wrapListFormThree tbody{border:1px solid #ccc;}
 .wrapListForm thead th, .wrapListFormThree thead th{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; border-bottom: 1px solid #ddd; padding:13px 0 13px 10px;}
 .secmainTit{font-family:'Lato', sans-serif; font-weight:300; color:#333; font-size:18px; padding:15px 0 0 0; float:left; width:100%;}
-.bigInp{float:left; border:1px solid #fff; height:36px; padding:0 10px 0; width:100%; text-transform:uppercase;  color:cornflowerblue;}
+.bigInp{float:left; border:1px solid #fff; height:36px; padding:0 10px 0; width:100%; text-transform:uppercase;  color:#6495ED;}
 .thbr thead th{ padding:0 0 6px 10px; font-size:13px; font-weight:700}
 .thbr tbody a{float:left; width:100%; padding:6px 13px;}
-.selSma{position:absolute; left:2px;height:35px;border:1px solid #fff; background-color:#fff; width:50px; text-transform:uppercase; color:cornflowerblue; border-right:1px solid #ddd; border-radius:0;-webkit-appearance: none; -moz-appearance: none; padding-left:15px}
-.medInp{float:left; width:100%; height:34px; margin-top:1px; border:1px solid #fff; border-left:1px solid #ddd; text-transform:uppercase; color:cornflowerblue; padding:0 10px}
-.medInpSpe{float:left; width:100%; height:34px; margin-top:1px; border:1px solid #fff; text-transform:uppercase; color:cornflowerblue; padding-left:65px}
-.selBig, .selMed, .selExtra{float:left; border:none; height:33px; margin-top:2px; background-color:#fff; width:100%; text-transform:uppercase; color:cornflowerblue; border-radius:0; -webkit-appearance: none; -moz-appearance:none; padding-left:15px}
+.selSma{position:absolute; left:2px;height:35px;border:1px solid #fff; background-color:#fff; width:50px; text-transform:uppercase; color:#6495ED; border-right:1px solid #ddd; border-radius:0;-webkit-appearance: none; -moz-appearance: none; padding-left:15px}
+.medInp{float:left; width:100%; height:34px; margin-top:1px; border:1px solid #fff; border-left:1px solid #ddd; text-transform:uppercase; color:#6495ED; padding:0 10px}
+.medInpSpe{float:left; width:100%; height:34px; margin-top:1px; border:1px solid #fff; text-transform:uppercase; color:#6495ED; padding-left:65px}
+.selBig, .selMed, .selExtra{float:left; border:none; height:33px; margin-top:2px; background-color:#fff; width:100%; text-transform:uppercase; color:#6495ED; border-radius:0; -webkit-appearance: none; -moz-appearance:none; padding-left:15px}
 .delToolSmall{border-top:1px solid #ddd}
 .wrapListForm table, .wrapListFormThree table{float:left; width:100%}
 .wrapListForm tr, .wrapListFormThree tr{border-bottom:1px solid #ddd;}
@@ -361,7 +362,7 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .valAdd{float:right; margin-left:10px; border:1px solid #007aff; background:#007aff; cursor:default; text-transform:uppercase; color:#fff; margin:10px 0 0 0; padding:10px 14px 8px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; cursor:pointer; font-weight:800}
 .valAdd:hover{background:#005FCB; box-shadow:1px 0px 3px 0px #999; -moz-box-shadow:1px 0px 3px 0px #999; -webkit-box-shadow:1px 0px 3px 0px #999; border:1px solid #fff; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;}
 .valGen{float:right; border:1px solid #007aff; cursor:default; text-transform:uppercase; color:#fff; margin:10px 10px 0 0; padding:10px 14px 8px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; cursor:pointer;}
-.valGen p{color:cornflowerblue; font-weight:800}
+.valGen p{color:#6495ED; font-weight:800}
 #folioPrint{position:absolute; right:18px; top:7px; background-color:aliceblue; padding:6px 20px 5px; border: 1px solid #B7E3FF; border-radius:3px; text-transform: uppercase; font-size:13px}
 #folioPrint em{font-weight:700; font-style:normal; margin-right:4px;}
 #folioPrint span{font-weight:700}
@@ -390,7 +391,7 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .dataEva{border:1px solid #ccc; border-bottom:none; margin:0 !important}
 .dataEva thead{background:#fafafa}
 .dataEva thead th{font-size:12px; font-weight:700; padding:10px 10px 8px !important;}
-.dataEva tbody th{padding:7px 10px 5px !important; cursor:pointer}
+.dataEva tbody td{padding:7px 10px 5px !important; cursor:pointer}
 .dataEva .des{font-size:10px; line-height:15px; float:left; width:100%; font-style:normal; font-weight:700;}
 #tabsEva, #tabsE{margin-top:20px}
 #tabsEva ul, #tabsE ul{float:left; width:100%; border-bottom:none;}
@@ -401,7 +402,7 @@ background: -moz-linear-gradient(top, #eeeeee 73%, #eeeeee 73%, #e5e5e5 100%); /
 background: -webkit-linear-gradient(top, #eeeeee 73%,#eeeeee 73%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
 background: linear-gradient(to bottom, #eeeeee 73%,#eeeeee 73%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#e5e5e5',GradientType=0 );}
-.ui-state-active a, .acti{color: cornflowerblue}
+.ui-state-active a, .acti{color: #6495ED}
 .evaDes{padding:10px !important}
 .desCen td{text-align:center}
 .spaHead input{margin-left:8px}
@@ -420,14 +421,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 .areaDiv{border-left:1px solid #ccc; border-right:1px solid #ccc; padding:10px 0 0; background:#fafafa; border-bottom:1px solid #fff}
 .actb{background: url('../graphics/sprite2.png') -409px -97px  no-repeat; float:left; width:20px; height:20px}
 .deactb{background: url('../graphics/sprite2.png') -434px -97px  no-repeat}
-#choTipEva select{border: 1px solid #ccc; background-color: #fff; height: 29px; text-transform: uppercase; float:left;}
-#butEva{position:absolute; top:20px; left:225px; width:100px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; padding:4px 5px 0; border:1px solid #B7E3FF; height:29px;-webkit-border-top-right-radius: 5px;
+#choTipEva select, #choTipEvaCol select{border: 1px solid #ccc; background-color: #fff; height: 29px; text-transform: uppercase; float:left;}
+#butEva, #butEvaCol{position:absolute; top:20px; left:225px; width:100px; background:url(../graphics/bckGray.png) 0 -24px repeat-x #fff; padding:4px 5px 0; border:1px solid #B7E3FF; height:29px;-webkit-border-top-right-radius: 5px;
 -webkit-border-bottom-right-radius: 5px;
 -moz-border-radius-topright: 5px;
 -moz-border-radius-bottomright: 5px;
 border-top-right-radius: 5px;
 border-bottom-right-radius: 5px; }
-#butEva img{width:18px; margin:1px 0 0 0; float:left}
+#butEva img, #butEvaCol img{width:18px; margin:1px 0 0 0; float:left}
 #choTipEva p, #choTipEvaCol p, #colPr p{float:left; width:100%; margin-top:8px}
 #contentEva .steps, #choTipEvaCol .steps{margin:0 0 10px !important} #contentEva .wrapListForm{margin-left:0 !important}
 #choTipEva b, #choTipEvaCol b, #colPr b{font-size:11px; margin:4px 6px 2px 6px; float:left; text-transform:uppercase;}
@@ -447,7 +448,7 @@ border-bottom-right-radius: 5px; }
 #tipForm span{float:left; padding:8px; width:100%; background:#fff}
 #tipForm input{float:left;margin-right:5px; text-transform:uppercase; cursor:pointer}
 #tipForm em{float:left; padding:3px 8px 0; font-style:normal; text-transform:uppercase}
-#colabora{display:none; float:left; width:100%;; border:1px solid #ccc; padding:10px; margin-bottom:15px}
+#colabora{float:left; width:100%;; border:1px solid #ccc; padding:10px; margin-bottom:15px}
 #colabora .blueHead{font-weight:700; padding:6px 10px}
 #colabora .span{float:left; width:290px; padding-top:10px;}
 #colabora b{text-transform:uppercase; width:200px; float:left; line-height:24px; font-weight:700}
@@ -456,8 +457,9 @@ border-bottom-right-radius: 5px; }
 .addID{cursor:pointer; background:#fff}
 #wrapColabora{float:left; width: 100%; border: 1px solid #ccc; padding: 0 10px 10px; margin: 10px 0; border-radius: 5px; background-color: #fafafa;}
 #wrapColabora .addSmallGrayBot{margin-top:22px}
-#busFinal{margin-top: 10px; float:left; width:100%; border-left:3px solid #007aff}
+#busFinal{margin-top:10px; position:relative; float:left; width:100%; border-left:3px solid #007aff}
 .agreCali{float: left; width: 100%; padding:5px 9px 3px; border-bottom: 1px solid #ccc; background:#fff; text-transform:uppercase; border-top:1px solid #fff}
+.p46{padding-bottom:46px; }
 .agreCali input{border:none; background:transparent}
 #ajaxUsu .msgAva{margin-top:25px}
 #tablaUsu th{padding:0 10px}
@@ -480,6 +482,15 @@ border-bottom-right-radius: 5px; }
 .alert-warning{float:left; width:100%; padding:6px 0; text-align:center; text-transform:uppercase}
 .tablaPreg{position:absolute; background-color:#FFFFE0; top:16px; left:-1px; z-index:9999; width:750px !important}
 .tablaPreg p{padding:3px 6px;} .tablaPreg em{font-style:normal; text-transform:uppercase; padding:3px 6px}
+.calCol{width:185px !important; border: 1px solid #B7E3FF; padding: 8px 0 7px; background-color: #f0f8ff; border-radius:4px; text-align: center;}
+.calCol:hover{background:#6495ED; color:#fff; border: 1px solid #6495ED; text-decoration:none}
+#forAjaTwo{float:left; width:100%; border:1px solid #ccc; margin:15px 0; border-bottom:none}
+#formPre a{margin:0 !important}
+.colcol strong{float:left; width:100%;}
+.colcol ul li{float:left; width:100%; padding:8px 0}
+.colcol em{float:left; width:600px !important}
+.colcol i{float:left;}
+.personal{float:left; width:100%; padding:10px 0}
 
 /*---------------- Botones ------------------*/
 

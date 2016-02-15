@@ -226,8 +226,6 @@
             <?foreach ($cat as $var): ?>
             <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
             <?endforeach; ?>
-            <option value="1">Liderazgo</option>
-            <option value="2">Atención a Clientes</option>
           </select>
           <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
           <img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
@@ -242,19 +240,16 @@
 
     <div id="choTipEvaCol">
       <span>
-        <select id="catEvaList" name="categorias">
+        <select id="catEvaListCol" name="categoriasCol">
           <option value="0">Escoge una categoria</option>
           <?foreach ($cat as $var): ?>
           <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
           <?endforeach; ?>
-          <option value="1">Liderazgo</option>
-          <option value="2">Atención a Clientes</option>
         </select>
-        <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
+        <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEvaCol" type="button" name="buttonCol">
         <img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
-        <p>Si no encuentra la categoria de su gusto, puede agregar una nueva <a href="#">aquí</a></p>
       <fieldset class="none">
-        <input type="text" name="name" value="categoria">
+        <input type="text" name="nameCol" value="categoriaCol">
       </fieldset>
       </span>
     </div>
@@ -356,7 +351,7 @@ $(".datePick").datepicker({
 });
 </script>
 <script type="text/javascript">
-$("#clickAdd").click(function(){
+("#sCTipCol").click(
   var califica = $('#busColOne').val();
   var acalificar = $('#busColTwo').val();
   var calificaID = $('#busColONe').attr('data-text');
@@ -379,10 +374,10 @@ $("#clickAdd").click(function(){
     $(this).parent().remove();
   });
 });
-
-$("#pregCol").click({
-
+</script>
+<script type="text/javascript">
+$("#sCTipCol").click(function(){
+  $("#choTipEvaCol").toggleClass("show");
 });
 </script>
-
 </form>
