@@ -24,10 +24,10 @@
 				<?foreach ($campanias as $var): ?>
         <? $ver = $this->evaluacionestwo_model->verificaRespuestaIndexColaborador($var->campaniaID,$usuarioSesion['usuarioID']);?>
 		      <tr onclick="window.location.href='<?=base_url()?>evaluacionestwo/usuarioColaborador/<?=$usuarioSesion['usuarioID']?>/1/<?=$var->campaniaID;?>'">
-		        <th><p><?=$var->campaniaNombre;?><br><em class="des"><?=$var->campaniaDescripcion;?></em></p></th>
-		        <th><?=$var->fechaInicio;?></th>
-		        <th><?=$var->fechaFin;?></th>
-						<th><?=$var->campaniaStatus;?></th>
+		        <td><p><?=$var->campaniaNombre;?><br><em class="des"><?=$var->campaniaDescripcion;?></em></p></td>
+		        <td><?=$var->fechaInicio;?></td>
+		        <td><?=$var->fechaFin;?></td>
+						<td><?=$var->campaniaStatus;?></td>
 		      </tr>
 				<?endforeach?>
 		  </tbody>
