@@ -1,5 +1,5 @@
 <?foreach ($usuarioCalificar as $evaluado): ?>
-<form action="<?=base_url()?>evaluaciones/guardarCampaniaEvaluacion" method="post" id="guardarForm">
+<form action="<?=base_url()?>evaluacionestwo/guardarEvaluacionCol" method="post" id="guardarForm">
 <div id="mainTit">
   <h3>Agrega tu evaluación</h3>
 </div>
@@ -27,7 +27,7 @@
           <b>Sera calificado</b>
           <input id="busColTwo" disabled class="kUpTwo" type="text" value="<?=$evaluado->nombreCompleto;?>">
           <input type="hidden" disabled name="usuarioIDCalificar" value="<?=$evaluado->usuarioID;?>">
-          <input id="busColTwoHide" type="hidden" name="colACalif[]" value="">
+          <input id="busColTwoHide" type="hidden" name="colACalif[]" value="<?=$evaluado->usuarioID;?>">
         </div>
         <div class="span">
             <div id="clickAdd" class="addSmallGrayBot">
@@ -52,6 +52,7 @@
       </div>
 
     </div>
+    <input type="hidden" name="campId" value="<?= $this->uri->segment(5);?>" />
     <input id="finEvaCol" class="mainBotton none" type="submit" value="Finalizar">
     </section>
 		<br class="clear">
@@ -100,9 +101,10 @@
 $("#clickAdd").click(function(){
   var califica = $('#busColOne').val();
   var acalificar = $('#busColTwo').val();
-  var calificaID = $('#busColONe').attr('data-text');
-  var acalificaID = $('#busColTwo').attr('data-text');
-
+  var calificaID = $('#busColOneHide').val();
+  var acalificaID = $('#busColTwoHide').val();
+console.log(calificaID);
+console.log(acalificaID);
   if(califica){
       $("#busFinal").append('<div class="agreCali"><a href="#" class="rem"></a><input type="hidden" value="'+califica+'"/> <i>'+califica+'</i><em>Calificara a</em><input type="hidden" name="caliID[]" value="'+calificaID+'"/><input type="text" value="'+acalificar+'"/> <input type="hidden" name="calificacoID[]" value="'+acalificaID+'"/></div>');
       $("#formPre").addClass("show");

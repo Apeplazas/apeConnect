@@ -139,7 +139,9 @@
   </section>
   <h6>Agregar personas a evaluación</h6>
   <section>
-    <div class="wrapForm" id="wrapListForm3">
+  	<input type="hidden" name="jefeDirecto" value="on">
+      <input type="hidden" name="autoEval" value="on">
+    <!--div class="wrapForm" id="wrapListForm3">
       <span class='secmainTit'>Tipo de esquema</span>
       <table>
       <tr id="tipForm">
@@ -188,9 +190,9 @@
       </script>
 
 
-    </div>
+    </div-->
 
-  <div id="colabora">
+  <!--div id="colabora">
 
       <div class="blueHead">Buscar Colaborador</div>
       <div id="wrapColabora">
@@ -255,7 +257,7 @@
     </div>
 
     </div>
-  </div>
+  </div-->
   <ul id="usersEva">
     <li>
       <div class="spaHead">

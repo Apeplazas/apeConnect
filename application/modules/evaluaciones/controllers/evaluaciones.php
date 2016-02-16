@@ -10,6 +10,56 @@ class Evaluaciones extends MX_Controller {
 		$this->load->model('evaluaciones/evaluaciones_model');
 	}
 
+	function guardarEvaluacionCol(){
+
+		//Insertar evaluacuón
+		$evalData = array(
+			'campaniaNombre'	=> ''
+		);
+
+		$this->db->insert('evaluacion_colaborador', $evalData);
+		$evalID = $this->db->insert_id();
+		
+		$this->db->where('campaniaID', $_POST['campId']);
+		$this->db->update('evaluacion_campanias', array('evaluacionColaboradorId'=>$evalID));
+
+		//Insertar preguntas
+		$preguntas 		= $_POST['categ'];
+		$preguntasData	= array();
+		foreach($preguntas as $cat => $pregDat){
+
+			foreach($pregDat as $preg){
+
+				$preguntasData[] = array(
+					'pregunta'					=> $preg,
+					'evaluacionColaboradorID'	=> $evalID
+				);
+
+			}
+
+		}
+		$this->db->insert_batch('evaluacion_colaborador_preguntas', $preguntasData);
+
+		//Insertar Usuarios ----COLABORADORES
+			$colEvalData = array();
+			foreach($_POST['calificacoID'] as $key => $userId){
+				$usuarioQCalif	= $_POST['caliID'][$key];
+				$userTemp		= $this->user_model->traeadmin($usuarioQCalif);
+
+				$colEvalData[] = array(
+					'usuarioAcalificarID'		=> $userId,
+					'usuarioQuecalifica'		=> $usuarioQCalif,
+					'evaluacionColaboradorID'	=> $evalID
+				);
+
+				$this->enviarEmail($userTemp[0]->email);
+
+			}
+			$this->db->insert_batch('evaluacion_colaborador_catalogoevaluadores', $colEvalData);
+
+		redirect('evaluaciones/campania/'.$_POST['campId']);
+	}
+
 	function guardarCampaniaEvaluacion(){
 
 		//Insertar evaluacuón
