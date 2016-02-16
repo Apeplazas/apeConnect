@@ -19,7 +19,7 @@ class Evaluaciones extends MX_Controller {
 
 		$this->db->insert('evaluacion_colaborador', $evalData);
 		$evalID = $this->db->insert_id();
-		
+
 		$this->db->where('campaniaID', $_POST['campId']);
 		$this->db->update('evaluacion_campanias', array('evaluacionColaboradorId'=>$evalID));
 
@@ -143,8 +143,7 @@ class Evaluaciones extends MX_Controller {
 			$this->db->insert_batch('evaluacion_catalogoevaluadores', $colEvalData);
 
 		}
-
-		redirect('evaluaciones/generaPreguntas/'.$evalID);
+		redirect('evaluaciones');
 	}
 
 	//Funcion para enviar mails
@@ -154,26 +153,42 @@ class Evaluaciones extends MX_Controller {
 		 $this->email->set_newline("\r\n");
 		 $this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
 		 $this->email->to($email);
-		 $this->email->subject('Evaluación');
+		 $this->email->subject('EVALUACIÓN DEL DESEMPEÑO');
 		 $this->email->message('
 			<html>
 			 <head>
 				<title>Evaluación</title>
 			 </head>
 			 <body>
-				<p>Evaluación Test</p>
+			 <style>
+				body {background-color:#fafafa;}
+				strong   {float:left; width:100%; font-weight:700;}
+				p, a{float:left; width:100%;}
+
+				</style>
+				<span><img width="200" src="http://www.apeplazas.com/apeConnect/assets/graphics/apeplazas.png" alt="Administración de Plazas Especializadas | Apeplazas"/></span>
+				<p>Buenas Tardes<p>
+				<p>La evaluación del desempeño es una herramienta que permite conocer y evaluar la conducta y el trabajo de cada uno de los colaboradores con relación a las responsabilidades de su puesto de trabajo.</p>
+
+				<p>Para cumplir con esta actividad te indicamos los pasos a seguir:<p>
+				<strong>Instrucciones para el Colaborador.</strong>
+
+				<p>1.- (Dale click en el siguiente enlace y teclea el usuario y contraseña proporcionada en este correo) Recibirás un correo electrónico con una liga y contraseña temporal.)</p>
+				<p>2.- Deberás ingresar con los datos temporales y cambiar tu contraseña.</p>
+				<p>3.- Al entrar al sistema da click en la opción Evaluación de Desempeño 2015.</p>
+				<p>4.- Deberás leer y responder tu autoevaluación colocando el valor que consideres mas adecuado a tu opinión en la columna de Autoevaluado. (Recuerda esta es tu autoevaluación y se requiere una información asertiva)</p>
+				<p>5.- Al finalizar tus respuestas da click en el botón enviar información.</p>
+
+				<strong>Informacion Personal</strong>
+				<p>Email: '.$email.'</br>
+				Contraseña: 12345</br>
+				<a href="'.base_url().'evaluacionestwo">Da click aquí</a>
+				</p>
+
 			 </body>
 			</html>
 		 ');
-		if($this->email->send()){
-
-		 redirect();
-
-		}else{
-
-		 echo "error";
-
-		}
+		$this->email->send();
 
 	}
 

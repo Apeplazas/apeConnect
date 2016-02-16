@@ -4,7 +4,7 @@
 </div>
 <div class="wrapList">
   <div id="actions">
-    <a href="<?=base_url()?>evaluacionestwo/formEvaluacion" title="Generar carta intencion" class="addSmall">
+    <a href="<?=base_url()?>evaluaciones/formEvaluacion" title="Generar evaluacion" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url();?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Evaluación</span>
 		</a>
