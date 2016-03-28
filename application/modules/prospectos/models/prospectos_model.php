@@ -4,7 +4,7 @@ class Prospectos_model extends CI_Model {
 
 	function origenCliente(){
 		$data = array();
-		$q = $this->db->query("SELECT * from origenProspecto");
+		$q = $this->db->query("SELECT * from origenProspecto order by origen asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -14,9 +14,57 @@ class Prospectos_model extends CI_Model {
 		return $data;
 	}
 
-	function cargarProspectos(){
+	function cargarProspectosGeneral(){
 		$data = array();
-		$q = $this->db->query("SELECT * from prospectos");
+		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
+			left join usuarios u ON u.usuarioID=p.usuarioID 
+			order by p.id desc 
+			limit 10"
+			);
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function prospectosAde($val){
+		$data = array();
+		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
+													left join usuarios u ON u.usuarioID=p.usuarioID 
+													where id < '$val'
+													order by p.id desc 
+													limit 10 ");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargaVendedores(){
+		$data = array();
+		$q = $this->db->query("SELECT * from usuarios where idrole='8'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function prospectosAtr($val){
+		$data = array();
+		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
+													left join usuarios u ON u.usuarioID=p.usuarioID 
+													where id > '$val'
+													order by p.id desc
+													limit 10 ");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -68,6 +116,18 @@ class Prospectos_model extends CI_Model {
 								LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
 								WHERE p.correo='$email'
 								");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function buscaCodigoPropiedad($codigo){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM propiedades WHERE clavePropiedad='$codigo'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -371,6 +431,57 @@ class Prospectos_model extends CI_Model {
 		}
 		return $data;
 	}
+	
+	function cargarProspectosCorreo($value)
+	{
+		$data = array();
+		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
+													left join usuarios u ON u.usuarioID=p.usuarioID 
+													WHERE correo LIKE '%$value%'
+													order by p.id desc 
+													limit 100");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarProspectosApellido($value)
+	{
+		$data = array();
+		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
+													left join usuarios u ON u.usuarioID=p.usuarioID 
+													WHERE apellidop LIKE '%$value%'
+													order by p.id desc 
+													limit 100");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarProspectosNom($value)
+	{
+		$data = array();
+		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
+													left join usuarios u ON u.usuarioID=p.usuarioID 
+													WHERE pnombre LIKE '%$value%'
+													order by p.id desc 
+													limit 100");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 
 	function cargarCotizacion($filtro){
 		$data = array();
@@ -416,7 +527,100 @@ class Prospectos_model extends CI_Model {
 		}
 		return $data;
 	}
+	
+	function busquedaProsVenFec($data){
+		$cadena = '';
+		$i = 1;
+		
+		foreach ($data as $key => $value) {
+	      if($key == "ven" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "p.usuarioID='$value'";
+	          ++$i;
+	      }
+	      if($key == "fechaDe" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "fechaCreacion>=('$value')";
+	          ++$i;
+	      }
+	      if($key == "fechaA" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "fechaCreacion< ('$value')";
+	          ++$i;
+	      }
+	
+	    };
 
+		$data = array();
+		$q = $this->db->query("
+		SELECT p.*, u.nombreCompleto as 'nombreCompleto'
+		FROM prospectos p
+		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
+		WHERE $cadena
+		order by p.id asc
+    ");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function busquedaCuentaVenFec($data){
+		$cadena = '';
+		$i = 1;
+		
+		foreach ($data as $key => $value) {
+	      if($key == "ven" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "p.usuarioID='$value'";
+	          ++$i;
+	      }
+	      if($key == "fechaDe" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "fechaCreacion>=('$value')";
+	          ++$i;
+	      }
+	      if($key == "fechaA" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "fechaCreacion< ('$value')";
+	          ++$i;
+	      }
+	
+	    };
+
+		$data = array();
+		$q = $this->db->query("
+		SELECT COUNT(id) as 'cuenta',
+		u.nombreCompleto as nombreCompleto
+		FROM prospectos p
+		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
+		WHERE $cadena
+		order by p.id asc
+    ");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
 
 
 }

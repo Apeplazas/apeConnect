@@ -29,9 +29,6 @@
         <?if($evaluaciones):?>
 		    <li><a href="#tab2">Evalua a tus colaboradores</a></li>
         <?endif;?>
-		    <li>
-          <a href="#tab1">Tu evaluación</a>
-        </li>
         <li>
           <a href="#tab1">Tu evaluación</a>
         </li>
@@ -46,12 +43,14 @@
               <th>Posición / Puesto</th>
 		          <th>Inicio</th>
               <th>Finaliza</th>
+              <? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
               <th></th>
               <th></th>
+              <?endif?>
 		        </tr>
 		      </thead>
 		      <tbody>
-						<?foreach ($evaluaciones as $var): ?>
+			<?foreach ($evaluaciones as $var): ?>
             <? $verifica = $this->evaluacionestwo_model->checaContestacionesCampaniaUsuario($this->uri->segment(3) ,$var->usuarioID);?>
 			<? $consulta = $this->evaluacionestwo_model->verificaProceso($var->usuarioID);?>
             <? $conteo = sizeof($consulta) ?>
@@ -107,13 +106,22 @@
               <? else:?>
               class='alertSinAut'
             <? endif?>><?=$var->Finaliza;?></td>
-              <td>
+            
+            
+            
+            
+            <? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
+            <td>
+	              
                 <a class="calCol" title="Solicita una evaluacion a un colaborador" href="<?=base_url()?>evaluacionestwo/evaluacionColaborador/<?=$var->usuarioID?>/4/<?=$this->uri->segment(3);?>">Evaluación cruzada</a>
-              </td>
+            </td>
+              
+              
               <td onclick="$('#<?=$var->usuarioID;?>').toggle(); return false;">
                 <em class="op">3 ver más cruzadas</em>
               </td>
-		        </tr>
+            <?endif?>
+		    </tr>
             <tr id="<?=$var->usuarioID;?>" class="dnone">
               <td colspan="7">
               <table class="colcol">

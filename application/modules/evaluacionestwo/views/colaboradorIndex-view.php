@@ -4,10 +4,12 @@
 </div>
 <div class="wrapList">
   <div id="actions">
+	<? if ($usuarioSesion['usuarioID'] == '403' || $usuarioSesion['usuarioID'] == '2'):?>
     <a href="<?=base_url()?>evaluaciones/formEvaluacion" title="Generar evaluacion" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url();?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Evaluación</span>
 		</a>
+	<?endif?>
   </div>
   <div class="wrapListFormThree" id="contentEva">
     <p class="subTit">Contestar las siguientes evaluaciones, tus respuestas son muy importantes para nosotros.<p>

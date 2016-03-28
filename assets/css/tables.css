@@ -1,25 +1,27 @@
 .bold, thead th, thead span{font-weight:700}
 #msgAva{float:left; width:96%; color:#777; border:1px solid red; padding:10px 20px; margin:0 20px 20px; text-transform:uppercase; border-radius:4px; font-weight:700; }
 #busAvan{display:none;float:left; border:1px solid #eee; width:96%; margin:0 0 20px 20px; padding:20px; background:#fafafa; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
-#busAvan strong{display:block; text-transform:uppercase; font-weight:400; margin-bottom:16px; font-weight:700; font-family:'Lato', sans-serif;}
+#busAvanDisplay{float:left; border:1px solid #eee; width:96%; margin:0 0 20px 20px; padding:20px; background:#fafafa; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+#busAvan strong, #busVen label, #busAvanDisplay strong{display:block; text-transform:uppercase; font-weight:400; margin-bottom:16px; font-weight:700; font-family:'Lato', sans-serif;}
 #cliAja{width:250px;}
-#deFecAka, #aFecAja{width:96px; margin-right:20px}
-#busAvan select, #busAvan input{border:1px solid #ccc; background:#fff; text-transform:uppercase; height:27px; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; padding:0 10px}
+#deFecAka, #aFecAja, #deFecPro, #aFecPro{width:96px; margin-right:20px}
+#busAvan select, #busAvan input, #busAvanDisplay input, #busAvanDisplay select{border:1px solid #ccc; background:#fff; text-transform:uppercase; height:27px; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; padding:0 10px}
 #firAvan{float:left; width:100%; border-bottom:1px solid #eee; padding-bottom:10px;}
 #secAvan{float:left; width:100%; border-top:1px solid #fff; padding-top:10px}
-#busAvan fieldset{float:left; margin-right:20px;}
-#busAvan fieldset span{position:relative}
-#busAvan fieldset i img{position:absolute; top:0px; right:30px}
-#busAvan fieldset label{text-transform:uppercase; margin-right:6px}
+#busAvan fieldset, #busAvanDisplay fieldset{float:left; margin-right:20px;}
+#busAvan fieldset span, #busAvanDisplay fieldset span{position:relative}
+#busAvan fieldset i img, #busAvanDisplay fieldset img{position:absolute; top:0px; right:30px}
+#busAvan fieldset label, #busAvanDisplay fieldset label{text-transform:uppercase; margin-right:6px}
 #tablaproveed_wrapper{background:#fff; padding:0 20px 42px}
-#tablaAvan{width:100%; margin:10px 20px 42px}
+#tablaAvan{width:96%; margin:10px 20px 42px}
+#tablaAvan #pros td{vertical-align:top}
 #tablaproveed{width:100%; margin-top:10px}
 #tablaproveed thead, #tablaAvan thead{font-size:13px; text-transform:capitalize;}
 #tablaproveed tr, #tablaAvan tr{border-bottom:1px solid #e2e2e4}
-#tablaproveed tr th, #tablaAvan tr th{padding:10px 0 8px;}
-#tablaproveed tbody th, #tablaAvan tbody th{font-weight:400; text-transform:uppercase}
-#tablaproveed tbody th p, #tablaAvan tbody th p{max-width:280px; }
-#tablaproveed tr a, #tablaAvan tr a{float:left; width:100%; text-transform:uppercase;}
+#tablaproveed tr th, #tablaAvan tr th, #tablaAvan tr td, #tablaproveed tr td{padding:10px 0 8px;}
+#tablaproveed tbody th, #tablaAvan tbody th, #tablaAvan tbody td{font-weight:400; text-transform:uppercase}
+#tablaproveed tbody th p, #tablaAvan tbody th p, #tablaAvan tbody td p{max-width:280px; }
+#tablaproveed tr a, #tablaAvan tr a{float:left; width:100%; text-transform:uppercase; padding-right:10px; line-height:16px}
 #tablaproveed_length select{background: transparent; width:48px; padding:4px 4px 5px 8px; font-size:13px; border:0; border-radius:0; height:32px; -webkit-appearance:none;}
 #tablaproveed_length{position:absolute; top:28px; right:52px; z-index:999; width:46px; height:32px; overflow:hidden; background:url(../graphics/downArrow.png) no-repeat 29px #fff; border:1px solid #78C1FF; padding-right:15px; font-size:11px; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
 .dataTables_filter label{font-weight:700; text-transform:uppercase; color:#777}

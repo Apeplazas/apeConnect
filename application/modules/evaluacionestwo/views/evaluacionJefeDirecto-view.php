@@ -61,7 +61,7 @@
         </tr>
         <tr>
           <td>No aplica</td>
-          <td>N/A</td>
+          <td>0</td>
           <td>Este criterio no es aplicable al colaborador.</td>
         </tr>
       </tbody>
@@ -116,10 +116,6 @@
         </td>
         <?endif?>
 
-        <!--- Muestra solamente al final de la evaluacion --->
-        <? if ($this->uri->segment(4) == '3'):?>
-        <td><input type="txt" class="big" name="evaluacion[<?=$var->preguntaID;?>]" ></td>
-        <?endif?>
       </tr>
 
       <?endforeach; ?>

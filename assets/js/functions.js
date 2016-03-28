@@ -487,7 +487,6 @@ var statusBar = $.cookie('statusBar');
 			sucess:
 				$("#cp").val(data);
 		});
-
 	});
 	//Carga un select nuevo con mas plazas
 	$(".plus, .plusTwo").click(function(){

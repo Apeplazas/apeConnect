@@ -120,7 +120,7 @@ class Evaluaciones extends MX_Controller {
 				}
 
 			}
-			$this->db->insert_batch('evaluacion_catalogoevaluadores', $autoEvalData);
+			$this->db->insert_batch('evaluacion_catalogoEvaluadores', $autoEvalData);
 
 		}
 
@@ -180,10 +180,9 @@ class Evaluaciones extends MX_Controller {
 				<p>5.- Al finalizar tus respuestas da click en el botón enviar información.</p>
 
 				<strong>Informacion Personal</strong>
-				<p>Email: '.$email.'</br>
-				Contraseña: 12345</br>
+				<p>Email: '.$email.'</p>
+				<p>Contraseña: 12345</p>
 				<a href="'.base_url().'evaluacionestwo">Da click aquí</a>
-				</p>
 
 			 </body>
 			</html>
@@ -213,8 +212,8 @@ class Evaluaciones extends MX_Controller {
 
 	function formEvaluacion(){
 		$this->layouts->add_include('assets/js/jquery-ui.js')
-									->add_include('assets/css/jquery-steps.css')
-									->add_include('assets/js/jquery.steps.js');
+								->add_include('assets/css/jquery-steps.css')
+								->add_include('assets/js/jquery.steps.js');
 
 		$usuarioSesion	= $this->session->userdata('usuario');
 

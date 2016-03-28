@@ -284,9 +284,9 @@ class evaluacionestwo extends MX_Controller {
 		$data = array();
 		foreach ($_POST['evaluacion'] as $key => $value) {
 
-			if (empty($value)){
-				redirect('evaluacionestwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
-			}
+			//if (empty($value)){
+			//	redirect('evaluacionestwo/usuario/'.$_POST['usuarioAcalificar'].'./2/'.$_POST['campania']);
+			//}
 
 			$data[] = array(
 				'respuesta'						=> $value,

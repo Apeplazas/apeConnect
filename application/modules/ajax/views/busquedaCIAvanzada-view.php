@@ -15,13 +15,13 @@
   <? foreach($data as $row):?>
   <tr>
     <th><p><?=$row->folio;?></p></th>
-    <th><p><?=$row->cliente;?></p></th>
+    <th><p><?= $row->pnombre;?> <?= $row->snombre;?> <?= $row->apellidopaterno;?> <?= $row->apellidomaterno;?></p></th>
     <th><p><?=$row->plaza;?></p></th>
     <th><p><?=$row->nombreCompleto;?></p></th>
     <th><p><?=$row->deposito;?></p></th>
     <th>
     	<p>
-    		<a class="mt10" href="<?=base_url()?>tempciri/detalleCi/<?= $row->cartaIntId;?>" >
+    		<a class="mt10" href="<?=base_url()?>tempciri/detalleCi/<?= $row->status;?>" >
     			<?=$row->estado;?>
     		</a>
     	</p>
@@ -31,6 +31,6 @@
 </tbody>
 </table>
 <?else:?>
-<p id="msgAva">No tenemos ningun dato con la información proporcionada</p>
+<p id="msgAva">No tenemos ningún dato con la información proporcionada</p>
 <br class="clear">
 <?endif; ?>

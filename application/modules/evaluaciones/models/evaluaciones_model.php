@@ -30,8 +30,8 @@ class Evaluaciones_model extends CI_Model
 				ec.categoriaNombre as categoria
 			FROM evaluacion_preguntas ep
 				LEFT JOIN evaluacion_categorias ec ON ec.evaluacionCategoriaID=ep.categoria
-				WHERE ep.pregunta
-				LIKE '%$var%'
+				WHERE ep.pregunta LIKE '%$var%'
+				AND ep.status ='ACTIVADA'
 			");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
@@ -57,7 +57,7 @@ class Evaluaciones_model extends CI_Model
 
 	function cargaAreas(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM catalogoDepartamentos");
+		$q = $this->db->query("SELECT * FROM gerenciasRH");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -81,7 +81,7 @@ class Evaluaciones_model extends CI_Model
 
 	function cargaUsuariosDepartamentos($areaID){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM usuarios WHERE areaID='$areaID'");
+		$q = $this->db->query("SELECT * FROM usuarios WHERE areaID='$areaID' and status='Activado'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -97,9 +97,9 @@ class Evaluaciones_model extends CI_Model
 		FROM (
 			select
 			ep.pregunta as 'preguntas',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='1') as 'autoevaluacion',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='2') as 'jefeDirecto',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='3') as 'plandeaccion'
+			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='1' group by ep.preguntaID) as 'autoevaluacion',
+			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='2' group by ep.preguntaID) as 'jefeDirecto',
+			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='3' group by ep.preguntaID) as 'plandeaccion'
 			from evaluacion_preguntas ep
 			WHERE ep.categoria='$categoria'
 		) as temp

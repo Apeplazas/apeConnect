@@ -180,4 +180,58 @@ class Admin_model extends CI_Model
 		
 	}
 	
+	function cuentaProspectosTipo($usuarioID, $tipo, $fechaDe, $fechaA){
+		$data = array(); 
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from prospectos 
+												WHERE usuarioID='$usuarioID'
+												AND origenCliente='$tipo'
+												AND fechaCreacion > '$fechaDe'
+												AND fechaCreacion < '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cuentaProspectosDelMes($fechaDe, $fechaA){
+		$data = array(); 
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from prospectos 
+												WHERE fechaCreacion > '$fechaDe'
+												AND fechaCreacion < '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargaVendedores($fechaDe, $fechaA){
+		$data = array(); 
+		$q = $this->db->query("SELECT 
+			u.usuarioID as 'usuarioID',
+			u.nombreCompleto as 'nombreCompleto', 
+			count(p.usuarioID) as cuentaTotal     
+		FROM prospectos p
+		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
+		WHERE idrole='8'
+		AND p.fechaCreacion > '$fechaDe'
+		AND p.fechaCreacion < '$fechaA'
+		GROUP BY p.usuarioID
+		ORDER BY cuentaTotal desc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
 }

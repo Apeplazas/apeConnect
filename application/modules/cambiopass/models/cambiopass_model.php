@@ -13,9 +13,9 @@ class cambioPass_model extends CI_Model {
                'contrasenia' => $pass,
                'hash' => $hash
             );
-
-	$this->db->where('email', $email);
-	$this->db->update('usuarios', $data); 
+            
+            $this->db->where('email', $email);
+            $this->db->update('usuarios', $data); 
 	
 	return 1;
 	//return $this->db->result();

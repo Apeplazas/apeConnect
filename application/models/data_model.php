@@ -69,7 +69,7 @@ class Data_model extends CI_Model {
 
 	function cargaZonas(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM propiedades");
+		$q = $this->db->query("SELECT * FROM propiedades order by propiedad asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

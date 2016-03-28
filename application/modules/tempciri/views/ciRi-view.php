@@ -182,7 +182,19 @@
 				<td class="grayField"><label>Duración</label></td>
 				<td>
 					<select class="selBig" name="contratotiempo" id="contratotiempo" class="form-control" required>
+					<option value="1 meses">1 meses</option>
+					<option value="2 meses">2 meses</option>
+					<option value="3 meses">3 meses</option>
+					<option value="4 meses">4 meses</option>
+					<option value="5 meses">5 meses</option>
+					<option value="6 meses">6 meses</option>
+					<option value="7 meses">7 meses</option>
+					<option value="8 meses">8 meses</option>
+					<option value="9 meses">9 meses</option>
+					<option value="10 meses">10 meses</option>
+					<option value="11 meses">11 meses</option>
 	    			<option value="12 meses">12 meses</option>
+	    			<option value="13 meses">13 meses</option>
 	    			<option value="14 meses">14 meses</option>
 	    			<option value="16 meses">16 meses</option>
 	    		</select>
@@ -190,6 +202,7 @@
 				<td class="grayField"><label>Días de gracias</label></td>
 				<td>
 					<select name="diasGracia" id="diasGracia" class="selBig" required>
+						<option value="0">0</option>
 						<option value="7">7</option>
 						<option value="15">15</option>
 						<option value="30">30</option>

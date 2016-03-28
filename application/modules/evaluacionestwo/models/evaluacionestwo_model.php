@@ -77,9 +77,9 @@ class evaluacionestwo_model extends CI_Model
 		FROM (
 			select
 			ep.pregunta as 'preguntas',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='1') as 'autoevaluacion',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='2') as 'jefeDirecto',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='3') as 'plandeaccion'
+			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='1' group by ep.preguntaID) as 'autoevaluacion' ,
+			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='2' group by ep.preguntaID) as 'jefeDirecto',
+			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='3' group by ep.preguntaID) as 'plandeaccion'
 			from evaluacion_preguntas ep
 			WHERE ep.categoria='$categoria'
 			AND ep.campaniaID='$campaniaID'

@@ -47,36 +47,41 @@ function testmail(){
 
 	function index()
 	{
-		//Carga el javascript y CSS //
-		$this->layouts->add_include('assets/js/jquery-ui.js')
-					  ->add_include('assets/js/jquery.autocomplete.pack.js')
-					  ->add_include('assets/js/jquery.dataTables.min.js');
-
 		//Informacion perfil general//
 		$user         = $this->session->userdata('usuario');
-		$user_type    = strtoupper($user['tipoUsuario']);
-
-		$op['no_cotizaciones']            = $info = $this->admin_model->trae_numcotizaciones();
-		$op['no_proveedores_inscitos']    = $this->admin_model->trae_proveedores_estadi();
-		$op['ultimos_prov_inscritos']     = $this->admin_model->trae_ultimos_proveedores_inscritos();
-		$op['supervisores']					= $this->admin_model->trae_supervisores();
-		$op['proyectos_activos']          = $this->admin_model->trae_proyectos_porstatus("Contratando");
-		$op['proyectos_licitados']        = $this->admin_model->trae_proyectos_porstatus("Licitado");
-		$op['proyectos_finalizados']      = $this->admin_model->trae_proyectos_porstatus("Finalizado");
-		$op['proyectos_revision']      	= $this->admin_model->trae_proyectos_porstatus("En Revision");
-		$op['proyectos_pagados']      	  = $this->admin_model->trae_proyectos_porstatus("Finalizado");
-		$op['total_segmentos']            = $this->admin_model->trae_totsegmentos();
-		$op['total_pagado']		          = $this->admin_model->tre_totalpagado();
-		$op['mensajes']                   = $this->admin_model->cargaMensajes($user['usuarioID']);
-		$op['no_notificaciones']          = $this->user_model->numero_mensajes($user['usuarioID']);
-
-		$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
-
-		if($user['idrole'] == '4'){
-			$this->layouts->profile('dashboardVentas-view', $op);
+		if($user['idrole'] == '8'){
+			redirect('prospectos');
 		}
 		else{
-			$this->layouts->profile('dashboard-view', $op);
+			//Carga el javascript y CSS //
+			$this->layouts->add_include('assets/js/jquery-ui.js')
+						  ->add_include('assets/js/jquery.autocomplete.pack.js')
+						  ->add_include('assets/js/jquery.dataTables.min.js');
+			
+			$user_type    = strtoupper($user['tipoUsuario']);
+	
+			$op['no_cotizaciones']            = $info = $this->admin_model->trae_numcotizaciones();
+			$op['no_proveedores_inscitos']    = $this->admin_model->trae_proveedores_estadi();
+			$op['ultimos_prov_inscritos']     = $this->admin_model->trae_ultimos_proveedores_inscritos();
+			$op['supervisores']					= $this->admin_model->trae_supervisores();
+			$op['proyectos_activos']          = $this->admin_model->trae_proyectos_porstatus("Contratando");
+			$op['proyectos_licitados']        = $this->admin_model->trae_proyectos_porstatus("Licitado");
+			$op['proyectos_finalizados']      = $this->admin_model->trae_proyectos_porstatus("Finalizado");
+			$op['proyectos_revision']      	= $this->admin_model->trae_proyectos_porstatus("En Revision");
+			$op['proyectos_pagados']      	  = $this->admin_model->trae_proyectos_porstatus("Finalizado");
+			$op['total_segmentos']            = $this->admin_model->trae_totsegmentos();
+			$op['total_pagado']		          = $this->admin_model->tre_totalpagado();
+			$op['mensajes']                   = $this->admin_model->cargaMensajes($user['usuarioID']);
+			$op['no_notificaciones']          = $this->user_model->numero_mensajes($user['usuarioID']);
+	
+			$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
+			
+			if($user['idrole'] == '9' || $user['usuarioID'] == '1'){
+				$this->layouts->profile('dashboardVentas-view', $op);
+			}
+			else{
+				$this->layouts->profile('dashboard-view', $op);
+			}
 		}
 	}
 

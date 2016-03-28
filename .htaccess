@@ -9,3 +9,6 @@ RewriteRule ^(.*)$ apeConnect/index.php?/$1 [L]
 RewriteCond %{HTTP_HOST} ^apeplazas\.com$ [NC]
 #Redirect http://apeplazas.com to http://www.apeplazas.com
 RewriteRule ^(.*) http://www.apeplazas.com/$1 [L,R=301]  
+
+
+Redirect 301 /apeconnect http://www.apeplazas.com/apeConnect

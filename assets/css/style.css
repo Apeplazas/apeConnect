@@ -36,15 +36,7 @@ a:hover{color:#6495ED}
 .alertClick{background:#F5F5DC}
 
 /*---------------- Cargador ------------------*/
-.loader {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url('../graphics/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
-}
+.loader {position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 9999; background: url('../graphics/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);}
 .no-js #loader {display:none; }
 .js #loader {display:block; position:absolute; left:100px; top:0; }
 .se-pre-con {position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:99999999999; background:#fff;}
@@ -55,6 +47,7 @@ a:hover{color:#6495ED}
 .darkBottom:hover{background:#0060C8}
 
 /*---------------- Generales  ------------------*/
+.brightGray{border-right:1px solid #ccc}
 .none, #butEva, #butEvaCol{display:none}
 #bckWhite{background-color:#f7f7f8;} #bckDark{background:#333}
 #mainContainerBlack{background:#fff; margin:110px auto 0; width:730px}
@@ -105,7 +98,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c47d7d', end
 .pl65{padding-left:65px}
 .fright{float:right;}
  #wrapPlus{float:right;}
-header{position:fixed; width:100%; background-color:#fff; border-bottom:1px solid #c8c7cc; height: 65px!important; text-transform:uppercase; z-index:99999}
+header{position:fixed; width:100%; background-color:#fff; border-bottom:1px solid #c8c7cc; height: 65px!important; text-transform:uppercase; z-index:99999999}
 header nav{float:right; height:65px!important;}
 #logoHeader{width:145px; margin-top:9px;}
 #logoSmall{width:146px; position:absolute; left:10px; top:9px;}
@@ -491,6 +484,39 @@ border-bottom-right-radius: 5px; }
 .colcol em{float:left; width:600px !important}
 .colcol i{float:left;}
 .personal{float:left; width:100%; padding:10px 0}
+.tbEst{float:left; width:155px!important}
+.Rtel{width:150px !important}
+.Rema{width:200px !important; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+.fCr{white-space:nowrap;}
+.Rori{width:150px !important; ext-overflow:ellipsis; white-space:nowrap; overflow:hidden }
+.sp{margin-right:5px; line-height:16px; font-style:normal}
+#commentC textarea{float: left; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
+#ventasDash{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px}
+#ventasDash th{background:#f0f8ff !important; border-bottom:1px solid #B7E3FF; padding:6px; text-transform:uppercase}
+#ventasDash td{padding:3px 0 3px 6px; text-transform:uppercase}
+#ventasDash tbody tr{border-bottom:1px solid #ddd}
+#infoAvaVen{float:left; margin:0 20px; background-color:#f0f8ff; padding:5px 10px; border:1px solid #B7E3FF; border-radius:4px;}
+.msgError{position: absolute; background-color: #fff; top: -13px; color: #333; font-style: normal; padding: 3px; font-size:9px; border-radius: 3px; left: -21px;  z-index:9999; border:1px solid #c30}
+.msgError span{position: absolute; bottom: -10px; left:10px}
+.msgError em{font-style:normal; font-weight:700}
+#busVen{border: 1px solid #eee; background-color:#fafafa; float: left; margin-left: 17px; margin-bottom: 20px; padding:20px 12px; border-radius: 4px; width:96%}
+#busVen input{float: left; height: 29px; width: 400px; border-radius: 3px; border: 1px solid #ccc; padding:0 12px; text-transform:uppercase}
+#busVen label{ float: left; margin-right: 12px; text-transform: uppercase; padding: 8px 0 0 0;}
+#filVen{float:left; margin-right:10px; }
+#filVen select{border: 1px solid #ccc; background-color: #fff; height: 29px; text-transform: uppercase; float:left;}
+#canvas-holder{float:left; width:20%; text-align:center; border:1px solid #B7E3FF; padding:36px 20px 10px; position:relative}
+.titChart{position:absolute; width:100%; top: 0px; left: 0px; background-color: #f0f8ff; padding: 6px 0; text-transform: uppercase; border-bottom:1px solid #B7E3FF;}
+.eje{float:left; width:235px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; border-right:1px solid #B7E3FF}
+#ventasDash tbody tr:hover{background:#f0f8ff !important}
+#ventasDash .tcenter{background:#fafafa;}
+#totVenPros{background:#f0f8ff !important; text-align:center}
+#totVenPros td{font-size:1.1em; text-transform:uppercase; font-weight:700}
+#totMet{ float: left; width: 30%; border: 1px solid #B7E3FF; margin-bottom: 20px;}
+#totMet li{ width:32.5%; text-align:center; float:left; }
+#totMet span{font-weight: 700; text-transform: uppercase; padding: 3px 0; float: left; width: 100%; border-bottom: 1px solid #ccc;}
+#totMet p{float: left; width: 100%; text-align: center; font-size: 2.8em;}
+.redVen{color:#c30}
+
 
 /*---------------- Botones ------------------*/
 

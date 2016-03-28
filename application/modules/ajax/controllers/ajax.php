@@ -7,6 +7,7 @@ class Ajax extends MX_Controller {
 		parent::__construct();
 		$this->load->model('data_model');
 		$this->load->model('proyectos/proyecto_model');
+		$this->load->model('admin/admin_model');
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('planogramas/planogramas_model');
 		$this->load->model('evaluaciones/evaluaciones_model');
@@ -27,8 +28,37 @@ class Ajax extends MX_Controller {
          	redirect('');
         }
     }
-
-
+    
+    function cargarPaginadorVentas(){
+	    $d 				= $_POST['alldata'];
+	    
+	    if($d['tipo'] == 'ade'){
+	    $op['data']	= $this->prospectos_model->prospectosAde($d['val'] );
+	    }
+	    else{
+		$op['data']	= $this->prospectos_model->prospectosAtr($d['val'] );
+	    }
+		$this->load->view('paginacionVentas-view' ,$op);    
+    }
+    
+    function buscaContactoVentas(){
+	    $value = $_POST['bus'];
+	    
+	    
+	    if ($value['select'] == 'correo'){
+		     $op['data']	= $this->prospectos_model->cargarProspectosCorreo($value['val'] );
+	    }
+	    elseif ($value['select'] == 'apellido'){
+		     $op['data']	= $this->prospectos_model->cargarProspectosApellido($value['val'] );
+	    }
+	    elseif ($value['select'] == 'nombre'){
+		     $op['data']	= $this->prospectos_model->cargarProspectosNom($value['val']);
+		     
+	    }
+	    
+	    $this->load->view('paginacionVentas-view' ,$op);    
+    }
+    
 	function addCategoriasEva(){
 		$value = $_POST['value'];
 		$query = $this->db->query("SELECT * FROM evaluacion_categorias WHERE evaluacionCategoriaID='$value'");
@@ -48,7 +78,7 @@ class Ajax extends MX_Controller {
 			<input name='categ[".$row->evaluacionCategoriaID."][]' class='noMsgEv' placeholder='Agrega aqui tu  pregunta'/>
 			</div>
 			<a href='../ajax/agregaPreguntasEvaluacion' id='sCTip' title='".$row->evaluacionCategoriaID."' class='addPreg addSmallGrayBot'>
-  				<i class='iconPlus'><img src='http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg' alt='Agregar Pregunta'></i>
+  				<i class='iconPlus'><img src='../assets/graphics/svg/plusCircle.svg' alt='Agregar Pregunta'></i>
   				<span>Agregar Pregunta</span>
   			</a>
 			</fieldset>
@@ -1552,6 +1582,22 @@ class Ajax extends MX_Controller {
 
 		$this->load->view('busquedaCIAvanzada-view' ,$op);
 
+	}
+	
+	function cargarResultadoProsVend(){
+		$data 		= $_POST['alldata'];
+
+		$op['data'] = $this->prospectos_model->busquedaProsVenFec($data);
+		$op['cuenta'] = $this->prospectos_model->busquedaCuentaVenFec($data);
+
+		$this->load->view('prospectosVendedorFecha-view' ,$op);
+
+	}
+	
+	function cargaResultadosVendedores(){
+		$op['data']  = $_POST['alldata'];
+
+		$this->load->view('cargaResultadosVendedores' ,$op);
 	}
 
 	function cargarUsuarios(){

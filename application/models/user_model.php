@@ -27,7 +27,8 @@ class User_model extends CI_Model {
 						FROM usuarios u
 						LEFT JOIN roles r ON r.id=u.idrole
 						WHERE (fancyUrl='$var' OR email='$var')
-						AND hash='$passwordShai'");
+						AND hash='$passwordShai'
+						AND status='Activado'");
 			if($query->num_rows() > 0) {
             	foreach($query->result() as $row){
                 	$data[] = $row;
@@ -52,7 +53,7 @@ class User_model extends CI_Model {
 		$q = $this->db->query("SELECT m.nombre
 			FROM modulos m
 			LEFT JOIN roles_modulos rm ON rm.idmodulo=m.id
-			WHERE rm.idrole=$roleid");
+			WHERE rm.idrole='$roleid'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row->nombre;
@@ -108,7 +109,7 @@ class User_model extends CI_Model {
 			FROM roles_vistas rv
 			LEFT JOIN usuarios u ON u.idrole=rv.idrole
 			LEFT JOIN modulos m ON m.id=rv.idmodulo
-			WHERE u.usuarioID=$userid AND m.nombre='$modulo'");
+			WHERE u.usuarioID='$userid' AND m.nombre='$modulo'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data = $row->vista;
@@ -121,7 +122,7 @@ class User_model extends CI_Model {
 	function numero_mensajes($user_id){
 		$data = array();
 		$q = $this->db->query("SELECT
-			(SELECT count(leido) FROM mensajes_usuarios_roles WHERE usuarioid=$user_id AND leido=0) + (SELECT count(id) FROM mensajes_usuarios WHERE usuarioid=$user_id AND leido=0) as total");
+			(SELECT count(leido) FROM mensajes_usuarios_roles WHERE usuarioid='$user_id' AND leido=0) + (SELECT count(id) FROM mensajes_usuarios WHERE usuarioid='$user_id' AND leido=0) as total");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data = $row->total;
@@ -246,7 +247,7 @@ class User_model extends CI_Model {
 								LEFT JOIN zonas z ON z.idZona=e.zonasid
 								LEFT JOIN proveedores_estadosMexico pe ON pe.claveEstado=e.claveEstado
 								LEFT JOIN proveedores pr ON pr.idProveedor=pe.proveedoresid
-								WHERE pr.usuarioID=$usuarioID AND p.obrasTipoid in (SELECT idTipo FROM proveedores_obrasTipo WHERE idProveedor=pr.idProveedor) AND p.fechaCierreProyecto>NOW() AND p.statusProyecto = 'Contratando'
+								WHERE pr.usuarioID='$usuarioID' AND p.obrasTipoid in (SELECT idTipo FROM proveedores_obrasTipo WHERE idProveedor=pr.idProveedor) AND p.fechaCierreProyecto>NOW() AND p.statusProyecto = 'Contratando'
 								GROUP BY p.idProyecto
 								ORDER BY p.fechaAltaProyecto DESC
 							");
@@ -275,7 +276,7 @@ class User_model extends CI_Model {
 
 	function checkdocs($idproveedor){
 		$data = array();
-		$q = $this->db->query("SELECT certificado,actasConstitutivas,cedulas,shcp,edoCuenta,comprobanteDomicilio,credencialElector,IMSS FROM proveedores WHERE idProveedor=$idproveedor LIMIT 1");
+		$q = $this->db->query("SELECT certificado,actasConstitutivas,cedulas,shcp,edoCuenta,comprobanteDomicilio,credencialElector,IMSS FROM proveedores WHERE idProveedor='$idproveedor' LIMIT 1");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -290,7 +291,7 @@ class User_model extends CI_Model {
 		$q = $this->db->query("SELECT c.id
 			FROM cotizaciones c
 			LEFT JOIN proveedores p ON p.idProveedor=c.idproveedor
-			WHERE p.usuarioID=$userid AND c.idproyecto=$idproyecto");
+			WHERE p.usuarioID='$userid' AND c.idproyecto='$idproyecto'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -307,7 +308,7 @@ class User_model extends CI_Model {
 
 	function traeadministradores(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM usuarios WHERE idrole=1");
+		$q = $this->db->query("SELECT * FROM usuarios WHERE idrole='1'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

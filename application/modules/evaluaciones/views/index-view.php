@@ -4,7 +4,7 @@
 <div class="wrapList">
   <div id="actions">
     <a href="<?=base_url()?>evaluaciones/formEvaluacion" title="Generar carta intencion" class="addSmall">
-			<i class="iconPlus"><img src="http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Evaluación</span>
 		</a>
   </div>
@@ -17,6 +17,7 @@
 		    <th>Inicia</th>
 		    <th>Finaliza</th>
 				<th>Status</th>
+				<th></th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -26,6 +27,7 @@
 		        <td><?=$var->fechaInicio;?></td>
 		        <td><?=$var->fechaFin;?></td>
 						<td><?=$var->campaniaStatus;?></td>
+						<td>Click aquí</td>
 		      </tr>
 				<?endforeach?>
 		  </tbody>

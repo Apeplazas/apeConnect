@@ -1,48 +1,182 @@
-<div class="wrapList">
-<div id="mainTit">Dashboard Ventas</div>
-	<div id="dashWindow">
-		<div class="wrapDash">
-		  <span class="porcen"><strong>LOCALES APARTADOS</strong> <i>13</i></span>
-		  <span class="porcen"><strong>PROSPECTOS</strong> <i>1</i></span>
-		  <span class="porcen"><strong>COTIZACIONES</strong> <i>30</i></span>
-		  <span class="porcen"><strong>PORCENTAJE BATEO</strong> <i>1%</i></span>
-		  <span class="porcen"><strong>PORCENTAJE BAJAS</strong> <i>13</i></span>
+<?php
+date_default_timezone_set('America/Mexico_City'); 
+
+$today = date('Y-m-d') ;
+$firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
+$nextMonth= date('Y-m-d',strtotime('first day of next month')) ;
+$lastMonth = date('Y-m-d',strtotime('last month')) ;
+$thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
+// echo $thisMonth;
+?>
+<? $pros   = $this->admin_model->cuentaProspectosDelMes($thisMonth, $today);?>
+<!-- MANDA AL DASHBOARD DE SUPERVISION VENTAS -->
+<? $vendedores   = $this->admin_model->cargaVendedores($thisMonth, $today);?>
+<?$sumaA = 0;?>
+<?$sumaB = 0;?>
+<?$sumaC = 0;?>
+<?$sumaT = 0;?>
+<?$sumaD = 0;?>
+<?$sumaE = 0;?>
+<?$sumaF = 0;?>
+<?$sumaTotal = 0;?>
+<h3 id="mainTit">Dashboard Ventas</h3>
+<div class="wrapListLow">
+	<? $this->load->view('includes/toolbars/busquedaVendedoresProspectos')?>
+		 
+		<table id="ventasDash">
+			<thead>
+				<tr>
+					<th>Ejecutivo</th>
+					<th class="tcenter">Externo</th>
+					<th class="tcenter">Cambaceo</th>
+					<th class="tcenter">Empleado</th>
+					<th class="tcenter">Titular</th>
+					<th class="tcenter">Telemarketing</th>
+					<th class="tcenter">Web</th>
+					<th class="tcenter">Otro</th>
+					<th class="tcenter">Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<? $i = 0;?>
+				<? foreach($vendedores as $row):?>
+				<? $sumaTotal += $row->cuentaTotal;?>
+				<? $cExt = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $thisMonth, $today);?>
+				<? $cam = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $thisMonth, $today);?>
+				<? $int = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $thisMonth, $today);?>
+				<? $intT = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $thisMonth, $today);?>
+				<? $tel = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $thisMonth, $today);?>
+				<? $pag = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $thisMonth, $today);?>
+				<? $otr = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $thisMonth, $today);?>
+					<? foreach($cExt as $a):?>
+					<? $sumaA += $a->cuenta;?>
+					<? foreach($cam as $b):?>
+					<? $sumaB += $b->cuenta;?>
+					<? foreach($int as $c):?>
+					<? $sumaC += $c->cuenta;?>
+					<? foreach($intT as $t):?>
+					<? $sumaT += $t->cuenta;?>
+					<? foreach($tel as $d):?>
+					<? $sumaD += $d->cuenta;?>
+					<? foreach($pag as $e):?>
+					<? $sumaE += $e->cuenta;?>
+					<? foreach($otr as $f):?>
+					<? $sumaF += $f->cuenta;?>
+			<tr>
+				<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
+				<td class="tcenter"><?= $a->cuenta;?></td>
+				<td class="tcenter"><?= $b->cuenta;?></td>
+				<td class="tcenter"><?= $c->cuenta;?></td>
+				<td class="tcenter"><?= $t->cuenta;?></td>
+				<td class="tcenter"><?= $d->cuenta;?></td>
+				<td class="tcenter"><?= $e->cuenta;?></td>
+				<td class="tcenter"><?= $f->cuenta;?></td>
+				<td class="tcenter"><?= $row->cuentaTotal;?></td>
+			</tr>
+			<? endforeach; ?>
+			<? endforeach; ?>
+			<? endforeach; ?>
+			<? endforeach; ?>
+			<? endforeach; ?>
+			<? endforeach; ?>
+			<? endforeach; ?>
+			<? $totVen =  $i++;?>
+			<? endforeach; ?>
+			<tr id="totVenPros">
+				<td></td>
+				<td><?= $sumaA?></td>
+				<td><?= $sumaB ?></td>
+				<td><?= $sumaC ?></td>
+				<td><?= $sumaT ?></td>
+				<td><?= $sumaD ?></td>
+				<td><?= $sumaE ?></td>
+				<td><?= $sumaF ?></td>
+				<td><?= $sumaTotal ?></td>
+			</tr>
+			</tbody>
+		</table>
+		<ul id="totMet">
+			<li class="brightGray">
+				<span>META</span>
+				<p><?=$totVen * 48?></p>
+			</li>
+			<li class="brightGray">
+				<? foreach($pros as $pro):?>
+				<span>Prospectados</span>
+				<p><? $totPro = $pro->cuenta;?> <?=$totPro?></p>
+				<? endforeach; ?>
+			</li>
+			<li>
+				<span>Restantes</span>
+				<? $final = $totVen - $totPro?> 
+				<? $check = substr($final, 0, 1)?>
+				<p <?if ($check == '-' ):?>class="redVen"<?endif;?> ><?=$final?></p>
+			</li>
+		</ul>
+		<div id="canvas-holder" style="width:30%">
+			<strong class="titChart">Volumen de ventas por tipo</strong>
+			<canvas id="chart-area" width="300" height="300"/>
 		</div>
-		<div class="wrapDash">
-			<div id="graph">
-				<b>Prospectación de cierre</b>
-				<img src="<?=base_url()?>assets/graphics/grafica.png" alt="Hay que quitar esta grafica y poner un real" />
-			</div>
-			<div id="cotVenc">
-				<b>Cotizaciones por vencer</b>
-				<span class="countVer">* 7 días <a href="<?=base_url()?>prospectos/cotizaciones">ver todas (+)</a></span>
-				<ul class="listVenc">
-					<li><a href="<?=base_url()?>"><span>Benjamin Carrera Acosta</span><em>2 locales</em></a></li>
-					<li><a href="<?=base_url()?>"><span>Salvador Acosta</span><em>1 locales</em></a></li>
-					<li><a href="<?=base_url()?>"><span>Miguel A Diaz Perez</span><em>4 locales</em></a></li>
-				</ul>
-				<span class="countVer">* 14 días <a href="<?=base_url()?>prospectos/cotizaciones">ver todas (+)</a></span>
-				<ul class="listVenc">
-					<li><a href="<?=base_url()?>"><span>Juanita Perez Diaz</span><em>2 locales</em></a></li>
-					<li><a href="<?=base_url()?>"><span>Benjamin Carrera Acosta</span><em>2 locales</em></a></li>
-					<li><a href="<?=base_url()?>"><span>Cris Toriz</span><em>2 locales</em></a></li>
-				</ul>
-			</div>
-			<div id="wrapCounters">
-				<div>
-					<b>Tus Rentados</b>
-					<p>12</p>
-					<i>Marzo</i>
-				</div>
-				
-				<div>
-					<b>Locales disponibles</b>
-					<p>125</p>
-					<i>Plaza México</i>
-				</div>
-				
-			</div>
-		</div>
-		
-	</div>
-</div>
+
+		<br class="clear">
+	      </div>
+<script src="<?=base_url()?>assets/js/Chart.js"></script>
+
+
+
+	<script>
+
+		var polarData = [
+				{
+					value: <?= $sumaA?>,
+					color:"#F7464A",
+					highlight: "#FF5A5E",
+					label: "Cliente Externo"
+				},
+				{
+					value: <?= $sumaB?>,
+					color: "#46BFBD",
+					highlight: "#5AD3D1",
+					label: "Cambaceo"
+				},
+				{
+					value: <?= $sumaC?>,
+					color: "#FDB45C",
+					highlight: "#FFC870",
+					label: "Empleado Interno"
+				},
+				{
+					value: <?= $sumaT?>,
+					color: "#949FB1",
+					highlight: "#A8B3C5",
+					label: "Interno Titular"
+				},
+				{
+					value: <?= $sumaD?>,
+					color: "#4D5360",
+					highlight: "#616774",
+					label: "TeleMarketing"
+				},
+				{
+					value: <?= $sumaE?>,
+					color: "#4ct360",
+					highlight: "#616774",
+					label: "Pagina Web"
+				},
+				{
+					value: <?= $sumaF?>,
+					color: "#cct320",
+					highlight: "#616774",
+					label: "Otro"
+				}
+
+			];
+
+			window.onload = function(){
+				var ctx = document.getElementById("chart-area").getContext("2d");
+				window.myPolarArea = new Chart(ctx).PolarArea(polarData, {
+					responsive:true
+				});
+			};
+
+	</script>

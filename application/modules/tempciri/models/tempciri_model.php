@@ -114,7 +114,12 @@ class Tempciri_model extends CI_Model
 	function cargarTodoCis(){
 
 		$data = array();
-		$q = $this->db->query("SELECT ci.id as 'cartaIntId',ci.contraroInicioMes,ci.estado,ci.pdf,ci.contratoDuracion, ci.diasGracia,ci.id,ci.deposito,ci.ifeFolio,ci.devolucionCuenta,ci.devolucionBanco,ci.diasGracia,ci.gerentePlaza,ci.folioComprobante,ci.folio,ci.fecha,
+		$q = $this->db->query("SELECT 
+		ci.id as 'cartaIntId',
+		ci.contraroInicioMes,
+		ci.estado
+		,ci.pdf,
+		ci.contratoDuracion, ci.diasGracia,ci.id,ci.deposito,ci.ifeFolio,ci.devolucionCuenta,ci.devolucionBanco,ci.diasGracia,ci.gerentePlaza,ci.folioComprobante,ci.folio,ci.fecha,
 			c.id as 'clienteId',c.pnombre,c.snombre,c.apellidopaterno,c.apellidomaterno,c.telefono,c.email,c.rfc,
 			pr.dir,pr.local,pr.renta,pr.plazaId as 'plazaNombre',pr.dir,
 			u.nombreCompleto
@@ -374,6 +379,84 @@ class Tempciri_model extends CI_Model
 		LEFT JOIN usuarios u ON u.usuarioID=t.usuarioID
 		WHERE $cadena
     ");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+
+function busquedaCartasIntencionExcel($data){
+
+		$cadena = '';
+    $i = 1;
+ 
+    if(!empty($data) && sizeof($data) > 0) {
+    	$cadena = 'WHERE ';
+    
+	    foreach ($data as $key => $value) {
+	
+	      if($key == "plaza" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "t.plaza='$value'";
+	          ++$i;
+	      }
+	      if($key == "cliente" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "CONCAT_WS(' ', c.pnombre, c.snombre, c.apellidopaterno, c.apellidomaterno) like '%$value%'";
+	          ++$i;
+	      }
+	      if($key == "gerente" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "u.nombreCompleto like '%$value%'";
+	          ++$i;
+	      }
+	      if($key == "estatus" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "t.estado = '$value'";
+	          ++$i;
+	      }
+	      if($key == "fechaDe" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= " t.fecha>=('$value')";
+	          ++$i;
+	      }
+	      if($key == "fechaA" && !empty($value)){
+	        if($i > 1) {
+	          $cadena .= " AND ";
+	        }
+	          $cadena .= "t.fecha< ('$value')";
+	          ++$i;
+	      }
+	
+		}
+	}
+
+		$data = array();
+		$q = $this->db->query("
+			SELECT t.folio,
+			CONCAT(c.pnombre, ' ', c.snombre,' ',c.apellidopaterno,' ',c.apellidomaterno) as cnombre,
+			t.plaza,
+			u.nombreCompleto,
+			t.deposito,
+			t.estado
+			FROM TEMPORA_CI t
+			LEFT JOIN TEMPORA_CLIENTES c ON c.id=t.clienteId
+			LEFT JOIN usuarios u ON u.usuarioID=t.usuarioID
+			$cadena
+	    ");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

@@ -56,7 +56,33 @@
 	<?= $this->session->flashdata('msg');?>
 
 	<form id="addPros" action="<?=base_url()?>prospectos/guardarProspecto" method="post">
-
+		
+	<div class="wrapListForm" id="wrapListForm4">
+		<table>
+			<thead>
+			  <tr>
+			    <th colspan="4">Status</th>
+			  </tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="grayField"><label>Status</label></td>
+					<td>
+						<select class="selBig" name="statusProspecto">
+							<option value="No Contactado" selected>No Contactado</option>
+						  <option value="Intentando Contactar">Intentando Contactar</option>
+						  <option value="Contactar mas adelante">Contactar mas adelante</option>
+						  <option value="Contactado">Contactado</option>
+						  <option value="Muy Interesado">Muy Interesado</option>
+						  <option value="Prospecto Fallido">Prospecto Fallido</option>
+						</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br class="clear">
+	</div>
+	
 	<div class="wrapListForm" id="wrapListForm1">
 	<table>
 		<thead>
@@ -143,8 +169,8 @@
 			<td>
 				<? if($errorOrigen):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorOrigen?></em></div><?endif?>
 			 <select name="origen" class="selBig">
-				 <? if($origen):?><option value="<?= $origen?>"><?= $origen?></option><?endif?>
-				 <option value="" checked>Seleccione el origen</option>
+				 <? if($origen):?><option selected value="<?= $origen?>"><?= $origen?></option><?endif?>
+				 <option value="">Seleccione el origen</option>
 				 <? foreach($origenCliente as $rowOrigen):?>
 				 <option value="<?= $rowOrigen->origen;?>"><?= $rowOrigen->origen;?></option>
 				 <? endforeach; ?>
@@ -182,7 +208,7 @@
 				<?endif?>
 			</td>
 			<td>
-				<label><span class="obli">*</span>Propiedad</label>
+				<label><span class="obli">*</span>Plaza de interes</label>
 			</td>
 			<td>
 				<? if($errorPlaza):?>
@@ -195,6 +221,12 @@
 				<? if(!$cadena):?>
 					<option value="" checked>Seleccione una opción</option>
 				<? endif;?>
+				<? if($plaza):?>
+				<? $propiedad = $this->prospectos_model->buscaCodigoPropiedad($plaza);?>
+				<? foreach($propiedad as $pl):?>
+				<option selected value="<?= $plaza?>"><?= $pl->propiedad;?></option>
+				<? endforeach; ?>
+				<?endif?>
 				<? foreach($plazas as $p):?>
 				<option value="<?= $p->clavePropiedad;?>"><?= $p->propiedad;?></option>
 				<? endforeach; ?>
@@ -254,37 +286,53 @@
 		<tbody>
 			<tr>
 				<td>
-					<label>Estado</label>
+					<label><span class="obli">*</span>Estado</label>
 				</td>
 				<td>
 					<? if($errorEstado):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorEstado?></em></div><?endif?>
 			    <select id="estado" class="selBig" name="estado">
-				    <? if($estado):?><option checked value="<?= $estado?>"><?= $estado?></option><?endif?>
 				    <option value="">Seleccione un estado</option>
+				    <? if($estado):?><option selected value="<?= $estado?>"><?= $estado?></option><?endif?>
 				    <? foreach($estados as $estadosRow):?>
 				    <option value="<?= $estadosRow->nombreEstado?>"><?= $estadosRow->nombreEstado?></option>
 				    <? endforeach;?>
 					</select>
 				</td>
 				<td>
-					<label>Municipio</label>
+					<label><span class="obli">*</span>Municipio</label>
 				</td>
 				<td>
 					<? if($errorMunicipio):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorMunicipio?></em></div><?endif?>
-			    <select id="municipio" class="selBig" name="municipio">
-				    <? if($municipio):?><option checked value="<?= $municipio?>"><?= $municipio?></option><?endif?>
-				    <option value="">Seleccione un municipio</option>
+			    <select id="municipio" class="selBig test" name="municipio">
+				    <? if($municipio):?>
+				    	<option selected value="<?= $municipio?>"><?= $municipio?></option>
+				    <?else:?>
+				    	<script>
+						//Carga municipios en caso de que no se haya completado la informacion al validar
+							$( window ).load(function(){
+								var estadoFiltro = $('#estado').val();
+								$("#municipioDir").removeAttr("disabled");
+								$.post(ajax_url+"cargarMunicipios",{estadoFiltro:estadoFiltro},function(data){
+									sucess:
+										$("#municipio").empty().append(data);
+										$("#municipio").removeAttr("disabled");
+								});
+							});
+						</script>
+						<option  value="">Seleccione un municipio</option>
+				    <?endif?>
+				    
 					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					  <label>Colonia</label>
+					  <label><span class="obli">*</span>Colonia</label>
 				</td>
 				<td>
 					<? if($errorColonia):?><div class="msgError"><span><img src="<?=base_url()?>assets/graphics/redArrow.png" alt="Notificación" /></span><em><?= $errorColonia?></em></div><?endif?>
 			    <select id="colonia" class="selBig" name="colonia">
-				    <? if($colonia):?><option checked value="<?= $colonia?>"><?= $colonia?></option><?endif?>
+				    <? if($colonia):?><option selected value="<?= $colonia?>"><?= $colonia?></option><?endif?>
 				    <option value="">Seleccione una colonia</option>
 					</select>
 				</td>

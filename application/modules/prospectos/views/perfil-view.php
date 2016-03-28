@@ -1,3 +1,4 @@
+<? $usuarioSesion	= $this->session->userdata('usuario');?>
 <? foreach($perfil as $row):?>
 <div id="mainTit">
 	<h3><img src="<?=base_url()?>assets/graphics/svg/directorio.svg" alt="Perfil de <?= $row->pnombre;?> <?= $row->snombre;?> <?= $row->apellidop;?> <?= $row->apellidom;?>" />
@@ -6,34 +7,41 @@
 
 <div class="wrapList" >
 	<div id="actions">
-		<a href="<?=base_url()?>prospectos/localesCotizadosProspectos/<?= $this->uri->segment(3)?>" title="Agregar Contactos" class="addSmall">
-			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/apartado.svg" alt="Ingresar Apartado"></i>
-			<span>Ingresar Apartado</span>
-		</a>
-		<!-- Formulario para generar cotizacion -->
-		<form class="fleft" action="<?=base_url()?>prospectos/cotizar/<?= $this->uri->segment(3)?>" method="post">
-		<fieldset class="addSmall">
-			<div class="fleft">
-				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/cotizarLocal.svg" alt="Cotizar Local"></i>
-			</div>
-			<input type="hidden" name="prospectoID" value="<?= $this->uri->segment(3)?>">
-			<input type="hidden" name="nombre" value="<?=$row->pnombre;?> <?= $row->apellidop;?> <?= $row->apellidom;?>">
-			<input type="hidden" name="tipo" value="nuevaCotizacion" />
-			<input id="cotLoc" class="formBotonBig mtb10" type="submit" value="Cotizar local" alt="Comprar">
-		</fieldset>
-		</form>
-		<!-- Valida si hay cotizaciones y muestra la cuenta -->
-		<? $cot = $this->prospectos_model->cuentaCotizacionProspecto($this->uri->segment(3));?>
-
-		<? if ($cot[0]->cuenta > '0'):?>
-		<a href="<?=base_url()?>prospectos/cotizaciones/<?= $row->id;?>" title="Ver Cotizaciones" class="addSmall">
-			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/ver.svg" alt="Ver cotizaciones"></i>
-			<span>Ver Cotizaciones </span>
-			<div class="countRed"><?= $cot[0]->cuenta;?></div>
+		<? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
+		<a id="showC" href="<?=base_url()?>prospectos/localesCotizadosProspectos/<?= $this->uri->segment(3)?>" title="Agregar Comentario" class="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/comentarios.svg" alt="Agregar Comentario"></i>
+			<span>Agregar Comentario</span>
 		</a>
 		<?endif?>
-
-
+		<? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
+			<a href="<?=base_url()?>prospectos/localesCotizadosProspectos/<?= $this->uri->segment(3)?>" title="Ingresar Apartados" class="addSmall">
+				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/apartado.svg" alt="Ingresar Apartado"></i>
+				<span>Ingresar Apartado</span>
+			</a>
+			<!-- Formulario para generar cotizacion -->
+			<form class="fleft" action="<?=base_url()?>prospectos/cotizar/<?= $this->uri->segment(3)?>" method="post">
+			<fieldset class="addSmall">
+				<div class="fleft">
+					<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/cotizarLocal.svg" alt="Cotizar Local"></i>
+				</div>
+				<input type="hidden" name="prospectoID" value="<?= $this->uri->segment(3)?>">
+				<input type="hidden" name="nombre" value="<?=$row->pnombre;?> <?= $row->apellidop;?> <?= $row->apellidom;?>">
+				<input type="hidden" name="tipo" value="nuevaCotizacion" />
+				<input id="cotLoc" class="formBotonBig mtb10" type="submit" value="Cotizar local" alt="Comprar">
+			</fieldset>
+			</form>
+			<!-- Valida si hay cotizaciones y muestra la cuenta -->
+			<? $cot = $this->prospectos_model->cuentaCotizacionProspecto($this->uri->segment(3));?>
+	
+			<? if ($cot[0]->cuenta > '0'):?>
+			<a href="<?=base_url()?>prospectos/cotizaciones/<?= $row->id;?>" title="Ver Cotizaciones" class="addSmall">
+				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/ver.svg" alt="Ver cotizaciones"></i>
+				<span>Ver Cotizaciones </span>
+				<div class="countRed"><?= $cot[0]->cuenta;?></div>
+			</a>
+			<?endif?>
+		
+		<?endif;?>
 		<!-- Alta de usuarios solo por gerentes de plaza <a href="<?=base_url()?>prospectos/solicitarAlta/<?= $this->uri->segment(3)?>" title="Agregar Contactos" class="addSmall"><i class="iconPlus">Agregar</i>Solicitar alta</a>-->
 
 
@@ -50,11 +58,21 @@
 			</a>
 			</span>
 		</div>
-
-
+		
+		<!------  AQUI SE MUESTRA EL TEXTAREA PARA INSERTAR UN COMENTARIO SOBRE EL PROSPECTO   ----->
+		<? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
+		<div class="wrapListForm" id="commentC">
+			<form  action="<?=base_url()?>" method="">
+				<textarea name="" placeholder="Agrega tu comentario"></textarea>
+				<input class="mainBotton" type="submit" value="Enviar Comentario" />
+			</form>
+			<br class="clear">
+		</div>
+		<?endif?>
+		<!---Aqui termina comentario textarea--->
+	
+	
 	<div class="wrapListForm" id="wrapListForm1">
-
-
 	<table>
 		<thead>
 			<tr>
