@@ -398,101 +398,107 @@ class Prospectos extends MX_Controller {
 
 	function editarProspecto()
 	{
-		$this->form_validation->set_rules('primerNombre', 'nombre', 'required');
-		$this->form_validation->set_rules('segundoNombre' );
-		$this->form_validation->set_rules('apellidoPaterno', 'apellido paterno', 'required');
-		$this->form_validation->set_rules('apellidoMaterno' );
-		$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|callback_email');
-		$this->form_validation->set_rules('telefono', 'telefono', 'required');
-		$this->form_validation->set_rules('mobile' );
-		$this->form_validation->set_rules('estado' );
-		$this->form_validation->set_rules('municipio' );
-		$this->form_validation->set_rules('giro' );
-		$this->form_validation->set_rules('colonia' );
-		$this->form_validation->set_rules('cp' );
-		$this->form_validation->set_rules('calle' );
-		$this->form_validation->set_rules('exterior' );
-		$this->form_validation->set_rules('interior' );
-		$this->form_validation->set_rules('comentario' );
-		$this->form_validation->set_rules('fechaCierre' );
-		$this->form_validation->set_rules('origen', 'origen del Cliente', 'required');
+		$user = $this->session->userdata('usuario');
+		
+		if(empty($user['usuarioID'] )){
+			echo 'Este ha sido un error de sistema, por favor reportarlo a la ext 1309 con Miguel Diaz, Gracias por su atención';
+		}else{
+			$this->form_validation->set_rules('primerNombre', 'nombre', 'required');
+			$this->form_validation->set_rules('segundoNombre' );
+			$this->form_validation->set_rules('apellidoPaterno', 'apellido paterno', 'required');
+			$this->form_validation->set_rules('apellidoMaterno' );
+			$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|callback_email');
+			$this->form_validation->set_rules('telefono', 'telefono', 'required');
+			$this->form_validation->set_rules('mobile' );
+			$this->form_validation->set_rules('estado' );
+			$this->form_validation->set_rules('municipio' );
+			$this->form_validation->set_rules('giro' );
+			$this->form_validation->set_rules('colonia' );
+			$this->form_validation->set_rules('cp' );
+			$this->form_validation->set_rules('calle' );
+			$this->form_validation->set_rules('exterior' );
+			$this->form_validation->set_rules('interior' );
+			$this->form_validation->set_rules('comentario' );
+			$this->form_validation->set_rules('fechaCierre' );
+			$this->form_validation->set_rules('origen', 'origen del Cliente', 'required');
 
-		$titulo           = $this->input->post('titulo');
-		$primerNombre     = $this->input->post('primerNombre');
-		$segundoNombre    = $this->input->post('segundoNombre');
-		$apellidoPaterno  = $this->input->post('apellidoPaterno');
-		$apellidoMaterno  = $this->input->post('apellidoMaterno');
-		$email            = $this->input->post('email');
-		$telefono         = $this->input->post('telefono');
-		$mobile           = $this->input->post('mobile');
-		$giro             = $this->input->post('giro');
-		$actividad        = $this->input->post('actividad');
-		$asignado         = $this->input->post('asignado');
-		$origen           = $this->input->post('origen');
-		$vendedor         = $this->input->post('vendedor');
-		$calle            = $this->input->post('calle');
-		$estado           = $this->input->post('estado');
-		$municipio        = $this->input->post('municipio');
-		$colonia          = $this->input->post('colonia');
-		$cp               = $this->input->post('cp');
-		$exterior         = $this->input->post('exterior');
-		$interior         = $this->input->post('interior');
-		$comentario       = $this->input->post('comentario');
-		$fechaCierre      = $this->input->post('fechaCierre');
-		$plaza            = $_POST['plaza'];
-		$prospectoID  	  = $this->uri->segment(3);
+			$titulo           = $this->input->post('titulo');
+			$primerNombre     = $this->input->post('primerNombre');
+			$segundoNombre    = $this->input->post('segundoNombre');
+			$apellidoPaterno  = $this->input->post('apellidoPaterno');
+			$apellidoMaterno  = $this->input->post('apellidoMaterno');
+			$email            = $this->input->post('email');
+			$telefono         = $this->input->post('telefono');
+			$mobile           = $this->input->post('mobile');
+			$giro             = $this->input->post('giro');
+			$actividad        = $this->input->post('actividad');
+			$asignado         = $user['usuarioID'];
+			$origen           = $this->input->post('origen');
+			$vendedor         = $this->input->post('vendedor');
+			$calle            = $this->input->post('calle');
+			$estado           = $this->input->post('estado');
+			$municipio        = $this->input->post('municipio');
+			$colonia          = $this->input->post('colonia');
+			$cp               = $this->input->post('cp');
+			$exterior         = $this->input->post('exterior');
+			$interior         = $this->input->post('interior');
+			$comentario       = $this->input->post('comentario');
+			$fechaCierre      = $this->input->post('fechaCierre');
+			$plaza            = $_POST['plaza'];
+			$prospectoID  	  = $this->uri->segment(3);
 
-		if ($this->form_validation->run($this) == FALSE)
-		{
-			//Optimizacion y conexion de tags para SEO//
-			$opt = $this->uri->segment(1);
-			$op['opt'] = $this->data_model->cargarOptimizacion($opt);
+			if ($this->form_validation->run($this) == FALSE)
+			{
+				//Optimizacion y conexion de tags para SEO//
+				$opt = $this->uri->segment(1);
+				$op['opt'] = $this->data_model->cargarOptimizacion($opt);
 
-			$op['plazas']     = $this->data_model->cargaZonas();
-			$op['giros']      = $this->data_model->cargarGiros();
-			$op['vendedores'] = $this->data_model->cargarVendedores();
+				$op['plazas']     = $this->data_model->cargaZonas();
+				$op['giros']      = $this->data_model->cargarGiros();
+				$op['vendedores'] = $this->data_model->cargarVendedores();
 
-			//Carga el javascript para jquery//
-			$this->layouts->add_include('assets/js/jquery-ui.js')
-						  ->add_include('assets/css/jquery-datepicker.css');
+				//Carga el javascript para jquery//
+				$this->layouts->add_include('assets/js/jquery-ui.js')
+							  ->add_include('assets/css/jquery-datepicker.css');
 
-			$op['origenCliente'] = $this->prospectos_model->origenCliente(); // Carga Origen del cliente
-			$op['estados']       = $this->data_model->estados(); // Carga Estados
-			$op['cadena']        = $plaza;
+				$op['origenCliente'] = $this->prospectos_model->origenCliente(); // Carga Origen del cliente
+				$op['estados']       = $this->data_model->estados(); // Carga Estados
+				$op['cadena']        = $plaza;
 
-			//Vista//
-			$this->layouts->profile('agregarProspectos-view' ,$op);
-		}
-		else
-		{
-			$user = $this->session->userdata('usuario');
+				//Vista//
+				$this->layouts->profile('agregarProspectos-view' ,$op);
+			}
+			else
+			{
+				$user = $this->session->userdata('usuario');
 
-			$info = array(
-					'titulo'          => $titulo,
-					'pnombre'         => $primerNombre,
-					'snombre'         => $segundoNombre,
-					'apellidop'       => $apellidoPaterno,
-					'apellidom'       => $apellidoMaterno,
-					'correo'          => $email,
-					'telefono'        => $telefono,
-					'celular'         => $mobile,
-					'actividad'       => $actividad,
-					'origenCliente'   => $origen,
-					'giro'            => $giro,
-					'estado'          => $estado,
-					'municipio'       => $municipio,
-					'colonia'         => $colonia,
-					'cp'              => $cp,
-					'numeroInt'       => $interior,
-					'numeroExt'       => $exterior,
-					'comentario'      => $comentario,
-					'usuarioID'		  => $asignado,
-					'calle'			  => $calle
-					 );
-			$this->db->where('id', $prospectoID);
-			$this->db->update('prospectos', $info);
+				$info = array(
+						'titulo'          => $titulo,
+						'pnombre'         => $primerNombre,
+						'snombre'         => $segundoNombre,
+						'apellidop'       => $apellidoPaterno,
+						'apellidom'       => $apellidoMaterno,
+						'correo'          => $email,
+						'telefono'        => $telefono,
+						'celular'         => $mobile,
+						'actividad'       => $actividad,
+						'origenCliente'   => $origen,
+						'giro'            => $giro,
+						'estado'          => $estado,
+						'municipio'       => $municipio,
+						'colonia'         => $colonia,
+						'cp'              => $cp,
+						'numeroInt'       => $interior,
+						'numeroExt'       => $exterior,
+						'comentario'      => $comentario,
+						'usuarioID'		  => $asignado,
+						'calle'			  => $calle
+						 );
+				$this->db->where('id', $prospectoID);
+				$this->db->update('prospectos', $info);
 
-			redirect('prospectos');
+				redirect('prospectos');
+			}
 		}
 	}
 
