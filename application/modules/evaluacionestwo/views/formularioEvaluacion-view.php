@@ -41,55 +41,7 @@
     <br class="clear">
     </div>
 
-    <div class="wrapListForm" id="wrapListForm3">
-      <span class='secmainTit'>Tipo de esquema</span>
-      <table>
-      <tr id="tipForm">
-        <td>
-          <span><input type="checkbox" name="jefeDirecto"><em>Jefe Directo</em></span>
-          <span><input id="colabSta" type="checkbox" name="colaboradores"><em>Colaborador vs Colaborador</em></span>
-          <span><input id="areSta" type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
-        </td>
-      </tr>
-      </table>
-      <br class="clear">
 
-
-      <script type="text/javascript">
-        $('.kUpOne').keyup(function(event){
-          buscaUsuariosCalifica();
-        });
-        $('.kUpTwo').keyup(function(event){
-          buscaUsuariosAcalificar();
-        });
-
-        function buscaUsuariosCalifica(){
-          var alldata = $('#busColOne').val();
-
-          $.post(ajax_url+"cargarUsuarios", {
-            alldata : alldata
-          },
-
-          function(data) { sucess:
-            $("#ajaxUsu").empty().append(data);
-          });
-        };
-
-        function buscaUsuariosAcalificar(){
-          var alldata = $('#busColTwo').val();
-
-          $.post(ajax_url+"cargarUsuariosAcalificar", {
-            alldata : alldata
-          },
-
-          function(data) { sucess:
-            $("#ajaxUsu").empty().append(data);
-          });
-        };
-      </script>
-
-
-    </div>
 
     <div class="wrapListForm" id="wrapListForm2">
   		<span class="secmainTit">Descriptivo de evaluación</span>
@@ -120,8 +72,6 @@
             <?foreach ($cat as $var): ?>
             <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
             <?endforeach; ?>
-					  <option value="1">Liderazgo</option>
-            <option value="2">Atención a Clientes</option>
 					</select>
           <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
 					<img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
@@ -132,11 +82,6 @@
 				</span>
 			</div>
 
-      <script type="text/javascript">
-      $("#areSta").change(function(){
-        $("#usersEva").toggleClass("show");
-      });
-      </script>
 
       <script type="text/javascript">
       $("#colabSta").change(function(){
@@ -194,7 +139,60 @@
   </section>
   <h6>Agregar personas a evaluación</h6>
   <section>
-  <div id="colabora">
+  	<input type="hidden" name="jefeDirecto" value="on">
+      <input type="hidden" name="autoEval" value="on">
+    <!--div class="wrapForm" id="wrapListForm3">
+      <span class='secmainTit'>Tipo de esquema</span>
+      <table>
+      <tr id="tipForm">
+        <td>
+          <span class="none"><input type="checkbox" checked name="jefeDirecto"><em>Jefe Directo</em></span>
+          <span><input id="colabSta" type="checkbox" name="colaboradores"><em>Colaborador vs Colaborador</em></span>
+          <span class="none"><input checked type="checkbox" name="autoEval"><em>Autoevaluación</em></span>
+        </td>
+      </tr>
+      </table>
+      <br class="clear">
+
+
+      <script type="text/javascript">
+        $('.kUpOne').keyup(function(event){
+          buscaUsuariosCalifica();
+        });
+        $('.kUpTwo').keyup(function(event){
+          buscaUsuariosAcalificar();
+        });
+
+        function buscaUsuariosCalifica(){
+          var alldata = $('#busColOne').val();
+
+          $.post(ajax_url+"cargarUsuarios", {
+            alldata : alldata
+          },
+
+          function(data) { sucess:
+            $("#ajaxUsu").empty().append(data);
+          });
+        };
+
+
+        function buscaUsuariosAcalificar(){
+          var alldata = $('#busColTwo').val();
+
+          $.post(ajax_url+"cargarUsuariosAcalificar", {
+            alldata : alldata
+          },
+
+          function(data) { sucess:
+            $("#ajaxUsu").empty().append(data);
+          });
+        };
+      </script>
+
+
+    </div-->
+
+  <!--div id="colabora">
 
       <div class="blueHead">Buscar Colaborador</div>
       <div id="wrapColabora">
@@ -218,19 +216,59 @@
 
     <div id="ajaxUsu"></div>
     <div id="busFinal"></div>
+
+    <div id="sCTipCol" class="addSmallGrayBot">
+      <i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Recibo"></i>
+      <span id="pregCol">Agregar categoria para pregunta a colaborador</span>
+
+      <div id="colPr">
+        <span>
+          <select id="catEvaList" name="categorias">
+            <option value="0">Escoge una categoria</option>
+            <?foreach ($cat as $var): ?>
+            <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
+            <?endforeach; ?>
+          </select>
+          <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEva" type="button" name="button">
+          <img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
+          <p>Si no encuentra la categoria de su gusto, puede agregar una nueva <a href="#">aquí</a></p>
+        <fieldset class="none">
+          <input type="text" name="name" value="categoria">
+        </fieldset>
+        </span>
+      </div>
+
     </div>
-  </div>
+
+    <div id="choTipEvaCol">
+      <span>
+        <select id="catEvaListCol" name="categoriasCol">
+          <option value="0">Escoge una categoria</option>
+          <?foreach ($cat as $var): ?>
+          <option value="<?=$var->evaluacionCategoriaID;?>"><?=$var->categoriaNombre;?></option>
+          <?endforeach; ?>
+        </select>
+        <a href="<?=base_url()?>ajax/addCategoriasEva" id="butEvaCol" type="button" name="buttonCol">
+        <img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Plaza"><b>Agregar</b></a>
+      <fieldset class="none">
+        <input type="text" name="nameCol" value="categoriaCol">
+      </fieldset>
+      </span>
+    </div>
+
+    </div>
+  </div-->
   <ul id="usersEva">
     <li>
       <div class="spaHead">
-      <input id="allCheck" type="checkbox" name="all" id="all" /><em>Todos</em>
+      <input id="allCheck" type="checkbox" checked name="all" id="all" /><em>Todos</em>
       </div>
     <?foreach ($areas as $varA): ?>
     <? $dat = $this->evaluacionestwo_model->cargaUsuariosDepartamentos($varA->areaID);?>
     <ul>
      <li>
        <div class="areaDiv actEva">
-       <input class="firInp" type="checkbox" name="title" id="" />
+       <input checked class="firInp" type="checkbox" name="title" id="" />
        <span onclick="$('#open<?=$varA->areaID?>').toggle(); return false;" class="areaN" ><b class="actb"></b><?=$varA->area;?></span>
        </div>
        <ul id="open<?=$varA->areaID?>" class="none">
@@ -239,7 +277,7 @@
            <?foreach ($dat as $varB): ?>
            <?if($dat):?>
            <tr>
-             <td><input type="checkbox" name="userAutoEval[]" id="box_1" value="<?php echo $varB->usuarioID ?>" /></td>
+             <td><input checked type="checkbox" name="userAutoEval[]" id="box_1" value="<?php echo $varB->usuarioID ?>" /></td>
              <td><?=$varB->numeroEmpleado;?></td>
              <td><?=$varB->nombreCompleto;?></td>
              <td><?=$varB->email;?></td>
@@ -281,6 +319,7 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
+var form = $("#guardarForm");
 $("#steps").steps({
     headerTag: "h6",
     bodyTag: "section",
@@ -292,6 +331,11 @@ $("#steps").steps({
         next: "Siguiente",
         previous: "Anterior",
         loading: "Cargando ..."
+    },
+    onFinished: function (event, currentIndex)
+    {
+    	$('a[href="#finish"]').off('click');
+        form.submit();
     },
     autoFocus: true
 });
@@ -310,7 +354,7 @@ $(".datePick").datepicker({
 });
 </script>
 <script type="text/javascript">
-$("#clickAdd").click(function(){
+$("#sCTipCol").click(function(){
   var califica = $('#busColOne').val();
   var acalificar = $('#busColTwo').val();
   var calificaID = $('#busColONe').attr('data-text');
@@ -327,12 +371,17 @@ $("#clickAdd").click(function(){
     $('#busColOne').val();
     $('#busColTwo').val();
   }
+  });
 
   $(".rem").click(function(event){
     event.preventDefault();
     $(this).parent().remove();
   });
+
+</script>
+<script type="text/javascript">
+$("#sCTipCol").click(function(){
+  $("#choTipEvaCol").toggleClass("show");
 });
 </script>
-
 </form>

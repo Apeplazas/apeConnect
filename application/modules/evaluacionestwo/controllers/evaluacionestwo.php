@@ -26,6 +26,8 @@ class evaluacionestwo extends MX_Controller {
 		$usuario 				= $this->user_model->traeadmin($usuarioID);
 
 		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
+		$op['campania'] = $this->evaluacionestwo_model->cargaCampania($campaniaID);
+
 		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
 		$eva = $this->evaluacionestwo_model->validaEvala($usuarioSesion['usuarioID'],$usuarioID,$campaniaID);
 
@@ -153,6 +155,25 @@ class evaluacionestwo extends MX_Controller {
 
 		}
 		$this->db->insert_batch('evaluacion_preguntas', $preguntasData);
+		
+		$emailAutoEval = '<style>
+				body {background-color:#fafafa;}
+				strong   {float:left; width:100%; font-weight:700;}
+				p, a{float:left; width:100%;}
+
+				</style>
+				<span><img width="200" src="http://www.apeplazas.com/apeConnect/assets/graphics/apeplazas.png" alt="Administración de Plazas Especializadas | Apeplazas"/></span>
+				<p>Buenas Tardes<p>
+				<p>La evaluación del desempeño es una herramienta que permite conocer y evaluar la conducta y el trabajo de cada uno de los colaboradores con relación a las responsabilidades de su puesto de trabajo.</p>
+
+				<p>Para cumplir con esta actividad te indicamos los pasos a seguir:<p>
+				<strong>Instrucciones.</strong>
+
+				<p>1.- Dale click en el siguiente enlace, teclea tu usuario y contraseña, si es la primera vez que ingresas al sistema la contraseña es 12345.</p>
+				<p>2.- Deberás leer y responder tu autoevaluación colocando el valor que consideres mas adecuado a tu opinión en la columna de Autoevaluado. (Recuerda esta es tu autoevaluación y se requiere una información asertiva)</p>
+				<p>3.- Al finalizar tus respuestas da click en el botón enviar información.</p>
+
+				<strong>Informacion Personal</strong>';
 
 		//Insertar Usuarios ----AUTOEVALUACION
 		if($_POST['autoEval'] == 'on'){
@@ -167,21 +188,22 @@ class evaluacionestwo extends MX_Controller {
 					'campaniaID'			=> $evalID
 				);
 
-				$this->enviarEmail($userTemp[0]->email);
+				$this->enviarEmail($userTemp[0]->email,$emailAutoEval.'<p>Email: '.$userTemp[0]->email.'</p><a href="'.base_url().'evaluacionestwo/usuarioColaborador/' . $userId . '/1/' . $evalID . '">Da click aquí</a>');
 
 				//Insertar Usuarios ----JEFEDIRECTO
-				if( $_POST['jefeDirecto'] == 'on' && !empty($userTemp[0]->jefeDirectoI) ){
+				$tempJefeDir = $this->user_model->traerJefeDirecto($userTemp[0]->jefeDirectoID);
+				if( !empty($tempJefeDir) ){
+					
 					$autoEvalData[] = array(
 						'usuarioAcalificarID'	=> $userId,
-						'usuarioQuecalifica'	=> $userTemp[0]->jefeDirectoID,
+						'usuarioQuecalifica'	=> $tempJefeDir[0]->usuarioID,
 						'campaniaID'			=> $evalID
 					);
-					$tempJefeDir = $this->user_model->traeadmin($userTemp[0]->jefeDirectoID);
-					$this->enviarEmail($tempJefeDir[0]->email);
+					$userTemp		= $this->user_model->traeadmin($userId);
 				}
 
 			}
-			$this->db->insert_batch('evaluacion_catalogoevaluadores', $autoEvalData);
+			$this->db->insert_batch('evaluacion_catalogoEvaluadores', $autoEvalData);
 
 		}
 
@@ -205,13 +227,61 @@ class evaluacionestwo extends MX_Controller {
 
 		}
 
-		redirect('evaluaciones/generaPreguntas/'.$evalID);
+		redirect('evaluacionestwo');
 	}
 
 	//Funcion para enviar mails
-	private	function enviarEmail($email){
+	private function enviarEmail($email,$message){
 
+	 $this->load->library('email');
+		 $this->email->set_newline("\r\n");
+		 $this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
+		 $this->email->to($email);
+		 $this->email->subject('EVALUACIÓN DEL DESEMPEÑO');
+		 $this->email->message('
+			<html>
+			 <head>
+				<title>Evaluación</title>
+			 </head>
+			 <body>'.
+			 $message .
+			 '</body>
+			</html>
+		 ');
+		$this->email->send();
 
+	}
+
+	function usuario($usuarioID,$tipo,$campaniaID){
+		$usuarioSesion	= $this->session->userdata('usuario');
+		$usuario 				= $this->user_model->traeadmin($usuarioID);
+		$this->load->model('evaluaciones/evaluacionestwo_model');
+		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias();
+		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery.validate.js');
+		if(empty($this->uri->segment(5))){
+			redirect('evaluacionestwo');
+		}
+		// Si el tipo de evauluacion sen encuentra en 2 o 3 se verifica el role
+		if($tipo == '2' && $usuarioSesion['usuarioID'] != $usuario[0]->jefeDirectoID ){
+			redirect('evaluacionestwo/usuario/'.$usuarioSesion['usuarioID'].'/1/'.$campaniaID);
+		}
+		else if($tipo == '1' && $usuarioSesion['usuarioID'] != $usuarioID ){
+			redirect('evaluacionestwo/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$campaniaID);
+		}
+		else if($tipo == '3' && empty($valida)){
+			redirect('evaluacionestwo/usuario/'.$usuarioSesion['usuarioID'].'/2/'.$campaniaID);
+		}
+
+		$verifica = $this->evaluacionestwo_model->verificaRespuesta($usuarioID, $tipo, $usuarioSesion['usuarioID']);
+		if(empty($verifica)){
+			$this->layouts->profile('evaluacion2015-view', $op);
+		}
+		else{
+			$this->layouts->profile('evaluaciones-resultados', $op);
+		}
 
 	}
 
@@ -274,6 +344,23 @@ class evaluacionestwo extends MX_Controller {
 		//}
 
 	}
+	
+	function mostrarEvaluacion($usuarioID,$campaniaID){
+		$usuarioSesion	= $this->session->userdata('usuario');
+		$usuario 				= $this->user_model->traeadmin($usuarioID);
+		$this->load->model('evaluaciones/evaluacionestwo_model');
+		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
+		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery.validate.js');
+		if(empty($valida)){
+			redirect('evaluacionestwo');
+		}
+
+		$this->layouts->profile('mostrarEvaluacion-view', $op);
+
+	}
 
 	function guardarEvaluacionColaborador(){
 		$this->load->model('evaluaciones/evaluaciones_model');
@@ -289,18 +376,18 @@ class evaluacionestwo extends MX_Controller {
 			//}
 
 			$data[] = array(
-				'respuesta'						=> $value,
+				'respuesta'				=> $value,
 				'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
-				'preguntaID' 					=> $key,
+				'preguntaID' 			=> $key,
 				'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
-				'tipo'								=> '1'
+				'tipo'					=> '1'
 			);
 		}
 		$this->db->insert_batch('evaluacion_respuestas', $data);
 
 		if($usuario[0]->jefeDirectoID){
 
-			$jefeDirecto = $this->user_model->traeadmin($usuario[0]->jefeDirectoID);
+			$jefeDirecto = $this->user_model->traerJefeDirecto($usuario[0]->jefeDirectoID);
 			$this->load->library('email');
 			$this->email->set_newline("\r\n");
 			$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
@@ -312,7 +399,8 @@ class evaluacionestwo extends MX_Controller {
 							<title>Evaluación pendiente</title>
 						</head>
 						<body>
-							<p>El usuario ' . $usuario[0]->nombreCompleto . ' necesita ser evaluado.</p>
+							<p>El usuario ' . $usuario[0]->nombreCompleto . ' ha completado su autoevaluación, por favor da click en el siguiente link para evaluarlo.</p>
+							<a href="'.base_url().'evaluacionestwo/evaluacionJefeDirecto/' . $_POST['usuarioAcalificar'] . '/2/' . $_POST['campania'] . '">Da click aquí</a>
 						</body>
 					</html>
 			');
@@ -320,7 +408,7 @@ class evaluacionestwo extends MX_Controller {
 
 		}
 
-		redirect('evaluacionestwo/campania/'.$_POST['campania']);
+		redirect('evaluacionestwo');
 	}
 
 
@@ -349,7 +437,7 @@ class evaluacionestwo extends MX_Controller {
 				);
 			}
 			$this->db->insert_batch('evaluacion_respuestas', $data);
-			redirect('evaluacionestwo/campania/'.$_POST['campania']);
+			redirect('evaluacionestwo');
 		}
 		else{
 			echo "No tiene permiso";

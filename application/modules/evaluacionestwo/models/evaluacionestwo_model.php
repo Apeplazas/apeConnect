@@ -8,11 +8,12 @@ class evaluacionestwo_model extends CI_Model
 		parent::__construct();
 	}
 
-	function evaluacionListaCategorias($campaniaID){
+	function evaluacionListaCategorias($campaniaID = ''){
+		$campaniaID = (!empty($campaniaID)) ? "WHERE e.campaniaID='$campaniaID'" : '';
 		$data = array();
 		$q = $this->db->query("SELECT * FROM evaluacion_preguntas e
 			LEFT JOIN evaluacion_categorias ec ON e.categoria=ec.evaluacionCategoriaID
-			WHERE e.campaniaID='$campaniaID'
+			$campaniaID
 			GROUP BY categoria order by preguntaID asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
@@ -37,7 +38,7 @@ class evaluacionestwo_model extends CI_Model
 
 	function cargaAreas(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM catalogoDepartamentos");
+		$q = $this->db->query("SELECT * FROM gerenciasRH");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -128,6 +129,20 @@ class evaluacionestwo_model extends CI_Model
 		}
 		return $data;
 	}
+	
+	function cargaCampania($camcaniaID){
+		$data = array();
+		$q = $this->db->query("SELECT *
+				FROM evaluacion_campanias ec
+				WHERE ec.campaniaID='$camcaniaID'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 
 	function cargaCampaniasEvaluaciones($usuarioID){
 		$data = array();
@@ -201,9 +216,24 @@ class evaluacionestwo_model extends CI_Model
 		return $data;
 	}
 
-	function verificaProceso($usuarioID){
+	function verificaProceso($usuarioID,$camId){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM evaluacion_respuestas WHERE usuarioAcalificar='$usuarioID' group by tipo");
+		$q = $this->db->query("SELECT * FROM evaluacion_preguntas p 
+			LEFT JOIN evaluacion_respuestas r ON p.preguntaID=r.preguntaID
+			WHERE r.usuarioAcalificar= '$usuarioID'
+			AND p.campaniaID = '$camId' group by tipo");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function verificaRespuesta($usuarioID, $tipo){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM evaluacion_respuestas where usuarioAcalificar='$usuarioID' and tipo='$tipo' LIMIT 1");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

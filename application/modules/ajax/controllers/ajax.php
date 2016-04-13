@@ -28,6 +28,28 @@ class Ajax extends MX_Controller {
          	redirect('');
         }
     }
+	
+	/*function buzon(){
+		var_dump($_POST);
+		$nombre = $_POST['nombre'];
+		$tel = $_POST['tel'];
+		$email = $_POST['email'];
+		$colonia = $_POST['colonia'];
+		$sucursal = $_POST['sucursal'];
+		$local = $_POST['local'];
+		$factura = $_POST['factura'];
+		$coment = $_POST['comentario'];
+		$plaza = $_POST['plaza'];
+		
+		//$result = $this->buzon_model->insertaBuzon($plaza, $nombre, $tel, $email, $colonia,$sucursal, $local, $factura, $coment);
+		//var_dump($result);
+		if($result > 0){
+			echo 'true';			
+		}else{
+			echo 'false';
+		}
+		exit;
+	}*/
     
     function cargarPaginadorVentas(){
 	    $d 				= $_POST['alldata'];
@@ -129,6 +151,8 @@ class Ajax extends MX_Controller {
 
 		echo json_encode($data);
 	}
+	
+	
 
 	function agregaPreguntasEvaluacion(){
 		echo json_encode("<div class='secPreg'>

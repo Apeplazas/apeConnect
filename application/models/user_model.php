@@ -329,6 +329,18 @@ class User_model extends CI_Model {
 		}
 		return $data;
 	}
+	
+	function traerJefeDirecto($id){
+		$data = array();
+		$q = $this->db->query("SELECT u.*,u.nombreCompleto nombreAdmin FROM usuarios u WHERE u.numeroEmpleado='$id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 
 	function verificarCiProp($userId,$ciId){
 

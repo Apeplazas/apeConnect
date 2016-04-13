@@ -115,6 +115,11 @@
           </fieldset>
         </td>
         <?endif?>
+        
+        <!--- Muestra solamente al final de la evaluacion --->
+        <? if ($this->uri->segment(4) == '3'):?>
+        <td><input type="txt" class="bigInp" name="evaluacion[<?=$var->preguntaID;?>]" ></td>
+        <?endif?>
 
       </tr>
 

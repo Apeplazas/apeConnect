@@ -5,7 +5,7 @@
 <div class="wrapList">
   <div id="actions">
 	<? if ($usuarioSesion['usuarioID'] == '403' || $usuarioSesion['usuarioID'] == '2'):?>
-    <a href="<?=base_url()?>evaluaciones/formEvaluacion" title="Generar evaluacion" class="addSmall">
+    <a href="<?=base_url()?>evaluacionestwo/formEvaluacion" title="Generar evaluacion" class="addSmall">
 			<i class="iconPlus"><img src="<?=base_url();?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Evaluación</span>
 		</a>
@@ -19,7 +19,6 @@
 		    <th>Nombre y descripción de la evaluación</th>
 		    <th>Fecha de Inicio</th>
 		    <th>Fecha de Finalización</th>
-				<th>Status</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -29,7 +28,6 @@
 		        <td><p><?=$var->campaniaNombre;?><br><em class="des"><?=$var->campaniaDescripcion;?></em></p></td>
 		        <td><?=$var->fechaInicio;?></td>
 		        <td><?=$var->fechaFin;?></td>
-						<td><?=$var->campaniaStatus;?></td>
 		      </tr>
 				<?endforeach?>
 		  </tbody>

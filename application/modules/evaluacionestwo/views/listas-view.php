@@ -26,14 +26,14 @@
 
 		<div id="tabsEva">
 		  <ul>
-        <?if($evaluaciones):?>
+        <?if( $evaluaciones && !(sizeof($evaluaciones) == 1 && $evaluaciones[0]->usuarioID == $usuarioSesion['usuarioID']) ):?>
 		    <li><a href="#tab2">Evalua a tus colaboradores</a></li>
         <?endif;?>
         <li>
           <a href="#tab1">Tu evaluación</a>
         </li>
 		  </ul>
-      <?if($evaluaciones):?>
+      <?if( $evaluaciones && !(sizeof($evaluaciones) == 1 && $evaluaciones[0]->usuarioID == $usuarioSesion['usuarioID']) ):?>
 		  <div id="tab2">
 				<table id="tablaproveed" class="dataEva">
 		      <thead>
@@ -52,14 +52,16 @@
 		      <tbody>
 			<?foreach ($evaluaciones as $var): ?>
             <? $verifica = $this->evaluacionestwo_model->checaContestacionesCampaniaUsuario($this->uri->segment(3) ,$var->usuarioID);?>
-			<? $consulta = $this->evaluacionestwo_model->verificaProceso($var->usuarioID);?>
-            <? $conteo = sizeof($consulta) ?>
+			<? $consulta = $this->evaluacionestwo_model->verificaProceso($var->usuarioID,$this->uri->segment(3));?>
+            <? $conteo = sizeof($consulta);?>
 
 		        <tr data="<?=$var->usuarioID;?>">
-              <td <? if ($conteo > 1):?>
+              <td <? if ($conteo > 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              <? elseif ($conteo == 3):?>
+              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
               <? else:?>
               class='alertSinAut'
               <? endif?>>
@@ -75,34 +77,42 @@
                 <img src="<?=base_url()?>assets/graphics/0evaluacion.png" alt="Proceso" />
                 <? endif?>
               </td>
-		          <td class="ingo" <? if ($conteo > 1):?>
+		          <td class="ingo" <? if ($conteo > 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              <? elseif ($conteo == 3):?>
+              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
               <? else:?>
               class='alertSinAut'
               <? endif?>>
                 <em><?=$var->nombreCompleto;?></em>
                 <span ><?=$var->email;?></span>
               </td>
-              <td <? if ($conteo > 1):?>
+              <td <? if ($conteo > 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              <? elseif ($conteo == 3):?>
+              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
               <? else:?>
               class='alertSinAut'
             <? endif?>><?=$var->puesto;?></td>
-		          <td <? if ($conteo > 1):?>
+		          <td <? if ($conteo > 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              <? elseif ($conteo == 3):?>
+              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
               <? else:?>
               class='alertSinAut'
             <? endif?>><?=$var->Inicia;?></td>
-              <th <? if ($conteo > 1):?>
+              <th <? if ($conteo > 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
               onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              <? elseif ($conteo == 3):?>
+              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
               <? else:?>
               class='alertSinAut'
             <? endif?>><?=$var->Finaliza;?></td>
@@ -122,31 +132,6 @@
               </td>
             <?endif?>
 		    </tr>
-            <tr id="<?=$var->usuarioID;?>" class="dnone">
-              <td colspan="7">
-              <table class="colcol">
-                <tr>
-                  <th colspan="7">
-                  <div class="personal">
-                  <strong>Carlos Michan</strong>
-                  <ul>
-                    <li><em>Como calificarias a Juanito al empezar campaña regreso a clases</em><i>3</i></li>
-                    <li><em>Termino todos los entregables a tiempo</em> <i>1</i> </li>
-                  </ul>
-                  </div>
-                  
-                  <div class="personal">
-                  <strong>Juanito Perez</strong>
-                  <ul>
-                    <li><p>Como calificarias a Juanito al empezar campaña regreso a clases</p><i>3</i></li>
-                    <li><p>Termino todos los entregables a tiempo</p> <i>1</i> </li>
-                  </ul>
-                  </div>
-                  </th>
-                </tr>
-              </table>
-              </td>
-            </tr>
 						<?endforeach?>
 		      </tbody>
 		    </table>
@@ -212,20 +197,6 @@
           </tbody>
         </table>
         <?endforeach; ?>
-        <table>
-          <tr class="bckEva">
-            <td class="totEva">SUELDO RECOMENDADO</td>
-            <td class="tcenter"><?= ($sumPromTot * 100) / $sumSizeOf ?></td>
-            <td class="tcenter">Rango Minimo <?=$info->rangoSueldoMinimo;?> | Maximo <?=$info->rangoSueldoMaximo;?> </td>
-            <td class="tcenter">
-              <?if($info->rangoSueldoMaximo < 10):?>
-              <? $puntos = ($info->rangoSueldoMaximo - $info->rangoSueldoMinimo)+1;?>
-              <?else:?>
-              <? $puntos = $info->rangoSueldoMaximo - $info->rangoSueldoMinimo ?>
-              <?endif?>
-              <?=$puntos?>
-            </td>
-        </table>
 
         <br class="clear">
 		  </div>
@@ -251,5 +222,10 @@
   $('.alertSinAut').click(function(){
     alert('El usuario aún no contesta su auto evaluación');
   });
+  
+  $('.alertCompleto').click(function(){
+    alert('La evaluación del usuario esta completa');
+  });
+  
 
 </script>

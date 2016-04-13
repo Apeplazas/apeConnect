@@ -3,8 +3,8 @@
 </div>
 <div class="wrapList">
   <div id="actions">
-    <a href="<?=base_url()?>evaluaciones/formEvaluacion" title="Generar carta intencion" class="addSmall">
-			<i class="iconPlus"><img src="http://localhost:8888/apeConnect/assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
+    <a href="<?=base_url()?>evaluacionestwo/formEvaluacion" title="Generar carta intencion" class="addSmall">
+			<i class="iconPlus"><img src="<?= base_url();?>assets/graphics/svg/plusCircle.svg" alt="Generar carta intencion"></i>
 			<span>Generar Evaluación</span>
 		</a>
   </div>
@@ -20,7 +20,7 @@
 		  </thead>
 		  <tbody>
 				<?foreach ($campanias as $var): ?>
-		      <tr onclick="window.location.href='<?=base_url()?>evaluaciones/campania/<?=$var->campaniaID;?>'">
+		      <tr onclick="window.location.href='<?=base_url()?>evaluacionestwo/campania/<?=$var->campaniaID;?>'">
 		        <th><p><?=$var->campaniaNombre;?><br><em class="des"><?=$var->campaniaDescripcion;?></em></p></th>
 		        <th><?=$var->fechaInicio;?></th>
 		        <th><?=$var->fechaFin;?></th>

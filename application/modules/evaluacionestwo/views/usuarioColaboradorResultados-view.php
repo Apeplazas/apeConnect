@@ -12,6 +12,8 @@
 		</span>
 	</div>
   <div class="wrapListFormThree" id="contentEva">
+  	<h3><?= $campania[0]->campaniaNombre?></h3>
+  	<h3><?= $campania[0]->campaniaDescripcion?></h3>
     <h3>1.- INFORMACION GENERAL.</h3>
     <p><i>a)</i> ¿Qué es la Evaluación del Desempeño? Es una herramienta que permite conocer y evaluar la conducta y el trabajo de cada uno de los colaboradores con relación a las responsabilidades de su puesto de trabajo.</p>
 
