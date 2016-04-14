@@ -55,67 +55,76 @@
 			<? $consulta = $this->evaluacionestwo_model->verificaProceso($var->usuarioID,$this->uri->segment(3));?>
             <? $conteo = sizeof($consulta);?>
 
-		        <tr data="<?=$var->usuarioID;?>">
-              <td <? if ($conteo > 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
-              <? elseif ($conteo == 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
-              <? else:?>
-              class='alertSinAut'
-              <? endif?>>
-                <? if ($conteo > 2):?>
-                <img src="<?=base_url()?>assets/graphics/4evaluacion.png" alt="Proceso" />
-                <? elseif ($conteo > 1):?>
-                <img src="<?=base_url()?>assets/graphics/3evaluacion.png" alt="Proceso" />
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 2):?>
-                <img src="<?=base_url()?>assets/graphics/2evaluacion.png" alt="Proceso" />
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
-                <img src="<?=base_url()?>assets/graphics/1evaluacion.png" alt="Proceso" />
-                <? else:?>
-                <img src="<?=base_url()?>assets/graphics/0evaluacion.png" alt="Proceso" />
-                <? endif?>
-              </td>
-		          <td class="ingo" <? if ($conteo > 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
-              <? elseif ($conteo == 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
-              <? else:?>
-              class='alertSinAut'
-              <? endif?>>
-                <em><?=$var->nombreCompleto;?></em>
-                <span ><?=$var->email;?></span>
-              </td>
-              <td <? if ($conteo > 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
-              <? elseif ($conteo == 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
-              <? else:?>
-              class='alertSinAut'
-            <? endif?>><?=$var->puesto;?></td>
-		          <td <? if ($conteo > 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
-              <? elseif ($conteo == 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
-              <? else:?>
-              class='alertSinAut'
-            <? endif?>><?=$var->Inicia;?></td>
-              <th <? if ($conteo > 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
-              <? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
-              <? elseif ($conteo == 3):?>
-              onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
-              <? else:?>
-              class='alertSinAut'
-            <? endif?>><?=$var->Finaliza;?></td>
+				<tr data="<?=$var->usuarioID;?>">
+              		<td <? if ($conteo > 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              			<? elseif ($conteo == 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
+              			<? else:?>
+              				class='alertSinAut'
+              			<? endif?>>
+              			
+                		<? if ($conteo > 2):?>
+                			<img src="<?=base_url()?>assets/graphics/4evaluacion.png" alt="Proceso" />
+                		<? elseif ($conteo > 1):?>
+                			<img src="<?=base_url()?>assets/graphics/3evaluacion.png" alt="Proceso" />
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 2):?>
+                			<img src="<?=base_url()?>assets/graphics/2evaluacion.png" alt="Proceso" />
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1):?>
+                			<img src="<?=base_url()?>assets/graphics/1evaluacion.png" alt="Proceso" />
+                		<? else:?>
+                			<img src="<?=base_url()?>assets/graphics/0evaluacion.png" alt="Proceso" />
+                		<? endif?>
+              		</td>
+              		
+              		<? $extraClass = "";?>
+		          	<td <? if ($conteo > 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              			<? elseif ($conteo == 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
+              			<? else: 
+              				$extraClass = ' alertSinAut';?>
+              			<? endif?> class="ingo<?=$extraClass;?>">
+                		<em><?=$var->nombreCompleto;?></em>
+                		<span><?=$var->email;?></span>
+              		</td>
+              		
+              		<td <? if ($conteo > 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              			<? elseif ($conteo == 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
+              			<? else:?>
+              				class='alertSinAut'
+            			<? endif?>><?=$var->puesto;?>
+            		</td>
+            		
+		          	<td <? if ($conteo > 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              			<? elseif ($conteo == 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
+              			<? else:?>
+              				class='alertSinAut'
+            			<? endif?>><?=$var->Inicia;?>
+            		</td>
+            		
+              		<th <? if ($conteo > 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/3/<?=$this->uri->segment(3);?>'"
+              			<? elseif (isset($consulta[0]->tipo) && $consulta[0]->tipo == 1 && $conteo < 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/evaluacionJefeDirecto/<?=$var->usuarioID;?>/2/<?=$this->uri->segment(3);?>'"
+              			<? elseif ($conteo == 3):?>
+              				onclick="window.location.href='<?=base_url()?>evaluacionestwo/mostrarEvaluacion/<?=$var->usuarioID;?>/<?=$this->uri->segment(3);?>'"
+              			<? else:?>
+              				class='alertSinAut'
+            			<? endif?>><?=$var->Finaliza;?>
+            		</td>
             
             
             

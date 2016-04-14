@@ -163,11 +163,21 @@ class evaluacionestwo extends MX_Controller {
 
 				</style>
 				<span><img width="200" src="http://www.apeplazas.com/apeConnect/assets/graphics/apeplazas.png" alt="Administración de Plazas Especializadas | Apeplazas"/></span>
-				<p>Buenas Tardes<p>
-				<p>La evaluación del desempeño es una herramienta que permite conocer y evaluar la conducta y el trabajo de cada uno de los colaboradores con relación a las responsabilidades de su puesto de trabajo.</p>
+				<p>Buen día<p>
+				<p>En APE nos encontramos en un periodo de evaluación, la cual realizaremos mediante una herramienta conocida como
+					Evaluacion de Desempeño que nos permite conocer y evaluar la conducta y el trabajo de cada colaborador en relación
+					a las responsabilidades de su puesto de trabajo.</p>
 
-				<p>Para cumplir con esta actividad te indicamos los pasos a seguir:<p>
-				<strong>Instrucciones.</strong>
+				<p>Tiene como objetivo reforzar competencias, detectar personal con potencial para ser promovido y retroalimentar a 
+				cada colaborador sobre el resultado de su trabajo.<p>
+				
+				<p>El periodo a evaluar corresponde de Enero a Diciembre de ' . date('Y') . '. Se incluye al personal eventual, el unico requisito es
+					tener al menos un mes en la empresa para que se revise el desempeño del colaborador.</p>
+					
+				<p>La presente evaluación sustituye a la evaluación que se maneja para saber si se renueva el contrato de trabajo por un 
+					mes mas en el caso de los colaboradores de nuevo ingreso.</p>
+					
+				<strong>A continuación, te indicamos los pasos a seguir para cumplir con esta tarea:</strong>
 
 				<p>1.- Dale click en el siguiente enlace, teclea tu usuario y contraseña, si es la primera vez que ingresas al sistema la contraseña es 12345.</p>
 				<p>2.- Deberás leer y responder tu autoevaluación colocando el valor que consideres mas adecuado a tu opinión en la columna de Autoevaluado. (Recuerda esta es tu autoevaluación y se requiere una información asertiva)</p>
@@ -188,7 +198,7 @@ class evaluacionestwo extends MX_Controller {
 					'campaniaID'			=> $evalID
 				);
 
-				$this->enviarEmail($userTemp[0]->email,$emailAutoEval.'<p>Email: '.$userTemp[0]->email.'</p><a href="'.base_url().'evaluacionestwo/usuarioColaborador/' . $userId . '/1/' . $evalID . '">Da click aquí</a>');
+				$this->enviarEmail($userTemp[0]->email,$emailAutoEval.'<p>Usuario: '.$userTemp[0]->email.'</p><a href="'.base_url().'evaluacionestwo/usuarioColaborador/' . $userId . '/1/' . $evalID . '">Da click aquí</a>');
 
 				//Insertar Usuarios ----JEFEDIRECTO
 				$tempJefeDir = $this->user_model->traerJefeDirecto($userTemp[0]->jefeDirectoID);
@@ -334,7 +344,8 @@ class evaluacionestwo extends MX_Controller {
 			redirect('evaluaciones');
 		}
 
-		$verifica = $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
+		$verifica 			= $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
+		$op['detallesCamp']	= $this->evaluacionestwo_model->detalleCamp($campaniaID,$usuarioID);
 
 		//if(empty($verifica)){
 			$this->layouts->profile('evaluacionJefeDirecto-view', $op);

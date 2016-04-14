@@ -4,11 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<? foreach($tags as $rowOpt):?>
-<title><?= $rowOpt->enlaceTitulo;?></title>
-<meta name="description" content="<?=$rowOpt->enlaceDescripcion;?>" />
-<? endforeach; ?>
-
 <script> 
 	var ajax_url = "<?= BASEURL;?>ajax/"; 
 	var base_url = "<?= BASEURL;?>";
@@ -23,43 +18,24 @@
 <script language="javascript" src="<?=base_url()?>assets/js/modernizr.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.ddslick.min.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.cookie.js" type="text/javascript"></script>
-<?= $this->layouts->print_includes(); ?>
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/test.ico" />
 </head>
-<body class="bckIndex">
-
-
-<section class="conLog">
+<body class="bckIndex">      
+      
+    
+    <section class="conLog">
 	<span></span>
-    <div class="login">
+	    <div class="login1">
 			<span>
-      	<h1>Administración <br>de Plazas Especializadas</h1>
-				<p>El trabajo en equipo comienza construyendo confianza</p>
-			</span>
-      <form  id="loginForm"  method="post">
-				<div><div class="msgBlack"><?= $this->session->flashdata('msg'); ?></div></div>
-        <p>
-					<label>Correo Electronico</label>
-					<input class="inpLog" type="text" name="var" value="" placeholder="Escribe tu email"></p>
-        <p>
-					<label>Contraseña</label>
-					<input class="inpLog" type="password" name="password" value="" placeholder="Password">
-				</p>
-        <p class="submit"><input type="submit" name="commit" value="Entrar"></p>
-      </form>
-    </div>
-
-    <div class="login-help">
-      <p id="mesLog">¿Olvidaste tu contraseña? <a href="<?=base_url()?>registrate/recuperar_contrasenia">Click aquí</a>.</p>
-    </div>
-</section>
-
-
-
-
-
-
-
-<br class="clear">
+		      	<h1>Administración <br>de Plazas Especializadas</h1>
+						<p>En breve te llegara un link en tu correo</p>
+					</span>
+		      <form  id="loginForm"  method="post">
+						<div><div class="msgBlack"></div></div>
+		        <p>
+							<label style="text-align: center;">Gracias!</label>							
+						</p>
+			    </div>
+	</section>
 </body>
 </html>

@@ -4,15 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<? foreach($tags as $rowOpt):?>
-<title><?= $rowOpt->enlaceTitulo;?></title>
-<meta name="description" content="<?=$rowOpt->enlaceDescripcion;?>" />
-<? endforeach; ?>
-
-<script> 
-	var ajax_url = "<?= BASEURL;?>ajax/"; 
-	var base_url = "<?= BASEURL;?>";
-</script>
 
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
 <meta name="robots" content="All,index, follow" />
@@ -23,7 +14,7 @@
 <script language="javascript" src="<?=base_url()?>assets/js/modernizr.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.ddslick.min.js" type="text/javascript"></script>
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.cookie.js" type="text/javascript"></script>
-<?= $this->layouts->print_includes(); ?>
+
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/test.ico" />
 </head>
 <body class="bckIndex">
@@ -36,21 +27,18 @@
       	<h1>Administración <br>de Plazas Especializadas</h1>
 				<p>El trabajo en equipo comienza construyendo confianza</p>
 			</span>
-      <form  id="loginForm"  method="post">
-				<div><div class="msgBlack"><?= $this->session->flashdata('msg'); ?></div></div>
+      <form  action="<?= base_url(); ?>registrate/pwd" id="loginForm"  method="post">
+				<div><div class="msgBlack"><?= $this->session->flashdata('login_error'); ?></div></div>
         <p>
-					<label>Correo Electronico</label>
-					<input class="inpLog" type="text" name="var" value="" placeholder="Escribe tu email"></p>
+					<label>Nueva contraseña</label>
+					<input class="inpLog" type="password" name="password" value="" placeholder=""></p>
         <p>
-					<label>Contraseña</label>
-					<input class="inpLog" type="password" name="password" value="" placeholder="Password">
+					<label>Confirmar contraseña</label>
+					<input class="inpLog" type="password" name="password1" value="" placeholder="">
 				</p>
-        <p class="submit"><input type="submit" name="commit" value="Entrar"></p>
+				<input type="hidden" value="<?= $this->uri->segment(3); ?>" name="hash">
+        <p class="submit"><input type="submit" name="commit" value="Recuperar"></p>
       </form>
-    </div>
-
-    <div class="login-help">
-      <p id="mesLog">¿Olvidaste tu contraseña? <a href="<?=base_url()?>registrate/recuperar_contrasenia">Click aquí</a>.</p>
     </div>
 </section>
 

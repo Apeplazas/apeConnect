@@ -86,10 +86,10 @@
         <tr>
           <th class="bigTb"><em><?=$row->categoriaNombre;?></em></th>
           <th class="smaTb">Autoevaluado</th>
-          <? if ($this->uri->segment(4) != '1' || $detallesCamp[0]->tipo == '2'):?>
+          <? if ($this->uri->segment(4) != '1'):?>
           <th class="smaTb">Jefe Directo</th>
           <?endif?>
-          <? if ($this->uri->segment(4) == '3' || $detallesCamp[0]->tipo == '2'):?>
+          <? if ($this->uri->segment(4) == '3'):?>
           <th class="medTb">Planes de Acción</th>
           <?endif;?>
         </tr>
@@ -108,17 +108,12 @@
         <!--- Muestra solamente al supervisor que lo calificara y al final de la evaluacion--->
 
 
-        <? if ($this->uri->segment(4) == '2' && $detallesCamp[0]->tipo == '1'):?>
+        <? if ($this->uri->segment(4) == '2'):?>
         <td>
           <fieldset>
             <input type="txt" required class="<?= strtok($row->categoria,' ');?>t2" maxlength="1"  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
           </fieldset>
         </td>
-        <?endif?>
-        
-        <!--- Muestra solamente al final de la evaluacion --->
-        <? if ($this->uri->segment(4) == '3' || $detallesCamp[0]->tipo == '2'):?>
-        <td><input type="txt" class="bigInp" name="evaluacion[<?=$var->preguntaID;?>]" ></td>
         <?endif?>
 
       </tr>
@@ -129,8 +124,7 @@
     </table>
     <?endforeach; ?>
     <input type="hidden" name="campania" value="<?=$this->uri->segment(5);?>">
-    <? $tipoEva = $detallesCamp[0]->tipo+1;?>
-    <input type="hidden" name="tipo" value="<?=$tipoEva;?>">
+    <input type="hidden" name="tipo" value="<?=$this->uri->segment(4);?>">
     <input type="hidden" name="usuarioAcalificar" value="<?=$this->uri->segment(3);?>">
     <input type="submit" id="submit" value="Enviar información" class="mt10 mainBotton">
     </form>

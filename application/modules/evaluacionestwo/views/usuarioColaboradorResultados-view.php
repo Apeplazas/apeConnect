@@ -1,6 +1,5 @@
 <? $usuarioSesion	= $this->session->userdata('usuario');?>
 <div id="mainTit">
-  <h3>Evaluación de desempeño 2015</h3>
 </div>
 <div class="wrapList">
 	<div id="actions">
@@ -14,22 +13,8 @@
   <div class="wrapListFormThree" id="contentEva">
   	<h3><?= $campania[0]->campaniaNombre?></h3>
   	<h3><?= $campania[0]->campaniaDescripcion?></h3>
-    <h3>1.- INFORMACION GENERAL.</h3>
-    <p><i>a)</i> ¿Qué es la Evaluación del Desempeño? Es una herramienta que permite conocer y evaluar la conducta y el trabajo de cada uno de los colaboradores con relación a las responsabilidades de su puesto de trabajo.</p>
 
-    <p><i>b)</i> ¿Cuál es el objetivo de la evaluación? Mejorar competencias, determinar promociones y acoplar mejor al colaborador con su puesto de trabajo.</p>
-
-    <p><i>c)</i> El período de evaluación es anual, aplica también para el personal eventual, basta tener un mes en la empresa para que se revise el desempeño del colaborador.</p>
-
-    <h3>2.-  LAS FORMAS</h3>
-    <p><i>a)</i> Evalúa las características relacionadas con las (Normas, Estándares, Procedimientos, Valores, Políticas, Reglas, etc.)</p>
-
-    <p><i>b)</i> Evalúa características relacionadas con la conducta, como son la: Actitud, Comportamiento, el Actuar y el Decir, y también</p>
-
-    <p><i>c)</i>  Evalúa características relacionadas con los resultados, como la: Productividad, Valor agregado, Contribución a los objetivos de la compañía, etc.</p>
-
-    <h3>3-  EL MÉTODO</h3>
-    <p>Para nuestra evaluación usaremos los siguientes valores:</p>
+    <p>Por favor responde según corresponda se acuerdo a la siguiente escala:</p>
 
     <table id="infoEva">
       <thead>
@@ -68,16 +53,6 @@
       </tbody>
     </table>
 
-    <h3>4.-  GUIA PARA EVALUAR EL DESEMPEÑO</h3>
-    <p>Los pasos del proceso son los siguientes:</p>
-    <p><i>1°</i> El colaborador se Autoevalúa de manera individual, usando este formato y al terminar lo entrega a su jefe inmediato.</p>
-
-    <p><i>2°</i> El jefe inmediato usa el formato que recibió del colaborador y califica en el espacio de Jefe Directo.</p>
-
-    <p><i>3°</i> Finalmente se reúnen colaborador y jefe inmediato para revisar resultados, firmar evaluación y generar acciones y compromisos para mejorar el desempeño.</p>
-
-
-    <h3>CONTESTA EL SIGUIENTE FORMULARIO</h3>
     <form class="" action="<?=base_url()?>evaluacionestwo/guardarEvaluacionColaborador" method="post">
 
     <? foreach ($categorias as $row): ?>
@@ -93,14 +68,6 @@
           <? if ($usuarioSesion['usuarioID'] == $this->uri->segment(3) ||  $this->uri->segment(4) == 4):?>
           <th class="smaTb">Autoevaluado</th>
           <?endif?>
-          <!--- Tercer Segmento--->
-          <? if (($valida && $this->uri->segment(4) == 3) || ($this->uri->segment(4) != 1)):?>
-          <th class="smaTb">Respuesta</th>
-          <?endif?>
-          <!--- Cuarto Segmento--->
-          <? if ($valida && $this->uri->segment(4) == 4):?>
-          <th class="medTb">Planes de Acción</th>
-          <?endif;?>
         </tr>
       </thead>
 
@@ -116,7 +83,7 @@
         <? if ($usuarioSesion['usuarioID'] == $this->uri->segment(3) ||  $this->uri->segment(4) == 4):?>
         <td>
           <?if($this->uri->segment(4) != 4):?>
-          <input type="txt" maxlength="1" required  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
+          <input type="txt" autocomplete="off" maxlength="1" required  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
           <?else:?>
           <span>
             <?foreach ($resp as $var2): ?><?=$var2->respuesta;?><?endforeach; ?>
@@ -124,27 +91,6 @@
           <?endif?>
         </td>
         <?endif?>
-
-        <!--  Tercer segmento
-        Muestra solamente al supervisor que lo calificara y al final de la evaluacion--->
-        <? if (($valida && $this->uri->segment(4) == 3) || ($this->uri->segment(4) != 1)):?>
-        <td>
-          <?if($this->uri->segment(4) != 4):?>
-          <input type="txt" maxlength="1" required  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
-          <?else:?>
-          <span>
-            <?foreach ($resp as $var2): ?><?=$var2->respuesta;?><?endforeach; ?>
-          </span>
-          <?endif?>
-        </td>
-        <?endif?>
-
-        <!--- Cuarto Segmento
-        Muestra solamente al final de la evaluacion --->
-        <? if ($valida && $this->uri->segment(4) == 4):?>
-        <td><input type="txt" maxlength="1" class="big" name="2-evaluacion[<?=$var->preguntaID;?>]" ></td>
-        <?endif?>
-
 
       </tr>
 
@@ -178,4 +124,27 @@
       //alert('Solo se aceptan numeros del 0 al 4');
     }
   }
+  
+  $('input').keydown(function(e) {
+		if (e.keyCode==40) {
+			if($(this).closest('tr').next('tr').length == 1){
+	        	$(this).closest('tr').next('tr').find('input').focus();
+	        }else{
+	        	$(this).closest('tr').closest('table').next('table').children('tbody').children('tr:first').find('input').focus();
+	        } 
+
+	    }
+	});
+	
+	 $('input').keyup(function(e) {
+		if (e.keyCode==38) {
+			if($(this).closest('tr').prev('tr').length == 1){
+	        	$(this).closest('tr').prev('tr').find('input').focus();
+	        }else{
+	        	$(this).closest('tr').closest('table').prev('table').children('tbody').children('tr:last').find('input').focus();
+	        } 
+
+	    }
+	});
+  
 </script>

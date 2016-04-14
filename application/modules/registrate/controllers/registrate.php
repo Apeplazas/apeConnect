@@ -412,7 +412,7 @@ class Registrate extends MX_Controller {
 		}
 
 		//Vista//
-		$this->layouts->index('recuperarContrasenia-view' ,$op);
+		$this->load->view('recuperarContrasenia-view' ,$op);
 	}
 
 	function recuperar_hash()
@@ -421,34 +421,18 @@ class Registrate extends MX_Controller {
 
 		if( empty($correo_usuario) || !isset($correo_usuario) )
 		{
-			echo"Imposible continuar, se necesita correo";
-			exit;
+			
+			$this->load->view("recuperar_hash-view");
 		}
 
 		$u = $this->db->query("SELECT * FROM usuarios WHERE email='$correo_usuario'")->result();
 
 		if ($u) {
 			$id 	= $u[0]->usuarioID;
-			$name 	= $u[0]->alias;
 			$email 	= $u[0]->email;
 			$tipo 	= 'usuario';
 
-		} else {
-
-				$l = $this->db->query("SELECT * FROM locatarios WHERE localEmail='$correo_usuario'")->result();
-
-				if ($l) {
-					$id 	= $l[0]->localID;
-					$name 	= $l[0]->localNombre;
-					$email 	= $l[0]->localEmail;
-					$tipo 	= 'local';
-				}
-
-				else {
-					$this->session->set_flashdata('msg','<div class="msg">El email ó contraseña han sido incorrectos, intenta de nuevo.</div>');
-					redirect('registrate/iniciar_sesion');
-				}
-			}
+		
 
 			$fecha_actual = date("y-m-d");
 			$key_word = $correo_usuario.$fecha_actual;
@@ -462,30 +446,41 @@ class Registrate extends MX_Controller {
 			$this->email->from('noresponder@plazadelatecnologia.com', 'Recupera tu Contraseña');
 			$this->email->to($correo_usuario);
 			$this->email->subject('Recuperacion de contraseña, plazadelatecnologia.com');
-			$link_text="Hola $name !!! Da click aquí para generar su nueva contraseña <a href=\"http://www.plazadelatecnologia.com/brayant/registrate/ok/hash/$hash\">Recuperar Contraseña</a>";
+			$link_text="Da click aquí para generar su nueva contraseña <a href=\"". base_url() . "registrate/ok/$hash\">Recuperar Contraseña</a>";
 			$this->email->message($link_text);
 			$this->email->send();
 
-			redirect('gracias/recuperarContrasenia');
+			redirect('registrate/recuperarContrasenia');
+		}
 
 	}
-	function ok()
-	{
-		$hash = $this->uri->segment(4);
+
+	function recuperarContrasenia(){
+	//Optimizacion y conexion de tags para SEO//
+		$opt         		= $this->uri->segment(1);
+		$op['opt']    		= $this->data_model->cargarOptimizacion($opt);
+
+		//validacion para identificar tipo de usuario y desglosar info
+		$user				= $this->session->userdata('user');
+		$op['info']			= array();
+
+		//Vista//
+		$this->load->view('recuperarContraseniaGracias-view' ,$op);
+	
+	}
+
+	function ok(){
+		$hash = $this->uri->segment(3);
 		$hash = trim($hash);
 
 		$query = $this->db->query("SELECT * from recuperar_pwd WHERE hash_pwd='$hash'");
 
-		if( $query->num_rows()>0 )
-		{
-			foreach ($query->result() as $row)
-			{
+		if( $query->num_rows()>0 ){
+			foreach ($query->result() as $row){
 				$usuarioID 		= $row->usuarioID;
 				$usuarioTipo 	= $row->usuarioTipo;
 			}
-		}
-		else
-		{
+		}else{
 			//podemos redireccionar o escribimos algo
 			echo"no corresponde el hash al enviado";
 		}
@@ -503,47 +498,40 @@ class Registrate extends MX_Controller {
 		}
 
 		$op['query'] = $query->result();
-		$this->layouts->index('psw-view', $op);
+		$this->load->view('psw-view', $op);
 	}
 
-	function pwd()
-	{
-		$pwd  = trim($_POST["new_pwd"]);
-		$pwd1 = trim($_POST["new_pwd_again"]);
-		$tipo = $_POST["tipo"];
+	function pwd(){
+		
+		$pwd  = trim($_POST["password"]);
+		$pwd1 = trim($_POST["password1"]);
 		$hash = $_POST["hash"];
 
-		if( strcmp($pwd,$pwd1) == 0 )
-		{
+		if( strcmp($pwd,$pwd1) == 0 ){
 			$c = $this->db->query("SELECT * FROM recuperar_pwd WHERE hash_pwd='$hash'");
 
 			foreach($c->result() as $row){
 				$usuarioID = $row->usuarioID;
 			}
 
-			$sha1_pwd = sha1($pwd);
+			$md5_pwd = md5($pwd);
 			$data = array('contrasenia',$sha1_pwd);
-			if($tipo == 'usuario'){
-				$this->db->query("UPDATE usuarios SET contrasenia='$sha1_pwd' WHERE usuarioID='$usuarioID'");
-			}
-			else{
-				$this->db->query("UPDATE locatarios SET contrasenia='$sha1_pwd' WHERE localID='$usuarioID'");
-			}
-
+				$this->db->query("UPDATE usuarios SET hash='$md5_pwd',contrasenia='$pwd' WHERE usuarioID='$usuarioID'");
+			
 			$this->session->set_flashdata('msg','<em class="msg">Te contraseña ha sido cambiada exitosamente. Inicia Sesión.</em>');
-			redirect('registrate/iniciar_sesion');
+			redirect('');
+		}else{
+			$this->session->set_flashdata('login_error','<em class="msg">Las contraseñas proporcionadas no coinciden, Inténtalo nuevamente.</em>');
+			redirect('registrate/ok/'.$hash.'');
 		}
-		else
-		{
-			$this->session->set_flashdata('msg','<em class="msg">Las contraseñas proporcionadas no coinciden, Inténtalo nuevamente.</em>');
-			redirect('registrate/ok/hash/'.$hash.'');
-		}
+
 	}
 
-	function salir()
-	{
+	function salir(){
+		
 		$this->session->sess_destroy();
 		redirect('');
+		
 	}
 
 }

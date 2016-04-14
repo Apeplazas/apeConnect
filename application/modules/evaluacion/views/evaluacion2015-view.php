@@ -1,3 +1,4 @@
+<? $usuarioSesion	= $this->session->userdata('usuario');?>
 <div id="mainTit">
   <h3>Evaluación de desempeño 2015</h3>
 </div>
@@ -61,7 +62,7 @@
         </tr>
         <tr>
           <td>No aplica</td>
-          <td>0</td>
+          <td>N/A</td>
           <td>Este criterio no es aplicable al colaborador.</td>
         </tr>
       </tbody>
@@ -78,48 +79,69 @@
     -->
 
     <h3>Contesta el siguiente formulario</h3>
-    <form class="" action="<?=base_url()?>evaluacionestwo/guardarEvaluacionJefeDirecto" method="post">
+    <form class="" action="<?=base_url()?>evaluaciones/guardarEvaluacion" method="post">
 
     <? foreach ($categorias as $row): ?>
+    <? $valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$this->uri->segment(3));?>
+
+
     <table class="infoEva">
       <thead>
         <tr>
+          <!--- Primer Segmento--->
           <th class="bigTb"><em><?=$row->categoriaNombre;?></em></th>
+
           <th class="smaTb">Autoevaluado</th>
-          <? if ($this->uri->segment(4) != '1' || $detallesCamp[0]->tipo == '2'):?>
-          <th class="smaTb">Jefe Directo</th>
+
+          <!--- Tercer Segmento--->
+          <? if (($valida && $this->uri->segment(4) == 3) || ($this->uri->segment(4) != 1)):?>
+          <th class="smaTb">Respuesta</th>
           <?endif?>
-          <? if ($this->uri->segment(4) == '3' || $detallesCamp[0]->tipo == '2'):?>
+          <!--- Cuarto Segmento--->
+          <? if ($valida && $this->uri->segment(4) == 4):?>
           <th class="medTb">Planes de Acción</th>
           <?endif;?>
         </tr>
       </thead>
 
       <tbody>
-      <? $pregunta = $this->evaluacionestwo_model->preguntasCategorias($row->categoria, $this->uri->segment(5));?>
+      <? $pregunta = $this->evaluacionestwo_model->preguntasCategorias($row->categoria);?>
       <? foreach ($pregunta as $var): ?>
       <tr>
+        <!--- Primer Segmento--->
         <td><em><?=$var->pregunta;?></em></td>
         <? $resp = $this->evaluacionestwo_model->respuestasPorPregunta($var->preguntaID,$this->uri->segment(3));?>
 
-		<?foreach ($resp as $var2):?>
-        <td><span><?=$var2->respuesta;?></span></td>
-        <?endforeach;?>
-        <!--- Muestra solamente al supervisor que lo calificara y al final de la evaluacion--->
-
-
-        <? if ($this->uri->segment(4) == '2' && $detallesCamp[0]->tipo == '1'):?>
         <td>
-          <fieldset>
-            <input type="txt" required class="<?= strtok($row->categoria,' ');?>t2" maxlength="1"  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
-          </fieldset>
+          <?if($this->uri->segment(4) != 4):?>
+          <input type="txt" maxlength="1" required  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
+          <?else:?>
+          <span>
+            <?foreach ($resp as $var2): ?><?=$var2->respuesta;?><?endforeach; ?>
+          </span>
+          <?endif?>
+        </td>
+
+        <!--  Tercer segmento
+        Muestra solamente al supervisor que lo calificara y al final de la evaluacion--->
+        <? if (($valida && $this->uri->segment(4) == 3) || ($this->uri->segment(4) != 1)):?>
+        <td>
+          <?if($this->uri->segment(4) != 4):?>
+          <input type="txt" maxlength="1" required  onkeypress='validate(event)' name="evaluacion[<?=$var->preguntaID;?>]">
+          <?else:?>
+          <span>
+            <?foreach ($resp as $var2): ?><?=$var2->respuesta;?><?endforeach; ?>
+          </span>
+          <?endif?>
         </td>
         <?endif?>
-        
-        <!--- Muestra solamente al final de la evaluacion --->
-        <? if ($this->uri->segment(4) == '3' || $detallesCamp[0]->tipo == '2'):?>
-        <td><input type="txt" class="bigInp" name="evaluacion[<?=$var->preguntaID;?>]" ></td>
+
+        <!--- Cuarto Segmento
+        Muestra solamente al final de la evaluacion --->
+        <? if ($valida && $this->uri->segment(4) == 4):?>
+        <td><input type="txt" maxlength="1" class="big" name="2-evaluacion[<?=$var->preguntaID;?>]" ></td>
         <?endif?>
+
 
       </tr>
 
@@ -128,11 +150,12 @@
 
     </table>
     <?endforeach; ?>
+    <? if(isset($resp)):?>
     <input type="hidden" name="campania" value="<?=$this->uri->segment(5);?>">
-    <? $tipoEva = $detallesCamp[0]->tipo+1;?>
-    <input type="hidden" name="tipo" value="<?=$tipoEva;?>">
+    <input type="hidden" name="tipo" value="<?=$this->uri->segment(4);?>">
     <input type="hidden" name="usuarioAcalificar" value="<?=$this->uri->segment(3);?>">
     <input type="submit" id="submit" value="Enviar información" class="mt10 mainBotton">
+    <?endif?>
     </form>
     <br class="clear">
   </div>
