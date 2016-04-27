@@ -139,7 +139,6 @@ class Tempciri extends MX_Controller {
 				
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar Recibos de deposito.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
-			return false;
 			
 		}
 		
@@ -148,7 +147,6 @@ class Tempciri extends MX_Controller {
 			
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos del deposito.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
-			return false;
 			
 		}
 
@@ -162,7 +160,6 @@ class Tempciri extends MX_Controller {
 		if( !in_array($extArchivo2,$permitidos) ) {
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
-			return false;
 
 		}
 
@@ -173,7 +170,6 @@ class Tempciri extends MX_Controller {
 
 				$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
 				redirect("tempciri/ciRi/");
-				return false;
 
 			}
 
@@ -188,7 +184,6 @@ class Tempciri extends MX_Controller {
 			</div>
 			<br class='clear'>");
 			redirect("tempciri/ciRi/");
-			return false;
 		}
 
 		$datosGerente		= $this->tempciri_model->traerGerentePLaza($_POST['plazaId']);
@@ -321,7 +316,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar Recibos de deposito.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
-			return false;
 
 		}
 
@@ -330,7 +324,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos del deposito.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
-			return false;
 
 		}
 
@@ -344,7 +337,6 @@ class Tempciri extends MX_Controller {
 		if( !in_array($extArchivo2,$permitidos) ) {
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
 			redirect("tempciri/ciRi/");
-			return false;
 
 		}
 
@@ -355,7 +347,6 @@ class Tempciri extends MX_Controller {
 
 				$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar archivos válidos.</strong></div><br class="clear">');
 				redirect("tempciri/ciRi/");
-				return false;
 
 			}
 
@@ -370,7 +361,6 @@ class Tempciri extends MX_Controller {
 			</div>
 			<br class='clear'>");
 			redirect("tempciri/ciRi/");
-			return false;
 		}
 
 		$datosGerente		= $this->tempciri_model->traerGerentePLaza($_POST['plazaId']);
@@ -632,7 +622,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar motivo de cancelación.</strong></div><br class="clear">');
 			redirect("tempciri/cancelarRi/" . $riId);
-			return false;
 
 		}
 
@@ -640,7 +629,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar la ficha de devolución.</strong></div><br class="clear">');
 			redirect("tempciri/cancelarCi/" . $riId);
-			return false;
 
 		}elseif(isset($devo) && $devo){
 
@@ -668,7 +656,6 @@ class Tempciri extends MX_Controller {
 
 				$this->session->set_flashdata('msg','<div class="msg mt20 mb20">Favor de Ingresar un Formato valido.</div>');
 				redirect("tempciri/cancelarCi/" . $riId);
-				return false;
 
 			}
 
@@ -730,7 +717,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar motivo de cancelación.</strong></div><br class="clear">');
 			redirect("tempciri/cancelarCi/" . $ciId);
-			return false;
 
 		}
 
@@ -813,7 +799,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar motivo de cancelación.</strong></div><br class="clear">');
 			redirect("tempciri/cancelarCi/" . $ciId);
-			return false;
 
 		}
 
@@ -821,7 +806,6 @@ class Tempciri extends MX_Controller {
 
 			$this->session->set_flashdata('msg','<div class="msgFlash"><img src="http://www.apeplazas.com/obras/assets/graphics/alerta.png" alt="Alerta"><strong>Favor de ingresar la ficha de devolución.</strong></div><br class="clear">');
 			redirect("tempciri/cancelarCi/" . $ciId);
-			return false;
 
 		}elseif(isset($devo) && $devo){
 
@@ -849,7 +833,6 @@ class Tempciri extends MX_Controller {
 
 				$this->session->set_flashdata('msg','<div class="msg mt20 mb20">Favor de Ingresar un Formato valido.</div>');
 				redirect("tempciri/cancelarCi/" . $ciId);
-				return false;
 
 			}
 

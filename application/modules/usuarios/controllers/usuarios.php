@@ -22,12 +22,16 @@ class Usuarios extends MX_Controller
         }
     }
 	
-	function perfiles($fancyUrl)
+	function perfiles()
 	{
 		//Informacion perfil general//
 		$user      = $this->session->userdata('usuario');
 		$user_type = strtoupper($user['tipoUsuario']);
-
+		
+ 		$op['profile'] = $info = $this->user_model->traeadmin($user['usuarioID']);
+ 		$this->layouts->profile('perfiles-view', $op);
+			
+/*
 		if($user_type == 'PROVEEDOR'){
 			
 			//Carga el javascript y CSS //
@@ -43,6 +47,7 @@ class Usuarios extends MX_Controller
 		}else{
 			redirect('admin');
 		}
+ */
 		
 	}
 	

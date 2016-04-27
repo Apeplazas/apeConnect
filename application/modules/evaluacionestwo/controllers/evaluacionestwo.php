@@ -430,6 +430,27 @@ class evaluacionestwo extends MX_Controller {
 		$tipo			= $_POST['tipo'];
 		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
+		if($tipo == 2){
+			
+			$this->load->library('email');
+			$this->email->set_newline("\r\n");
+			$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
+			$this->email->to($jefeDirecto[0]->email);
+			$this->email->subject('Evaluación pendiente');
+			$this->email->message('
+					<html>
+						<head>
+							<title>Evaluación pendiente</title>
+						</head>
+						<body>
+							<p>Ahora que has evaluado a ' . $usuario[0]->nombreCompleto . ', reunanse para hacer una plan de acción.</p>
+							<a href="'.base_url().'evaluacionestwo/evaluacionJefeDirecto/' . $_POST['usuarioAcalificar'] . '/3/' . $_POST['campania'] . '">Da click aquí</a>
+						</body>
+					</html>
+			');
+			$this->email->send();
+			
+		}
 
 		if($valida){
 			$data = array();
