@@ -27,27 +27,22 @@ class Usuarios extends MX_Controller
 		//Informacion perfil general//
 		$user      = $this->session->userdata('usuario');
 		$user_type = strtoupper($user['tipoUsuario']);
-		
- 		$op['profile'] = $info = $this->user_model->traeadmin($user['usuarioID']);
- 		$this->layouts->profile('perfiles-view', $op);
-			
-/*
-		if($user_type == 'PROVEEDOR'){
+
+		//if($user_type == 'PROVEEDOR'){
 			
 			//Carga el javascript y CSS //
 			$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js');
 
-			$op['profile']			= $info = $this->user_model->traeproveedor($user['usuarioID']);
+			$op['profile']			= $info = $this->user_model->traeadmin($user['usuarioID']);
 			$op['recomendados']   	= $this->user_model->cargarProyectosRecomendacion($user['usuarioID']);
 	
-			$this->layouts->profile('proveedor-view', $op);
+			$this->layouts->profile('perfilesNombre-view', $op);
 			
-		}else{
-			redirect('admin');
-		}
- */
+		//}else{
+			//redirect('admin');
+		//}
 		
 	}
 	
@@ -152,6 +147,18 @@ class Usuarios extends MX_Controller
 			
 			redirect($user['fancyUrl']);
 		}
+	}
+	function inserEmail(){
+		$contrasenia = md5($_POST['password']);
+		$user  =$this->session->userdata('usuario');
+	    $usuarioID 	= $user['usuarioID']; 
+ 
+			$data=  array('contrasenia' => $_POST['password'],
+			'hash'	=> $contrasenia );
+
+			$this->db->where('usuarioID', $usuarioID);
+			$this->db->update('usuarios', $data);
+
 	}
 
 	function savedoc(){
