@@ -176,7 +176,7 @@ class Tempciri extends MX_Controller {
 		}
 
 		$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
-		if(!empty($checkRef) && sizeof($checkRef) >= 3){
+		if(!empty($checkRef) && sizeof($checkRef) >= 9){
 			$this->session->set_flashdata("msg","<div class='msgFlash'>
 				<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
 				<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .
@@ -353,7 +353,7 @@ class Tempciri extends MX_Controller {
 		}
 
 		$checkRef		= $this->tempciri_model->checkRefCi($_POST['clientrfc'],$op['plaza'],$op['local'],$op['dirplaza'],$op['plazaPiso']);
-		if(!empty($checkRef) && sizeof($checkRef) >= 6){
+		if(!empty($checkRef) && sizeof($checkRef) >= 9){
 			$this->session->set_flashdata("msg","<div class='msgFlash'>
 				<img src='http://www.apeplazas.com/obras/assets/graphics/alerta.png' alt='Alerta'>
 				<strong>El cliente " . $op['clientNom'] . ' ya ha generado tres documetos para la plaza ' . $op['plaza'] . ' por el local ' . $op['local'] .
