@@ -28,12 +28,12 @@
         <tr>
           <td>Excelente</td>
           <td>4</td>
-          <td>Cumple constantemente y siempre excede los resultados esperados.</td>
+          <td>Cumple siempre y excede los resultados esperados.</td>
         </tr>
         <tr>
           <td>Buena</td>
           <td>3</td>
-          <td>Cumple siempre y algunas veces excede el resultado esperado.</td>
+          <td>Cumple constantemente y algunas veces excede el resultado esperado.</td>
         </tr>
         <tr>
           <td>Regular</td>

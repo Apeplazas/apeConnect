@@ -12,7 +12,7 @@
 	<?endif?>
   </div>
   <div class="wrapListFormThree" id="contentEva">
-    <p class="subTit">Contestar las siguientes evaluaciones, tus respuestas son muy importantes para nosotros.<p>
+    <p class="subTit">Contestar la siguiente evaluación.<p>
     <table id="tablaproveedTwo" class="dataEva">
 		  <thead>
 		    <tr>
