@@ -151,7 +151,7 @@ class Tempciri extends MX_Controller {
 		}
 
 		//Validar archivos
-		$permitidos =  array('gif','png','jpg','pdf');
+		$permitidos =  array('gif','png','jpg','pdf','GIF','PNG','JPG','PDF');
 
 		//$extArchivo1 = pathinfo($_FILES['documentoPago']['name'], PATHINFO_EXTENSION);
 		$extArchivo2 = pathinfo($_FILES['documentoIdentifi']['name'], PATHINFO_EXTENSION);
@@ -328,7 +328,7 @@ class Tempciri extends MX_Controller {
 		}
 
 		//Validar archivos
-		$permitidos =  array('gif','png','jpg','pdf');
+		$permitidos =  array('gif','png','jpg','pdf','GIF','PNG','JPG','PDF');
 
 		//$extArchivo1 = pathinfo($_FILES['documentoPago']['name'], PATHINFO_EXTENSION);
 		$extArchivo2 = pathinfo($_FILES['documentoIdentifi']['name'], PATHINFO_EXTENSION);
@@ -632,7 +632,7 @@ class Tempciri extends MX_Controller {
 
 		}elseif(isset($devo) && $devo){
 
-			$permitidos =  array('gif','png','jpg','pdf');
+			$permitidos =  array('gif','png','jpg','pdf','GIF','PNG','JPG','PDF');
 
 			$archivoNombre	= $_FILES['fichaDevolucion']['name'];
 			$archivoTipo	= $_FILES['fichaDevolucion']['type'];
@@ -809,7 +809,7 @@ class Tempciri extends MX_Controller {
 
 		}elseif(isset($devo) && $devo){
 
-			$permitidos =  array('gif','png','jpg','pdf');
+			$permitidos =  array('gif','png','jpg','pdf','GIF','PNG','JPG','PDF');
 
 			$archivoNombre	= $_FILES['fichaDevolucion']['name'];
 			$archivoTipo	= $_FILES['fichaDevolucion']['type'];

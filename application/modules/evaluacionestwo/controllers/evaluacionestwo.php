@@ -156,6 +156,9 @@ class evaluacionestwo extends MX_Controller {
 		}
 		$this->db->insert_batch('evaluacion_preguntas', $preguntasData);
 		
+		$time = strtotime("-1 year", time());
+  		$date = date("Y", $time);
+		
 		$emailAutoEval = '<style>
 				body {background-color:#fafafa;}
 				strong   {float:left; width:100%; font-weight:700;}
@@ -171,7 +174,7 @@ class evaluacionestwo extends MX_Controller {
 				<p>Tiene como objetivo reforzar competencias, detectar personal con potencial para ser promovido y retroalimentar a 
 				cada colaborador sobre el resultado de su trabajo.<p>
 				
-				<p>El periodo a evaluar corresponde de Enero a Diciembre de ' . date('Y') . '. Se incluye al personal eventual, el unico requisito es
+				<p>El periodo a evaluar corresponde de Enero a Diciembre de ' . $date . '. Se incluye al personal eventual, el unico requisito es
 					tener al menos un mes en la empresa para que se revise el desempeño del colaborador.</p>
 					
 				<p>La presente evaluación sustituye a la evaluación que se maneja para saber si se renueva el contrato de trabajo por un 

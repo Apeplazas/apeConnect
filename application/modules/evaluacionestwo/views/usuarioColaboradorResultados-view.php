@@ -14,7 +14,7 @@
   	<h3><?= $campania[0]->campaniaNombre?></h3>
   	<h3><?= $campania[0]->campaniaDescripcion?></h3>
 
-    <p>Por favor responde según corresponda se acuerdo a la siguiente escala:</p>
+    <p>Contestar la siguiente evaluación:</p>
 
     <table id="infoEva">
       <thead>
