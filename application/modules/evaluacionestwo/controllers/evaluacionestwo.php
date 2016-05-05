@@ -23,13 +23,13 @@ class evaluacionestwo extends MX_Controller {
 	function usuarioColaborador($usuarioID,$tipo,$campaniaID){
 
 		$usuarioSesion	= $this->session->userdata('usuario');
-		$usuario 				= $this->user_model->traeadmin($usuarioID);
+		$usuario 		= $this->user_model->traeadmin($usuarioID);
 
-		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
-		$op['campania'] = $this->evaluacionestwo_model->cargaCampania($campaniaID);
+		$op['categorias']	= $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
+		$op['campania'] 	= $this->evaluacionestwo_model->cargaCampania($campaniaID);
 
-		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
-		$eva = $this->evaluacionestwo_model->validaEvala($usuarioSesion['usuarioID'],$usuarioID,$campaniaID);
+		$valida	= $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
+		$eva 	= $this->evaluacionestwo_model->validaEvala($usuarioSesion['usuarioID'],$usuarioID,$campaniaID);
 
 		if($usuarioSesion['usuarioID'] == $usuarioID && $eva){
 			redirect('evaluacionestwo/campania/'.$campaniaID);
@@ -336,7 +336,7 @@ class evaluacionestwo extends MX_Controller {
 
 	function evaluacionJefeDirecto($usuarioID,$tipo,$campaniaID){
 		$usuarioSesion	= $this->session->userdata('usuario');
-		$usuario 				= $this->user_model->traeadmin($usuarioID);
+		$usuario 		= $this->user_model->traeadmin($usuarioID);
 		$this->load->model('evaluaciones/evaluacionestwo_model');
 		$op['categorias'] = $this->evaluacionestwo_model->evaluacionListaCategorias($campaniaID);
 		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$usuarioID);
@@ -380,7 +380,9 @@ class evaluacionestwo extends MX_Controller {
 		$this->load->model('evaluaciones/evaluaciones_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
+		$campania		= $_POST['campania'];
 		$valida 		= $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
+		$catId			= $this->evaluacionestwo_model->traeCatalogoId($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar'],$campania);
 
 		$data = array();
 		foreach ($_POST['evaluacion'] as $key => $value) {
@@ -390,11 +392,10 @@ class evaluacionestwo extends MX_Controller {
 			//}
 
 			$data[] = array(
-				'respuesta'				=> $value,
-				'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
-				'preguntaID' 			=> $key,
-				'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
-				'tipo'					=> '1'
+				'respuesta'		=> $value,
+				'catalogoId'	=> $catId,
+				'preguntaID' 	=> $key,
+				'tipo'			=> '1'
 			);
 		}
 		$this->db->insert_batch('evaluacion_respuestas', $data);
@@ -431,6 +432,7 @@ class evaluacionestwo extends MX_Controller {
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
 		$tipo			= $_POST['tipo'];
+		$campania		= $_POST['campania'];
 		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 		if($tipo == 2){
@@ -447,7 +449,7 @@ class evaluacionestwo extends MX_Controller {
 						</head>
 						<body>
 							<p>Ahora que has evaluado a ' . $usuario[0]->nombreCompleto . ', reunanse para hacer una plan de acción.</p>
-							<a href="'.base_url().'evaluacionestwo/evaluacionJefeDirecto/' . $_POST['usuarioAcalificar'] . '/3/' . $_POST['campania'] . '">Da click aquí</a>
+							<a href="'.base_url().'evaluacionestwo/evaluacionJefeDirecto/' . $_POST['usuarioAcalificar'] . '/3/' . $campania . '">Da click aquí</a>
 						</body>
 					</html>
 			');
@@ -456,7 +458,10 @@ class evaluacionestwo extends MX_Controller {
 		}
 
 		if($valida){
-			$data = array();
+			
+			$data	= array();
+			$catId	= $this->evaluacionestwo_model->traeCatalogoId($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar'],$campania);
+			
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
 				if (empty($value)){
@@ -465,9 +470,8 @@ class evaluacionestwo extends MX_Controller {
 
 				$data[] = array(
 					'respuesta'				=> $value,
-					'usuarioQueCalifico'	=> $usuarioSesion['usuarioID'],
+					'catalogoId'			=> $catId,
 					'preguntaID' 			=> $key,
-					'usuarioAcalificar'		=> $_POST['usuarioAcalificar'],
 					'tipo'					=> $tipo
 				);
 			}

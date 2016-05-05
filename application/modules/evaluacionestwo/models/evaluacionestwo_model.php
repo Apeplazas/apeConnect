@@ -78,9 +78,9 @@ class evaluacionestwo_model extends CI_Model
 		FROM (
 			select
 			ep.pregunta as 'preguntas',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='1' group by ep.preguntaID) as 'autoevaluacion' ,
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='2' group by ep.preguntaID) as 'jefeDirecto',
-			(select respuesta from evaluacion_respuestas where preguntaID=ep.preguntaID AND usuarioAcalificar='$usuarioID' and tipo='3' group by ep.preguntaID) as 'plandeaccion'
+			(select r.respuesta from evaluacion_respuestas r LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = r.catalogoId where r.preguntaID=ep.preguntaID AND c.usuarioAcalificarID='$usuarioID' and r.tipo='1' group by ep.preguntaID) as 'autoevaluacion' ,
+			(select r.respuesta from evaluacion_respuestas r LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = r.catalogoId where r.preguntaID=ep.preguntaID AND c.usuarioAcalificarID='$usuarioID' and r.tipo='2' group by ep.preguntaID) as 'jefeDirecto',
+			(select r.respuesta from evaluacion_respuestas r LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = r.catalogoId where r.preguntaID=ep.preguntaID AND c.usuarioAcalificarID='$usuarioID' and r.tipo='3' group by ep.preguntaID) as 'plandeaccion'
 			from evaluacion_preguntas ep
 			WHERE ep.categoria='$categoria'
 			AND ep.campaniaID='$campaniaID'
@@ -114,13 +114,13 @@ class evaluacionestwo_model extends CI_Model
 
 	function verificaFormularioJefeDirecto($campaniaID,$usuarioID){
 		$data = array();
-		$q = $this->db->query("SELECT er.usuarioAcalificar as 'usuario'
-				FROM evaluacion_preguntas ep
-				LEFT JOIN evaluacion_respuestas er ON er.preguntaID=ep.preguntaID
-				WHERE ep.campaniaID='$campaniaID'
-				AND er.usuarioAcalificar='$usuarioID'
+		$q = $this->db->query("SELECT c.usuarioAcalificarID as 'usuario'
+				FROM evaluacion_respuestas er
+				LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = er.catalogoId
+				WHERE c.campaniaID='$campaniaID'
+				AND c.usuarioAcalificarID='$usuarioID'
 				AND er.tipo='2'
-				GROUP BY ep.campaniaID");
+				GROUP BY c.campaniaID");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -133,9 +133,9 @@ class evaluacionestwo_model extends CI_Model
 	function detalleCamp($campaniaID,$usuarioID){
 		$data = array();
 		$q = $this->db->query("SELECT max(r.tipo) as tipo FROM evaluacion_respuestas r
-			LEFT JOIN evaluacion_preguntas p ON p.preguntaID = r.preguntaID
-			WHERE p.campaniaID = '$campaniaID'
-			AND r.usuarioAcalificar = '$usuarioID'");
+			LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = r.catalogoId
+			WHERE c.campaniaID = '$campaniaID'
+			AND c.usuarioAcalificarID = '$usuarioID'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -190,12 +190,12 @@ class evaluacionestwo_model extends CI_Model
 
 	function checaContestacionesCampaniaUsuario($campaniaID, $usuarioAcalificar){
 		$data = array();
-		$q = $this->db->query("SELECT usuarioAcalificar as 'usuario'
-														FROM evaluacion_respuestas er
-														LEFT JOIN evaluacion_preguntas ep ON er.preguntaID=ep.preguntaID
-														where ep.campaniaID='$campaniaID'
-														and usuarioAcalificar='$usuarioAcalificar'
-														group by ep.campaniaID='$campaniaID'");
+		$q = $this->db->query("SELECT ec.usuarioAcalificarID as 'usuario'
+						FROM evaluacion_respuestas er
+						LEFT JOIN evaluacion_catalogoEvaluadores ec ON ec.catalogoId=er.catalogoId
+						where ec.campaniaID='$campaniaID'
+						and ec.usuarioAcalificarID='$usuarioAcalificar'
+						group by ec.campaniaID='$campaniaID'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -236,8 +236,9 @@ class evaluacionestwo_model extends CI_Model
 		$data = array();
 		$q = $this->db->query("SELECT * FROM evaluacion_preguntas p 
 			LEFT JOIN evaluacion_respuestas r ON p.preguntaID=r.preguntaID
-			WHERE r.usuarioAcalificar= '$usuarioID'
-			AND p.campaniaID = '$camId' group by tipo");
+			LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = r.catalogoId
+			WHERE c.usuarioAcalificarID= '$usuarioID'
+			AND p.campaniaID = '$camId' group by r.tipo");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -273,7 +274,9 @@ class evaluacionestwo_model extends CI_Model
 
 	function respuestasPorPregunta($preguntaID,$usuarioID){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM evaluacion_respuestas where preguntaID='$preguntaID' and usuarioAcalificar='$usuarioID'");
+		$q = $this->db->query("SELECT * FROM evaluacion_catalogoEvaluadores c
+				LEFT JOIN evaluacion_respuestas r ON r.catalogoId = c.catalogoId
+				WHERE r.preguntaID='$preguntaID' and c.usuarioAcalificarID='$usuarioID'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -285,14 +288,13 @@ class evaluacionestwo_model extends CI_Model
 
 	function validaEvala($usuarioQuecalifica,$usuarioAcalificarID,$campaniaID){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM evaluacion_respuestas er
-				LEFT JOIN evaluacion_preguntas ep ON ep.preguntaID=er.preguntaID
-				WHERE er.usuarioQueCalifico='$usuarioQuecalifica'
-				AND er.usuarioAcalificar='$usuarioAcalificarID'
-				AND er.tipo='1'
-				AND ep.campaniaID='$campaniaID'
-				LIMIT 1
-		");
+		$q = $this->db->query("SELECT * FROM evaluacion_catalogoEvaluadores c
+				LEFT JOIN evaluacion_respuestas r ON r.catalogoId = c.catalogoId
+				WHERE c.usuarioQuecalifica='$usuarioQuecalifica'
+				AND c.usuarioAcalificarID='$usuarioAcalificarID'
+				AND r.tipo='1'
+				AND c.campaniaID='$campaniaID'
+				LIMIT 1");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -317,14 +319,30 @@ class evaluacionestwo_model extends CI_Model
 		}
 		return $data;
 	}
+	
+	function traeCatalogoId($usuarioQuecalifica,$usuarioAcalificarID,$campania){
+		$data = array();
+		$q = $this->db->query("SELECT catalogoId FROM evaluacion_catalogoEvaluadores
+			WHERE usuarioQuecalifica='$usuarioQuecalifica'
+			AND usuarioAcalificarID='$usuarioAcalificarID'
+			AND campaniaID = '$campania'
+		");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data = $row->catalogoId;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 
 	function validaContestacion($campaniaID,$usuarioID){
 		$data = array();
 		$q = $this->db->query("SELECT * FROM evaluacion_respuestas er
-			LEFT JOIN evaluacion_preguntas ep ON er.preguntaID=ep.preguntaID
-			WHERE campaniaID='$campaniaID'
-			AND usuarioQueCalifico='$usuarioID'
-			GROUP BY campaniaID");
+			LEFT JOIN evaluacion_catalogoEvaluadores ec ON ec.catalogoId= er.catalogoId
+			WHERE ec.campaniaID='$campaniaID'
+			AND ec.usuarioQuecalifica='$usuarioID'
+			GROUP BY ec.campaniaID");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

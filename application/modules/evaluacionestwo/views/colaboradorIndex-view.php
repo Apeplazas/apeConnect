@@ -23,7 +23,6 @@
 		  </thead>
 		  <tbody>
 				<?foreach ($campanias as $var): ?>
-        <? $ver = $this->evaluacionestwo_model->verificaRespuestaIndexColaborador($var->campaniaID,$usuarioSesion['usuarioID']);?>
 		      <tr onclick="window.location.href='<?=base_url()?>evaluacionestwo/usuarioColaborador/<?=$usuarioSesion['usuarioID']?>/1/<?=$var->campaniaID;?>'">
 		        <td><p><?=$var->campaniaNombre;?><br><em class="des"><?=$var->campaniaDescripcion;?></em></p></td>
 		        <td><?=$var->fechaInicio;?></td>
