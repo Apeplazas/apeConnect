@@ -1,13 +1,13 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin extends MX_Controller
+class Dashboard extends MX_Controller
 {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->is_logged_in();
-		$this->load->model('admin_model');
+		$this->load->model('dashboard_model');
 		$this->load->model('user_model');
 		$this->load->model('proyectos/proyecto_model');
 	}
@@ -60,18 +60,18 @@ function testmail(){
 			
 			$user_type    = strtoupper($user['tipoUsuario']);
 	
-			$op['no_cotizaciones']            = $info = $this->admin_model->trae_numcotizaciones();
-			$op['no_proveedores_inscitos']    = $this->admin_model->trae_proveedores_estadi();
-			$op['ultimos_prov_inscritos']     = $this->admin_model->trae_ultimos_proveedores_inscritos();
-			$op['supervisores']					= $this->admin_model->trae_supervisores();
-			$op['proyectos_activos']          = $this->admin_model->trae_proyectos_porstatus("Contratando");
-			$op['proyectos_licitados']        = $this->admin_model->trae_proyectos_porstatus("Licitado");
-			$op['proyectos_finalizados']      = $this->admin_model->trae_proyectos_porstatus("Finalizado");
-			$op['proyectos_revision']      	= $this->admin_model->trae_proyectos_porstatus("En Revision");
-			$op['proyectos_pagados']      	  = $this->admin_model->trae_proyectos_porstatus("Finalizado");
-			$op['total_segmentos']            = $this->admin_model->trae_totsegmentos();
-			$op['total_pagado']		          = $this->admin_model->tre_totalpagado();
-			$op['mensajes']                   = $this->admin_model->cargaMensajes($user['usuarioID']);
+			$op['no_cotizaciones']            = $info = $this->dashboard_model->trae_numcotizaciones();
+			$op['no_proveedores_inscitos']    = $this->dashboard_model->trae_proveedores_estadi();
+			$op['ultimos_prov_inscritos']     = $this->dashboard_model->trae_ultimos_proveedores_inscritos();
+			$op['supervisores']					= $this->dashboard_model->trae_supervisores();
+			$op['proyectos_activos']          = $this->dashboard_model->trae_proyectos_porstatus("Contratando");
+			$op['proyectos_licitados']        = $this->dashboard_model->trae_proyectos_porstatus("Licitado");
+			$op['proyectos_finalizados']      = $this->dashboard_model->trae_proyectos_porstatus("Finalizado");
+			$op['proyectos_revision']      	= $this->dashboard_model->trae_proyectos_porstatus("En Revision");
+			$op['proyectos_pagados']      	  = $this->dashboard_model->trae_proyectos_porstatus("Finalizado");
+			$op['total_segmentos']            = $this->dashboard_model->trae_totsegmentos();
+			$op['total_pagado']		          = $this->dashboard_model->tre_totalpagado();
+			$op['mensajes']                   = $this->dashboard_model->cargaMensajes($user['usuarioID']);
 			$op['no_notificaciones']          = $this->user_model->numero_mensajes($user['usuarioID']);
 	
 			$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);

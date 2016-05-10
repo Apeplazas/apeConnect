@@ -41,7 +41,7 @@ class Acceso extends MX_Controller
 						$urlGuardad = site_url($urlGuardad);
 					redirect($urlGuardad);
 				}
-        	redirect("perfiles/".$userprofile['fancyUrl']);
+        	redirect("dashboard");
 
         }
 
