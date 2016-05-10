@@ -8,9 +8,9 @@ $lastMonth = date('Y-m-d',strtotime('last month')) ;
 $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 // echo $thisMonth;
 ?>
-<? $pros   = $this->admin_model->cuentaProspectosDelMes($thisMonth, $today);?>
+<? $pros   = $this->dashboard_model->cuentaProspectosDelMes($thisMonth, $today);?>
 <!-- MANDA AL DASHBOARD DE SUPERVISION VENTAS -->
-<? $vendedores   = $this->admin_model->cargaVendedores($thisMonth, $today);?>
+<? $vendedores   = $this->dashboard_model->cargaVendedores($thisMonth, $today);?>
 <?$sumaA = 0;?>
 <?$sumaB = 0;?>
 <?$sumaC = 0;?>
@@ -41,13 +41,13 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 				<? $i = 0;?>
 				<? foreach($vendedores as $row):?>
 				<? $sumaTotal += $row->cuentaTotal;?>
-				<? $cExt = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $thisMonth, $today);?>
-				<? $cam = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $thisMonth, $today);?>
-				<? $int = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $thisMonth, $today);?>
-				<? $intT = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $thisMonth, $today);?>
-				<? $tel = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $thisMonth, $today);?>
-				<? $pag = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $thisMonth, $today);?>
-				<? $otr = $this->admin_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $thisMonth, $today);?>
+				<? $cExt = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $thisMonth, $today);?>
+				<? $cam = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $thisMonth, $today);?>
+				<? $int = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $thisMonth, $today);?>
+				<? $intT = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $thisMonth, $today);?>
+				<? $tel = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $thisMonth, $today);?>
+				<? $pag = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $thisMonth, $today);?>
+				<? $otr = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $thisMonth, $today);?>
 					<? foreach($cExt as $a):?>
 					<? $sumaA += $a->cuenta;?>
 					<? foreach($cam as $b):?>
