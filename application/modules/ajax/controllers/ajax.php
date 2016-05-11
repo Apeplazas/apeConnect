@@ -7,7 +7,6 @@ class Ajax extends MX_Controller {
 		parent::__construct();
 		$this->load->model('data_model');
 		$this->load->model('proyectos/proyecto_model');
-		$this->load->model('admin/admin_model');
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('planogramas/planogramas_model');
 		$this->load->model('evaluaciones/evaluaciones_model');
