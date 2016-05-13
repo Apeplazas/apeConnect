@@ -148,7 +148,51 @@ class Prospectos extends MX_Controller {
 		//Vista//
 		$this->layouts->profile('prospectos-view' ,$op);
 	}
+	function agregarComentario(){
+	 	//Informacion perfil General//
 
+		$prospectoID          = $this->input->post('prospectoID');
+		$conversacionId           = $this->input->post('conversacionId');
+	 	$user                 = $this->session->userdata('usuario');
+		$usuarioID            = $user['usuarioID'];
+		$respuesta           = $this->input->post('respuesta');
+	
+		if(empty($conversacionId)){
+
+			if( $user['idrole'] == 4){
+
+				$jefeDirecto = $this->user_model->traerJefeDirecto( $user['numeroEmpleado']);
+				$idUsuarioDos = $jefeDirecto[0]->usuarioID;
+
+			}else{
+				$prospecto = $this->prospectos_model->cargarProspectoPerfil($prospectoId);
+				$idUsuarioDos = $prospecto[0]->usuarioID;	
+			}
+			$var2 = array(
+			'idUsuarioUno'      	=> $usuarioID, 
+			'idUsuarioDos'			=> $idUsuarioDos,
+			'idConversacionTipo'	=> 6,
+			'idReferencia'          => $prospectoID
+			);
+
+			$this->db->insert('conversaciones', $var2);
+			$conversacionId = $this->db->insert_id();
+
+		}
+		//Genera Array y Inserta en la BD de asunto
+
+		$var = array(
+			'respuesta'      	=> $respuesta,
+			'usuarioId'			=> $usuarioID,
+			'idConversacion'		=> $conversacionId
+			);
+
+		$this->db->insert('conversacionesrespuestas', $var);
+		
+		redirect('prospectos/usuarios/'.$prospectoID);
+		
+	}
+ 
 
 	function agregar()
 	{
@@ -518,7 +562,7 @@ class Prospectos extends MX_Controller {
 	function usuarios($prospectoID)
 	{
 		$user = $this->session->userdata('usuario');
-
+  
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
@@ -529,6 +573,7 @@ class Prospectos extends MX_Controller {
 		$op['perfil']     = $perfil = $this->prospectos_model->cargarProspectoPerfil($id);
 		$op['vendedor']   = $this->prospectos_model->cargarUsuariosID($user['usuarioID']);
 		$op['plazas']     = $this->data_model->cargaZonas();
+		$op['comentario'] =$this->data_model->traeconversacion($prospectoID, 6);
 
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')

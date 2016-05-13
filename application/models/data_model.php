@@ -381,4 +381,33 @@ class Data_model extends CI_Model {
         return $data;
 	}
 
+//funciones para comentarios..
+	function traeconversacion($idReferencia, $idConversacionTipo){
+		$data = array(); 
+		$q = $this->db->query("Select * From 
+			conversaciones WHERE idConversacionTipo = '$idConversacionTipo' AND idReferencia = '$idReferencia'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+
+	function traeRespuesta($idConversacion){
+		$data = array();
+		$q = $this->db->query("Select * From
+			    conversacionesrespuestas cr
+			    LEFT JOIN usuarios u ON  cr.usuarioId=u.usuarioId
+			    Where idConversacion = $idConversacion
+                 ORDER BY cr.FechaRespuesta ASC");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 }
