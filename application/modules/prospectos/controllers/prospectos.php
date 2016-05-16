@@ -184,7 +184,7 @@ class Prospectos extends MX_Controller {
 		$var = array(
 			'respuesta'      	=> $respuesta,
 			'usuarioId'			=> $usuarioID,
-			'idConversacion'		=> $ConversacionId
+			'idConversacion'		=> $conversacionId
 			);
 
 		$this->db->insert('conversacionesRespuestas', $var);

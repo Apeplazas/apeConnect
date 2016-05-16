@@ -398,10 +398,10 @@ class Data_model extends CI_Model {
 	function traeRespuesta($idConversacion){
 		$data = array();
 		$q = $this->db->query("Select * From
-			    conversacionesrespuestas cr
+			    conversacionesRespuestas cr
 			    LEFT JOIN usuarios u ON  cr.usuarioId=u.usuarioId
 			    Where idConversacion = $idConversacion
-                 ORDER BY cr.FechaRespuesta ASC");
+                 ORDER BY cr.fechaRespuesta ASC");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
