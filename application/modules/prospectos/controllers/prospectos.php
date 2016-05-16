@@ -165,7 +165,7 @@ class Prospectos extends MX_Controller {
 				$idUsuarioDos = $jefeDirecto[0]->usuarioID;
 
 			}else{
-				$prospecto = $this->prospectos_model->cargarProspectoPerfil($prospectoId);
+				$prospecto = $this->prospectos_model->cargarProspectoPerfil($prospectoID);
 				$idUsuarioDos = $prospecto[0]->usuarioID;	
 			}
 			$var2 = array(
@@ -184,10 +184,10 @@ class Prospectos extends MX_Controller {
 		$var = array(
 			'respuesta'      	=> $respuesta,
 			'usuarioId'			=> $usuarioID,
-			'idConversacion'		=> $conversacionId
+			'idConversacion'		=> $ConversacionId
 			);
 
-		$this->db->insert('conversacionesrespuestas', $var);
+		$this->db->insert('conversacionesRespuestas', $var);
 		
 		redirect('prospectos/usuarios/'.$prospectoID);
 		
