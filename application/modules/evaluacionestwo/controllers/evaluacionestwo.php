@@ -436,11 +436,11 @@ class evaluacionestwo extends MX_Controller {
 		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 		if($tipo == 2){
-			
+		
 			$this->load->library('email');
 			$this->email->set_newline("\r\n");
 			$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
-			$this->email->to($jefeDirecto[0]->email);
+			$this->email->to($usuarioSesion["email"]);
 			$this->email->subject('Evaluación pendiente');
 			$this->email->message('
 					<html>
@@ -464,8 +464,8 @@ class evaluacionestwo extends MX_Controller {
 			
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
-				if (empty($value)){
-					redirect('evaluacionestwo/usuario/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
+				if (empty($value) && $value != 0){
+					redirect('evaluacionestwo/evaluacionJefeDirecto/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
 				}
 
 				$data[] = array(
