@@ -11,6 +11,7 @@ class Ajax extends MX_Controller {
 		$this->load->model('planogramas/planogramas_model');
 		$this->load->model('evaluaciones/evaluaciones_model');
 		$this->load->model('notificaciones/notificaciones_model');
+		$this->load->model('dashboard/dashboard_model');
 		$this->load->model('user_model');
 
 		$this->load->model('tempciri/tempciri_model');

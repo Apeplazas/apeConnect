@@ -497,7 +497,8 @@ border-bottom-right-radius: 5px; }
 .Rori{width:150px !important; ext-overflow:ellipsis; white-space:nowrap; overflow:hidden }
 .sp{margin-right:5px; line-height:16px; font-style:normal}
 #commentC textarea{float: left; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
-#ventasDash{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px}
+#aqui{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px;}
+#ventasDash{float:left; width:100%}
 #ventasDash th{background:#f0f8ff !important; border-bottom:1px solid #B7E3FF; padding:6px; text-transform:uppercase}
 #ventasDash td{padding:3px 0 3px 6px; text-transform:uppercase}
 #ventasDash tbody tr{border-bottom:1px solid #ddd}

@@ -64,7 +64,7 @@ function cuentaProspectos(){
 
  function(data) { sucess:
 	$("#ventasDash").remove();
-  	$(".wrapListLow").append(data);
+  	$("#aqui").append(data);
   });
 };
 </script>

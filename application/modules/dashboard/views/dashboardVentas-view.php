@@ -22,7 +22,7 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <h3 id="mainTit">Dashboard Ventas</h3>
 <div class="wrapListLow">
 	<? $this->load->view('includes/toolbars/busquedaVendedoresProspectos')?>
-		 
+		 <div id="aqui">
 		<table id="ventasDash">
 			<thead>
 				<tr>
@@ -95,6 +95,10 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			</tr>
 			</tbody>
 		</table>
+		</div>
+		<? if (empty($totVen)):?>
+		Sin registros
+		<?else:?>
 		<ul id="totMet">
 			<li class="brightGray">
 				<span>META</span>
@@ -113,6 +117,7 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 				<p <?if ($check == '-' ):?>class="redVen"<?endif;?> ><?=$final?></p>
 			</li>
 		</ul>
+		<?endif?>
 		<div id="canvas-holder" style="width:30%">
 			<strong class="titChart">Volumen de ventas por tipo</strong>
 			<canvas id="chart-area" width="300" height="300"/>

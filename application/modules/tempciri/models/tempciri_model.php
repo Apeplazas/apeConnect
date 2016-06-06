@@ -373,7 +373,7 @@ class Tempciri_model extends CI_Model
 
 		$data = array();
 		$q = $this->db->query("
-		SELECT *
+		SELECT *, t.id as 'cartaIntId'
 		FROM TEMPORA_CI t
 		LEFT JOIN TEMPORA_CLIENTES c ON c.id=t.clienteId
 		LEFT JOIN usuarios u ON u.usuarioID=t.usuarioID
