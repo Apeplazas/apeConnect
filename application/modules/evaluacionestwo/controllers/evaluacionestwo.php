@@ -344,18 +344,17 @@ class evaluacionestwo extends MX_Controller {
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery.validate.js');
 		if(empty($this->uri->segment(5))){
-			redirect('evaluaciones');
+			redirect('evaluacionestwo');
 		}
 
-		$verifica 			= $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
+		$verifica 			= $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID,$usuarioSesion['usuarioID']);
 		$op['detallesCamp']	= $this->evaluacionestwo_model->detalleCamp($campaniaID,$usuarioID);
 
-		//if(empty($verifica)){
+		if(empty($verifica)){
+			redirect('evaluacionestwo');
+		}else{
 			$this->layouts->profile('evaluacionJefeDirecto-view', $op);
-		//}else{
-
-			//redirect('evaluacionestwo/campania/'.$campaniaID);
-		//}
+		}
 
 	}
 	
