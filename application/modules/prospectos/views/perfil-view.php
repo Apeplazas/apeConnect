@@ -58,17 +58,44 @@
 			</a>
 			</span>
 		</div>
+		<div>
+		<?
+
+		$conversacionId = 0;
+		if (sizeof($comentario) > 0):
+        	$conversacionId=$comentario[0]->cID;
+			?>
+			<ul>
+			<?
+			$conversacion = $this->data_model->traeRespuesta($comentario[0]->cID);
+			foreach($conversacion as $row2):?>
+				<li>
+					<span>
+						<?= $row2->nombreCompleto?>
+					</span>
+					<span>
+						<?=convierteFechaBDLetra($row2->fechaRespuesta,'2');?>
+					</span>
+					<p>
+					 <?= $row2->respuesta?>
+					</p>
+				</li>
+			<? endforeach;?>
+			</ul>
+
+		<? endif ?>
+		</div>
 		
 		<!------  AQUI SE MUESTRA EL TEXTAREA PARA INSERTAR UN COMENTARIO SOBRE EL PROSPECTO   ----->
-		<? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
 		<div class="wrapListForm" id="commentC">
-			<form  action="<?=base_url()?>" method="">
-				<textarea name="" placeholder="Agrega tu comentario"></textarea>
+			<form  action="<?=base_url()?>prospectos/agregarComentario" method="post">
+				<textarea name="respuesta" placeholder="Agrega tu comentario"></textarea>
+				<input type="hidden" name="conversacionId" value="<?=$conversacionId;?>" />
+				<input type="hidden" name="prospectoID" value="<?=$this->uri->segment(3);?>" />
 				<input class="mainBotton" type="submit" value="Enviar Comentario" />
 			</form>
 			<br class="clear">
 		</div>
-		<?endif?>
 		<!---Aqui termina comentario textarea--->
 	
 	

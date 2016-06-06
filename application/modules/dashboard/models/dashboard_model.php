@@ -143,7 +143,7 @@ class Dashboard_model extends CI_Model
 	function cargaMensajes($usrId){
 		$data = array(); 
 		$q = $this->db->query("SELECT
-			c.cID,c.idProyecto,
+			c.cID,c.idReferencia,
 			cr.fechaRespuesta, cr.respuesta,
 			u.nombreCompleto
 			FROM conversaciones c 
