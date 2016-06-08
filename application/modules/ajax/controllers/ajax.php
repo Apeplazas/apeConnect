@@ -9,7 +9,7 @@ class Ajax extends MX_Controller {
 		$this->load->model('proyectos/proyecto_model');
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('planogramas/planogramas_model');
-		$this->load->model('evaluaciones/evaluaciones_model');
+		$this->load->model('evaluacionestwo/evaluacionestwo_model');
 		$this->load->model('notificaciones/notificaciones_model');
 		$this->load->model('dashboard/dashboard_model');
 		$this->load->model('user_model');

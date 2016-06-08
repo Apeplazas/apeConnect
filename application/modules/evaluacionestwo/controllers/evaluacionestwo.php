@@ -376,7 +376,7 @@ class evaluacionestwo extends MX_Controller {
 	}
 
 	function guardarEvaluacionColaborador(){
-		$this->load->model('evaluaciones/evaluaciones_model');
+		$this->load->model('evaluacionestwo/evaluacionestwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
 		$campania		= $_POST['campania'];
