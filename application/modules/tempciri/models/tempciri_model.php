@@ -25,7 +25,7 @@ class Tempciri_model extends CI_Model
 	function traerDatosPLaza($plaza){
 
 		$data = array();
-		$q = $this->db->query("SELECT * FROM TEMPORA_PLAZA WHERE plaza = '$plaza'");
+		$q = $this->db->query("SELECT * FROM TEMPORA_PLAZA WHERE plaza = '$plaza' OR id = '$plaza'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -78,6 +78,23 @@ class Tempciri_model extends CI_Model
 			FROM TEMPORA_PLAZA_DIR pd
 			WHERE pd.piso = '$plazaPiso'
 			AND pd.plazaid = '$plazaId'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+
+	}
+	
+	function cargarPLazaPisos($plazaId){
+
+		$data = array();
+		$q = $this->db->query("SELECT pd.*
+			FROM TEMPORA_PLAZA_DIR pd
+			WHERE pd.plazaid = '$plazaId'
+			GROUP BY pd.piso");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -373,7 +390,7 @@ class Tempciri_model extends CI_Model
 
 		$data = array();
 		$q = $this->db->query("
-		SELECT *
+		SELECT *, t.id as 'cartaIntId'
 		FROM TEMPORA_CI t
 		LEFT JOIN TEMPORA_CLIENTES c ON c.id=t.clienteId
 		LEFT JOIN usuarios u ON u.usuarioID=t.usuarioID

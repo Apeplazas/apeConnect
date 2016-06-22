@@ -67,9 +67,20 @@
         <?php endif;?>
       </ul>
     </li>
+	
+	<?php endif;
+	if(isset($user['modulos']) && in_array('evaluacionestwo', array_keys($user['modulos']))):?>
+		<li id="evaluacionesHover" class="main In">
+		<img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/evaluaciones.svg" />
+      <strong>Evaluaciones</strong>
+      <ul class="submenu">
+        <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Evaluaciones</h3></li>
+        <li><a href="<?=base_url()?>evaluacionestwo">Evaluaciones 2015 - 2016</a></li>
+      </ul>
+		</li>
 	<?php endif;
 	if(isset($user['modulos']) && in_array('renovaciones', array_keys($user['modulos']))):?>
-		<li id="planogramasHover" class="main In">
+		<li id="renovacionesHover" class="main In">
       <strong>Renovaciones</strong>
 		  <ul class="submenu">
 		    <li><a href="<?=base_url()?>renovaciones">Renovaciones</a></li>
@@ -77,7 +88,7 @@
 		</li>
 	<?php endif;
 	if(isset($user['modulos']) && in_array('rh', array_keys($user['modulos']))):?>
-		<li id="planogramasHover" class="main In">
+		<li id="rhHover" class="main In">
       <strong>Recursos Humanas</strong>
       <ul class="submenu">
         <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Recursos Humanos</h3></li>
@@ -85,3 +96,4 @@
       </ul>
 		</li>
 	<?php endif;?>
+	

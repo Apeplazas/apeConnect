@@ -21,7 +21,7 @@
     <th><p><?=$row->deposito;?></p></th>
     <th>
     	<p>
-    		<a class="mt10" href="<?=base_url()?>tempciri/detalleCi/<?= $row->status;?>" >
+    		<a class="mt10" href="<?=base_url()?>tempciri/detalleCi/<?= $row->cartaIntId;?>" >
     			<?=$row->estado;?>
     		</a>
     	</p>

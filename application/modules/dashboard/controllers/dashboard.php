@@ -59,7 +59,6 @@ function testmail(){
 						->add_include('assets/js/jquery.dataTables.min.js');
 			
 			$user_type    = strtoupper($user['tipoUsuario']);
-	
 			$op['no_cotizaciones']            = $info = $this->dashboard_model->trae_numcotizaciones();
 			$op['no_proveedores_inscitos']    = $this->dashboard_model->trae_proveedores_estadi();
 			$op['ultimos_prov_inscritos']     = $this->dashboard_model->trae_ultimos_proveedores_inscritos();

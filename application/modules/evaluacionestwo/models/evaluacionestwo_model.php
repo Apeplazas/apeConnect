@@ -112,15 +112,13 @@ class evaluacionestwo_model extends CI_Model
 		return $data;
 	}
 
-	function verificaFormularioJefeDirecto($campaniaID,$usuarioID){
+	function verificaFormularioJefeDirecto($campaniaID,$usuarioID,$usuarioIdQueCalifica){
 		$data = array();
-		$q = $this->db->query("SELECT c.usuarioAcalificarID as 'usuario'
-				FROM evaluacion_respuestas er
-				LEFT JOIN evaluacion_catalogoEvaluadores c ON c.catalogoId = er.catalogoId
+		$q = $this->db->query("SELECT *
+				FROM evaluacion_catalogoEvaluadores c
 				WHERE c.campaniaID='$campaniaID'
 				AND c.usuarioAcalificarID='$usuarioID'
-				AND er.tipo='2'
-				GROUP BY c.campaniaID");
+				AND c.usuarioQuecalifica='$usuarioIdQueCalifica'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -164,8 +162,9 @@ class evaluacionestwo_model extends CI_Model
 		$q = $this->db->query("SELECT *
 				FROM evaluacion_campanias ec
 				LEFT JOIN evaluacion_catalogoEvaluadores ece ON ec.campaniaID=ece.campaniaID
-				WHERE usuarioQuecalifica='$usuarioID'
-				OR ece.usuarioAcalificarID='$usuarioID'
+				WHERE ece.catalogoStatus='Activado' 
+				AND (ece.usuarioQuecalifica='$usuarioID'
+				OR ece.usuarioAcalificarID='$usuarioID')
 				GROUP BY ec.campaniaID");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){

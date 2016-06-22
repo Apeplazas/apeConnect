@@ -1,5 +1,5 @@
 <? $vendedores   = $this->dashboard_model->cargaVendedores($data['fechaDe'], $data['fechaA']);?>
-	<table id="ventasDash">
+<table id="ventasDash">
 			<caption></caption>
 			<thead>
 				<tr>
@@ -16,13 +16,13 @@
 			</thead>
 			<tbody>
 				<? foreach($vendedores as $row):?>
-				<? $cExt 	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $data['fechaDe'], $data['fechaA']);?>
-				<? $cam 	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $data['fechaDe'], $data['fechaA']);?>
-				<? $int 	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $data['fechaDe'], $data['fechaA']);?>
-				<? $intT	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $data['fechaDe'], $data['fechaA']);?>
-				<? $tel 	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $data['fechaDe'], $data['fechaA']);?>
-				<? $pag 	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $data['fechaDe'], $data['fechaA']);?>
-				<? $otr 	= $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $data['fechaDe'], $data['fechaA']);?>
+				<? $cExt = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $data['fechaDe'], $data['fechaA']);?>
+				<? $cam = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $data['fechaDe'], $data['fechaA']);?>
+				<? $int = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $data['fechaDe'], $data['fechaA']);?>
+				<? $intT = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $data['fechaDe'], $data['fechaA']);?>
+				<? $tel = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $data['fechaDe'], $data['fechaA']);?>
+				<? $pag = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $data['fechaDe'], $data['fechaA']);?>
+				<? $otr = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $data['fechaDe'], $data['fechaA']);?>
 					<? foreach($cExt as $a):?>
 					<? foreach($cam as $b):?>
 					<? foreach($int as $c):?>

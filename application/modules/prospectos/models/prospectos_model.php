@@ -30,6 +30,26 @@ class Prospectos_model extends CI_Model {
 		return $data;
 	}
 	
+	function busquedaRaps($rap,$plaza_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM referencias_rap r
+			LEFT JOIN prospectos_referencias_rap pr ON pr.referencia_id = r.referencia_id
+			LEFT JOIN prospectos p ON p.id = pr.prospecto_id
+			WHERE r.plaza_id = '$plaza_id'
+			AND r.rap LIKE '$rap%'"
+			);
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
+	
 	function prospectosAde($val){
 		$data = array();
 		$q = $this->db->query("SELECT p.*, u.nombreCompleto as 'nombreCompleto' from prospectos p
@@ -440,6 +460,37 @@ class Prospectos_model extends CI_Model {
 													WHERE correo LIKE '%$value%'
 													order by p.id desc 
 													limit 100");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function trae_referencias($prospectoId){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM referencias_rap r
+			LEFT JOIN prospectos_referencias_rap p ON p.referencia_id = r.referencia_id
+			WHERE p.prospecto_id = '$prospectoId'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function verifica_rap($plaza_id,$piso,$locales,$dir)
+	{
+		$data = array();
+		$q = $this->db->query("SELECT * FROM referencias_rap r
+			WHERE r.plaza_id = '$plaza_id' 
+			AND r.piso = '$piso'
+			AND r.locales = '$locales'
+			AND r.direccion = '$dir'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

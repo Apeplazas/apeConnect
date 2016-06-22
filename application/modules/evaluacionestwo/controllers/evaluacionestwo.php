@@ -344,18 +344,17 @@ class evaluacionestwo extends MX_Controller {
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery.validate.js');
 		if(empty($this->uri->segment(5))){
-			redirect('evaluaciones');
+			redirect('evaluacionestwo');
 		}
 
-		$verifica 			= $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID);
+		$verifica 			= $this->evaluacionestwo_model->verificaFormularioJefeDirecto($campaniaID,$usuarioID,$usuarioSesion['usuarioID']);
 		$op['detallesCamp']	= $this->evaluacionestwo_model->detalleCamp($campaniaID,$usuarioID);
 
-		//if(empty($verifica)){
+		if(empty($verifica)){
+			redirect('evaluacionestwo');
+		}else{
 			$this->layouts->profile('evaluacionJefeDirecto-view', $op);
-		//}else{
-
-			//redirect('evaluacionestwo/campania/'.$campaniaID);
-		//}
+		}
 
 	}
 	
@@ -377,7 +376,7 @@ class evaluacionestwo extends MX_Controller {
 	}
 
 	function guardarEvaluacionColaborador(){
-		$this->load->model('evaluaciones/evaluaciones_model');
+		$this->load->model('evaluacionestwo/evaluacionestwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
 		$usuario 		= $this->user_model->traeadmin($_POST['usuarioAcalificar']);
 		$campania		= $_POST['campania'];
@@ -436,11 +435,11 @@ class evaluacionestwo extends MX_Controller {
 		$valida = $this->evaluacionestwo_model->validaPermisosEvaluaciones($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar']);
 
 		if($tipo == 2){
-			
+		
 			$this->load->library('email');
 			$this->email->set_newline("\r\n");
 			$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
-			$this->email->to($jefeDirecto[0]->email);
+			$this->email->to($usuarioSesion["email"]);
 			$this->email->subject('Evaluación pendiente');
 			$this->email->message('
 					<html>
@@ -467,8 +466,8 @@ class evaluacionestwo extends MX_Controller {
 			
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
-				if (empty($value)){
-					redirect('evaluacionestwo/usuario/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
+				if (empty($value) && $value != 0){
+					redirect('evaluacionestwo/evaluacionJefeDirecto/'.$_POST['usuarioAcalificar'].'./' . $tipo . '/'.$_POST['campania']);
 				}
 
 				$data[] = array(
