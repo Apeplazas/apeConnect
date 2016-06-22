@@ -462,6 +462,9 @@ class evaluacionestwo extends MX_Controller {
 			$data	= array();
 			$catId	= $this->evaluacionestwo_model->traeCatalogoId($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar'],$campania);
 			
+			var_dump($_POST['evaluacion']);
+			exit();
+			
 			foreach ($_POST['evaluacion'] as $key => $value) {
 
 				if (empty($value)){

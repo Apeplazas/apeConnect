@@ -23,6 +23,7 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <div class="wrapListLow">
 	<? $this->load->view('includes/toolbars/busquedaVendedoresProspectos')?>
 		 
+		<div id="aqui">
 		<table id="ventasDash">
 			<thead>
 				<tr>
@@ -95,6 +96,7 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			</tr>
 			</tbody>
 		</table>
+		</div>
 		<ul id="totMet">
 			<li class="brightGray">
 				<span>META</span>

@@ -4,7 +4,7 @@ html{height:100%;}
 body{font-family:Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased!important; line-height:1.54; color:#555;  height:100%; font-size:11px}
 img{color:#f4f4f2;}
 ol,ul,li{list-style:none; font-weight:lighter;}
-br{clear:both}
+clear, br{clear:both}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0;}
 ins{text-decoration:none;}
@@ -130,7 +130,7 @@ header nav{float:right; height:65px!important;}
 .barOut #navMenu li{float:left; width:275px; padding:10px 5px 0 0; cursor:pointer}
 .barOut .main{float:left; width:260px; padding:13px 5px 0 0; cursor:pointer}
 #navMenu li img{float:left}
-#navMenu li strong, #navMenu li em{line-height:28px; padding:2px 0; float:left; font-size:14px; font-weight:200; cursor:pointer; font-style:normal; width:215px; border-bottom:1px solid #ccc;}
+#navMenu li strong, #navMenu li em{line-height:28px; padding:2px 0 2px 4px; text-transform: uppercase;  float:left; font-size:12px; font-weight:400; cursor:pointer; font-style:normal; width:215px; border-bottom:1px solid #ccc;}
 .bckMarkActive{background:#eee; box-shadow:inset 0px 1px 20px -7px #777; -webkit-box-shadow:inset 0px 1px 20px -7px #777; -moz-box-shadow:inset  0px 1px 20px -7px #777;}
 .bckMark em{border-bottom:1px solid #f0f8ff !important}
 .main:hover{background:#eee}
@@ -280,6 +280,7 @@ background: linear-gradient(to bottom, #2989d8 0%,#2989d8 93%,#7db9e8 100%,#7db9
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#7db9e8',GradientType=0 ); }
 #mesLog{float:left; width:100%; margin:20px 0; font-size:16px; font-weight:300}
 #mesLog a{color:brown; font-weight:400}
+#aqui {float:left; width:60%; border: 1px solid #B7E3FF; margin:0 25px 25px;}
 
 /*---------------- pdf cartas intencion  ------------------*/
 .pdf-container{padding:20px 20px 0;font-size:10px;font-family:"Myriad Pro",arial,helvetica,sans-serif!important}
@@ -302,7 +303,7 @@ a.cerrar{line-height:1;font-size:1.5em;position:absolute;top:7%;right:2%;text-de
 a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color 1s ease;transition:color 1s ease}
 #firma{float:left; width:100%; height:34px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; border:1px solid #ccc;}
 #hideTy{float:left; width:216px; height:63px; background:url(../graphics/firma.png); overflow:hidden; cursor:pointer}
-#hideTy input{display: block !important; width:216px !important; height:63px !important; opacity: 0 !important; overflow: hidden !important; cursor:pointer}
+#hideTy input{display: block !important; width:216px !important; height:63px !important; opacity: 0 !important; overflow: hidden !important; cursor:pointer; text-transform:uppercase}
 #comenW{background-color:#eee; border:1px solid #ccc; border-radius:4px; padding:10px; float:left; width:100%; margin-top:10px}
 .panelLeft{float:right; background:url(../graphics/rArrows.png) 8px 22px no-repeat; height:64px !important; border:none; border-left:1px solid #ccc; text-indent:-999999px; width:30px;}
 .panelRight{float:right; background:url(../graphics/rArrows.png) 8px -153px no-repeat #007aff; height:64px !important; border:none; border-left:1px solid #ccc; text-indent:-999999px; width:30px;}
@@ -497,7 +498,7 @@ border-bottom-right-radius: 5px; }
 .Rori{width:150px !important; ext-overflow:ellipsis; white-space:nowrap; overflow:hidden }
 .sp{margin-right:5px; line-height:16px; font-style:normal}
 #commentC textarea{float: left; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
-#ventasDash{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px}
+#ventasDash{width:100%; border:1px solid #B7E3FF;}
 #ventasDash th{background:#f0f8ff !important; border-bottom:1px solid #B7E3FF; padding:6px; text-transform:uppercase}
 #ventasDash td{padding:3px 0 3px 6px; text-transform:uppercase}
 #ventasDash tbody tr{border-bottom:1px solid #ddd}
@@ -522,7 +523,12 @@ border-bottom-right-radius: 5px; }
 #totMet span{font-weight: 700; text-transform: uppercase; padding: 3px 0; float: left; width: 100%; border-bottom: 1px solid #ccc;}
 #totMet p{float: left; width: 100%; text-align: center; font-size: 2.8em;}
 .redVen{color:#c30}
-
+#wrapDatos{float: left; width: 100%; border-top: 1px solid #ccc;  }
+#wrapDatos ul li{float:left; padding:8px 0; width:100%; border-bottom:1px solid #eee; text-transform:uppercase;}
+#wrapDatos ul li:hover{background-color:#fafafa;}
+#wrapDatos ul li span{float:left; width:170px; padding-left:20px; font-weight:700}
+#wrapDatos ul li em{font-style:normal}
+#wrapDatos input{border:0px; background:transparent; color:#007aff; font-weight:700; padding:0px; text-transform:uppercase}
 
 /*---------------- Botones ------------------*/
 

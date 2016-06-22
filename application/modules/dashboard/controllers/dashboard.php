@@ -55,8 +55,8 @@ function testmail(){
 		else{
 			//Carga el javascript y CSS //
 			$this->layouts->add_include('assets/js/jquery-ui.js')
-						  ->add_include('assets/js/jquery.autocomplete.pack.js')
-						  ->add_include('assets/js/jquery.dataTables.min.js');
+						->add_include('assets/js/jquery.autocomplete.pack.js')
+						->add_include('assets/js/jquery.dataTables.min.js');
 			
 			$user_type    = strtoupper($user['tipoUsuario']);
 	
