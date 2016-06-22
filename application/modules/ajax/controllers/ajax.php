@@ -1464,6 +1464,15 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
+	
+	function cargarPlazaPisos(){
+
+		$plazaId	= $_POST['plazaId'];
+		$ci			= $this->tempciri_model->cargarPLazaPisos($plazaId);
+		echo json_encode($ci);
+		exit;
+
+	}
 
 	function traeFolioGenerar(){
 
@@ -1605,6 +1614,17 @@ class Ajax extends MX_Controller {
 		$op['data'] = $this->tempciri_model->busquedaCartasIntencion($data);
 
 		$this->load->view('busquedaCIAvanzada-view' ,$op);
+
+	}
+	
+	function cargarResultadoRap(){
+		
+		$plaza_id	= $_POST['plaza_id'];
+		$rap		= $_POST['rap'];
+
+		$op['referencias'] = $this->prospectos_model->busquedaRaps($rap,$plaza_id);
+
+		$this->load->view('busquedaRap-view' ,$op);
 
 	}
 	

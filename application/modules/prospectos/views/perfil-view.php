@@ -30,6 +30,10 @@
 				<input id="cotLoc" class="formBotonBig mtb10" type="submit" value="Cotizar local" alt="Comprar">
 			</fieldset>
 			</form>
+			<a href="<?=base_url()?>prospectos/generar_referencia/<?= $this->uri->segment(3)?>" title="Generar Referencia" class="addSmall">
+				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/apartado.svg" alt="Generar Referencia"></i>
+				<span>Generar Referencia</span>
+			</a>
 			<!-- Valida si hay cotizaciones y muestra la cuenta -->
 			<? $cot = $this->prospectos_model->cuentaCotizacionProspecto($this->uri->segment(3));?>
 	
@@ -204,6 +208,37 @@
 		<span class="secmainTit">Información importante</span>
 		<div class="comenWrap">
 	    	<p id="comenW"><b>Comentario</b><?= $row->comentario;?> dsf asdfasdf </p>
+		</div>
+		<br class="clear">
+	</div>
+	<div class="wrapListForm">
+		<span class="secmainTit">Referencias</span>
+		<div class="comenWrap">
+	    	<?php if(!empty($referencias)):?>
+	    		<table>
+	    			<thead>
+	    				<tr>
+	    					<td class="grayField">Referencia</td>
+	    					<td class="grayField">Plaza</td>
+	    					<td class="grayField">Piso</td>
+	    					<td class="grayField">Locales</td>
+	    				</tr>
+	    			</thead>
+	    			<tbody>
+	    		<?php foreach($referencias as $ref):
+	    			$plaza_datos = $this->tempciri_model->traerDatosPLaza($ref->plaza_id);?>
+	    			<tr>
+		    			<td><?php echo $ref->rap;?></td>
+		    			<td><?php echo $plaza_datos[0]->plaza;?></td>
+		    			<td><?php echo $ref->piso;?></td>
+		    			<td><?php echo $ref->locales;?></td>
+	    			</tr>
+	    		<?php endforeach;?>
+	    			</tbody>
+	    		</table>	
+	    	<?php else:?>
+	    		<p>Aún no se han generado referencias para este prospecto</p>
+	    	<?php endif;?>
 		</div>
 		<br class="clear">
 	</div>
