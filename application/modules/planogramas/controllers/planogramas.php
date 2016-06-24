@@ -3,9 +3,9 @@
 class Planogramas extends MX_Controller
 {
 	function test(){
-
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 /* ORACLE PHP NATIVE */
-
 		$conn = oci_connect('XXSCHEMA_CONTRATOS','oracle123','(DESCRIPTION=
 			(ADDRESS=(PROTOCOL=tcp)(HOST=apeplazas.maxapex.net)(PORT=1521))
 			(CONNECT_DATA=(SID=XE))
@@ -16,7 +16,7 @@ class Planogramas extends MX_Controller
 		}else{
 			echo "siiii";
 		}
-
+/*
 		$stid = oci_parse($conn, 'SELECT * FROM XXAPE_CT_AVALES');
 		oci_execute($stid);
 
