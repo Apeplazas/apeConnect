@@ -620,7 +620,7 @@ class Prospectos extends MX_Controller {
 		if(!empty($veridicarap)){
 			
 			$this->session->set_flashdata('msg', '<div class="msgAlert"><img src="../assets/graphics/alert.png" alt="Alerta" /><p>Ya se genero una referencia con este prospecto para los locales indicados</p></div><br class="clear">', true);
-			redirect('prospectos/generar_referencia/'.$prospecto_id);
+			redirect('prospectos/generar_referencia/'.$prospecto_id,'refresh');
 			
 		}else{
 		

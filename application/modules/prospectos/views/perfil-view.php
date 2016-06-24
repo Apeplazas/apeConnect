@@ -63,6 +63,7 @@
 			</span>
 		</div>
 		<div>
+		<?= $this->session->flashdata('msg');?>
 		<?
 
 		$conversacionId = 0;
@@ -261,7 +262,7 @@
 					'fecha'	: fecha
 				},
 				dataType : 'json',
-				url : 'http://www.apeplazas.com/apeConnect/ajax/genera_rfc',
+				url : ajax_url+'genera_rfc',
 				type : 'post',
 				success : function(response) {
 					$('#rfcCuenta').val(response.rfc);

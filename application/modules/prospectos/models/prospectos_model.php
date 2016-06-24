@@ -49,6 +49,24 @@ class Prospectos_model extends CI_Model {
 		
 	}
 	
+	function detalle_rap($rap_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM referencias_rap r
+			LEFT JOIN prospectos_referencias_rap pr ON pr.referencia_id = r.referencia_id
+			LEFT JOIN prospectos p ON p.id = pr.prospecto_id
+			WHERE r.referencia_id = '$rap_id'"
+			);
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
 	
 	function prospectosAde($val){
 		$data = array();
