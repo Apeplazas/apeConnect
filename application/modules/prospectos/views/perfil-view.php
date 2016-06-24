@@ -86,17 +86,7 @@
 		<? endif ?>
 		</div>
 		
-		<!------  AQUI SE MUESTRA EL TEXTAREA PARA INSERTAR UN COMENTARIO SOBRE EL PROSPECTO   ----->
-		<div class="wrapListForm" id="commentC">
-			<form  action="<?=base_url()?>prospectos/agregarComentario" method="post">
-				<textarea name="respuesta" placeholder="Agrega tu comentario"></textarea>
-				<input type="hidden" name="conversacionId" value="<?=$conversacionId;?>" />
-				<input type="hidden" name="prospectoID" value="<?=$this->uri->segment(3);?>" />
-				<input class="mainBotton" type="submit" value="Enviar Comentario" />
-			</form>
-			<br class="clear">
-		</div>
-		<!---Aqui termina comentario textarea--->
+		
 	
 	
 	<div class="wrapListForm" id="wrapListForm1">
@@ -198,8 +188,21 @@
 		</table>
 		<br class="clear">
 	</div>
-
-
+	
+	
+	<!------  AQUI SE MUESTRA EL TEXTAREA PARA INSERTAR UN COMENTARIO SOBRE EL PROSPECTO   ----->
+		<div class="wrapListForm" id="commentC">
+			<form  action="<?=base_url()?>prospectos/agregarComentario" method="post">
+				<textarea name="respuesta" placeholder="Agrega tu comentario"></textarea>
+				<input type="hidden" name="conversacionId" value="<?=$conversacionId;?>" />
+				<input type="hidden" name="prospectoID" value="<?=$this->uri->segment(3);?>" />
+				<input class="mainBotton" type="submit" value="Enviar Comentario" />
+			</form>
+			<br class="clear">
+		</div>
+		<!---Aqui termina comentario textarea--->
+		
+		
 	<div class="wrapListForm" id="wrapListForm3">
 		<span class="secmainTit">Información importante</span>
 		<div class="comenWrap">
