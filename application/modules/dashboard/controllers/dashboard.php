@@ -81,6 +81,7 @@ function testmail(){
 			else{
 				$this->layouts->profile('dashboard-view', $op);
 			}
+
 		}
 	}
 
@@ -98,7 +99,11 @@ function testmail(){
 		$op['user']	= $user;
 		$this->layouts->profile('perfile-view', $op);
 	}
-
+    function GraficaDashboard(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+    	$this->layouts->profile('dashboardGrafica-view', $op);
+    }
 	function borrarProveedor($idProveedor)
 	{
 		$proveedor   = $this->uri->segment(3);

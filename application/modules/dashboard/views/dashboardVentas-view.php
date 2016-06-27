@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('America/Mexico_City'); 
-
 $today = date('Y-m-d') ;
 $firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
 $nextMonth= date('Y-m-d',strtotime('first day of next month')) ;

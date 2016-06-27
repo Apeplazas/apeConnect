@@ -179,7 +179,43 @@ class Dashboard_model extends CI_Model
 		return $data;
 		
 	}
-	
+	function cuentaProyectosDelMes($fechaDe, $fechaA){
+		$data = array();
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from proyectos 
+												WHERE fechaAltaProyecto > '$fechaDe'
+												AND fechaAltaProyecto < '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+
+	}
+	  
+     function cargaProyectos($fechaDe, $fechaA){
+     	$data = array(); 
+		$q = $this->db->query("SELECT 
+			u.usuarioID as 'usuarioID',
+			p.tituloProyecto as 'tituloProyecto', 
+			count(p.usuarioID) as cuentaTotal     
+		FROM proyectos p
+		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
+		WHERE idrole='6'
+		AND p.fechaAltaProyecto > '$fechaDe'
+		AND p.fechaAltaProyecto< '$fechaA'
+		GROUP BY p.usuarioID
+		ORDER BY cuentaTotal desc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
 	function cuentaProspectosTipo($usuarioID, $tipo, $fechaDe, $fechaA){
 		$data = array(); 
 		$q = $this->db->query("SELECT COUNT(*) as cuenta from prospectos 
@@ -196,7 +232,7 @@ class Dashboard_model extends CI_Model
 		}
 		return $data;
 	}
-	
+   
 	function cuentaProspectosDelMes($fechaDe, $fechaA){
 		$data = array(); 
 		$q = $this->db->query("SELECT COUNT(*) as cuenta from prospectos 
@@ -233,5 +269,4 @@ class Dashboard_model extends CI_Model
 		}
 		return $data;
 	}
-	
 }
