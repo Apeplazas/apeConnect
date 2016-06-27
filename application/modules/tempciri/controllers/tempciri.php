@@ -237,6 +237,7 @@ class Tempciri extends MX_Controller {
 		$op['rentaCant']		= $_POST['rentaMensual'];
 		$op['rentaDeposito']	= $_POST['rentaMensual']*1.16;
 		$op['local']			= $_POST['localnum'];
+		$op['local']			= str_replace (" ", "", $op['local']);
 
 		$op['clientrfc']		= $_POST['clientrfc'];
 		$op['clientEmail']		= $_POST['clientEmail'];

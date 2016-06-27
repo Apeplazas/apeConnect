@@ -2,7 +2,7 @@
 
 class Prospectos extends MX_Controller {
 
-	function testrap($rap = 'JP13H679',$banco = 'hsbc'){
+	public function generar_rap($rap = 'JP13H679',$banco = 'hsbc'){
 
 		if(!preg_match('/^[a-zA-Z0-9]*$/', $rap))
 			return false;
@@ -132,6 +132,7 @@ class Prospectos extends MX_Controller {
 		parent::__construct();
 		$this->user_model->checkuser();
 		$this->load->model('prospectos/prospectos_model');
+		$this->load->model('tempciri/tempciri_model');
 	}
 
 	function index()
@@ -568,12 +569,13 @@ class Prospectos extends MX_Controller {
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
 		$id = $this->uri->segment(3);
 
-		$op['zonas']      = $this->prospectos_model->cargarZonasProspecto($id);
-		$op['giros']      = $this->prospectos_model->cargarGirosProspecto($id);
-		$op['perfil']     = $perfil = $this->prospectos_model->cargarProspectoPerfil($id);
-		$op['vendedor']   = $this->prospectos_model->cargarUsuariosID($user['usuarioID']);
-		$op['plazas']     = $this->data_model->cargaZonas();
-		$op['comentario'] =$this->data_model->traeconversacion($prospectoID, 6);
+		$op['zonas']      	= $this->prospectos_model->cargarZonasProspecto($id);
+		$op['giros']      	= $this->prospectos_model->cargarGirosProspecto($id);
+		$op['perfil']     	= $perfil = $this->prospectos_model->cargarProspectoPerfil($id);
+		$op['vendedor']   	= $this->prospectos_model->cargarUsuariosID($user['usuarioID']);
+		$op['plazas']     	= $this->data_model->cargaZonas();
+		$op['comentario'] 	= $this->data_model->traeconversacion($prospectoID, 6);
+		$op['referencias'] 	= $this->prospectos_model->trae_referencias($prospectoID);
 
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
@@ -583,6 +585,75 @@ class Prospectos extends MX_Controller {
 		//Vista//
 		$this->layouts->profile('perfil-view' ,$op);
 	}
+	
+	function generar_referencia($prospectoID){
+		
+		//Optimizacion y conexion de tags para SEO//
+		$opt = $this->uri->segment(1);
+		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
+
+		$op['plazas']     = $this->data_model->trae_plazas();
+
+		//Carga el javascript para jquery//
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+					  ->add_include('assets/css/jquery-datepicker.css')
+					  ->add_include('assets/css/planogramas.css');
+
+		//Vista//
+		$this->layouts->profile('generar_referencia-view' ,$op);
+		
+	}
+
+	function guardar_referencia_bancaria(){
+	
+		$user = $this->session->userdata('usuario');
+		$plaza_id 	= $this->input->post('plaza');
+		$piso		= $this->input->post('plaza_piso');
+		$dir		= $this->input->post('plaza_dir');
+		$locales	= $this->input->post('locales');
+		$locales	= str_replace (" ", "", $locales);
+		
+		$prospecto_id = $this->input->post('prospecto_id');
+		
+		$veridicarap = $this->prospectos_model->verifica_rap($plaza_id,$piso,$locales,$dir);
+		
+		if(!empty($veridicarap)){
+			
+			$this->session->set_flashdata('msg', '<div class="msgAlert"><img src="../assets/graphics/alert.png" alt="Alerta" /><p>Ya se genero una referencia con este prospecto para los locales indicados</p></div><br class="clear">', true);
+			redirect('prospectos/generar_referencia/'.$prospecto_id,'refresh');
+			
+		}else{
+		
+			$temp_plaza_id		= str_pad($plaza_id, 4, "0", STR_PAD_LEFT);
+			$temp_prospecto_id 	= str_pad($prospecto_id, 4, "0", STR_PAD_LEFT);
+			$date				= date('dmHisY');
+			
+			$datos_plaza = $this->tempciri_model->traerDatosPLaza($plaza_id);
+
+			$rap = $this->generar_rap($temp_plaza_id.$temp_prospecto_id.$date,$datos_plaza[0]->banco);
+
+			$dat = array(
+				'rap'		=> $rap,
+				'plaza_id'	=> $plaza_id,
+				'piso'		=> $piso,
+				'direccion'	=> $dir,
+				'locales'	=> $locales
+			);
+			$this->db->insert('referencias_rap', $dat);
+			$rap_id = $this->db->insert_id();
+			
+			$datRef = array(
+				'prospecto_id'	=> $prospecto_id,
+				'referencia_id'	=> $rap_id,
+				'usuario_id'	=> $user['usuarioID']
+			);
+			$this->db->insert('prospectos_referencias_rap', $datRef);
+			$this->session->set_flashdata('msg', '<div class="msgAlert"><img src="../assets/graphics/alert.png" alt="Alerta" /><p>Se genero la referencia ' . $rap . '</p></div><br class="clear">', true);
+			redirect('prospectos/usuarios/'.$prospecto_id);
+			
+		}
+		
+	} 
 
 	function borrar($prospectoID, $status){
 
