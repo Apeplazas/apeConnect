@@ -355,7 +355,7 @@ class Data_model extends CI_Model {
 	function cargarGiros(){
 
 		$data = array();
-        $q = $this->db->query("SELECT * FROM prospectoGiro");
+        $q = $this->db->query("SELECT * FROM prospectoGiro ORDER BY giro asc");
         if($q->num_rows() > 0)
         {
             foreach($q->result() as $row)

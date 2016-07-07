@@ -1556,6 +1556,15 @@ class Ajax extends MX_Controller {
 
 	}
 
+	function cargar_detalle_rap(){
+	
+		$id	= $_POST['id'];
+		$detalle_rap = $this->prospectos_model->detalle_rap($id);
+		echo json_encode($detalle_rap[0]);
+		exit;
+	
+	}
+
 	function tipoDepositoVista(){
 		// Si es traspaso lo manda a la vista traspaso
 		if($this->uri->segment(3) == '1'){
@@ -1642,6 +1651,12 @@ class Ajax extends MX_Controller {
 		$op['data']  = $_POST['alldata'];
 
 		$this->load->view('cargaResultadosVendedores' ,$op);
+	}
+
+	function cargaResultadosCartaIntencion(){
+		$op['data']  =$_POST['alldata'];
+
+		$this->load->view('cargaResultadosCartaIntencion' ,$op);
 	}
 
 	function cargarUsuarios(){

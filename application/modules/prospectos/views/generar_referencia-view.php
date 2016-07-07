@@ -1,6 +1,7 @@
-<? $primerNombre    = set_value('primerNombre'); ?>
-<? $segundoNombre   = set_value('segundoNombre'); ?>
-<? $apellidoPaterno = set_value('apellidoPaterno'); ?>
+<? $plaza   	= set_value('plaza'); ?>
+<? $piso		= set_value('plaza_piso'); ?>
+<? $plaza_dir 	= set_value('plaza_dir'); ?>
+<? $locales 	= set_value('locales'); ?>
 
 <div id="mainTit">
 <h3>Generar Referencia Bancaria</h3>
@@ -31,7 +32,7 @@
 			<select id="plaza" name="plaza" required>
 				<option value="">Seleccione una plaza</option>
 				<?php foreach($plazas as $plaza):?>
-					<option value="<?php echo $plaza->id;?>"><?php echo $plaza->plaza;?></option>
+					<option value="<?php echo $plaza->id;?>" <?php if($plaza == $plaza->id) echo "selected";?>><?php echo $plaza->plaza;?></option>
 				<?php endforeach;?>
 			</select>
 		</td>
@@ -40,7 +41,11 @@
 	    </td>
 	    <td>
 			<select id="plaza_piso" name="plaza_piso" required>
-				<option value="">Seleccione una plaza</option>
+				<?php if($piso):?>
+				<option value="<?php echo $piso;?>"><?php echo $piso;?></option>
+				<?php else:?>
+				<option value="">Seleccione una plaza</option>	
+				<?php endif;?>
 			</select>
 		</td>
 	</tr>
@@ -50,14 +55,18 @@
 	    </td>
 	    <td>
 			<select id="plaza_dir" name="plaza_dir" required>
+				<?php if($plaza_dir):?>
+				<option value="<?php echo $plaza_dir;?>"><?php echo $plaza_dir;?></option>
+				<?php else:?>
 				<option value="">Seleccione una plaza</option>
+				<?php endif;?>
 			</select>
 		</td>
 	    <td>
 			<label>Local(es)</label>
 		</td>
 	    <td>
-		    <input class="bigInp" name="locales" value="" type="text" required/>
+		    <input class="bigInp" name="locales" value="<?php if($locales) echo $locales;?>" type="text" required/>
 		</td>
 	  </tr>
 		</tbody>
