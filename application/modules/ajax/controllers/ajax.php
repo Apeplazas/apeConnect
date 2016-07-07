@@ -1653,6 +1653,12 @@ class Ajax extends MX_Controller {
 		$this->load->view('cargaResultadosVendedores' ,$op);
 	}
 
+	function cargaResultadosCartaIntencion(){
+		$op['data']  =$_POST['alldata'];
+
+		$this->load->view('cargaResultadosCartaIntencion' ,$op);
+	}
+
 	function cargarUsuarios(){
 		$data 		= $_POST['alldata'];
 		$op['data'] = $this->evaluaciones_model->busquedaUsuariosAjax($data);

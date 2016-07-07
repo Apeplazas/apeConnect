@@ -4,7 +4,7 @@ $firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
 $nextMonth= date('Y-m-d',strtotime('first day of next month')) ;
 $lastMonth = date('Y-m-d',strtotime('last month')) ;
 $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
-// echo $thisMonth;
+
 ?>
 <? $pros   = $this->dashboard_model->cuentaProspectosDelMes($thisMonth, $today);?>
 <!-- MANDA AL DASHBOARD DE SUPERVISION VENTAS -->
@@ -21,78 +21,78 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <div class="wrapListLow">
 	<? $this->load->view('includes/toolbars/busquedaVendedoresProspectos')?>
 		 <div id="aqui">
-		<table id="ventasDash">
-			<thead>
+			<table id="ventasDash">
+				<thead>
+					<tr>
+						<th>Ejecutivo</th>
+						<th class="tcenter">Externo</th>
+						<th class="tcenter">Cambaceo</th>
+						<th class="tcenter">Empleado</th>
+						<th class="tcenter">Titular</th>
+						<th class="tcenter">Telemarketing</th>
+						<th class="tcenter">Web</th>
+						<th class="tcenter">Otro</th>
+						<th class="tcenter">Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<? $i = 0;?>
+					<? foreach($vendedores as $row):?>
+					<? $sumaTotal += $row->cuentaTotal;?>
+					<? $cExt = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $thisMonth, $today);?>
+					<? $cam = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $thisMonth, $today);?>
+					<? $int = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $thisMonth, $today);?>
+					<? $intT = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $thisMonth, $today);?>
+					<? $tel = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $thisMonth, $today);?>
+					<? $pag = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $thisMonth, $today);?>
+					<? $otr = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $thisMonth, $today);?>
+						<? foreach($cExt as $a):?>
+						<? $sumaA += $a->cuenta;?>
+						<? foreach($cam as $b):?>
+						<? $sumaB += $b->cuenta;?>
+						<? foreach($int as $c):?>
+						<? $sumaC += $c->cuenta;?>
+						<? foreach($intT as $t):?>
+						<? $sumaT += $t->cuenta;?>
+						<? foreach($tel as $d):?>
+						<? $sumaD += $d->cuenta;?>
+						<? foreach($pag as $e):?>
+						<? $sumaE += $e->cuenta;?>
+						<? foreach($otr as $f):?>
+						<? $sumaF += $f->cuenta;?>
 				<tr>
-					<th>Ejecutivo</th>
-					<th class="tcenter">Externo</th>
-					<th class="tcenter">Cambaceo</th>
-					<th class="tcenter">Empleado</th>
-					<th class="tcenter">Titular</th>
-					<th class="tcenter">Telemarketing</th>
-					<th class="tcenter">Web</th>
-					<th class="tcenter">Otro</th>
-					<th class="tcenter">Total</th>
+					<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
+					<td class="tcenter"><?= $a->cuenta;?></td>
+					<td class="tcenter"><?= $b->cuenta;?></td>
+					<td class="tcenter"><?= $c->cuenta;?></td>
+					<td class="tcenter"><?= $t->cuenta;?></td>
+					<td class="tcenter"><?= $d->cuenta;?></td>
+					<td class="tcenter"><?= $e->cuenta;?></td>
+					<td class="tcenter"><?= $f->cuenta;?></td>
+					<td class="tcenter"><?= $row->cuentaTotal;?></td>
 				</tr>
-			</thead>
-			<tbody>
-				<? $i = 0;?>
-				<? foreach($vendedores as $row):?>
-				<? $sumaTotal += $row->cuentaTotal;?>
-				<? $cExt = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cliente Externo', $thisMonth, $today);?>
-				<? $cam = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Cambaceo', $thisMonth, $today);?>
-				<? $int = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Empleado', $thisMonth, $today);?>
-				<? $intT = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Interno Titular', $thisMonth, $today);?>
-				<? $tel = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Telemarketing', $thisMonth, $today);?>
-				<? $pag = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Pagina Web', $thisMonth, $today);?>
-				<? $otr = $this->dashboard_model->cuentaProspectosTipo($row->usuarioID, 'Otro', $thisMonth, $today);?>
-					<? foreach($cExt as $a):?>
-					<? $sumaA += $a->cuenta;?>
-					<? foreach($cam as $b):?>
-					<? $sumaB += $b->cuenta;?>
-					<? foreach($int as $c):?>
-					<? $sumaC += $c->cuenta;?>
-					<? foreach($intT as $t):?>
-					<? $sumaT += $t->cuenta;?>
-					<? foreach($tel as $d):?>
-					<? $sumaD += $d->cuenta;?>
-					<? foreach($pag as $e):?>
-					<? $sumaE += $e->cuenta;?>
-					<? foreach($otr as $f):?>
-					<? $sumaF += $f->cuenta;?>
-			<tr>
-				<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
-				<td class="tcenter"><?= $a->cuenta;?></td>
-				<td class="tcenter"><?= $b->cuenta;?></td>
-				<td class="tcenter"><?= $c->cuenta;?></td>
-				<td class="tcenter"><?= $t->cuenta;?></td>
-				<td class="tcenter"><?= $d->cuenta;?></td>
-				<td class="tcenter"><?= $e->cuenta;?></td>
-				<td class="tcenter"><?= $f->cuenta;?></td>
-				<td class="tcenter"><?= $row->cuentaTotal;?></td>
-			</tr>
-			<? endforeach; ?>
-			<? endforeach; ?>
-			<? endforeach; ?>
-			<? endforeach; ?>
-			<? endforeach; ?>
-			<? endforeach; ?>
-			<? endforeach; ?>
-			<? $totVen =  $i++;?>
-			<? endforeach; ?>
-			<tr id="totVenPros">
-				<td></td>
-				<td><?= $sumaA?></td>
-				<td><?= $sumaB ?></td>
-				<td><?= $sumaC ?></td>
-				<td><?= $sumaT ?></td>
-				<td><?= $sumaD ?></td>
-				<td><?= $sumaE ?></td>
-				<td><?= $sumaF ?></td>
-				<td><?= $sumaTotal ?></td>
-			</tr>
-			</tbody>
-		</table>
+				<? endforeach; ?>
+				<? endforeach; ?>
+				<? endforeach; ?>
+				<? endforeach; ?>
+				<? endforeach; ?>
+				<? endforeach; ?>
+				<? endforeach; ?>
+				<? $totVen =  $i++;?>
+				<? endforeach; ?>
+				<tr id="totVenPros">
+					<td></td>
+					<td><?= $sumaA?></td>
+					<td><?= $sumaB ?></td>
+					<td><?= $sumaC ?></td>
+					<td><?= $sumaT ?></td>
+					<td><?= $sumaD ?></td>
+					<td><?= $sumaE ?></td>
+					<td><?= $sumaF ?></td>
+					<td><?= $sumaTotal ?></td>
+				</tr>
+				</tbody>
+			</table>
 		</div>
 		<? if (empty($totVen)):?>
 		Sin registros

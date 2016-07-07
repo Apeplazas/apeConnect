@@ -203,7 +203,8 @@ class Dashboard_model extends CI_Model
 			count(p.usuarioID) as cuentaTotal     
 		FROM proyectos p
 		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
-		WHERE idrole='6'
+		WHERE idrole='8'
+		OR idrole='1'
 		AND p.fechaAltaProyecto > '$fechaDe'
 		AND p.fechaAltaProyecto< '$fechaA'
 		GROUP BY p.usuarioID
@@ -256,7 +257,8 @@ class Dashboard_model extends CI_Model
 			count(p.usuarioID) as cuentaTotal     
 		FROM prospectos p
 		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
-		WHERE idrole='8'
+		WHERE idrole='8' 
+		OR idrole='1'
 		AND p.fechaCreacion > '$fechaDe'
 		AND p.fechaCreacion < '$fechaA'
 		GROUP BY p.usuarioID
@@ -269,4 +271,74 @@ class Dashboard_model extends CI_Model
 		}
 		return $data;
 	}
+
+	function cuentaCartaIntencionDelMes($fechaDe, $fechaA){
+		$data = array();
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from tempora_ci
+												WHERE fecha >= '$fechaDe'
+												AND fecha <= '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+
+	}
+    
+    function cargaCartaIntencion($fechaDe, $fechaA){
+     	$data = array(); 
+		$q = $this->db->query("SELECT 
+			C.gerentePlaza as 'gerentePlaza', 
+			c.plaza as 'plaza',
+			count(C.plaza) as cuentaTotal     
+		FROM tempora_ci C 
+		WHERE  C.fecha  >= '$fechaDe'
+		AND C.fecha  <= '$fechaA'
+		GROUP BY C.plaza
+		ORDER BY cuentaTotal desc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+
+	function cuentaCartaIntencion($usuarioID, $fechaDe, $fechaA){
+		$data = array(); 
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from tempora_ci
+												WHERE usuarioID='$usuarioID'
+												AND fecha >= '$fechaDe'
+												AND fecha <= '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+
+   function cuentaCartaIntencionPorMes($fechaDe, $fechaA){
+   	    $data = array();
+   	    $q = $this->db->query("SELECT COUNT(*) as cuenta from tempora_ci
+   	    	                                    WHERE fecha >= '$fechaDe'
+   	    	                                    AND fecha  <= '$fechaA'
+   	    	           
+   	    	                                    ");
+   	    if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+   }
+   
+
 }

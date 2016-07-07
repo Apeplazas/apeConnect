@@ -4,7 +4,6 @@ $firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
 $nextMonth= date('Y-m-d',strtotime('first day of next month')) ;
 $lastMonth = date('Y-m-d',strtotime('last month')) ;
 $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
-// echo $thisMonth;
 ?>
 <? $proy  = $this->dashboard_model->cuentaProyectosDelMes($thisMonth, $today);?>
 
