@@ -13,7 +13,7 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr, #colPr{cursor:pointer}
+button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr, #colPr, #mp{cursor:pointer}
 strong, #forAjaTwo strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
