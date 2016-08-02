@@ -7,6 +7,7 @@
   	    <em>Dashboard</em>
   	  </a>
   	</li>
+  
   	<?php if(isset($user['modulos']) && in_array('proyectos', $user['modulos'])):?>
   		<li class="prel <? if ($this->uri->segment(1) == 'proyectos'):?>active<? else:?>inactive<? endif?>">
   		  <a href="<?=base_url()?>proyectos/obras">
@@ -23,6 +24,7 @@
   		  </a>
   		</li>
 	<?php endif;
+
 	if(isset($user['modulos']) && in_array('cotizaciones', $user['modulos'])):?>
 		<li class="prel <? if ($this->uri->segment(1) == 'cotizaciones'):?>active<? else:?>inactive<? endif?>">
 		  <a href="<?=base_url()?>cotizaciones">

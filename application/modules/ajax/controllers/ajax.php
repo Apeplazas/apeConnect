@@ -15,6 +15,7 @@ class Ajax extends MX_Controller {
 		$this->load->model('user_model');
 
 		$this->load->model('tempciri/tempciri_model');
+		$this->load->model('administrador/administrador_model');
 
 	}
 
@@ -1626,6 +1627,29 @@ class Ajax extends MX_Controller {
 
 	}
 	
+	function cargarResultadoUsuarios(){
+
+		
+		$nombreCompleto	= $_POST['nombreCompleto'];
+		$email		= $_POST['email'];
+
+		$op['data']  = $this->administrador_model->busquedaEmail($email, $nombreCompleto);
+		  $this->load->view('busquedaEmailAvanzada', $op);	
+	}
+
+	function cargarResultadoUsuariosPosp(){
+
+		$nombreCompleto	= $_POST['nombreCompleto'];
+		$email		= $_POST['email'];
+
+		$op['data']  = $this->administrador_model->busquedaEmailPros($email, $nombreCompleto);
+
+		  $this->load->view('busquedaEmailAvandazadaPrpspectos', $op);	
+
+	}
+
+     
+
 	function cargarResultadoRap(){
 		
 		$plaza_id	= $_POST['plaza_id'];
