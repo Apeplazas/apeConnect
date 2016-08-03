@@ -28,7 +28,7 @@
     </th>
   </tr>
   <?endforeach; ?>
-</tbody>
+</tbody> 
 </table>
 <?else:?>
 <p id="msgAva">No tenemos ningún dato con la información proporcionada</p>

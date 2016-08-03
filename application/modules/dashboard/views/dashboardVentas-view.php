@@ -18,6 +18,12 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <?$sumaF = 0;?>
 <?$sumaTotal = 0;?>
 <h3 id="mainTit">Dashboard Ventas</h3>
+<div id="actions" style="top: 160px;">
+		<a href="<?=base_url()?>administrador/verUsuarioPros" title="Agregar Contactos" class="addSmall">
+			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Prospecto"></i>
+			<span>Agregar Usuarios Prospectos</span>
+		</a>
+	</div>
 <div class="wrapListLow">
 	<? $this->load->view('includes/toolbars/busquedaVendedoresProspectos')?>
 		 <div id="aqui">
