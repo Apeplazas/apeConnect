@@ -12,7 +12,7 @@
 		</a>
 	</div>
 	<? $this->load->view('includes/toolbars/busquedaAvanzadaUsuariosPros')?>
-
+  <div id="tablaproveed_wrapper">
 	<table id="tablaproveed">
 		<thead>
 			<tr>
@@ -39,6 +39,7 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
 	<fieldset>
 	   <input type="hidden" name="cartaIntId" id="cartaIntId" value="" />		
   </fieldset>

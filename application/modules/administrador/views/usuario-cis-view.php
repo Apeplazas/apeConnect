@@ -12,12 +12,11 @@
 		</a>
 	</div>
 	<? $this->load->view('includes/toolbars/busquedaAvanzadaUsuarios')?>
-
 	<table id="tablaproveed">
 		<thead>
 			<tr>
 				<th>Nombre Usuario</th>
-				<!--<th>Numeros de Cartas de Intencion</th>-->
+				<th>Total De Cartas Generadas</th>
 				<th>Plaza</th>
 				<th>Status</th>
 				<!--th></th-->
@@ -28,6 +27,7 @@
 			<tr>
 
 			    <th><p><?= $ci->nombreCompleto?></p></th>
+			    <th><p><?= $ci->TotalDeCartas?></p></th>
 
 			  <th><p><?= $ci->plaza?></p></th>
 			  <?php if($ci->status == 'Activado'):?>
@@ -38,6 +38,7 @@
 				<th>
 					<a href="<?= base_url();?>administrador/ActivadoCartaI/<?=$ci->usuarioID;?>"><?=$ci->status;?></a>
 				</th>
+			</tr>
 			<?php endif;?>
 			<?endforeach;?>
 		</tbody>

@@ -107,11 +107,15 @@ class Administrador_model extends CI_Model
 	
 	function cargarUsuarioCart($usuarioID){
 		$data = array();
-		$q = $this->db->query("SELECT  u.usuarioID, u.nombreCompleto,ci.plaza, u.status
-		     FROM usuarios u
-		     LEFT JOIN TEMPORA_CI ci ON ci.usuarioID = u.usuarioId
-		     WHERE u.idrole= '5'
-		     		     ");
+		$q = $this->db->query("SELECT u.usuarioID as 'usuarioID',
+			u.nombreCompleto as 'nombreCompleto',
+			ci.plaza as 'plaza',
+			u.status as 'status',
+			count(ci.usuarioId) as TotalDeCartas
+			FROM usuarios u
+			LEFT JOIN TEMPORA_CI ci ON ci.usuarioID = u.usuarioId
+			WHERE u.idrole= '5'
+			GROUP BY u.usuarioID");
 		if($q->num_rows()>0){
 			foreach($q->result() as $row){
 				$data[] = $row;

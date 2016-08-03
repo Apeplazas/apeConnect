@@ -108,14 +108,3 @@
       </ul>
 		</li>
 	<?php endif;?>
- <?php if(isset($user['modulos']) && in_array('administrador', array_keys($user['modulos']))):?>
-      <li class="main In <?if($this->uri->segment(1) == 'administrador'):?>bckMark<?endif?>">
-        <img class="svgIcon" alt="Proyectos" src="<?=base_url()?>assets/graphics/svg/administrador.svg" />
-        <strong>Administrador</strong>
-        <ul class="submenu">
-            <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Adminstracion</h3></li>
-          <li><a  href="<?=base_url()?>administrador/verUsuarioPros">Usuarios con prospectos</a></li>
-          <li><a href="<?=base_url()?>administrador/verUsuarioCi">Usuarios con cartas de intencion</a></li>
-        </ul>
-      </li>
-    <?php endif ?>;
