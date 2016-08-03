@@ -19,7 +19,7 @@ class Dashboard extends MX_Controller
         if(!isset($user) || $user != true)
         {
         	$this->session->set_userdata(array('previous_page'=> uri_string()));
-         	redirect('');
+			redirect('');
         }
     }
 

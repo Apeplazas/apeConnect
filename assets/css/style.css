@@ -530,6 +530,13 @@ border-bottom-right-radius: 5px; }
 #wrapDatos ul li span{float:left; width:170px; padding-left:20px; font-weight:700}
 #wrapDatos ul li em{font-style:normal}
 #wrapDatos input{border:0px; background:transparent; color:#007aff; font-weight:700; padding:0px; text-transform:uppercase}
+#creaInfo{float: left; width: 100%; text-transform: uppercase; margin: 18px 0 0 0; background: #fafafa; padding:6px 10px; border: 1px solid #eee; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px;}
+#creaInfo b{font-weight:bold; color:#555}
+
+/*---------------- REFERENCIAS------------------*/
+#referencias {border:1px solid #ccc}
+#referencias thead .grayField{font-weight:400; padding:4px 6px; text-transform:uppercase}
+#referencias tbody td{padding:3px 6px}
 
 /*---------------- Botones ------------------*/
 

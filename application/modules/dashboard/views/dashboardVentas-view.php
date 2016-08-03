@@ -94,12 +94,11 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 				</tbody>
 			</table>
 		</div>
-<<<<<<< HEAD
-=======
+		
+
 		<? if (empty($totVen)):?>
 		Sin registros
 		<?else:?>
->>>>>>> b3621e4447ee238274adb01c42c5b589675da6fa
 		<ul id="totMet">
 			<li class="brightGray">
 				<span>META</span>
@@ -119,6 +118,8 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			</li>
 		</ul>
 		<?endif?>
+		
+		
 		<div id="canvas-holder" style="width:30%">
 			<strong class="titChart">Volumen de ventas por tipo</strong>
 			<canvas id="chart-area" width="300" height="300"/>
