@@ -6,6 +6,7 @@ class Planogramas extends MX_Controller
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 /* ORACLE PHP NATIVE */
+/*
 		$conn = oci_connect('XXSCHEMA_CONTRATOS','oracle123','(DESCRIPTION=
 			(ADDRESS=(PROTOCOL=tcp)(HOST=apeplazas.maxapex.net)(PORT=1521))
 			(CONNECT_DATA=(SID=XE))
@@ -16,7 +17,7 @@ error_reporting(E_ALL);
 		}else{
 			echo "siiii";
 		}
-/*
+
 		$stid = oci_parse($conn, 'SELECT * FROM XXAPE_CT_AVALES');
 		oci_execute($stid);
 
@@ -31,13 +32,13 @@ error_reporting(E_ALL);
 		echo "</table>\n";
 
 
-/*
 		$oracle = $this->load->database('apedev',true);
-		$q = $oracle->query("SELECT * FROM XXAPE_CT_AVALES");
+		$q = $oracle->query("SELECT * FROM XXAPE_CLIENTES");
 		var_dump($q);
  		phpinfo();
+*/
 
-/*
+
 
 		$intelisis = $this->load->database('intelisis',true);
 		$iq = $intelisis->query("SELECT * FROM WEBPRUEBAS");
@@ -49,12 +50,32 @@ error_reporting(E_ALL);
 			$iq->free_result();
 		}
 		var_dump($data);
-*/
+
+
+
+/*
+ $dsn = "Driver={SQL Server};Server=192.168.1.5;Database=APE;Integrated Security=SSPI;Persist Security Info=False;";
+ 
+  $usr = 'sa';
+  $pwd =  '';
+
+      
+     $conexion = odbc_connect( $dsn, $usr, $pwd )or die(odbc_error());  
+     $queryt = "SELECT * FROM sucursal";
+     $result = odbc_exec($conexion, $queryt);
+     var_dump($queryt);
+
 
 //$salida = shell_exec('pwd');
 //echo "<pre>$salida</pre>";
-
+*/
 	}
+
+	function simulacion_clientes(){
+		
+		
+		
+	} 
 
 	public function __construct()
 	{
