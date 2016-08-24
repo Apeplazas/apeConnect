@@ -19,7 +19,7 @@
 		<a href="<?= base_url();?>oracle/exportar_clientes">Obtener Excel - Clientes</a><br>
 		<a href="<?= base_url();?>oracle/subir_archivo_clientes">Subir archivo - Clientes</a><br>
 		<?php endif;?>
-		<a href="<?= base_url();?>oracle/subir_archivo_layout_clientes">Subir archivo - Layout Clientes</a><br>
+		<a href="<?= base_url();?>oracle/subir_archivo_layout_clientes">Subir archivo - Layout Clientes -----------------------</a><br>
 	</div>
 
 </div>

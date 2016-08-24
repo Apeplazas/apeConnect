@@ -1,6 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Prospectos extends MX_Controller {
+	
+	function testrap(){
+		
+		$rap = $this->generar_rap("AZ00035SG00002L87","bancomer");
+		var_dump($rap);
+	}
 
 	public function generar_rap($rap = 'JP13H679',$banco = 'hsbc'){
 
@@ -11,7 +17,7 @@ class Prospectos extends MX_Controller {
 		$chars = array_reverse($chars);
 
 
-		if(sizeof($chars) > 39)
+		if(sizeof($chars) > 19)
 			return false;
 
 		$hsbc_valores = array(
@@ -71,6 +77,36 @@ class Prospectos extends MX_Controller {
 			'Y'	=>	0,
 			'Z'	=>	0
 		);
+		
+		$bancomer_valores = array(
+			'A' => 1,
+			'B' => 2,
+			'C' => 3,
+			'D' => 4,
+			'E' => 5,
+			'F'	=> 6,
+			'G' => 7,
+			'H' => 8,
+			'I' => 9,
+			'J' => 1,
+			'K' => 2,
+			'L' => 3,
+			'M' => 4,
+			'N' => 5,
+			'O' => 6,
+			'P' => 7,
+			'Q' => 8,
+			'R' => 9,
+			'S' => 1,
+			'T' => 2,
+			'U' => 3,
+			'V' => 4,
+			'W' => 5,
+			'X' => 6,
+			'Y' => 7,
+			'Z' => 8
+			
+		);
 
 		$multiply 	= 2;
 		$sum		= 0;
@@ -82,6 +118,8 @@ class Prospectos extends MX_Controller {
 					$char = $hsbc_valores[strtoupper($char)];
 				elseif($banco == 'banorte')
 					$char = $banorte_valores[strtoupper($char)];
+				elseif($banco == 'bancomer')
+					$char = $bancomer_valores[strtoupper($char)];
 
 			$temp 	= ($char*$multiply>=10) ? floor($char*$multiply/10)+($char*$multiply-10) : $char*$multiply;
 			$sum	= $sum + $temp;
@@ -91,9 +129,17 @@ class Prospectos extends MX_Controller {
 			else
 				$multiply = 2;
 		}
-
-		$res	= $sum-(10 * floor($sum/10));
-		$verifi	= (10-$res==10) ? 0 : 10-$res;
+		
+		if($banco == 'bancomer'){
+			
+			$verifi	= (10 * ceil($sum/10))-$sum;
+			
+		}else{
+			
+			$res	= $sum-(10 * floor($sum/10));
+			$verifi	= (10-$res==10) ? 0 : 10-$res;
+			
+		}
 
 		return $rap.$verifi;
 

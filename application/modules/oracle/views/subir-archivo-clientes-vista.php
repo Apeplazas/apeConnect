@@ -11,7 +11,7 @@
 	<br class="clear">
 		<a href="<?= base_url();?>oracle">Home</a>
 		<form action="<?= base_url();?>oracle/procesar_archivo_clientes" method="post" enctype="multipart/form-data">
-			<input type="file" name="archivo_obras" accept=".xls,.xlsx" />
+			<input type="file" name="archivo" accept=".xls,.xlsx" />
 			<input type="submit" value="Enviar" />
 		</form>
 	</div>

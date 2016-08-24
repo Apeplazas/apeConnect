@@ -526,7 +526,7 @@ $intelisis->query("SET IDENTITY_INSERT ETL.VALORES_LISTAS_DETALLE OFF");
 		$this->layouts->profile('subir-archivo-clientes-vista.php', $op);
 		
 	}
-
+/*
 	function procesar_archivo_layout_clientes(){
 	var_dump($_FILES);	
 		if( isset($_FILES['archivo']) && !empty($_FILES['archivo']) ){
@@ -544,12 +544,8 @@ $intelisis->query("SET IDENTITY_INSERT ETL.VALORES_LISTAS_DETALLE OFF");
 		   		move_uploaded_file($_FILES['archivo']['tmp_name'],DIRORACLE.$archivoNombre);
 				
 				$this->load->library('excel');
-		
-				/*
-				 * PHP Excel - Read a simple 2007 XLSX Excel file
-				 */
 				
-				/** Set default timezone (will throw a notice otherwise) */
+				//** Set default timezone (will throw a notice otherwise)
 				//date_default_timezone_set('America/Los_Angeles');
 				//date_default_timezone_set('UTC');
 				$saveTimeZone = date_default_timezone_get();
@@ -589,6 +585,219 @@ $intelisis->query("SET IDENTITY_INSERT ETL.VALORES_LISTAS_DETALLE OFF");
 			}
 			
 		}
+		
+	}
+*/
+
+	function procesar_archivo_clientes(){
+	
+		$this->load->library('excel');
+
+
+		$objPHPExcel = new PHPExcel();
+		// Set document properties
+		$objPHPExcel->getProperties()->setCreator("Ape plazas")
+									 ->setLastModifiedBy("Ape plazas")
+									 ->setTitle("Ape plazas");
+									 
+		$continue_process = true;
+/******************************************************************************************/	
+
+		
+/********************************
+ *			DIRECCIONES			*
+ ********************************/
+		
+		//Variable
+		$direcciones_data =  $this->oracle_model->traer_direcciones_a_procesar();
+
+		//Rows
+		foreach($direcciones_data as $dat){
+			
+			$data_layout_clientes = $this->oracle_model->traer_layout_cliente($dat->CLIENTE_ID);
+			//hay un error con el id del cliente
+			if(sizeof($data_layout_clientes) > 1){
+				continue;
+			}elseif(!isset($data_layout_clientes[0])){
+				continue;
+			}
+			
+			
+			//Verificar Domicilio 1
+			if($dat->DOMICILIO_1 != $data_layout_clientes->DOMICILIO_1){
+				$update = array(
+					'nombre_campo'		=> 'DOMICILIO_1',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->DOMICILIO_1,
+					'valor_actual'		=> $data_layout_clientes->DOMICILIO_1
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar Domicilio 3
+			if($dat->DOMICILIO_3 != $data_layout_clientes->DOMICILIO_3){
+				$update = array(
+					'nombre_campo'		=> 'DOMICILIO_3',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->DOMICILIO_3,
+					'valor_actual'		=> $data_layout_clientes->DOMICILIO_3
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar Num ext
+			if($dat->NUM_EXT != $data_layout_clientes->NUM_EXT){
+				$update = array(
+					'nombre_campo'		=> 'NUM_EXT',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->NUM_EXT,
+					'valor_actual'		=> $data_layout_clientes->NUM_EXT
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+
+			//Verificar Num Int
+			if($dat->NUM_INT != $data_layout_clientes->NUM_INT){
+				$update = array(
+					'nombre_campo'		=> 'NUM_INT',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->NUM_INT,
+					'valor_actual'		=> $data_layout_clientes->NUM_INT
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar Estado
+			if($dat->ESTADO != $data_layout_clientes->ESTADO){
+				$update = array(
+					'nombre_campo'		=> 'ESTADO',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->ESTADO,
+					'valor_actual'		=> $data_layout_clientes->ESTADO
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar Municipio
+			if($dat->MUNICIPIO != $data_layout_clientes->MUNICIPIO){
+				$update = array(
+					'nombre_campo'		=> 'MUNICIPIO',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->MUNICIPIO,
+					'valor_actual'		=> $data_layout_clientes->MUNICIPIO
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar CIUDAD
+			if($dat->CIUDAD != $data_layout_clientes->CIUDAD){
+				$update = array(
+					'nombre_campo'		=> 'CIUDAD',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->CIUDAD,
+					'valor_actual'		=> $data_layout_clientes->CIUDAD
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar PAIS
+			if($dat->PAIS != $data_layout_clientes->PAIS){
+				$update = array(
+					'nombre_campo'		=> 'PAIS',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->PAIS,
+					'valor_actual'		=> $data_layout_clientes->PAIS
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			
+			//Verificar CP
+			if($dat->CP != $data_layout_clientes->CP){
+				$update = array(
+					'nombre_campo'		=> 'CP',
+					'tabla'				=> 'etl.Clientes',
+					'referencia'		=> $dat->CLIENTE_ID,
+					'valor_anterior'	=> $dat->CP,
+					'valor_actual'		=> $data_layout_clientes->CP
+				);
+				$this->db->insert('tempora_historial_updates', $update);
+				
+			}
+			$data_layout_clientes = $data_layout_clientes[0];
+			var_dump($dat);
+			var_dump($data_layout_clientes);
+			exit;
+			
+		}
+		
+/********************************
+ *			PUNTOS_CONTACTO			*
+ ********************************/
+
+
+		// Header
+		$current_col = 0;
+		//$objPHPExcel->setActiveSheetIndex(0);
+		$objPHPExcel->removeSheetByIndex(0);
+		
+		$PUNTOS_CONTACTO = $objPHPExcel->createSheet();
+		$PUNTOS_CONTACTO->setTitle("PUNTOS_CONTACTO");
+		
+		//Variable
+		$puntos_contacto_data =  $this->oracle_model->traer_puntos_contactos_a_procesar();
+		
+		$header_puntos_contacto = array("PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", 
+			"PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID", "PUNTO_CONTACTO_ID"
+		);
+
+		foreach($header_puntos_contacto as $head){
+			$PUNTOS_CONTACTO->setCellValueByColumnAndRow($current_col, 1, $head);
+			++$current_col;
+		}
+
+		// Freeze panes
+		$PUNTOS_CONTACTO->freezePane('A2');
+
+		// Rows to repeat at top
+		$PUNTOS_CONTACTO->getPageSetup()->setRowsToRepeatAtTopByStartAndEnd(1, 1);
+
+		//Rows
+		foreach($puntos_contacto_data as $key => $dat){
+			$current_col = 0;
+			if(is_array($dat) || is_object($dat)){
+				foreach($dat as $value){
+					$PUNTOS_CONTACTO->setCellValueByColumnAndRow($current_col, $key+2, $value);
+					++$current_col;
+				}
+			}
+		}
+		
+		// Set active sheet index to the first sheet, so Excel opens this as the first sheet
+		$objPHPExcel->setActiveSheetIndex(0);
+
+		$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+		header('Content-type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="Products_'.date('dMy').'.xls"');
+        header('Cache-control: private, must-revalidate');
+
+        $objWriter->save('php://output');
+		exit();
 		
 	}
 

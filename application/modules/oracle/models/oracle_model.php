@@ -7,6 +7,34 @@ class Oracle_model extends CI_Model
 	{
 		parent::__construct();
 	}
+	
+	function traer_layout_cliente($cliente_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM tempora_layout_clientes lc WHERE lc.CLIENTE_ID = '$cliente_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
+	function traer_layout_ref_bancarias($cliente_id,$ref_bancaria){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM tempora_layout_ref_bancarias r WHERE r.CLIENTE_ID = '$cliente_id' AND r.REFERENCIA_BANCARIA = '$ref_bancaria'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
 
 	function traer_plazas(){
 		$data = array();
