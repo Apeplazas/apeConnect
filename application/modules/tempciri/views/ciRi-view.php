@@ -25,8 +25,42 @@
 		<span id="loading" style="display:none; margin-top:20px; text-align:center;"><img width="30" src="<?=base_url()?>assets/graphics/svg/loading.svg" alt="Cargando" /></span>
 		<br class="clear">
 	</div>
-<br class="clear">
-
+	<br class="clear">
+	
+		<table>
+			<thead>
+			<tr>
+				<th colspan="4">Cuenta RAP</th>
+			</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="grayField"><label>Referencia</label></td>
+					<td colspan="3">
+						<div class="ui-widget">
+							<input type="text" id="c_rap" />
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="mostrar_referencias">
+			
+		</div>
+		<script>
+			$(document).ready(function(){
+				$('#c_rap').keyup(function(){
+					$.post(ajax_url+"cargarResultadoRap", {
+    						plaza_id 	: $('#plazaId').val(),
+				    		rap			: $('#c_rap').val()
+  						},
+  						function(data) { sucess:
+						    $('#mostrar_referencias').html(data);
+					});
+				});
+			});
+		</script>
+	
 	<div class="wrapListForm" id="wrapListForm1">
 	<table>
 		<thead>

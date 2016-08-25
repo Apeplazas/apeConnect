@@ -380,7 +380,22 @@ class Data_model extends CI_Model {
         }
         return $data;
 	}
-
+	
+/***********************************************************
+ *					Funciones para plazas										 
+ ***********************************************************/
+function trae_plazas(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM TEMPORA_PLAZA");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+ 
 //funciones para comentarios..
 	function traeconversacion($idReferencia, $idConversacionTipo){
 		$data = array(); 

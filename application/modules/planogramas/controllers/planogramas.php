@@ -17,7 +17,7 @@ error_reporting(E_ALL);
 		}else{
 			echo "siiii";
 		}
-/*
+
 		$stid = oci_parse($conn, 'SELECT * FROM XXAPE_CT_AVALES');
 		oci_execute($stid);
 
@@ -32,14 +32,12 @@ error_reporting(E_ALL);
 		echo "</table>\n";
 
 
-
 		$oracle = $this->load->database('apedev',true);
-		$q = $oracle->query("SELECT * FROM XXAPE_CT_AVALES");
+		$q = $oracle->query("SELECT * FROM XXAPE_CLIENTES");
 		var_dump($q);
  		phpinfo();
-
-
 */
+
 		$intelisis = $this->load->database('intelisis',true);
 		$iq = $intelisis->query("SELECT * FROM WEBPRUEBAS");
 		$data = array();
@@ -51,11 +49,16 @@ error_reporting(E_ALL);
 		}
 		var_dump($data);
 
-
-//$salida = shell_exec('pwd');
-//echo "<pre>$salida</pre>";
+		//$salida = shell_exec('pwd');
+		//echo "<pre>$salida</pre>";
 
 	}
+
+	function simulacion_clientes(){
+		
+		
+		
+	} 
 
 	public function __construct()
 	{
