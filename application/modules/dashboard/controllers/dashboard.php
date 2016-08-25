@@ -74,7 +74,7 @@ function testmail(){
 			$op['no_notificaciones']          			= $this->user_model->numero_mensajes($user['usuarioID']);
 			$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
 			
-			if($user['idrole'] == '9' || $user['usuarioID'] == '1'){
+			if($user['idrole'] == '9' || $user['idrole'] == '5' || $user['usuarioID'] == '1'){
 				$this->layouts->profile('dashboardVentas-view', $op);
 			}
 			else{

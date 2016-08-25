@@ -18,7 +18,7 @@
 #tablaproveed{width:100%; margin-top:10px}
 #tablaproveed thead, #tablaAvan thead{font-size:13px; text-transform:capitalize;}
 #tablaproveed tr, #tablaAvan tr{border-bottom:1px solid #e2e2e4}
-#tablaproveed tr th, #tablaAvan tr th, #tablaAvan tr td, #tablaproveed tr td{padding:10px 0 8px;}
+#tablaproveed tr th, #tablaAvan tr th, #tablaAvan tr td, #tablaproveed tr td{padding:8px 0 6px;}
 #tablaproveed tbody th, #tablaAvan tbody th, #tablaAvan tbody td{font-weight:400; text-transform:uppercase}
 #tablaproveed tbody th p, #tablaAvan tbody th p, #tablaAvan tbody td p{max-width:280px; }
 #tablaproveed tr a, #tablaAvan tr a{float:left; width:100%; text-transform:uppercase; padding-right:10px; line-height:16px}

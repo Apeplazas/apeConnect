@@ -38,7 +38,8 @@
 			  			<a class="mt10 js-open-modal" data-modal-id="popup" href="#modal" title="<?= $ci->cartaIntId;?>">
 							<span>Agregar Firma</span>
 						</a>
-			  		<?php endif;?>			
+			  		<?php endif;?>
+			  		<a href="<?= base_url();?>tempciri/cancelarCi/<?=$ci->id;?>" title="<?=$ci->id;?>">CANCELAR</a>			
 			  	</th>
 			  <?php endif;?>
 				<!--th>

@@ -6,6 +6,7 @@ class Planogramas extends MX_Controller
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 /* ORACLE PHP NATIVE */
+/*
 		$conn = oci_connect('XXSCHEMA_CONTRATOS','oracle123','(DESCRIPTION=
 			(ADDRESS=(PROTOCOL=tcp)(HOST=apeplazas.maxapex.net)(PORT=1521))
 			(CONNECT_DATA=(SID=XE))
@@ -38,7 +39,7 @@ error_reporting(E_ALL);
  		phpinfo();
 
 
-
+*/
 		$intelisis = $this->load->database('intelisis',true);
 		$iq = $intelisis->query("SELECT * FROM WEBPRUEBAS");
 		$data = array();
@@ -49,7 +50,7 @@ error_reporting(E_ALL);
 			$iq->free_result();
 		}
 		var_dump($data);
-*/
+
 
 //$salida = shell_exec('pwd');
 //echo "<pre>$salida</pre>";
