@@ -3,6 +3,10 @@
 #winPlaza:hover{cursor:pointer}
 .grid{background: url(../graphics/bckGrid.png) 0 0 repeat;}
 #planoGrama{position:absolute; right:-50px; top:-85px; width:305px; background-color:#fff; border:1px solid #ccc; padding:70px 0 0 10px; z-index:9999; height:1300px;}
+
+#ventanamodal{position:absolute; right:45%; top:1%; width:26%; background-color:#fff; border:1px solid #ccc; padding:0px 0 0 8px; z-index:9999; height:40%}
+/*#modal1{position:absolute; right:24%; top:29%; width:15%; background-color:#fff; border:1px solid #ccc; padding:1px 0 0 7px; z-index:9999; height:20%}*/
+
 #planoGramaAsig{position:absolute; right:-97px; top:40px; width:320px; background-color:#F1F2F1; border:1px solid #ccc; padding:10px 10px 0 10px; z-index:9999; box-shadow: 0px 2px 16px #ccc; -moz-box-shadow: 0px 2px 16px #999; -webkit-box-shadow: 0px 2px 16px #999;}
 #plano, #planoCreacion{float:left; margin:0 20px 20px;}
 #planoGrama ul{float:left; width:100%;}
@@ -18,7 +22,7 @@
 #addPlaza select, #filtro select{border:1px solid #ccc; -moz-appearance:inherit; padding:0 10px; -webkit-appearance:inherit; float:left; height:26px; text-transform:uppercase; margin:10px 0 0 0; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; background:#fff}
 #asig{float:left; width:280px; z-index:999999; display:none; border:1px solid #ccc; background:#fafafa; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; padding:10px}
 #datos-cotizacion #cotizarLocal{padding:5px 10px}
-#asigInp{height:28px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border:1px solid #ccc; width:100%; margin:6px 0 0; padding:3px 15px}
+#asigInp{height:28px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border:1px solid #ccc; width:100%; margin:6px 0 0; padding:3px 15px; display:block}
 #statusLocal .field img{float:left; width:14px; margin-right:3px;}
 #statusLocal .field i{float:left; font-style:normal; font-weight:700; margin:1px 0 0 3px}
 #filtroTool{cursor:pointer; z-index:999999}
@@ -75,7 +79,8 @@ svg{width:805px; height:400px}
 .bgray{fill:#eee; stroke:#ccc; stroke-width:-0.5px;}
 .bgrayAsig{fill:#eee; stroke:#ccc; stroke-width:-0.5px;}
 text.clean{font-size:.1px;}
-.click{cursor:pointer}
+/*---PENDIENTE NEGRO0--- */
+.click{cursor:pointer; fill:#AC9C9C; stroke:#AC9C9C;}
 #panzoom {text-align: center;}
 #piFor{position:absolute; background:#eee; z-index:9999; padding:0px 1px 0px 8px; border:1px solid #ccc; border-radius:3px; height:29px !important; top:87px; left:715px;}
 #piFor h1{float:left; padding:7px 7px 0 0; text-transform:uppercase; font-size:11px; font-weight:400; height:28px; border-right:1px solid #ccc}
@@ -93,7 +98,15 @@ text .selected{color:#fff}
 text.selected {fill:brown;}
 .sinAsignar {fill:#ccc; stroke:#999; stroke-width:.5px;}
 .DESOCUPADO{fill:#B3FF99; stroke:#B2DE86; stroke-width:.5px;}
-.texto {font-size: 1.2px; cursor: context-menu;}
+
+.click habilitado{fill:#EEEEEE; stroke:#B2DE86; stroke-width:.5px;}
+.VIGENTE{fill:#B3FF99; stroke:#B2DE86; stroke-width:.5px;}
+.VENCIDO{fill:#F68787; stroke:#F68787; stroke-width:.5px;}
+.PENDIENTE{fill:#DDED74; stroke:#DDED74; stroke-width:.5px;}
+.seleccionado{fill:#93F3FF; stroke:#5CD9EA; stroke-width:.5px; }
+
+
+.texto {font-size: 1.2px; cursor: context-menu; fill:#574242; font:bold 90%;}
 .RENTADO {fill: #fdf8f2; stroke: #c30; stroke-width: .5px;}
 #toolbar li{float:left; position:relative}
 #actionsPlano{position:absolute; width:800px; height:34px; left:-4px; top:-30px; padding-top:11px}
@@ -162,3 +175,18 @@ text.selected {fill:brown;}
   animation-timing-function: ease-in-out;
   animation-direction: alternate;
   -moz-animation: none;}
+.content-box-blue {
+  background-color:#CCEEFF;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-green {
+  background-color:#0F9;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-red {
+  background-color:#F06B6B;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-orange {
+  background-color:#F0A373;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-yellow {
+  background-color:#EBED73;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}

@@ -24,7 +24,7 @@
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/sessions.html
  */
-class CI_Session {
+class CI_Session{
 
 	var $sess_encrypt_cookie		= FALSE;
 	var $sess_use_database			= FALSE;

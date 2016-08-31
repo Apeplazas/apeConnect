@@ -1412,19 +1412,24 @@ class Ajax extends MX_Controller {
 
 	public function agruparLocales(){
 
-		$ids    	= $_POST['ids'];
-		$cost_min	= $_POST['cost_min'];
-		$cost_max	= $_POST['cost_max'];
-		$grupo_nom	= $_POST['grupo_nombre'];
+		$ids    	= $_POST['id'];
+		$grupo_nom	= $_POST['nombre'];
+		$cost_min	= $_POST['minimo'];
+		$cost_max	= $_POST['maximo'];
+		$descu	= $_POST['descuento'];
+		$periodo	= $_POST['periodo'];
 
 		if(!empty($cost_min)){
 
 			$op = array(
-				'costo-min'   	=> $cost_min,
-				'cost-max'		=> $cost_max,
-				'grupo_nombre'	=> $grupo_nom
+				'nombre'	=> $grupo_nom,
+				'minimo'   	=> $cost_min,
+				'maximo'	=> $cost_max,
+				'descuento'	=> $descu,
+				'status'	=> 'no autorizado',
+				'periodo'	=> $periodo
 			);
-			$this->db->insert('grupos_locales', $op);
+			$this->db->insert('tempora_grupos_locales', $op);
 			$grupo_id = $this->db->insert_id();
 			$data = array();
 
@@ -1432,11 +1437,10 @@ class Ajax extends MX_Controller {
 
 				$data[] = array(
 				      'id' 		=> $id,
-				      'grupoId'	=> $grupo_id,
+				      'grupoId'	=> $grupo_nom
 				);
 
 			}
-
 			$this->db->update_batch('vector', $data, 'id');
 
 		}
@@ -1445,6 +1449,38 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
+	function statusGrupo()
+	{
+		$status       	= $_POST['status'];
+		$nombre       	= $_POST['nombre'];
+
+		$update = array('status' => $status);
+		$this->db->where('nombre', $nombre);
+		$this->db->update('tempora_grupos_locales', $update);
+
+		echo json_encode($op);
+	}
+	
+	function eliminarGrupo()
+	{
+		$nombre       	= $_POST['nombre'];
+		$id       	= $_POST['id'];
+		$minimo       	= $_POST['minimo'];
+		$maximo       	= $_POST['maximo'];
+		$descuento       	= $_POST['descuento'];
+		$status       	= $_POST['status'];
+		$periodo       	= $_POST['periodo'];
+
+		$update = array('id'=>$id,'nombre'=> $nombre, 'minimo'=> $minimo, 'maximo'=> $maximo, 'descuento'=> $descuento, 'status'=> $status, 'periodo'=> $periodo);
+		$upd = array('grupoId'=>'');
+		$this->db->where('nombre', $nombre);
+		$this->db->delete('tempora_grupos_locales', $update);
+		$this->db->where('grupoId', $nombre);
+		$this->db->update('vector', $upd) ;
+
+		echo json_encode($op);
+	}
+	
 
 	function traeCiPorPlaza(){
 
