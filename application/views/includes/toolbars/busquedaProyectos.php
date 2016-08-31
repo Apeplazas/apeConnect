@@ -9,13 +9,13 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 // echo $thisMonth;
 ?>
 
-<form id="busAvanDisplay" style="float: left; border: 1px solid #eee; width: 96%; margin: 46px 0px 21px 22px; ding: 20px; background: #fafafa; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;">
+<form id="busAvanDisplay">
   <strong>Búsqueda por fecha</strong>
   <div id="firAvan">
   <fieldset>
     <span>
       <i><img src="<?=base_url()?>assets/graphics/svg/calendario.svg" width="14" alt="calendar"></i>
-      <label style="margin-left: 10px;">Prospectos generados | De</label>
+      <label>Proyectos | De</label>
       <input class="change" type="text" id="deFecPro" name="deFecPro" value="<?=$thisMonth?>">
     </span>
     <span>
@@ -45,20 +45,20 @@ $("#deFecPro, #aFecPro").datepicker({
 
 
 $('.change').change(function(event){
-  cuentaProspectos();
+  cuentaProyectos();
 });
 
-function cuentaProspectos(){
+function cuentaProyectos(){
 
-  var fechaDe = $('#deFecPro').val();
-  var fechaA = $('#aFecPro').val();
+  var fechaDe = $('#deFecProy').val();
+  var fechaA = $('#aFecProy').val();
   
   var alldata = {
     fechaDe : fechaDe,
     fechaA: fechaA,
    };
 
-  $.post(ajax_url+"cargaResultadosVendedores", {
+  $.post(ajax_url+"cargaResultadosProyectos", {
     alldata : alldata
   },
 

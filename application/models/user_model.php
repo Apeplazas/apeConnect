@@ -355,7 +355,22 @@ class User_model extends CI_Model {
 		return $data;
 
 	}
+   function verificarCancelProsp($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Desactivado' WHERE usuarioID=$usuarioID");
+   }
 
+     function verificarActivoProsp($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Activado' WHERE usuarioID=$usuarioID");
+   }
+
+
+      function verificarCanceladoCartaI($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Desactivado' WHERE usuarioID=$usuarioID");
+   }
+
+     function verificarActivoCartaI($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Activado' WHERE usuarioID=$usuarioID");
+   }
 	function verificarRiProp($userId,$riId){
 
 		$data = array();

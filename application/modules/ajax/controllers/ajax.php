@@ -15,6 +15,7 @@ class Ajax extends MX_Controller {
 		$this->load->model('user_model');
 
 		$this->load->model('tempciri/tempciri_model');
+		$this->load->model('administrador/administrador_model');
 
 	}
 
@@ -1500,6 +1501,15 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
+	
+	function cargarPlazaPisos(){
+
+		$plazaId	= $_POST['plazaId'];
+		$ci			= $this->tempciri_model->cargarPLazaPisos($plazaId);
+		echo json_encode($ci);
+		exit;
+
+	}
 
 	function traeFolioGenerar(){
 
@@ -1583,6 +1593,15 @@ class Ajax extends MX_Controller {
 
 	}
 
+	function cargar_detalle_rap(){
+	
+		$id	= $_POST['id'];
+		$detalle_rap = $this->prospectos_model->detalle_rap($id);
+		echo json_encode($detalle_rap[0]);
+		exit;
+	
+	}
+
 	function tipoDepositoVista(){
 		// Si es traspaso lo manda a la vista traspaso
 		if($this->uri->segment(3) == '1'){
@@ -1644,6 +1663,40 @@ class Ajax extends MX_Controller {
 
 	}
 	
+	function cargarResultadoUsuarios(){
+
+		
+		$nombreCompleto	= $_POST['nombreCompleto'];
+		$email		= $_POST['email'];
+
+		$op['data']  = $this->administrador_model->busquedaEmail($email, $nombreCompleto);
+		  $this->load->view('busquedaEmailAvanzada', $op);	
+	}
+
+	function cargarResultadoUsuariosPosp(){
+
+		$nombreCompleto	= $_POST['nombreCompleto'];
+		$email		= $_POST['email'];
+
+		$op['data']  = $this->administrador_model->busquedaEmailPros($email, $nombreCompleto);
+
+		  $this->load->view('busquedaEmailAvandazadaPrpspectos', $op);	
+
+	}
+
+     
+
+	function cargarResultadoRap(){
+		
+		$plaza_id	= $_POST['plaza_id'];
+		$rap		= $_POST['rap'];
+
+		$op['referencias'] = $this->prospectos_model->busquedaRaps($rap,$plaza_id);
+
+		$this->load->view('busquedaRap-view' ,$op);
+
+	}
+	
 	function cargarResultadoProsVend(){
 		$data 		= $_POST['alldata'];
 
@@ -1658,6 +1711,12 @@ class Ajax extends MX_Controller {
 		$op['data']  = $_POST['alldata'];
 
 		$this->load->view('cargaResultadosVendedores' ,$op);
+	}
+
+	function cargaResultadosCartaIntencion(){
+		$op['data']  =$_POST['alldata'];
+
+		$this->load->view('cargaResultadosCartaIntencion' ,$op);
 	}
 
 	function cargarUsuarios(){

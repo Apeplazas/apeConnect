@@ -7,11 +7,23 @@
         <ul class="submenu">
             <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Proyectos</h3></li>
           <li><a title="Proyectos" href="<?=base_url()?>proyectos/obras">Lista de proyectos</a></li>
-          <li><a href="<?=base_url()?>cotizaciones">Cotizaciones</a></li>
+          <li><a href="<?=base_url()?>administrad">Cotizaciones</a></li>
         </ul>
   		</li>
-
   	<?php endif;
+
+    if(isset($user['modulos']) && in_array('administador', array_keys($user['modulos']))):?>
+    <li id="administradorHover" class="main In">
+    <img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/directorio.svg" />
+      <strong>ADMinistrador</strong>
+      <ul class="submenu">
+        <li class="heading"><img src="<?=base_url()?>assets/graphics/markHeading.png" /><h3>Evaluaciones</h3></li>
+        <li><a href="<?=base_url()?>evaluacionestwo">Evaluaciones 2015 - 2016</a></li>
+      </ul>
+    </li>
+        <?php endif;
+
+
   	if(isset($user['modulos']) && in_array('prospectos', array_keys($user['modulos']))):?>
   		<li class="main In <?if($this->uri->segment(1) == 'prospectos'):?>bckMark<?endif?>">
         <img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/user.svg" />
@@ -67,8 +79,8 @@
         <?php endif;?>
       </ul>
     </li>
-	
 	<?php endif;
+
 	if(isset($user['modulos']) && in_array('evaluacionestwo', array_keys($user['modulos']))):?>
 		<li id="evaluacionesHover" class="main In">
 		<img class="svgIcon" alt="Prospectacion" src="<?=base_url()?>assets/graphics/svg/evaluaciones.svg" />
@@ -96,4 +108,3 @@
       </ul>
 		</li>
 	<?php endif;?>
-	
