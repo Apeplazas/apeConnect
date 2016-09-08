@@ -9,19 +9,19 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 // echo $thisMonth;
 ?>
 
-<form id="busAvanDisplay" class="mt10">
+<form id="busAvanDisplay">
   <strong>Búsqueda por fecha</strong>
   <div id="firAvan">
   <fieldset>
     <span>
       <i><img src="<?=base_url()?>assets/graphics/svg/calendario.svg" width="14" alt="calendar"></i>
-      <label style="margin-left: 10px;">Prospectos generados | De</label>
-      <input class="change" type="text" id="deFecPro" name="deFecPro" value="<?=$thisMonth?>">
+      <label>Carta de Intencion| De</label>
+      <input class="change" type="text" id="deFeccart" name="deFeccart" value="<?=$thisMonth?>">
     </span>
     <span>
       <i><img src="<?=base_url()?>assets/graphics/svg/calendario.svg" width="14" alt="calendar"></i>
       <label>A</label>
-      <input class="change" type="text" id="aFecPro" name="aFecPro" value="<?=$today?>">
+      <input class="change" type="text" id="aFeccart" name="aFeccart" value="<?=$today?>">
     </span>
   </fieldset>
   </div>
@@ -34,7 +34,7 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <link rel="stylesheet" href="<?=base_url()?>assets/css/jquery-datepicker.css" type="text/css">
 <script language="javascript" src="<?=base_url()?>assets/js/jquery-datepicker.js" type="text/javascript"></script>
 <script>
-$("#deFecPro, #aFecPro").datepicker({
+$("#deFeccart, #aFeccart").datepicker({
     	dateFormat: 'yy-mm-dd',
     	changeMonth: true,
    		changeYear: true,
@@ -45,25 +45,26 @@ $("#deFecPro, #aFecPro").datepicker({
 
 
 $('.change').change(function(event){
-  cuentaProspectos();
+  cuentaCartaDeIntencion();
 });
 
-function cuentaProspectos(){
+function cuentaCartaDeIntencion(){
 
-  var fechaDe = $('#deFecPro').val();
-  var fechaA = $('#aFecPro').val();
+  var fechaDe = $('#deFeccart').val();
+  var fechaA = $('#aFeccart').val();
   
+
   var alldata = {
     fechaDe : fechaDe,
     fechaA: fechaA,
    };
 
-  $.post(ajax_url+"cargaResultadosVendedores", {
+  $.post(ajax_url+"cargaResultadosCartaIntencion", {
     alldata : alldata
   },
 
  function(data) { sucess:
-	$("#ventasDash").remove();
+	$("#cartasIntencionDash").remove();
   	$("#aqui").append(data);
   });
 };

@@ -1,12 +1,11 @@
 <? $vendedores   = $this->dashboard_model->cargaVendedores($data['fechaDe'], $data['fechaA']);?>
-
-	<table id="ventasDash">
+<table id="ventasDash">
 			<caption></caption>
 			<thead>
 				<tr>
 					<th>Ejecutivo</th>
 					<th class="tcenter">Cliente Externo</th>
-					<th class="tcenter">Cambaceo</th>
+					<th class="tcenter">Cambacéo</th>
 					<th class="tcenter">Interno Empleado</th>
 					<th class="tcenter">Interno Titular</th>
 					<th class="tcenter">Telemarketing</th>
@@ -52,4 +51,3 @@
 			<? endforeach; ?>
 			</tbody>
 		</table>
-		<br class="clear">

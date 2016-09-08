@@ -22,14 +22,14 @@
 	<form id="addPros" action="<?=base_url()?>prospectos/guardar_referencia_bancaria" method="post">
 	
 	<div class="wrapListForm" id="wrapListForm1">
-	<table>
+	<table class="mt10">
 		<tbody>
 	<tr>
 	    <td>
 	    	<label>Plaza</label>
 	    </td>
 	    <td>
-			<select id="plaza" name="plaza" required>
+			<select class="selBig" id="plaza" name="plaza" required>
 				<option value="">Seleccione una plaza</option>
 				<?php foreach($plazas as $plaza):?>
 					<option value="<?php echo $plaza->id;?>" <?php if($plaza == $plaza->id) echo "selected";?>><?php echo $plaza->plaza;?></option>
@@ -40,7 +40,7 @@
 	    	<label>Piso</label>
 	    </td>
 	    <td>
-			<select id="plaza_piso" name="plaza_piso" required>
+			<select  class="selBig" id="plaza_piso" name="plaza_piso" required>
 				<?php if($piso):?>
 				<option value="<?php echo $piso;?>"><?php echo $piso;?></option>
 				<?php else:?>
@@ -54,7 +54,7 @@
 	    	<label>Dirección de la plaza</label>
 	    </td>
 	    <td>
-			<select id="plaza_dir" name="plaza_dir" required>
+			<select class="selBig" id="plaza_dir" name="plaza_dir" required>
 				<?php if($plaza_dir):?>
 				<option value="<?php echo $plaza_dir;?>"><?php echo $plaza_dir;?></option>
 				<?php else:?>
@@ -74,7 +74,7 @@
 
 		<span id="formSub">
 			<input type="hidden" name="prospecto_id" value="<?php echo $this->uri->segment(3);?>" />
-		  	<input class="mainBotton" type="submit" name="button" id="button" value="Generar Referencia">
+		  	<input class="mainBotton mt10" type="submit" name="button" id="button" value="Generar Referencia">
 		</span>
 		<br class="clear">
 	</div>
