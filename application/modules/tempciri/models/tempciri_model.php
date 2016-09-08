@@ -128,6 +128,22 @@ class Tempciri_model extends CI_Model
 
 	}
 
+	function cargarUsuarioCart($usuarioID){
+		$data = array();
+		$q = $this->db->query("SELECT u.nombreCompleto,ci.plaza, u.status
+		     FROM usuarios u
+		     LEFT JOIN TEMPORA_CI ci ON ci.usuarioID = u.usuarioId
+		     WHERE u.usuarioID = '$usuarioID'
+		     ");
+		if($q->num_rows()>0){
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+
 	function cargarTodoCis(){
 
 		$data = array();
@@ -211,7 +227,21 @@ class Tempciri_model extends CI_Model
 		return $data;
 
 	}
+   function traerDatosUsuarios($usuarioID){
+   	   $data = array();
+   	   $q =$this->db->query("SELECT u.nombreCompleto,u.email, u.status, ci.plaza
+   	   	     FROM usuarios u
+   	   	     LEFT JOIN TEMPORA_CI ci ON ci.usuarioId = u.usuarioID
+              WHERE u.usuarioID = '$usuarioID' ");
+   	   if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
 
+   }
 	function traerDepositosCi($ciId){
 
 		$data = array();
@@ -337,6 +367,19 @@ class Tempciri_model extends CI_Model
 
 	}
 
+ function usuarioExist($usuarioID){
+ 	$data = array();
+ 	$q = $this->db->query("SELECT * FROM  usuarios
+ 		  WHERE usuarioID = '$usuarioID'");
+ 	if ($q->num_rows()> 0) {
+ 		foreach ($q->result()as $row) {
+ 			$data[]=$row;
+
+ 		}
+ 		$q->free_result();
+ 	}
+ 	return$data;
+ }
   function busquedaCartasIntencion($data){
 
 		$cadena = '';
@@ -508,6 +551,27 @@ function busquedaCartasIntencionExcel($data){
 		}
 		return $data;
 
+	}
+
+	function busquedaEmail($email, $nombreCompleto){
+
+		$data = array();
+
+		$q = $this->db->query("SELECT * FROM roles_modulos r
+			LEFT JOIN roles rl ON r.idrole=rl.id
+			LEFT JOIN usuarios u ON u.idrole=rl.id
+			LEFT JOIN TEMPORA_PLAZA tp ON tp.id = u.plazaId
+			where r.idmodulo='12'
+			and u.email like '%$email%'
+			and u.nombreCompleto like '%$nombreCompleto%'");
+
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
 	}
 
 }
