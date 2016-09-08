@@ -621,7 +621,7 @@ class Prospectos extends MX_Controller {
 		$op['vendedor']   	= $this->prospectos_model->cargarUsuariosID($user['usuarioID']);
 		$op['plazas']     	= $this->data_model->cargaZonas();
 		$op['comentario'] 	= $this->data_model->traeconversacion($prospectoID, 6);
-		$op['referencias'] 	= $this->prospectos_model->trae_referencias($prospectoID);
+		//$op['referencias'] 	= $this->prospectos_model->trae_referencias($prospectoID);
 
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
@@ -665,7 +665,7 @@ class Prospectos extends MX_Controller {
 		
 		if(!empty($veridicarap)){
 			
-			$this->session->set_flashdata('msg', '<div class="msgAlert"><img src="../assets/graphics/alert.png" alt="Alerta" /><p>Ya se genero una referencia con este prospecto para los locales indicados</p></div><br class="clear">', true);
+			$this->session->set_flashdata('msg', '<div class="msgAlert"><img src="../../assets/graphics/alert.png" alt="Alerta" /><p>Ya se genero una referencia con este prospecto para los locales indicados</p></div><br class="clear">', true);
 			redirect('prospectos/generar_referencia/'.$prospecto_id,'refresh');
 			
 		}else{

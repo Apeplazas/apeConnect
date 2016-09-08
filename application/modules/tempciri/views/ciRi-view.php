@@ -231,7 +231,9 @@
 	    			<option value="13 meses">13 meses</option>
 	    			<option value="14 meses">14 meses</option>
 	    			<option value="15 meses">15 meses</option>
-	    			<option value="16 meses">16 meses</option>
+	    			<? if ( $plaza->id == 35):?>
+	    			<? for ($i = 17; $i<=60; $i++):?> <option value="<?=$i?> meses"><?=$i?> meses</option><?endfor?>
+	    			<?endif?>
 	    		</select>
 				</td>
 				<td class="grayField"><label>Días de gracias</label></td>

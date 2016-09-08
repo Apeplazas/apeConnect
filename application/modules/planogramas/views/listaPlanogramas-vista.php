@@ -57,7 +57,7 @@
 	</div>
 
 	<div class="wrapListForm" id="wrapListForm1">
-	<table class="thbr" id="tablaPlano" >
+	<table class="thbr mt10" id="tablaPlano" >
 		<thead>
 			<tr>
 				<th >Ciudad</th>

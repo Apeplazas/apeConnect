@@ -32,7 +32,7 @@ h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#777; fon
 .bckMark{background-color:#f0f8ff}
 a:hover{color:#6495ED}
 .alertTab{color:brown; font-weight:700}
-.ohid{overflow:hidden}
+.ohid{overflow-x:hidden}
 .alertClick{background:#F5F5DC}
 
 /*---------------- Cargador ------------------*/
@@ -309,7 +309,7 @@ a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color
 .panelRight:hover{background:url(../graphics/rArrows.png) 8px -55px no-repeat #007aff;}
 .panelLeft:hover{background-color:#eee;}
 #triangle{background:url(../graphics/rArrows.png) center -31px no-repeat;     height:40px; float:left; max-width:100px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; font-style:normal}
-.msgAlert{float:left; padding:0 10px 5px;margin:0 0 10px 17px; font-weight: 400; text-transform:uppercase;}
+.msgAlert{float:left; padding:0 10px 5px;margin:17px 0 10px 17px; font-weight: 400; text-transform:uppercase;}
 .msgAlert img{float:left; margin-right:5px;}
 .msgAlert p{float:left; margin-top:5px; font-weight:700}
 #msgRecAgr{float:left; border:1px solid #ccc; width:100%; margin-top:10px; position:relative;}
@@ -513,7 +513,7 @@ border-bottom-right-radius: 5px; }
 #filVen select{border: 1px solid #ccc; background-color: #fff; height: 29px; text-transform: uppercase; float:left;}
 #canvas-holder{float:left; width:20%; text-align:center; border:1px solid #B7E3FF; padding:36px 20px 10px; position:relative}
 .titChart{position:absolute; width:100%; top: 0px; left: 0px; background-color: #f0f8ff; padding: 6px 0; text-transform: uppercase; border-bottom:1px solid #B7E3FF;}
-.eje{float:left; width:235px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; border-right:1px solid #B7E3FF}
+.eje{float:left; width:100%; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; border-right:1px solid #B7E3FF}
 #ventasDash tbody tr:hover{background:#f0f8ff !important}
 #ventasDash .tcenter{background:#fafafa;}
 #totVenPros{background:#f0f8ff !important; text-align:center}

@@ -19,7 +19,7 @@
 
 	<?= $this->session->flashdata('msg');?>
 
-	<form id="addPros" action="<?=base_url()?>prospectos/guardar_referencia_bancaria" method="post">
+	<form id="addPros" class="mt10" action="<?=base_url()?>prospectos/guardar_referencia_bancaria" method="post">
 	
 	<div class="wrapListForm" id="wrapListForm1">
 	<table>
