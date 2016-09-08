@@ -1,4 +1,4 @@
-<? foreach($infoPlano as $p):?>
+<? $test_data = array(); foreach($infoPlano as $p):?>
 <script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
 <div class="wrapList" id="wrapListPlano">
 	<div id="actions">
@@ -29,19 +29,6 @@
 		<div id="panzoom">
 		<svg class="grid" version="1.1" id="Layer1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 900 500" enable-background="new 0 0 900 500" xml:space="preserve">
 		<g>
-		<? foreach($areaPublica as $rowA): ?>
-		<? if($rowA->tipo == 'polyline'): ?>
-		<polyline id="<?= $rowA->id;?>" class="areaPublica" points="<?= $rowA->points;?>"/>
-		<? elseif ($rowA->tipo == 'path'):?>
-		<path  id="<?= $rowA->id;?>" d="<?= $rowA->d;?>" class="areaPublica" />
-		<? elseif ($rowA->tipo == 'line'):?>
-		<line id="<?= $rowA->id;?>" class="areaPublica" y1="<?= $rowA->y1;?>" x2="<?= $rowA->x2;?>" y2="<?= $rowA->y2;?>" />
-		<? elseif ($rowA->tipo == 'polygon'):?>
-		<polygon id="<?= $rowA->id;?>" class="areaPublica" points="<?=$rowA->points;?>"/>
-		<? elseif ($rowA->tipo == 'rect'):?>
-		<rect id="<?= $rowA->id;?>" class="areaPublica" y="<?=$rowA->y;?>" width="<?=$rowA->width;?>" height="<?=$rowA->height;?>"/>
-		<? endif;?>
-		<? endforeach; ?>
 
 
 		<? foreach($locales as $row):
@@ -59,19 +46,12 @@
 		?>
 
 
-
+<?php  if($row->id == 35367 || $row->id == 35368 || $row->id == 35369): $test_data[$row->id] = $row->points;?>		
 		<? if($row->tipo == 'polyline'): ?>
 		<polyline id="<?= $row->id;?>" class="<?=$class?>"
 		points="<?= $row->points;?>"/>
-		<? elseif ($row->tipo == 'path'):?>
-		<path  id="<?= $row->id;?>" d="<?= $row->d;?>" class="<?=$class?>" />
-		<? elseif ($row->tipo == 'line'):?>
-		<line id="<?= $row->id;?>" class="<?=$class?>" x1="<?= $row->x1;?>" y1="<?= $row->y1;?>" x2="<?= $row->x2;?>" y2="<?= $row->y2;?>" />
-		<? elseif ($row->tipo == 'polygon'):?>
-		<polygon id="<?= $row->id;?>" class="<?=$class?>" points="<?=$row->points;?>"/>
-		<? elseif ($row->tipo == 'rect'):?>
-		<rect id="<?= $row->id;?>" class="<?=$class?>" x="<?=$row->x;?>" y="<?=$row->y;?>" width="<?=$row->width;?>" height="<?=$row->height;?>"/>
 		<? endif;?>
+<? endif;?>		
 		<? endforeach; ?>
 
 		<? foreach($texto as $r):?>
@@ -124,7 +104,43 @@
 
 	</div>
 </div>
-<? endforeach; ?>
+<?php //var_dump($test_data);
+$temp = array();
+$ids = array();
+foreach($test_data as $key => $dat){
+	$dat = trim($dat);
+	$dat = preg_replace('!\s+!', ' ', $dat);
+	$temp[$key] = explode(" ",$dat);
+}
+
+foreach($temp as $id => $points){
+	$ids[] = $id;
+	foreach($points as $point){
+		var_dump($point);
+		search_value($temp, $ids, $point);
+	}
+}
+
+
+
+?>
+<? endforeach; 
+
+function search_value($array,$ids,$value){
+	
+	foreach($array as $key => $val){
+		
+		if(in_array($key,$ids))
+			continue;
+		
+		foreach($val as $key2 => $val2){
+			if($val2 == $value)
+				var_dump("asasasasas");
+		}
+		
+	}
+	
+}?>
 <!-- Busca informacion y la muestra en ventana -->
 <script>
 function clean(){
