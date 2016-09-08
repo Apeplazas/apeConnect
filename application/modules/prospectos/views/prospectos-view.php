@@ -6,7 +6,7 @@
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Prospecto"></i>
 			<span>Agregar Prospecto</span>
 		</a>
-	</div>dddd
+	</div>
 
 	<table id="tablaproveed">
 		<thead>

@@ -9,7 +9,7 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 // echo $thisMonth;
 ?>
 
-<form id="busAvanDisplay" style="float: left; border: 1px solid #eee; width: 96%; margin: 46px 0px 21px 22px; ding: 20px; background: #fafafa; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px;">
+<form id="busAvanDisplay" class="mt10">
   <strong>Búsqueda por fecha</strong>
   <div id="firAvan">
   <fieldset>

@@ -61,18 +61,14 @@ class Administrador extends MX_Controller {
 
 		//$this->user_model->checkuserSection();
 		$user       =$this->session->userdata('usuario');
-			$this->layouts->add_include('assets/js/jquery-ui.js')
+		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.form.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/planogramas.css');
 
-
-		 				$op['UsuarioPost']  =$this->administrador_model->cargarUsuariosPros($user['usuarioID']);
-
-	    				 	       					 	     	
-	    				$this->layouts->profile('prospecto-usuarios-view', $op); 
-	    					
+		$op['UsuarioPost']  =$this->administrador_model->cargarUsuariosPros($user['usuarioID']);
+		$this->layouts->profile('prospecto-usuarios-view', $op);    					
     }	
 
 	function cisUsuario(){

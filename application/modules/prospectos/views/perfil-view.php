@@ -72,23 +72,6 @@
 	
 	
 	<div class="wrapListForm" id="wrapListForm1">
-	<? $conversacionId = 0;
-		if (sizeof($comentario) > 0):
-        	$conversacionId=$comentario[0]->cID;
-	?>
-	<ul id="creaInfo">
-		<? $conversacion = $this->data_model->traeRespuesta($comentario[0]->cID);
-		foreach($conversacion as $row2):?>
-		<li>
-		<b>Usuario y Fecha de Creación: </b>
-		<span><?= $row2->nombreCompleto?> </span>
-		<span><?=convierteFechaBDLetra($row2->fechaRespuesta,'2');?></span>
-		<p><?= $row2->respuesta?></p>
-		</li>
-		<? endforeach;?>
-	</ul>
-	<? endif ?>
-		
 	<table>
 		<thead>
 			<tr>
@@ -191,13 +174,33 @@
 	
 	
 		
-		
+
+	
 	<div class="wrapListForm" id="wrapListForm3">
 		<span class="secmainTit">Información importante</span>
-		<div class="comenWrap">
-	    	<p id="comenW"><b>Comentario</b><?= $row->comentario;?> dsf asdfasdf </p>
-		</div>
-		<br class="clear">
+		
+			<? $conversacionId = 0;
+				if (sizeof($comentario) > 0):
+		        	$conversacionId=$comentario[0]->cID;
+			?>
+			<ul id="creaInfo">
+				<? $conversacion = $this->data_model->traeRespuesta($comentario[0]->cID);
+				foreach($conversacion as $row2):?>
+				<li>
+				<b><em> <?= $row2->nombreCompleto?> </em> - <span><?=convierteFechaBDLetra($row2->fechaRespuesta,'2');?></span> </b>
+				<p><?= $row2->respuesta?></p>
+				</li>
+				<? endforeach;?>
+			</ul>
+			<? endif ?>
+			
+			<? if ($row->comentario):?>
+			<div class="comenWrap">
+		    	<p id="comenW"><b>Comentario de apertura</b><?= $row->comentario;?> </p>
+			</div>
+			<?endif?>
+			<br class="clear">
+		
 	</div>
 	<div class="wrapListForm">
 		<span class="secmainTit mb10">Referencias</span>
