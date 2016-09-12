@@ -24,7 +24,7 @@ strong, #forAjaTwo strong{font-weight:700;}
 .m10{margin:10px}
 .mb10{margin-bottom:10px}
 .ml270{margin-left:270px;}
-.mt10{margin-top:13px}
+.mt10{margin-top:13px; display:block}
 .svgIcon{margin:0 22px 0 19px; width:24px;}
 .barOut #navMenu li img{margin:4px 10px 0 16px; width:20px; max-height:19px}
 .barOut .In{border-bottom:1px solid #ccc;}
@@ -156,10 +156,14 @@ header nav{float:right; height:65px!important;}
 .pisos a{color:#555; font-size:11px; border-right:1px solid #B7E3FF; border-left:1px solid #B7E3FF;}
 #asigPi{background:#eee; border-right:1px solid #B7E3FF;}
 #asigPi ul{float:left; border-right:1px solid #B7E3FF;}
-#asigPi li{float:left;} #asigPi li a{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #B7E3FF; text-transform:uppercase; background:#f0f8ff}
+#asigPi li{float:left;} 
 #asigPi li a:hover{background:#D8EDFF; color:#222}
 #tablaPlano tbody tr:hover{background-color:#eee}
 table tbody tr:hover{background-color:#fafafa}
+
+
+.VENCIDO{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #F68787; text-transform:uppercase; background:#F68787}
+.VIGENTE{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #B3FF99; text-transform:uppercase; background:#B3FF99}
 /*----------------Titulos ------------------*/
 #mainTit{padding:16px 20px 26px;}
 #mainTitPlano{padding:26px 15px;}

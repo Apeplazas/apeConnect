@@ -10,54 +10,13 @@
 			<div id="rigWinClose" class="popup" tabindex="-1">
 				<!-- Empieza ventana informativa de planogramas -->
 				<div  id="planoGrama" >
-					<span class="secTit"><em>Locales por asignar</em></span>
+					<span class="secTit"><em>RENOVACIONES</em></span>
 						<div id="actTod">
-						<div id="infLocPlSt"></div>
 						<div id="infLocPl"></div>
-							<div id="infoCuenta">
-							<span id="statusVector" class="lineAc" title="">
-							<form>
-								<fieldset>
-								<label>Habilitar</label>
-								<input type="radio" checked value="habilitado" class="actionMet" name="actionMet" />
-								</fieldset>
-								<fieldset>
-								<label>Deshabilitar</label>
-								<input type="radio" value="deshabilitado" class="actionMet" name="actionMet" />
-								</fieldset>
-								<fieldset>
-								<label>Area Publica</label>
-								<input type="radio" value="areaPublica" class="actionMet" name="actionMet" />
-								</fieldset>
-								<fieldset>
-								<label>Borrar</label>
-								<input type="radio" value="borrado" class="actionBor" name="actionMet" />
-								</fieldset>
-								<!-- Tu comentario
-								<select name="" id="habilitado">
-									<option id="sel1" checked value="">Selecciona una opción</option>
-									<option value="habilitado">Habilitar</option>
-									<option value="deshabilitado">Deshabilitar</option>
-									<option value="borrado">Borrar</option>
-									<option value="areaPublica">Area Publica</option>
-								</select>-->
-								<!--  <button id="habilitado"></button>//-->
-								</form>
-							</span>
-							</div>
+							
 						</div>
-					<!--ul id="asigUl">
-					<? foreach($asignar as $l):?>
-						<li id="<?= $l->tipo;?>-<?= $l->id;?>" class="closeup"> <?= $l->id;?> - Creado: <?= $l->date;?></li>
-					<? endforeach; ?>
-					</ul-->
-					<form id="asigg" method="post" class="mt10" >
-						
-							<label id="idRec">*Asigna el numero de local</label>
-							<input type="text" name="claveLocal" id="asigInp" />
-							<input type="hidden" id="plazaID" name="plazaId" value="<?= $this->uri->segment(3);?>"/>
-							<input type="submit" class="mainBottonSma" id="subPlan" value="Asignar" />
-					</form>
+					
+					
 					<br class="clear">
 					</div>
 				</div>
@@ -147,11 +106,11 @@ $(function() {
 	$(".closeup").click(function() {
 		$(".closeup").removeClass("act");
     	$(this).addClass("act");
-    	$('#asigg').show();
+    	$('#asig').show();
 	});
 
 	$(".click, .areaPublica").click(function() {
-    	$('#asigg').show();
+    	$('#asig').show();
 	});
 
 });
@@ -194,17 +153,20 @@ $(function() {
 		}, function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$('#asigClick').show();
-				$('#asigg').hide();
 			}else{
 				$("#sel1").text(data.local[0].estatusLocal);
-				$("#infLocPlSt .field").remove();
 				$("#infLocPl").html(" \
-				<div class='field '><img src='<?=base_url()?>assets/graphics/svg/warning.svg' /><i>Local no asignado</i></div> \
+				<div class='content-box-yellow'><span>Renta por debajo del promedio </span></div>\
+				<div class='content-box-orange'><span>Renta igual al promedio </span></div>\
+				<div class='content-box-red'><span>Renta por arriba del promedio </span></div>\
+				<div class='content-box-green'><span>Renovados </span></div>\
+				<div class='content-box-blue'><span>No rentados </span></div>\
 				");
+
+
 			}
 
 			$("#statusVector button").attr("id",data.Nvector[0].status);
-			
 		},'json');
 	});
 
@@ -240,7 +202,6 @@ $(function() {
 
 	$("#asignar").click(function() {
 		var id = $(this).attr("id");
-		
 		$("#forma").removeAttr("disabled");
 		$.post("<?=base_url()?>ajax/asignarLocal", {
 			id : id
@@ -253,7 +214,7 @@ $(function() {
 
 	});
 
-	$("#asigg").submit(function(event) {
+	$("#asig").submit(function(event) {
 		event.preventDefault();
 
 		var local		= $("#asigInp").val();
@@ -276,7 +237,7 @@ $(function() {
 			if (data){
 				$("#infLocPlSt").html("<div class='field '><img src='<?=base_url()?>assets/graphics/palomita.png' /><i>Local: Activado</i></div>");
 				$("#infLocPl .field").remove();
-				$('#asiggClick').hide();
+				$('#asigClick').hide();
 				$.each(vectDos,function(key,val){
 					$(val.nodeName+"[id='"+val.id+"']").attr("class", "clean");
 					});
@@ -285,7 +246,7 @@ $(function() {
 				alert('No ha ajustado el texto')
 			}
 		},'json');
-		$( "#asigg" ).hide();
+		$( "#asig" ).hide();
 
 	});
 
@@ -337,11 +298,11 @@ function dragended() {
 </script>
 
 <script>
+var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
+jQuery(function($) {
 /********************************************************************************************************************
 Ajax para el autocompletar
 ********************************************************************************************************************/
-var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
-jQuery(function($) {
 	$(function() {
 
 		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown
@@ -386,8 +347,8 @@ jQuery(function($) {
 
 	$("#formBuscar input[name=key]").keypress(function(e) {
 		$('#formBuscar input[name=hidden]').val('');
-		
 	});
+
 });
 </script>
 <script>

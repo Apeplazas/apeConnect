@@ -1,4 +1,37 @@
-<?php
+<? foreach($inmueble as $l): 
+$status = $l->status;
+endforeach; ?>
+
+ 
+<? if($status== "Intelisis"){ ?>
+<style>
+#addPlaza{ 
+    z-index: 999999;
+    background: #f6f9fc;
+    border: 1px solid #ccc;
+    padding-bottom: 12px;
+    top: 43px;
+    box-shadow: 2px 2px 9px #ccc;
+    width: 300px;
+    left: 10px;
+    
+}
+ </style>
+ 
+ <div id="addPlaza">
+			<form id="formPlano" action="<?= base_url();?>dashboard/formulario" method="post" enctype="multipart/form-data">
+				<h2>Edita la información del inmueble</h2>
+				<i class="topArrowP"><img src="<?=base_url()?>assets/graphics/topArrow.png" alt="Señalización" /></i>
+
+	
+					<fieldset>
+						<input id="subPlan" class="mainBottonSma" type="submit" class="lightBot fright" value="EDITAR" />
+					</fieldset>
+			</form>
+			</div>
+ 
+<? }else{
+
 $today = date('Y-m-d') ;
 $firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
 $nextMonth= date('Y-m-d',strtotime('first day of next month')) ;
@@ -25,11 +58,39 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Prospecto"></i>
 			<span>Agregar Usuarios Prospectos</span>
 		</a>
+        <a href="<?=base_url()?>dashboard/dashboardInmuebles" title="Agregar Contactos" class="addSmall">
+			<i class="iconPlus" ><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" ></i>
+			<span >Agregar encargado plaza</span>
+		</a>
 	</div>
-	
+   
+<div class="wrapListLow">
+
 	<? $this->load->view('includes/toolbars/busquedaVendedoresProspectos')?>
 		 <div id="aqui">
-			<table id="ventasDash">
+         
+         <select id="mostrar">
+         <option value=''>Selecciona una opción </option>
+         <option value='ventas'>Ejecutivos de ventas</option>
+         <option value='gerentePlaza'>Gerentes de plaza</option>
+         </select>
+ 
+ <script>
+$('select#mostrar').on('change',function(){
+	var valor = $(this).val();
+	
+	if(valor != '' && valor == 'ventas'){
+		$("#ventasDash").show();
+		$("#gerentePlazaDash").hide();
+	}else if(valor != '' && valor == 'gerentePlaza'){
+		$("#gerentePlazaDash").show();
+		$("#ventasDash").hide();
+	}
+});
+</script>
+         
+         
+         <table id="ventasDash" hidden="hidden">
 				<thead>
 					<tr>
 						<th>Ejecutivo</th>
@@ -101,9 +162,32 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 				</tr>
 				</tbody>
 			</table>
-		</div>
-		
 
+            <table id="gerentePlazaDash" hidden="hidden">
+				<thead>
+					<tr>
+						<th>Ejecutivo</th>
+						<th class="tcenter">Número de cartas de intención </th>
+						<th class="tcenter">Acceso semanal al sistema</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				<tr>
+					<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
+					<td class="tcenter"><?= $a->cuenta;?></td>
+					<td class="tcenter"><?= $b->cuenta;?></td>
+				</tr>
+				</tbody>
+			</table>
+            
+            
+            
+            
+            
+            
+          </div>
+          
 		<? if (empty($totVen)):?>
 		Sin registros
 		<?else:?>
@@ -133,9 +217,75 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			<canvas id="chart-area" width="300" height="300"/>
 		</div>
 
+		<div id="aqui" hidden="hidden"> 
+           <table id="ventasDash">
+				<tbody>
+					<tr>
+						<th class="tcenter">PLAZAS</th>
+						<th class="tcenter">NOMBRE</th>
+						<th class="tcenter">CORREO</th>
+						<th class="tcenter"></th>
+                        <th class="tcenter"></th>
+						
+					</tr>
+				
+                <? foreach($plazas as $l):?>
+                
+					<tr>
+                 		
+                 		<td ><?= $l->Nombre ?></td>
+                        <td ><?= $l->nombreCompleto ?></td>
+                        <td ><?= $l->email ?></td>
+                        <? if($l->nombreCompleto == '' | $l->nombreCompleto == NULL){?>
+                        <td width="5%"><select id="<?= $l->Inmueble ?>">
+                        <option value=''>Seleccione una opción</option>
+                        <? foreach($usu as $i):?>
+                        <option value="<?= $i->usuarioID;?>"><?= $i->nombreCompleto ?></option>
+                        <? endforeach; ?>
+                        </select></td>
+                        <? }else{?>
+                        <td align="center" width="5%"><a id="e<?= $l->Inmueble?>">ELIMINAR</a></td>
+                        <? }?>
+                     </tr>
+                     
+                     <script>
+					$('select#<?= $l->Inmueble ?>').on('change',function(){
+						var valor = $(this).val();
+						var Inmueble	= '<?= $l->Inmueble;?>';
+						
+						if(valor==''){
+							alert('Elija un valor valido')
+							
+						}else{$.post('<?=base_url()?>ajax/asignarInmueble', {
+										usuario_id : valor,
+										Inmueble : Inmueble
+						},'json');
+						alert('Asignacion exitosa');
+						}
+					});
+					</script>
+                     <script>
+					$('#e<?= $l->Inmueble?>').click(function(){
+						var Inmueble	= '<?= $l->Inmueble;?>';
+						
+						$.post('<?=base_url()?>ajax/desasignarInmueble',{
+										Inmueble : Inmueble
+						},'json');
+						alert('Inmueble desasignado');
+						
+					});
+					</script>
+                     
+                     
+          		<? endforeach; ?>
+				<tbody>
+          </table>
 		<br class="clear">
-	      </div>
+	</div>
+
+
 <script src="<?=base_url()?>assets/js/Chart.js"></script>
+
 
 
 
@@ -195,3 +345,12 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			};
 
 	</script>
+
+	
+<? }
+?>
+
+
+
+
+

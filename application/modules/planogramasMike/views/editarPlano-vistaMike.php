@@ -1,5 +1,10 @@
 <script src="<?=base_url()?>assets/js/d3.v3.min.js"></script>
+
 <? foreach($infoPlano as $p):?>
+
+<div id="mainTit">
+  <h3>Asignación de locales a plano de <?= $p->plaza;?></h3>
+</div>
 
 <div class="wrapList" id="wrapListPlano">
 	<div id="actions">
@@ -7,7 +12,7 @@
 		<input type="hidden" id="text" style="width:100%">
 		<!-- Empieza boton con ventana de planogramas -->
 		<div id="window" class="link">
-			<div id="rigWinClose" class="popup" tabindex="-1">
+			<div  id="rigWinClose" class="popup" tabindex="-1">
 				<!-- Empieza ventana informativa de planogramas -->
 				<div  id="planoGrama" >
 					<span class="secTit"><em>Locales por asignar</em></span>
@@ -46,17 +51,18 @@
 							</span>
 							</div>
 						</div>
-					<!--ul id="asigUl">
+					<ul id="asigUl">
 					<? foreach($asignar as $l):?>
 						<li id="<?= $l->tipo;?>-<?= $l->id;?>" class="closeup"> <?= $l->id;?> - Creado: <?= $l->date;?></li>
 					<? endforeach; ?>
-					</ul-->
-					<form id="asigg" method="post" class="mt10" >
-						
+					</ul>
+					<form id="asig" method="post" class="mt10" >
+						<fieldset>
 							<label id="idRec">*Asigna el numero de local</label>
 							<input type="text" name="claveLocal" id="asigInp" />
 							<input type="hidden" id="plazaID" name="plazaId" value="<?= $this->uri->segment(3);?>"/>
-							<input type="submit" class="mainBottonSma" id="subPlan" value="Asignar" />
+							<input type="submit" id="subPlan" value="Agrupar" />
+						</fieldset>
 					</form>
 					<br class="clear">
 					</div>
@@ -76,41 +82,26 @@
 		 		<g>
 
 
-		 		<? foreach($areaPublica as $rowA): ?>
-				<? if($rowA->tipo == 'polyline'): ?>
-				<polyline id="<?= $rowA->id;?>" class="areaPublica" points="<?= $rowA->points;?>"/>
-				<? elseif ($rowA->tipo == 'path'):?>
-				<path  id="<?= $rowA->id;?>" d="<?= $rowA->d;?>" class="areaPublica" />
-				<? elseif ($rowA->tipo == 'line'):?>
-				<line id="<?= $rowA->id;?>" class="areaPublica" y1="<?= $rowA->y1;?>" x2="<?= $rowA->x2;?>" y2="<?= $rowA->y2;?>" />
-				<? elseif ($rowA->tipo == 'polygon'):?>
-				<polygon id="<?= $rowA->id;?>" class="areaPublica" points="<?=$rowA->points;?>"/>
-				<? elseif ($rowA->tipo == 'rect'):?>
-				<rect id="<?= $rowA->id;?>" class="areaPublica" y="<?=$rowA->y;?>" x="<?=$rowA->x;?>" width="<?=$rowA->width;?>" height="<?=$rowA->height;?>"/>
-				<? endif;?>
-				<? endforeach; ?>
-
-
 				<? foreach($locales as $row): ?>
 				<? if($row->tipo == 'polyline'): ?>
-				<g class="poly">
+				<g id="poly">
 				<polyline id="<?= $row->id;?>" class="<? if($row->localID == ''):?>click reciente bgrayAsig<?else:?>clean<?endif;?>" points="<?= $row->points;?>"/>
 				</g>
 				<? elseif ($row->tipo == 'path'):?>
-				<g class="path">
+				<g id="path">
 				<path  id="<?= $row->id;?>" d="<?= $row->d;?>" class="<? if($row->localID == ''):?>click reciente bgrayAsig<?else:?>clean<?endif;?>"  />
 				</g>
 				<? elseif ($row->tipo == 'line'):?>
-				<g class="line">
+				<g id="line">
 				<line id="<?= $row->id;?>" class="<? if($row->localID == ''):?>click reciente bgrayAsig<?else:?>clean<?endif;?>" x1="<?= $row->x1;?>" y1="<?= $row->y1;?>" x2="<?= $row->x2;?>" y2="<?= $row->y2;?>" />
 				</g>
 				<? elseif ($row->tipo == 'polygon'):?>
-				<g class="polyg">
+				<g id="polyg">
 				<polygon id="<?= $row->id;?>" class="<? if($row->localID == ''):?>click reciente bgrayAsig<?else:?>clean<?endif;?>" points="<?=$row->points;?>"/>
 				</g>
 				<? elseif ($row->tipo == 'rect'):?>
-				<g class="rect">
-				<rect x="<?=$row->x?>" y="<?=$row->y;?>"  id="<?= $row->id;?>" class="<? if($row->localID == ''):?>click reciente bgrayAsig<?else:?>clean<?endif;?>" width="<?=$row->width;?>" height="<?=$row->height;?>"/>
+				<g id="rect">
+				<rect id="<?= $row->id;?>" class="<? if($row->localID == ''):?>click reciente bgrayAsig<?else:?>clean<?endif;?>" x="<?=$row->x;?>" y="<?=$row->y;?>" width="<?=$row->width;?>" height="<?=$row->height;?>"/>
 				</g>
 				<? elseif ($row->tipo == 'text'):
 					if(!empty($row->x)):
@@ -147,11 +138,11 @@ $(function() {
 	$(".closeup").click(function() {
 		$(".closeup").removeClass("act");
     	$(this).addClass("act");
-    	$('#asigg').show();
+    	$('#asig').show();
 	});
 
 	$(".click, .areaPublica").click(function() {
-    	$('#asigg').show();
+    	$('#asig').show();
 	});
 
 });
@@ -170,7 +161,7 @@ function test(id){
 $(".clean").click(function(){
 	var id = $(this).attr("id");
     $("#infLocPl").html(" \
-		<div class='field'><span><button onclick='test("+id+")' id='desAs' class='mainBottonSmaDes'>Desasignar</button></div> \
+		<div class='field'><span><button onclick='test("+id+")' id='desAs' class='lightBot fleft'>Desasignar</button></div> \
 	");
 });
 </script>
@@ -181,10 +172,8 @@ function clean(){
 $("#infLocPl").empty();
 }
 $(function() {
-	$(".click, .areaPublica, .cleanText, .clean").click(function(){
+	$(".click, .areaPublica, .cleanText").click(function(){
 		clean();
-		$("#rigWinClose").show();
-		$("#panelRight").addClass("panelRight");
 		var id = $(this).attr("id");
 		$("#idRec").html("*Asigna el numero de vector " + id);
 		$("#statusVector").attr("title",id);
@@ -194,17 +183,17 @@ $(function() {
 		}, function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$('#asigClick').show();
-				$('#asigg').hide();
 			}else{
 				$("#sel1").text(data.local[0].estatusLocal);
 				$("#infLocPlSt .field").remove();
 				$("#infLocPl").html(" \
-				<div class='field '><img src='<?=base_url()?>assets/graphics/svg/warning.svg' /><i>Local no asignado</i></div> \
+				<div class='field '><img src='http://www.apeplazas.com/apeConnect/assets/graphics/alert.png' /><i>Local no asignado</i></div> \
 				");
+
+
 			}
 
 			$("#statusVector button").attr("id",data.Nvector[0].status);
-			
 		},'json');
 	});
 
@@ -240,7 +229,6 @@ $(function() {
 
 	$("#asignar").click(function() {
 		var id = $(this).attr("id");
-		
 		$("#forma").removeAttr("disabled");
 		$.post("<?=base_url()?>ajax/asignarLocal", {
 			id : id
@@ -253,7 +241,7 @@ $(function() {
 
 	});
 
-	$("#asigg").submit(function(event) {
+	$("#asig").submit(function(event) {
 		event.preventDefault();
 
 		var local		= $("#asigInp").val();
@@ -274,9 +262,9 @@ $(function() {
 		}, function(data) {
 			console.log(data);
 			if (data){
-				$("#infLocPlSt").html("<div class='field '><img src='<?=base_url()?>assets/graphics/palomita.png' /><i>Local: Activado</i></div>");
+				$("#infLocPlSt").html("<div class='field '><img src='http://www.apeplazas.com/apeConnect/assets/graphics/palomita.png' /><i>Local: Activado</i></div>");
 				$("#infLocPl .field").remove();
-				$('#asiggClick').hide();
+				$('#asigClick').hide();
 				$.each(vectDos,function(key,val){
 					$(val.nodeName+"[id='"+val.id+"']").attr("class", "clean");
 					});
@@ -285,7 +273,7 @@ $(function() {
 				alert('No ha ajustado el texto')
 			}
 		},'json');
-		$( "#asigg" ).hide();
+		$( "#asig" ).hide();
 
 	});
 
@@ -337,11 +325,11 @@ function dragended() {
 </script>
 
 <script>
+var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
+jQuery(function($) {
 /********************************************************************************************************************
 Ajax para el autocompletar
 ********************************************************************************************************************/
-var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
-jQuery(function($) {
 	$(function() {
 
 		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown
@@ -357,14 +345,10 @@ jQuery(function($) {
 			$(this).removeClass("subhover"); //remueve la clase subhover
 		});
 		/*CODIGO PARA generar la busqueda del resultado por ajax*/
-		$("#asigInp").autocomplete({
-			source: ajax_url+"asignarLocales",
-			open: function(){
-		        $(this).autocomplete('widget').css('z-index', 9999);
-		        return false;
-		    }
+		$("#asigInp").autocomplete(urlPost+"ajax/asignarLocales", {
+			width: 650,
+			selectFirst: false
 		});
-	/*
 		$("#asigInp").result(function(event, data, formatted) {
 		if (data == '<h1>Busqueda por tipo</h1>' || data == '<h1>Busqueda por marca</h1>'){
 			$("#bckBuscar").val('');
@@ -375,7 +359,6 @@ jQuery(function($) {
 			$("#formBuscar").submit();
 			}
 		});
-	*/
 	});
 
 	$('.relB').click(function(){
@@ -386,8 +369,8 @@ jQuery(function($) {
 
 	$("#formBuscar input[name=key]").keypress(function(e) {
 		$('#formBuscar input[name=hidden]').val('');
-		
 	});
+
 });
 </script>
 <script>
