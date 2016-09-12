@@ -10,6 +10,7 @@ class Dashboard extends MX_Controller
 		$this->load->model('dashboard_model');
 		$this->load->model('user_model');
 		$this->load->model('proyectos/proyecto_model');
+		
 	}
 
 	//verifica que la sesion esta inciada para poder dar acceso a modulo
@@ -47,6 +48,7 @@ function testmail(){
 
 	function index()
 	{
+		
 		//Informacion perfil general//
 		$user         = $this->session->userdata('usuario');
 		if($user['idrole'] == '8'){
@@ -73,6 +75,8 @@ function testmail(){
 			$op['mensajes']                   				= $this->dashboard_model->cargaMensajes($user['usuarioID']);
 			$op['no_notificaciones']          			= $this->user_model->numero_mensajes($user['usuarioID']);
 			$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
+			$op['inmueble']		          			=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
+			
 			
 			if($user['idrole'] == '9' || $user['usuarioID'] == '1'){
 				$this->layouts->profile('dashboardVentas-view', $op);
@@ -110,6 +114,22 @@ function testmail(){
     	$this->layouts->profile('dashboarCartaIntencion-view', $op);
     }
     
+	function dashboardInmuebles(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+		$op['plazas']		          			=	$this->dashboard_model->trae_plazas();
+		$op['usu']		          			=	$this->dashboard_model->trae_usuarios();
+		
+    	$this->layouts->profile('dashboardinmuebles-view', $op);
+    }
+	
+	function formulario(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+		$op['inmueble']		          			=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
+		
+    	$this->layouts->profile('formulario-view', $op);
+    }
     
 	function borrarProveedor($idProveedor)
 	{

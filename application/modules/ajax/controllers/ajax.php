@@ -1410,7 +1410,7 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
-
+//MIKEE
 	public function agruparLocales(){
 
 		$ids    	= $_POST['id'];
@@ -1450,6 +1450,253 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
+	
+	public function inmuebles(){
+
+		$inmuebleNombre   	= $_POST['inmuebleNombre'];
+		$codigoIATA 	= $_POST['codigoIATA'];
+		$predios	= $_POST['predios'];
+		$areaConstruida	= $_POST['areaConstruida'];
+		$pisos	= $_POST['pisos'];
+		$inmueble = $_POST['inmuebleIntelisis'];
+		
+
+		
+
+			$op = array(
+				'inmuebleNombre'	=> $inmuebleNombre,
+				'codigoIATA'   	=> $codigoIATA,
+				'predios'	=> $predios,
+				'areaConstruida'	=> $areaConstruida,
+				'pisos'	=> $pisos,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('inmuebles', $op);
+		echo true;
+		exit;
+
+	}
+	
+	public function piso1(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso1 = $_POST['numeroPiso'];
+		$areaConstruida1 = $_POST['areaConstruida1'];
+		
+		
+		$op1 = array(
+				'numeroPiso'	=> $numeroPiso1,
+				'areaConstruida'	=> $areaConstruida1,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op1);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso2(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso2 = $_POST['numeroPiso'];
+		$areaConstruida2 = $_POST['areaConstruida2'];
+		
+		
+		$op2 = array(
+				'numeroPiso'	=> $numeroPiso2,
+				'areaConstruida'	=> $areaConstruida2,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op2);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso3(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso3 = $_POST['numeroPiso'];
+		$areaConstruida3 = $_POST['areaConstruida3'];
+		
+		
+		$op3 = array(
+				'numeroPiso'	=> $numeroPiso3,
+				'areaConstruida'	=> $areaConstruida3,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op3);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso4(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso4 = $_POST['numeroPiso'];
+		$areaConstruida4 = $_POST['areaConstruida4'];
+		
+		
+		$op4 = array(
+				'numeroPiso'	=> $numeroPiso4,
+				'areaConstruida'	=> $areaConstruida4,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op4);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso5(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso5 = $_POST['numeroPiso'];
+		$areaConstruida5 = $_POST['areaConstruida5'];
+		
+		
+		$op5 = array(
+				'numeroPiso'	=> $numeroPiso5,
+				'areaConstruida'	=> $areaConstruida5,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op5);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso6(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso6 = $_POST['numeroPiso'];
+		$areaConstruida6 = $_POST['areaConstruida6'];
+		
+		
+		$op6 = array(
+				'numeroPiso'	=> $numeroPiso6,
+				'areaConstruida'	=> $areaConstruida6,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op6);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso7(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso7 = $_POST['numeroPiso'];
+		$areaConstruida7 = $_POST['areaConstruida7'];
+		
+		
+		$op7 = array(
+				'numeroPiso'	=> $numeroPiso7,
+				'areaConstruida'	=> $areaConstruida7,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op7);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso8(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso8 = $_POST['numeroPiso'];
+		$areaConstruida8 = $_POST['areaConstruida8'];
+		
+		
+		$op8 = array(
+				'numeroPiso'	=> $numeroPiso8,
+				'areaConstruida'	=> $areaConstruida8,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op8);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso9(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso9 = $_POST['numeroPiso'];
+		$areaConstruida9 = $_POST['areaConstruida9'];
+		
+		
+		$op9 = array(
+				'numeroPiso'	=> $numeroPiso9,
+				'areaConstruida'	=> $areaConstruida9,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op9);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso10(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso10 = $_POST['numeroPiso'];
+		$areaConstruida10 = $_POST['areaConstruida10'];
+		
+		
+		$op10 = array(
+				'numeroPiso'	=> $numeroPiso10,
+				'areaConstruida'	=> $areaConstruida10,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op10);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function predio(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$predioNombre = $_POST['predioNombre'];
+		$nombreCalle = $_POST['nombreCalle'];
+		$numeroExt = $_POST['numeroExt'];
+		$numeroInterior = $_POST['numeroInterior'];
+		$superficieTerreno = $_POST['superficieTerreno'];
+		$codigoPostal = $_POST['codigoPostal'];
+		$numeroPiso = $_POST['numeroPiso'];
+		
+		
+		$op10 = array(
+				'inmuebleIntelisis' => $inmueble,
+				'predioNombre' => $predioNombre,
+				'nombreCalle' => $nombreCalle,
+				'numeroExt' => $numeroExt,
+				'numeroInterior' => $numeroInterior,
+				'superficieTerreno' => $superficieTerreno,
+				'codigoPostal' => $codigoPostal,
+				'numeroPiso' => $numeroPiso
+			);
+			$this->db->insert('predios', $op10);
+
+		echo true;
+		exit;
+
+	}
+	
+	function statusInmueble()
+	{
+		$status       	= $_POST['status'];
+		$inmueble       	= $_POST['inmuebleIntelisis'];
+
+		$update = array('status' => $status);
+		$this->db->where('Inmueble', $inmueble);
+		$this->db->update('borrar_vic_inmueble', $update);
+
+		echo json_encode($op);
+	}
+	
 	function statusGrupo()
 	{
 		$status       	= $_POST['status'];
@@ -1482,7 +1729,31 @@ class Ajax extends MX_Controller {
 		echo json_encode($op);
 	}
 	
+	function asignarInmueble()
+	{
+		$Inmueble       	= $_POST['Inmueble'];
+		$usuario       	= $_POST['usuario_id'];
 
+		$update = array('usuario_id' => $usuario);
+		$this->db->where('Inmueble', $Inmueble);
+		$this->db->update('borrar_vic_inmueble', $update);
+
+		echo json_encode($op);
+		
+	}
+	function desasignarInmueble()
+	{
+		$Inmueble       	= $_POST['Inmueble'];
+
+		$update = array('usuario_id' => '');
+		$this->db->where('Inmueble', $Inmueble);
+		$this->db->update('borrar_vic_inmueble', $update);
+
+		echo json_encode($op);
+		
+	}
+	
+//----------------------------------------
 	function traeCiPorPlaza(){
 
 		$plaza 	= $_POST['plaza'];

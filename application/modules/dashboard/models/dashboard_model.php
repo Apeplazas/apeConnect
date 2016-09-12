@@ -90,6 +90,51 @@ class Dashboard_model extends CI_Model
 		return $data;
 	}
 	
+	//MIKEE
+	function trae_plazas(){
+		$data = array(); 
+		$q = $this->db->query("SELECT i.Nombre as 'Nombre',
+									  i.usuario_id as 'usuario_id',
+									  u.nombreCompleto as 'nombreCompleto',
+									  i.Inmueble as 'Inmueble',
+									  u.email as 'email',
+									  u.usuarioID as 'usuarioID'
+									  FROM borrar_vic_inmueble i
+									  LEFT JOIN usuarios u ON u.usuarioID=i.usuario_id");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function trae_inmueble($us){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM borrar_vic_inmueble
+										where '$us' = usuario_id");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function trae_usuarios(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
 	function trae_proyectos_porstatus($status){
 		$data = array(); 
 		$q = $this->db->query("SELECT count(p.idProyecto) as total_proyectos FROM proyectos p WHERE p.statusProyecto='$status'");
