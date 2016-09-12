@@ -621,7 +621,7 @@ class Prospectos extends MX_Controller {
 		$op['vendedor']   	= $this->prospectos_model->cargarUsuariosID($user['usuarioID']);
 		$op['plazas']     	= $this->data_model->cargaZonas();
 		$op['comentario'] 	= $this->data_model->traeconversacion($prospectoID, 6);
-		//$op['referencias'] 	= $this->prospectos_model->trae_referencias($prospectoID);
+		$op['referencias'] 	= $this->prospectos_model->trae_referencias($prospectoID);
 
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
