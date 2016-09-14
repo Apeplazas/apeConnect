@@ -379,6 +379,7 @@ class Registrate extends MX_Controller {
 				'email'           => $u[0]->email,
 				'idrole'          => $u[0]->idrole,
 				'numeroEmpleado'  => $u[0]->numeroEmpleado,
+				'fechaEntradaGeneral'          => $u[0]->fechaEntradaGeneral,
 				'fancyUrl'        => $u[0]->fancyUrl,
 				'modulos'		  		=> $modules,
 				'contrasena'	  	=> 'cambiada',

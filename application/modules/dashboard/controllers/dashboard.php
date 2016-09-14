@@ -16,12 +16,31 @@ class Dashboard extends MX_Controller
 	//verifica que la sesion esta inciada para poder dar acceso a modulo
 	function is_logged_in()
     {
+		$today = date('Y-m-d');
         $user = $this->session->userdata('usuario');
         if(!isset($user) || $user != true)
         {
-        	$this->session->set_userdata(array('previous_page'=> uri_string()));
-			redirect('');
+			$this->session->set_userdata(array('previous_page'=> uri_string()));
+         		redirect('');
+
         }
+		if($user['fechaEntradaGeneral'] == $today){
+			echo "ALGOOOOOOOOOOOOOOOOOO";
+		}else if($user['fechaEntradaGeneral'] != $today){
+			echo "ALGAAAAAAAAAAAAAAAAAA"; ?>
+			<script>
+					$('#e<?= $l->Inmueble?>').click(function(){
+						var Inmueble	= '<?= $l->Inmueble;?>';
+						
+						$.post('<?=base_url()?>ajax/desasignarInmueble',{
+										Inmueble : Inmueble
+						},'json');
+						alert('Inmueble desasignado');
+						
+					});
+					</script>
+		<? }
+		
     }
 
 function testmail(){
@@ -77,13 +96,14 @@ function testmail(){
 			$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
 			$op['inmueble']		          			=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
 			
-			
-			if($user['idrole'] == '9' || $user['idrole'] == '5' || $user['usuarioID'] == '1'){
-				$this->layouts->profile('dashboardVentas-view', $op);
-			}
-			else{
-				$this->layouts->profile('dashboard-view', $op);
-			}
+				  if($user['idrole'] == '9' || $user['usuarioID'] == '1'){
+					  $this->layouts->profile('dashboardVentas-view', $op);
+					  
+				  }
+				  else{
+					  $this->layouts->profile('dashboard-view', $op);
+				  }
+		
 
 		}
 	}

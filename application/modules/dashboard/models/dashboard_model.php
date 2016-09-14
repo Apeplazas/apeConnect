@@ -135,6 +135,26 @@ class Dashboard_model extends CI_Model
 		return $data;
 	}
 	
+	function cargaGerentesPlaza(){
+		$data = array(); 
+		$q = $this->db->query("SELECT 
+			u.usuarioID as 'usuarioID',
+			u.nombreCompleto as 'nombreCompleto', 
+			count(c.usuarioId) as total     
+		FROM usuarios u
+		LEFT JOIN tempora_ci c ON u.usuarioID=c.usuarioId
+		WHERE idrole='5'
+		GROUP BY u.usuarioID");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	
 	function trae_proyectos_porstatus($status){
 		$data = array(); 
 		$q = $this->db->query("SELECT count(p.idProyecto) as total_proyectos FROM proyectos p WHERE p.statusProyecto='$status'");
@@ -316,6 +336,7 @@ class Dashboard_model extends CI_Model
 		}
 		return $data;
 	}
+	
 
 	function cuentaCartaIntencionDelMes($fechaDe, $fechaA){
 		$data = array();
