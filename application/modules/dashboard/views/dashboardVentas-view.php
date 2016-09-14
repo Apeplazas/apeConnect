@@ -42,6 +42,8 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <? $pros   = $this->dashboard_model->cuentaProspectosDelMes($thisMonth, $today);?>
 <!-- MANDA AL DASHBOARD DE SUPERVISION VENTAS -->
 <? $vendedores   = $this->dashboard_model->cargaVendedores($thisMonth, $today);?>
+<? $gerentes   = $this->dashboard_model->cargaGerentesPlaza();?>
+
 <?$sumaA = 0;?>
 <?$sumaB = 0;?>
 <?$sumaC = 0;?>
@@ -172,12 +174,13 @@ $('select#mostrar').on('change',function(){
 					</tr>
 				</thead>
 				<tbody>
-					
+				 <? foreach($gerentes as $row):?>	
 				<tr>
-					<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
-					<td class="tcenter"><?= $a->cuenta;?></td>
-					<td class="tcenter"><?= $b->cuenta;?></td>
-				</tr>
+               		<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
+					<td class="tcenter"><?= $row->total;?></td>
+					<td class="tcenter"><?= $row->total;?></td>
+                </tr>
+                <? endforeach; ?>
 				</tbody>
 			</table>
             
