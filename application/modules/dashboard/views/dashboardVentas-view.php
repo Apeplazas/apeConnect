@@ -74,6 +74,9 @@ $('select#mostrar').on('change',function(){
 	}else if(valor != '' && valor == 'gerentePlaza'){
 		$("#gerentePlazaDash").show();
 		$("#ventasDash").hide();
+	}else if(valor == '' ){
+		$("#gerentePlazaDash").hide();
+		$("#ventasDash").hide();
 	}
 });
 </script>
@@ -157,15 +160,16 @@ $('select#mostrar').on('change',function(){
 					<tr>
 						<th>Ejecutivo</th>
 						<th class="tcenter">Número de cartas de intención </th>
-						<th class="tcenter">Acceso semanal al sistema</th>
+						<th class="tcenter">Accesos al sistema</th>
+                        
 					</tr>
 				</thead>
 				<tbody>
 				 <? foreach($gerentes as $row):?>	
 				<tr>
-               		<td><b class="eje"><?= $row->nombreCompleto;?></b></td>
+                	<td><a href="<?=base_url()?>dashboard/historial/<?= $row->usuarioID?>"> <?= $row->nombreCompleto;?> </a></td>
 					<td class="tcenter"><?= $row->total;?></td>
-					<td class="tcenter"><?= $row->total;?></td>
+					<td class="tcenter"><?= $row->numeroEntradasGeneral;?></td>
                 </tr>
                 <? endforeach; ?>
 				</tbody>
