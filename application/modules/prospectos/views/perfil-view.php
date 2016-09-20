@@ -196,7 +196,7 @@
 			
 			<? if ($row->comentario):?>
 			<div class="comenWrap">
-		    	<p id="comenW"><b>Comentario de apertura</b><?= $row->comentario;?> </p>
+		    	<p id="comenW"><b>Comentario de apertura: </b> <?= $row->comentario;?> </p>
 			</div>
 			<?endif?>
 			<br class="clear">

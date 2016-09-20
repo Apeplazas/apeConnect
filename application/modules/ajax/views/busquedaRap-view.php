@@ -42,6 +42,6 @@ $(document).ready(function(){
 });
 </script>
 <?else:?>
-<p id="msgAva">No hay coincidencias.</p>
+<p id="msgRap">No hay coincidencias.</p>
 <br class="clear">
 <?endif; ?>
