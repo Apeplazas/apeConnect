@@ -33,6 +33,23 @@
 <? if($this->uri->segment(2) == 'finalizarCotizacion'):?>
  <style type="text/css">html{background-color:#555}</style>
 <?endif?>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	var usuarioID	= '<?= $user['usuarioID']?>';
+	var fechaAcceso = '<?= $today ?>';
+	var modulo = <?=$opt?>;
+	var suma = '<?= $user['numeroEntradasGeneral']?>';
+	var numeroEntradasGeneral	= 1 + new Number(suma);
+	
+	var_dump($user['numeroEntradasGeneral']);
+	
+	$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
+		usuarioID : usuarioID, fechaAcceso : fechaAcceso, modulo : modulo, numeroEntradasGeneral : numeroEntradasGeneral
+		},'json');
+	});
+</script>
+
 </head>
 
 <body id="bckWhite" class="<? if ($this->uri->segment(1) == 'planogramas' && $this->uri->segment(2) != ''):?>ohid<?endif;?>">

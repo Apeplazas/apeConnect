@@ -1759,23 +1759,28 @@ class Ajax extends MX_Controller {
 		$numeroEntradasGeneral       	= $_POST['numeroEntradasGeneral'];
 		$fechaEntradaGeneral       	= $_POST['fechaEntradaGeneral'];
 
-		$update = array('numeroEntradasGeneral' => $numeroEntradasGeneral, 'fechaEntradaGeneral' => $fechaEntradaGeneral);
-		$this->db->where('usuarioID', $usuarioID);
-		$this->db->update('usuarios', $update);
-
-		echo json_encode($op);
+		
 		
 	}
 	
 	function cuentaEntradaModulos()
 	{
-		$usuarioID       	= $_POST['usuarioID'];
-		$fechaAcceso       	= $_POST['fechaAcceso'];
-		$modulo       	= $_POST['modulo'];
-
+		$user = $this->session->userdata('usuario');
+		
+		$usuarioID       					= $_POST['usuarioID'];
+		$fechaAcceso						= $_POST['fechaAcceso'];
+		$modulo       						= $_POST['modulo'];
+		$numeroEntradasGeneral	= $_POST['numeroEntradasGeneral'];
+		
+		if ($user['fechaEntradaGeneral'] != $fechaAcceso){
+			$update = array('numeroEntradasGeneral' => $numeroEntradasGeneral, 'fechaEntradaGeneral' => $fechaAcceso);
+			$this->db->where('usuarioID', $usuarioID);
+			$this->db->update('usuarios', $update);
+		}
+		
 		$update = array('usuarioID' => $usuarioID, 'fechaAcceso' => $fechaAcceso, 'modulo' => $modulo); 
 		$this->db->insert('usuarios_accesos', $update);
-
+			
 		echo json_encode($op);
 		
 	}

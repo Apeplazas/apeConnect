@@ -22,37 +22,12 @@ class Dashboard extends MX_Controller
 	//verifica que la sesion esta inciada para poder dar acceso a modulo
 	function is_logged_in()
     {
-		
-		$today = date('Y-m-d');
         $user = $this->session->userdata('usuario');
         if(!isset($user) || $user != true)
         {
 			$this->session->set_userdata(array('previous_page'=> uri_string()));
          		redirect('');
-
         }
-
-		if($user['fechaEntradaGeneral'] != $today){?>
-            
-            <script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
-			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-			<script type="text/javascript">
-					
-					$(document).ready(function() {
-                        var suma = '<?= $user['numeroEntradasGeneral']?>';
-						var usuarioID	= '<?= $user['usuarioID']?>';
-						var numeroEntradasGeneral	= 1 + new Number(suma);
-						var fechaEntradaGeneral = '<?= $today ?>';
-						
-						$.post('<?=base_url()?>ajax/cuentaEntrada',{
-										usuarioID : usuarioID,
-										numeroEntradasGeneral : numeroEntradasGeneral,
-										fechaEntradaGeneral : fechaEntradaGeneral
-						},'json');
-					});
-					
-			</script>
-		<? }
 		
     }
 

@@ -72,27 +72,6 @@ error_reporting(E_ALL);
 
 	function index(){
 		
-		$user = $this->session->userdata('usuario');
-		$today = date('Y-m-d');
-		if($this->uri->segment(1) =='planogramas'){ ?>
-			<script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
-			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-			<script type="text/javascript">
-					
-					$(document).ready(function() {
-						var usuarioID	= '<?= $user['usuarioID']?>';
-						var fechaAcceso = '<?= $today ?>';
-						var modulo = 'planogramas';
-						
-						$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
-										usuarioID : usuarioID,
-										fechaAcceso : fechaAcceso,
-										modulo : modulo
-						},'json');
-					});
-					
-			</script>
-		<? }
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')

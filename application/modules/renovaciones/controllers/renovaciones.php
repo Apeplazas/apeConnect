@@ -10,33 +10,10 @@ class Renovaciones extends MX_Controller
 		$this->load->model('user_model');
 		$this->load->model('planogramas/planogramas_model');
 		$this->load->model('renovaciones_model');
-		
-		
+		$user = $this->session->userdata('usuario');
 	}
 	
 	function index(){
-		
-		$user = $this->session->userdata('usuario');
-		$today = date('Y-m-d');
-		if($this->uri->segment(1) =='renovaciones'){ ?>
-			<script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
-			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-			<script type="text/javascript">
-					
-					$(document).ready(function() {
-						var usuarioID	= '<?= $user['usuarioID']?>';
-						var fechaAcceso = '<?= $today ?>';
-						var modulo = 'renovaciones';
-						
-						$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
-										usuarioID : usuarioID,
-										fechaAcceso : fechaAcceso,
-										modulo : modulo
-						},'json');
-					});
-					
-			</script>
-		<? }
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')

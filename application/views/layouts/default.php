@@ -25,21 +25,22 @@
 <?= $this->layouts->print_includes(); ?>
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/test.ico" />
 
-<? if ($this->uri->segment(1) =='$opt'):?>
 <script type="text/javascript">
 	$(document).ready(function() {
 	var usuarioID	= '<?= $user['usuarioID']?>';
 	var fechaAcceso = '<?= $today ?>';
 	var modulo = <?=$opt?>;
-		
+	var suma = '<?= $user['numeroEntradasGeneral']?>';
+	var numeroEntradasGeneral	= 1 + new Number(suma);
+	
+	var_dump($user['numeroEntradasGeneral']);
+	
 	$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
-		usuarioID : usuarioID, fechaAcceso : fechaAcceso, modulo : modulo
+		usuarioID : usuarioID, fechaAcceso : fechaAcceso, modulo : modulo, numeroEntradasGeneral : numeroEntradasGeneral
 		},'json');
 	});
 </script>
-<?endif?>
-			
-			
+
 </head>
 <body class="bckReg">
 <header id="mainHead">

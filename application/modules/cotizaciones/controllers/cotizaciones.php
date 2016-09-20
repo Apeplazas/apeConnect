@@ -12,26 +12,6 @@ class Cotizaciones extends MX_Controller
 		$this->load->model('proyectos/proyecto_model');
 		
 		$user = $this->session->userdata('usuario');
-		$today = date('Y-m-d');
-		if($this->uri->segment(1) =='cotizaciones'){ ?>
-			<script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
-			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
-			<script type="text/javascript">
-					
-					$(document).ready(function() {
-						var usuarioID	= '<?= $user['usuarioID']?>';
-						var fechaAcceso = '<?= $today ?>';
-						var modulo = 'cotizaciones';
-						
-						$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
-										usuarioID : usuarioID,
-										fechaAcceso : fechaAcceso,
-										modulo : modulo
-						},'json');
-					});
-					
-			</script>
-		<? }
 	}
 	
 	function index(){
@@ -39,6 +19,7 @@ class Cotizaciones extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js');
+					  
 		$op['cotizaciones'] = $this->cotizaciones_model->traecotizaciones();
 		$this->layouts->profile('cotizaciones-porproveedor-view', $op);
 	}
