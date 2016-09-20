@@ -17,8 +17,8 @@ class Prospectos extends MX_Controller {
 		$chars = array_reverse($chars);
 
 
-		if(sizeof($chars) > 19)
-			return false;
+		//if(sizeof($chars) > 19)
+			//return false;
 
 		$hsbc_valores = array(
 			'A'	=>	1,
@@ -201,6 +201,21 @@ class Prospectos extends MX_Controller {
 		//Vista//
 		$this->layouts->profile('prospectos-view' ,$op);
 	}
+
+	function empresas(){
+		$user = $this->session->userdata('usuario');
+		$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
+
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+					  ->add_include('assets/js/jquery.autocomplete.pack.js')
+					  ->add_include('assets/js/jquery.dataTables.min.js')
+					  ->add_include('assets/css/planogramas.css');
+
+		//Vista//
+		$this->layouts->profile('empresas-view' ,$op);
+	}
+
 	function agregarComentario(){
 	 	//Informacion perfil General//
 
