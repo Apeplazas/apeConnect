@@ -27,26 +27,15 @@
 	</div>
 	<br class="clear">
 	
-		<table>
-			<thead>
-			<tr>
-				<th colspan="4">Cuenta RAP</th>
-			</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="grayField"><label>Referencia</label></td>
-					<td colspan="3">
-						<div class="ui-widget">
-							<input type="text" id="c_rap" />
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div id="mostrar_referencias">
-			
-		</div>
+	
+	
+	<div class="wrapListForm" id="wrapListForm1">
+		<div id="refData">
+			<strong>Cuenta RAP</strong>
+			<input type="text" id="c_rap" placeholder="Referecia" />
+			<div id="mostrar_referencias"></div>
+	</div>
+	
 		<script>
 			$(document).ready(function(){
 				$('#c_rap').keyup(function(){
@@ -60,8 +49,8 @@
 				});
 			});
 		</script>
-	
-	<div class="wrapListForm" id="wrapListForm1">
+		
+		
 	<table>
 		<thead>
 		<tr>

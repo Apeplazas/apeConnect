@@ -17,8 +17,8 @@ class Prospectos extends MX_Controller {
 		$chars = array_reverse($chars);
 
 
-		if(sizeof($chars) > 19)
-			return false;
+		//if(sizeof($chars) > 19)
+			//return false;
 
 		$hsbc_valores = array(
 			'A'	=>	1,
