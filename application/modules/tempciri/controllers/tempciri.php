@@ -10,6 +10,28 @@ class Tempciri extends MX_Controller {
 		if( ! ini_get('date.timezone') ){
 		    date_default_timezone_set('America/Mexico_City');
 		}
+		
+		$user = $this->session->userdata('usuario');
+		$today = date('Y-m-d');
+		if($this->uri->segment(1) =='tempciri'){ ?>
+			<script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
+			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+			<script type="text/javascript">
+					
+					$(document).ready(function() {
+						var usuarioID	= '<?= $user['usuarioID']?>';
+						var fechaAcceso = '<?= $today ?>';
+						var modulo = 'tempciri';
+						
+						$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
+										usuarioID : usuarioID,
+										fechaAcceso : fechaAcceso,
+										modulo : modulo
+						},'json');
+					});
+					
+			</script>
+		<? }
 	}
 	function index()
 	{

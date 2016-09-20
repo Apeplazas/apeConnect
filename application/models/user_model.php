@@ -99,6 +99,7 @@ class User_model extends CI_Model {
          	redirect('');
         }else{
         	if(!in_array($this->uri->segment(2), $user['modulos'][$this->uri->segment(1)]))
+			
 				redirect('');
         }
 	}

@@ -91,6 +91,19 @@ class Dashboard_model extends CI_Model
 	}
 	
 	//MIKEE
+	function historial($historialID){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios_accesos
+										where '$historialID' = usuarioID");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
 	function trae_plazas(){
 		$data = array(); 
 		$q = $this->db->query("SELECT i.Nombre as 'Nombre',
@@ -138,8 +151,7 @@ class Dashboard_model extends CI_Model
 	function cargaGerentesPlaza(){
 		$data = array(); 
 		$q = $this->db->query("SELECT 
-			u.usuarioID as 'usuarioID',
-			u.nombreCompleto as 'nombreCompleto', 
+			u.*, 
 			count(c.usuarioId) as total     
 		FROM usuarios u
 		LEFT JOIN tempora_ci c ON u.usuarioID=c.usuarioId

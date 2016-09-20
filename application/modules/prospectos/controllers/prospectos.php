@@ -179,10 +179,34 @@ class Prospectos extends MX_Controller {
 		$this->user_model->checkuser();
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('tempciri/tempciri_model');
+		
+		
 	}
 
 	function index()
 	{
+		$user = $this->session->userdata('usuario');
+		$today = date('Y-m-d');
+		if($this->uri->segment(1) =='prospectos'){ ?>
+			<script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
+			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+			<script type="text/javascript">
+					
+					$(document).ready(function() {
+						var usuarioID	= '<?= $user['usuarioID']?>';
+						var fechaAcceso = '<?= $today ?>';
+						var modulo = 'prospectos';
+						
+						$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
+										usuarioID : usuarioID,
+										fechaAcceso : fechaAcceso,
+										modulo : modulo
+						},'json');
+					});
+					
+			</script>
+		<? }
+		
 		$user = $this->session->userdata('usuario');
 		$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
 
