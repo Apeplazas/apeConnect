@@ -4,8 +4,8 @@ $firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
 $nextMonth= date('Y-m-d',strtotime('first day of next month')) ;
 $lastMonth = date('Y-m-d',strtotime('last month')) ;
 $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
-
 ?>
+
 <? $pros   = $this->dashboard_model->cuentaProspectosDelMes($thisMonth, $today);?>
 <!-- MANDA AL DASHBOARD DE SUPERVISION VENTAS -->
 <? $vendedores   = $this->dashboard_model->cargaVendedores($thisMonth, $today);?>

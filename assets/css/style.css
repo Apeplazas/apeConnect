@@ -40,7 +40,7 @@ a:hover{color:#6495ED}
 .no-js #loader {display:none; }
 .js #loader {display:block; position:absolute; left:100px; top:0; }
 .se-pre-con {position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:99999999999; background:#fff;}
-
+#comenW b{margin-right:2px}
 /*---------------- Plantilla ------------------*/
 /*---------------- Botones ------------------*/
 .darkBottom{background:#007aff; border: 1px solid #007aff; padding:5px 20px; color:#fff; font-size:13px; text-transform:uppercase; font-weight:700; border-radius:4px; cursor:pointer}
@@ -535,9 +535,13 @@ border-bottom-right-radius: 5px; }
 #creaInfo b{font-weight:bold; color:#777; display:block; margin:0 0 6px 0;}
 #creaInfo em{color:#007aff; font-style:normal}
 /*---------------- REFERENCIAS------------------*/
+#refData{float:left; border:1px solid #ccc;  margin:20px 0 6px 0; width:100%;}
 #referencias {border:1px solid #ccc}
 #referencias thead .grayField{font-weight:400; padding:4px 6px; text-transform:uppercase}
 #referencias tbody td{padding:4px 6px}
+#refData strong{text-transform:uppercase; font-size:1em; padding:6px 0 6px 6px!important; background:#eee}
+#c_rap{width: 100%;  padding: 6px; text-transform: uppercase; border:none}
+#msgRap{float:left; background:#c30; color:#fff; width: 100%; font-weight:bold; padding:6px; text-transform: uppercase}
 
 /*---------------- Botones ------------------*/
 
