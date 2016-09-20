@@ -1753,16 +1753,6 @@ class Ajax extends MX_Controller {
 		
 	}
 	
-	function cuentaEntrada()
-	{
-		$usuarioID       	= $_POST['usuarioID'];
-		$numeroEntradasGeneral       	= $_POST['numeroEntradasGeneral'];
-		$fechaEntradaGeneral       	= $_POST['fechaEntradaGeneral'];
-
-		
-		
-	}
-	
 	function cuentaEntradaModulos()
 	{
 		$user = $this->session->userdata('usuario');
@@ -1776,10 +1766,12 @@ class Ajax extends MX_Controller {
 			$update = array('numeroEntradasGeneral' => $numeroEntradasGeneral, 'fechaEntradaGeneral' => $fechaAcceso);
 			$this->db->where('usuarioID', $usuarioID);
 			$this->db->update('usuarios', $update);
+			
+			echo json_encode($op);
 		}
 		
-		$update = array('usuarioID' => $usuarioID, 'fechaAcceso' => $fechaAcceso, 'modulo' => $modulo); 
-		$this->db->insert('usuarios_accesos', $update);
+		$insert = array('usuarioID' => $usuarioID, 'fechaAcceso' => $fechaAcceso, 'modulo' => $modulo); 
+		$this->db->insert('usuarios_accesos', $insert);
 			
 		echo json_encode($op);
 		

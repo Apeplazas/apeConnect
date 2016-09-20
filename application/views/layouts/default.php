@@ -2,6 +2,7 @@
 <? $op = $this->data_model->cargarOptimizacion($opt);?>
 <? $user = $this->session->userdata('usuario');?>
 <? $today = date('Y-m-d');?>
+<? print_r($user);?>
 
 <!DOCTYPE html>
 <html>
@@ -29,14 +30,15 @@
 	$(document).ready(function() {
 	var usuarioID	= '<?= $user['usuarioID']?>';
 	var fechaAcceso = '<?= $today ?>';
-	var modulo = <?=$opt?>;
+	var modulo = '<?= $opt?>';
 	var suma = '<?= $user['numeroEntradasGeneral']?>';
 	var numeroEntradasGeneral	= 1 + new Number(suma);
 	
-	var_dump($user['numeroEntradasGeneral']);
-	
 	$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
-		usuarioID : usuarioID, fechaAcceso : fechaAcceso, modulo : modulo, numeroEntradasGeneral : numeroEntradasGeneral
+		usuarioID : usuarioID, 
+		fechaAcceso : fechaAcceso, 
+		modulo : modulo, 
+		numeroEntradasGeneral : numeroEntradasGeneral
 		},'json');
 	});
 </script>
