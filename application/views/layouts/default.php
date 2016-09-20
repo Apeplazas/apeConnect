@@ -1,7 +1,8 @@
-
-
 <? $opt = $this->uri->segment(1);?>
 <? $op = $this->data_model->cargarOptimizacion($opt);?>
+<? $user = $this->session->userdata('usuario');?>
+<? $today = date('Y-m-d');?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,22 @@
 <script language="javascript" src="<?=base_url()?>assets/js/jquery.ddslick.min.js" type="text/javascript"></script>
 <?= $this->layouts->print_includes(); ?>
 <link rel="icon" type="image/png" href="<?=base_url()?>assets/graphics/test.ico" />
+
+<? if ($this->uri->segment(1) =='$opt'):?>
+<script type="text/javascript">
+	$(document).ready(function() {
+	var usuarioID	= '<?= $user['usuarioID']?>';
+	var fechaAcceso = '<?= $today ?>';
+	var modulo = <?=$opt?>;
+		
+	$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
+		usuarioID : usuarioID, fechaAcceso : fechaAcceso, modulo : modulo
+		},'json');
+	});
+</script>
+<?endif?>
+			
+			
 </head>
 <body class="bckReg">
 <header id="mainHead">
