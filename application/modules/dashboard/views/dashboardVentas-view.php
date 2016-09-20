@@ -3,42 +3,29 @@ $status = $l->status;
 endforeach; ?>
 
  
-<? if($status== "Intelisis"){ ?>
-<style>
-#addPlaza{ 
-    z-index: 999999;
-    background: #f6f9fc;
-    border: 1px solid #ccc;
-    padding-bottom: 12px;
-    top: 43px;
-    box-shadow: 2px 2px 9px #ccc;
-    width: 300px;
-    left: 10px;
-    
-}
- </style>
+<? if($status== "Intelisis"):?>
  
- <div id="addPlaza">
+ 
+ <div id="popupAct">
 			<form id="formPlano" action="<?= base_url();?>dashboard/formulario" method="post" enctype="multipart/form-data">
-				<h2>Edita la información del inmueble</h2>
-				<i class="topArrowP"><img src="<?=base_url()?>assets/graphics/topArrow.png" alt="Señalización" /></i>
-
-	
+				<h2>Actualiza la información de tu plaza.</h2>
+				<p>Con la finalidad de mantener la información de nuestras plazas actualizada se te solicita completar la siguiente información</p>
 					<fieldset>
-						<input id="subPlan" class="mainBottonSma" type="submit" class="lightBot fright" value="EDITAR" />
+						<input id="subPlan" class="mainBottonCenter" type="submit" class="lightBot fright" value="Enviar" />
 					</fieldset>
 			</form>
 			</div>
+ <?endif?>
  
-<? }else{
 
+<?
 $today = date('Y-m-d') ;
 $firstDateLMonth = date('Y-m-d',strtotime('first day of last month')) ;
 $nextMonth= date('Y-m-d',strtotime('first day of next month')) ;
 $lastMonth = date('Y-m-d',strtotime('last month')) ;
 $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
-
 ?>
+
 <? $pros   = $this->dashboard_model->cuentaProspectosDelMes($thisMonth, $today);?>
 <!-- MANDA AL DASHBOARD DE SUPERVISION VENTAS -->
 <? $vendedores   = $this->dashboard_model->cargaVendedores($thisMonth, $today);?>
@@ -348,10 +335,6 @@ $('select#mostrar').on('change',function(){
 			};
 
 	</script>
-
-	
-<? }
-?>
 
 
 

@@ -24,23 +24,6 @@ class Dashboard extends MX_Controller
          		redirect('');
 
         }
-		if($user['fechaEntradaGeneral'] == $today){
-			echo "ALGOOOOOOOOOOOOOOOOOO";
-		}else if($user['fechaEntradaGeneral'] != $today){
-			echo "ALGAAAAAAAAAAAAAAAAAA"; ?>
-			<script>
-					$('#e<?= $l->Inmueble?>').click(function(){
-						var Inmueble	= '<?= $l->Inmueble;?>';
-						
-						$.post('<?=base_url()?>ajax/desasignarInmueble',{
-										Inmueble : Inmueble
-						},'json');
-						alert('Inmueble desasignado');
-						
-					});
-					</script>
-		<? }
-		
     }
 
 function testmail(){
@@ -98,7 +81,6 @@ function testmail(){
 			
 				  if($user['idrole'] == '9' || $user['usuarioID'] == '1'){
 					  $this->layouts->profile('dashboardVentas-view', $op);
-					  
 				  }
 				  else{
 					  $this->layouts->profile('dashboard-view', $op);
