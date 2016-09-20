@@ -15,6 +15,7 @@ class Ajax extends MX_Controller {
 		$this->load->model('user_model');
 
 		$this->load->model('tempciri/tempciri_model');
+		$this->load->model('administrador/administrador_model');
 
 	}
 
@@ -1409,22 +1410,27 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
-
+//MIKEE
 	public function agruparLocales(){
 
-		$ids    	= $_POST['ids'];
-		$cost_min	= $_POST['cost_min'];
-		$cost_max	= $_POST['cost_max'];
-		$grupo_nom	= $_POST['grupo_nombre'];
+		$ids    	= $_POST['id'];
+		$grupo_nom	= $_POST['nombre'];
+		$cost_min	= $_POST['minimo'];
+		$cost_max	= $_POST['maximo'];
+		$descu	= $_POST['descuento'];
+		$periodo	= $_POST['periodo'];
 
 		if(!empty($cost_min)){
 
 			$op = array(
-				'costo-min'   	=> $cost_min,
-				'cost-max'		=> $cost_max,
-				'grupo_nombre'	=> $grupo_nom
+				'nombre'	=> $grupo_nom,
+				'minimo'   	=> $cost_min,
+				'maximo'	=> $cost_max,
+				'descuento'	=> $descu,
+				'status'	=> 'no autorizado',
+				'periodo'	=> $periodo
 			);
-			$this->db->insert('grupos_locales', $op);
+			$this->db->insert('tempora_grupos_locales', $op);
 			$grupo_id = $this->db->insert_id();
 			$data = array();
 
@@ -1432,11 +1438,10 @@ class Ajax extends MX_Controller {
 
 				$data[] = array(
 				      'id' 		=> $id,
-				      'grupoId'	=> $grupo_id,
+				      'grupoId'	=> $grupo_nom
 				);
 
 			}
-
 			$this->db->update_batch('vector', $data, 'id');
 
 		}
@@ -1445,7 +1450,337 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
+	
+	public function inmuebles(){
 
+		$inmuebleNombre   	= $_POST['inmuebleNombre'];
+		$codigoIATA 	= $_POST['codigoIATA'];
+		$predios	= $_POST['predios'];
+		$areaConstruida	= $_POST['areaConstruida'];
+		$pisos	= $_POST['pisos'];
+		$inmueble = $_POST['inmuebleIntelisis'];
+		
+
+		
+
+			$op = array(
+				'inmuebleNombre'	=> $inmuebleNombre,
+				'codigoIATA'   	=> $codigoIATA,
+				'predios'	=> $predios,
+				'areaConstruida'	=> $areaConstruida,
+				'pisos'	=> $pisos,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('inmuebles', $op);
+		echo true;
+		exit;
+
+	}
+	
+	public function piso1(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso1 = $_POST['numeroPiso'];
+		$areaConstruida1 = $_POST['areaConstruida1'];
+		
+		
+		$op1 = array(
+				'numeroPiso'	=> $numeroPiso1,
+				'areaConstruida'	=> $areaConstruida1,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op1);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso2(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso2 = $_POST['numeroPiso'];
+		$areaConstruida2 = $_POST['areaConstruida2'];
+		
+		
+		$op2 = array(
+				'numeroPiso'	=> $numeroPiso2,
+				'areaConstruida'	=> $areaConstruida2,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op2);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso3(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso3 = $_POST['numeroPiso'];
+		$areaConstruida3 = $_POST['areaConstruida3'];
+		
+		
+		$op3 = array(
+				'numeroPiso'	=> $numeroPiso3,
+				'areaConstruida'	=> $areaConstruida3,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op3);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso4(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso4 = $_POST['numeroPiso'];
+		$areaConstruida4 = $_POST['areaConstruida4'];
+		
+		
+		$op4 = array(
+				'numeroPiso'	=> $numeroPiso4,
+				'areaConstruida'	=> $areaConstruida4,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op4);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso5(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso5 = $_POST['numeroPiso'];
+		$areaConstruida5 = $_POST['areaConstruida5'];
+		
+		
+		$op5 = array(
+				'numeroPiso'	=> $numeroPiso5,
+				'areaConstruida'	=> $areaConstruida5,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op5);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso6(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso6 = $_POST['numeroPiso'];
+		$areaConstruida6 = $_POST['areaConstruida6'];
+		
+		
+		$op6 = array(
+				'numeroPiso'	=> $numeroPiso6,
+				'areaConstruida'	=> $areaConstruida6,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op6);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso7(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso7 = $_POST['numeroPiso'];
+		$areaConstruida7 = $_POST['areaConstruida7'];
+		
+		
+		$op7 = array(
+				'numeroPiso'	=> $numeroPiso7,
+				'areaConstruida'	=> $areaConstruida7,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op7);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso8(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso8 = $_POST['numeroPiso'];
+		$areaConstruida8 = $_POST['areaConstruida8'];
+		
+		
+		$op8 = array(
+				'numeroPiso'	=> $numeroPiso8,
+				'areaConstruida'	=> $areaConstruida8,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op8);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso9(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso9 = $_POST['numeroPiso'];
+		$areaConstruida9 = $_POST['areaConstruida9'];
+		
+		
+		$op9 = array(
+				'numeroPiso'	=> $numeroPiso9,
+				'areaConstruida'	=> $areaConstruida9,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op9);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function piso10(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$numeroPiso10 = $_POST['numeroPiso'];
+		$areaConstruida10 = $_POST['areaConstruida10'];
+		
+		
+		$op10 = array(
+				'numeroPiso'	=> $numeroPiso10,
+				'areaConstruida'	=> $areaConstruida10,
+				'inmuebleIntelisis' => $inmueble
+			);
+			$this->db->insert('pisos', $op10);
+
+		echo true;
+		exit;
+
+	}
+	
+	public function predio(){
+		$inmueble = $_POST['inmuebleIntelisis'];
+		$predioNombre = $_POST['predioNombre'];
+		$nombreCalle = $_POST['nombreCalle'];
+		$numeroExt = $_POST['numeroExt'];
+		$numeroInterior = $_POST['numeroInterior'];
+		$superficieTerreno = $_POST['superficieTerreno'];
+		$codigoPostal = $_POST['codigoPostal'];
+		$numeroPiso = $_POST['numeroPiso'];
+		
+		
+		$op10 = array(
+				'inmuebleIntelisis' => $inmueble,
+				'predioNombre' => $predioNombre,
+				'nombreCalle' => $nombreCalle,
+				'numeroExt' => $numeroExt,
+				'numeroInterior' => $numeroInterior,
+				'superficieTerreno' => $superficieTerreno,
+				'codigoPostal' => $codigoPostal,
+				'numeroPiso' => $numeroPiso
+			);
+			$this->db->insert('predios', $op10);
+
+		echo true;
+		exit;
+
+	}
+	
+	function statusInmueble()
+	{
+		$status       	= $_POST['status'];
+		$inmueble       	= $_POST['inmuebleIntelisis'];
+
+		$update = array('status' => $status);
+		$this->db->where('Inmueble', $inmueble);
+		$this->db->update('borrar_vic_inmueble', $update);
+
+		echo json_encode($op);
+	}
+	
+	function statusGrupo()
+	{
+		$status       	= $_POST['status'];
+		$nombre       	= $_POST['nombre'];
+
+		$update = array('status' => $status);
+		$this->db->where('nombre', $nombre);
+		$this->db->update('tempora_grupos_locales', $update);
+
+		echo json_encode($op);
+	}
+	
+	function eliminarGrupo()
+	{
+		$nombre       	= $_POST['nombre'];
+		$id       	= $_POST['id'];
+		$minimo       	= $_POST['minimo'];
+		$maximo       	= $_POST['maximo'];
+		$descuento       	= $_POST['descuento'];
+		$status       	= $_POST['status'];
+		$periodo       	= $_POST['periodo'];
+
+		$update = array('id'=>$id,'nombre'=> $nombre, 'minimo'=> $minimo, 'maximo'=> $maximo, 'descuento'=> $descuento, 'status'=> $status, 'periodo'=> $periodo);
+		$upd = array('grupoId'=>'');
+		$this->db->where('nombre', $nombre);
+		$this->db->delete('tempora_grupos_locales', $update);
+		$this->db->where('grupoId', $nombre);
+		$this->db->update('vector', $upd) ;
+
+		echo json_encode($op);
+	}
+	
+	function asignarInmueble()
+	{
+		$Inmueble       	= $_POST['Inmueble'];
+		$usuario       	= $_POST['usuario_id'];
+
+		$update = array('usuario_id' => $usuario);
+		$this->db->where('Inmueble', $Inmueble);
+		$this->db->update('borrar_vic_inmueble', $update);
+
+		echo json_encode($op);
+		
+	}
+	function desasignarInmueble()
+	{
+		$Inmueble       	= $_POST['Inmueble'];
+
+		$update = array('usuario_id' => '');
+		$this->db->where('Inmueble', $Inmueble);
+		$this->db->update('borrar_vic_inmueble', $update);
+
+		echo json_encode($op);
+		
+	}
+	
+	function cuentaEntrada()
+	{
+		$usuarioID       	= $_POST['usuarioID'];
+		$numeroEntradasGeneral       	= $_POST['numeroEntradasGeneral'];
+		$fechaEntradaGeneral       	= $_POST['fechaEntradaGeneral'];
+
+		$update = array('numeroEntradasGeneral' => $numeroEntradasGeneral, 'fechaEntradaGeneral' => $fechaEntradaGeneral);
+		$this->db->where('usuarioID', $usuarioID);
+		$this->db->update('usuarios', $update);
+
+		echo json_encode($op);
+		
+	}
+	
+	function cuentaEntradaModulos()
+	{
+		$usuarioID       	= $_POST['usuarioID'];
+		$fechaAcceso       	= $_POST['fechaAcceso'];
+		$modulo       	= $_POST['modulo'];
+
+		$update = array('usuarioID' => $usuarioID, 'fechaAcceso' => $fechaAcceso, 'modulo' => $modulo); 
+		$this->db->insert('usuarios_accesos', $update);
+
+		echo json_encode($op);
+		
+	}
+
+//----------------------------------------
 	function traeCiPorPlaza(){
 
 		$plaza 	= $_POST['plaza'];
@@ -1626,6 +1961,29 @@ class Ajax extends MX_Controller {
 
 	}
 	
+	function cargarResultadoUsuarios(){
+
+		
+		$nombreCompleto	= $_POST['nombreCompleto'];
+		$email		= $_POST['email'];
+
+		$op['data']  = $this->administrador_model->busquedaEmail($email, $nombreCompleto);
+		  $this->load->view('busquedaEmailAvanzada', $op);	
+	}
+
+	function cargarResultadoUsuariosPosp(){
+
+		$nombreCompleto	= $_POST['nombreCompleto'];
+		$email		= $_POST['email'];
+
+		$op['data']  = $this->administrador_model->busquedaEmailPros($email, $nombreCompleto);
+
+		  $this->load->view('busquedaEmailAvandazadaPrpspectos', $op);	
+
+	}
+
+     
+
 	function cargarResultadoRap(){
 		
 		$plaza_id	= $_POST['plaza_id'];
@@ -1651,6 +2009,12 @@ class Ajax extends MX_Controller {
 		$op['data']  = $_POST['alldata'];
 
 		$this->load->view('cargaResultadosVendedores' ,$op);
+	}
+
+	function cargaResultadosCartaIntencion(){
+		$op['data']  =$_POST['alldata'];
+
+		$this->load->view('cargaResultadosCartaIntencion' ,$op);
 	}
 
 	function cargarUsuarios(){

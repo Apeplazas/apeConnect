@@ -1,9 +1,6 @@
-
 <? $opt = $this->uri->segment(1);?>
 <? $op = $this->data_model->cargarOptimizacion($opt);?>
 <? $user =	$this->session->userdata('usuario'); ?>
-<!-- Sesion de Cotizaciones -->
-<? $cotizacion = $this->session->userdata('cotizacion');?>
 <!DOCTYPE html>
 <html>
 <head>

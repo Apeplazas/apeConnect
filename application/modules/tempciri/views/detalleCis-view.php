@@ -133,3 +133,8 @@ $(document).ready(function() {
 });
 </script>
 </div>
+<script>
+	$(document).ready(function(){
+		
+	})
+</script>

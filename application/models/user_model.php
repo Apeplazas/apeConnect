@@ -99,6 +99,7 @@ class User_model extends CI_Model {
          	redirect('');
         }else{
         	if(!in_array($this->uri->segment(2), $user['modulos'][$this->uri->segment(1)]))
+			
 				redirect('');
         }
 	}
@@ -320,7 +321,10 @@ class User_model extends CI_Model {
 
 	function traeadmin($id){
 		$data = array();
-		$q = $this->db->query("SELECT u.*,u.nombreCompleto nombreAdmin FROM usuarios u WHERE u.usuarioID='$id'");
+		$q = $this->db->query("SELECT * FROM usuarios u 
+		LEFT JOIN catalogoDepartamentos cd ON cd.areaID=u.areaID
+		WHERE u.usuarioID='$id'
+		");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -355,7 +359,22 @@ class User_model extends CI_Model {
 		return $data;
 
 	}
+   function verificarCancelProsp($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Desactivado' WHERE usuarioID=$usuarioID");
+   }
 
+     function verificarActivoProsp($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Activado' WHERE usuarioID=$usuarioID");
+   }
+
+
+      function verificarCanceladoCartaI($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Desactivado' WHERE usuarioID=$usuarioID");
+   }
+
+     function verificarActivoCartaI($usuarioID){
+   	  $this->db->query(" UPDATE  usuarios SET status='Activado' WHERE usuarioID=$usuarioID");
+   }
 	function verificarRiProp($userId,$riId){
 
 		$data = array();

@@ -8,9 +8,33 @@ class evaluacionestwo extends MX_Controller {
 		$this->user_model->checkuser();
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('evaluacionestwo/evaluacionestwo_model');
+		
+		
 	}
 
 	function index(){
+		
+		$user = $this->session->userdata('usuario');
+		$today = date('Y-m-d');
+		if($this->uri->segment(1) =='evaluacionestwo'){ ?>
+			<script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
+			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+			<script type="text/javascript">
+					
+					$(document).ready(function() {
+						var usuarioID	= '<?= $user['usuarioID']?>';
+						var fechaAcceso = '<?= $today ?>';
+						var modulo = 'evaluacionestwo';
+						
+						$.post('<?=base_url()?>ajax/cuentaEntradaModulos',{
+										usuarioID : usuarioID,
+										fechaAcceso : fechaAcceso,
+										modulo : modulo
+						},'json');
+					});
+					
+			</script>
+		<? }
 		$this->layouts->add_include('assets/js/jquery-ui.js');
 		$this->load->model('evaluacionestwo/evaluacionestwo_model');
 		$usuarioSesion	= $this->session->userdata('usuario');
@@ -460,6 +484,9 @@ class evaluacionestwo extends MX_Controller {
 			
 			$data	= array();
 			$catId	= $this->evaluacionestwo_model->traeCatalogoId($usuarioSesion['usuarioID'],$_POST['usuarioAcalificar'],$campania);
+			
+			var_dump($_POST['evaluacion']);
+			exit();
 			
 			foreach ($_POST['evaluacion'] as $key => $value) {
 

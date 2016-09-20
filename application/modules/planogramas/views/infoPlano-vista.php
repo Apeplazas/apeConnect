@@ -51,13 +51,12 @@
 						<li id="<?= $l->tipo;?>-<?= $l->id;?>" class="closeup"> <?= $l->id;?> - Creado: <?= $l->date;?></li>
 					<? endforeach; ?>
 					</ul-->
-					<form id="asig" method="post" class="mt10" >
-						<fieldset>
+					<form id="asigg" method="post" class="mt10" >
+						
 							<label id="idRec">*Asigna el numero de local</label>
 							<input type="text" name="claveLocal" id="asigInp" />
 							<input type="hidden" id="plazaID" name="plazaId" value="<?= $this->uri->segment(3);?>"/>
-							<input type="submit" class="mainBottonSma" id="subPlan" value="Agrupar" />
-						</fieldset>
+							<input type="submit" class="mainBottonSma" id="subPlan" value="Asignar" />
 					</form>
 					<br class="clear">
 					</div>
@@ -148,11 +147,11 @@ $(function() {
 	$(".closeup").click(function() {
 		$(".closeup").removeClass("act");
     	$(this).addClass("act");
-    	$('#asig').show();
+    	$('#asigg').show();
 	});
 
 	$(".click, .areaPublica").click(function() {
-    	$('#asig').show();
+    	$('#asigg').show();
 	});
 
 });
@@ -195,17 +194,17 @@ $(function() {
 		}, function(data) {
 			if(jQuery.isEmptyObject(data.local)){
 				$('#asigClick').show();
+				$('#asigg').hide();
 			}else{
 				$("#sel1").text(data.local[0].estatusLocal);
 				$("#infLocPlSt .field").remove();
 				$("#infLocPl").html(" \
 				<div class='field '><img src='<?=base_url()?>assets/graphics/svg/warning.svg' /><i>Local no asignado</i></div> \
 				");
-
-
 			}
 
 			$("#statusVector button").attr("id",data.Nvector[0].status);
+			
 		},'json');
 	});
 
@@ -241,6 +240,7 @@ $(function() {
 
 	$("#asignar").click(function() {
 		var id = $(this).attr("id");
+		
 		$("#forma").removeAttr("disabled");
 		$.post("<?=base_url()?>ajax/asignarLocal", {
 			id : id
@@ -253,7 +253,7 @@ $(function() {
 
 	});
 
-	$("#asig").submit(function(event) {
+	$("#asigg").submit(function(event) {
 		event.preventDefault();
 
 		var local		= $("#asigInp").val();
@@ -276,7 +276,7 @@ $(function() {
 			if (data){
 				$("#infLocPlSt").html("<div class='field '><img src='<?=base_url()?>assets/graphics/palomita.png' /><i>Local: Activado</i></div>");
 				$("#infLocPl .field").remove();
-				$('#asigClick').hide();
+				$('#asiggClick').hide();
 				$.each(vectDos,function(key,val){
 					$(val.nodeName+"[id='"+val.id+"']").attr("class", "clean");
 					});
@@ -285,7 +285,7 @@ $(function() {
 				alert('No ha ajustado el texto')
 			}
 		},'json');
-		$( "#asig" ).hide();
+		$( "#asigg" ).hide();
 
 	});
 
@@ -337,11 +337,11 @@ function dragended() {
 </script>
 
 <script>
-var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
-jQuery(function($) {
 /********************************************************************************************************************
 Ajax para el autocompletar
 ********************************************************************************************************************/
+var urlPost = (("https:" == document.location.protocol) ? "https://www.apeplazas.com/apeConnect/" : "http://www.apeplazas.com/apeConnect/");
+jQuery(function($) {
 	$(function() {
 
 		$("ul.subnav").parent().append("<span></span>"); //Muestra el dropdown
@@ -386,8 +386,8 @@ Ajax para el autocompletar
 
 	$("#formBuscar input[name=key]").keypress(function(e) {
 		$('#formBuscar input[name=hidden]').val('');
+		
 	});
-
 });
 </script>
 <script>

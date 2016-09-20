@@ -90,6 +90,83 @@ class Dashboard_model extends CI_Model
 		return $data;
 	}
 	
+	//MIKEE
+	function historial($historialID){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios_accesos
+										where '$historialID' = usuarioID");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function trae_plazas(){
+		$data = array(); 
+		$q = $this->db->query("SELECT i.Nombre as 'Nombre',
+									  i.usuario_id as 'usuario_id',
+									  u.nombreCompleto as 'nombreCompleto',
+									  i.Inmueble as 'Inmueble',
+									  u.email as 'email',
+									  u.usuarioID as 'usuarioID'
+									  FROM borrar_vic_inmueble i
+									  LEFT JOIN usuarios u ON u.usuarioID=i.usuario_id");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function trae_inmueble($us){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM borrar_vic_inmueble
+										where '$us' = usuario_id");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function trae_usuarios(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargaGerentesPlaza(){
+		$data = array(); 
+		$q = $this->db->query("SELECT 
+			u.*, 
+			count(c.usuarioId) as total     
+		FROM usuarios u
+		LEFT JOIN tempora_ci c ON u.usuarioID=c.usuarioId
+		WHERE idrole='5'
+		GROUP BY u.usuarioID");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	
 	function trae_proyectos_porstatus($status){
 		$data = array(); 
 		$q = $this->db->query("SELECT count(p.idProyecto) as total_proyectos FROM proyectos p WHERE p.statusProyecto='$status'");
@@ -143,7 +220,7 @@ class Dashboard_model extends CI_Model
 	function cargaMensajes($usrId){
 		$data = array(); 
 		$q = $this->db->query("SELECT
-			c.cID,c.idReferencia,
+			c.cID,
 			cr.fechaRespuesta, cr.respuesta,
 			u.nombreCompleto
 			FROM conversaciones c 
@@ -179,7 +256,44 @@ class Dashboard_model extends CI_Model
 		return $data;
 		
 	}
-	
+	function cuentaProyectosDelMes($fechaDe, $fechaA){
+		$data = array();
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from proyectos 
+												WHERE fechaAltaProyecto > '$fechaDe'
+												AND fechaAltaProyecto < '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+
+	}
+	  
+     function cargaProyectos($fechaDe, $fechaA){
+     	$data = array(); 
+		$q = $this->db->query("SELECT 
+			u.usuarioID as 'usuarioID',
+			p.tituloProyecto as 'tituloProyecto', 
+			count(p.usuarioID) as cuentaTotal     
+		FROM proyectos p
+		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
+		WHERE idrole='8'
+		OR idrole='1'
+		AND p.fechaAltaProyecto > '$fechaDe'
+		AND p.fechaAltaProyecto< '$fechaA'
+		GROUP BY p.usuarioID
+		ORDER BY cuentaTotal desc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
 	function cuentaProspectosTipo($usuarioID, $tipo, $fechaDe, $fechaA){
 		$data = array(); 
 		$q = $this->db->query("SELECT COUNT(*) as cuenta from prospectos 
@@ -196,7 +310,7 @@ class Dashboard_model extends CI_Model
 		}
 		return $data;
 	}
-	
+   
 	function cuentaProspectosDelMes($fechaDe, $fechaA){
 		$data = array(); 
 		$q = $this->db->query("SELECT COUNT(*) as cuenta from prospectos 
@@ -220,7 +334,8 @@ class Dashboard_model extends CI_Model
 			count(p.usuarioID) as cuentaTotal     
 		FROM prospectos p
 		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
-		WHERE idrole='8'
+		WHERE idrole='8' 
+		OR idrole='1'
 		AND p.fechaCreacion > '$fechaDe'
 		AND p.fechaCreacion < '$fechaA'
 		GROUP BY p.usuarioID
@@ -234,4 +349,74 @@ class Dashboard_model extends CI_Model
 		return $data;
 	}
 	
+
+	function cuentaCartaIntencionDelMes($fechaDe, $fechaA){
+		$data = array();
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from tempora_ci
+												WHERE fecha >= '$fechaDe'
+												AND fecha <= '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+
+	}
+    
+    function cargaCartaIntencion($fechaDe, $fechaA){
+     	$data = array(); 
+		$q = $this->db->query("SELECT 
+			C.gerentePlaza as 'gerentePlaza', 
+			c.plaza as 'plaza',
+			count(C.plaza) as cuentaTotal     
+		FROM tempora_ci C 
+		WHERE  C.fecha  >= '$fechaDe'
+		AND C.fecha  <= '$fechaA'
+		GROUP BY C.plaza
+		ORDER BY cuentaTotal desc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+
+	function cuentaCartaIntencion($usuarioID, $fechaDe, $fechaA){
+		$data = array(); 
+		$q = $this->db->query("SELECT COUNT(*) as cuenta from tempora_ci
+												WHERE usuarioID='$usuarioID'
+												AND fecha >= '$fechaDe'
+												AND fecha <= '$fechaA'
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+
+   function cuentaCartaIntencionPorMes($fechaDe, $fechaA){
+   	    $data = array();
+   	    $q = $this->db->query("SELECT COUNT(*) as cuenta from tempora_ci
+   	    	                                    WHERE fecha >= '$fechaDe'
+   	    	                                    AND fecha  <= '$fechaA'
+   	    	           
+   	    	                                    ");
+   	    if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+   }
+   
+
 }

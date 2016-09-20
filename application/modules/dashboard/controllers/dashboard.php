@@ -10,17 +10,44 @@ class Dashboard extends MX_Controller
 		$this->load->model('dashboard_model');
 		$this->load->model('user_model');
 		$this->load->model('proyectos/proyecto_model');
+		
 	}
 
 	//verifica que la sesion esta inciada para poder dar acceso a modulo
 	function is_logged_in()
     {
+		
+		$today = date('Y-m-d');
         $user = $this->session->userdata('usuario');
         if(!isset($user) || $user != true)
         {
-        	$this->session->set_userdata(array('previous_page'=> uri_string()));
-         	redirect('');
+			$this->session->set_userdata(array('previous_page'=> uri_string()));
+         		redirect('');
+
         }
+
+		if($user['fechaEntradaGeneral'] != $today){?>
+            
+            <script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js" type="text/javascript"></script>
+			<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js" type="text/javascript"></script>
+			<script type="text/javascript">
+					
+					$(document).ready(function() {
+                        var suma = '<?= $user['numeroEntradasGeneral']?>';
+						var usuarioID	= '<?= $user['usuarioID']?>';
+						var numeroEntradasGeneral	= 1 + new Number(suma);
+						var fechaEntradaGeneral = '<?= $today ?>';
+						
+						$.post('<?=base_url()?>ajax/cuentaEntrada',{
+										usuarioID : usuarioID,
+										numeroEntradasGeneral : numeroEntradasGeneral,
+										fechaEntradaGeneral : fechaEntradaGeneral
+						},'json');
+					});
+					
+			</script>
+		<? }
+		
     }
 
 function testmail(){
@@ -47,6 +74,7 @@ function testmail(){
 
 	function index()
 	{
+		
 		//Informacion perfil general//
 		$user         = $this->session->userdata('usuario');
 		if($user['idrole'] == '8'){
@@ -73,14 +101,22 @@ function testmail(){
 			$op['mensajes']                   				= $this->dashboard_model->cargaMensajes($user['usuarioID']);
 			$op['no_notificaciones']          			= $this->user_model->numero_mensajes($user['usuarioID']);
 			$op['mensajes_gen'] = $this->notificaciones_model->cargarNotificacionesTodas($user['usuarioID']);
+			$op['inmueble']		          			=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
 			
-			if($user['idrole'] == '9' || $user['idrole'] == '5' || $user['usuarioID'] == '1'){
-				$this->layouts->profile('dashboardVentas-view', $op);
-			}
-			else{
-				$this->layouts->profile('dashboard-view', $op);
-			}
+				  if($user['idrole'] == '9' || $user['usuarioID'] == '1'){
+					  $this->layouts->profile('dashboardVentas-view', $op);
+				  }
+				  else{
+					  $this->layouts->profile('dashboard-view', $op);
+				  }
+		
+
 		}
+	}
+	
+	function historial($historialID){
+		$op['historial']		  =	$this->dashboard_model->historial($historialID);
+		$this->layouts->profile('dashboardHistorial-view', $op);
 	}
 
 	function info($fancyUrl){
@@ -97,7 +133,35 @@ function testmail(){
 		$op['user']	= $user;
 		$this->layouts->profile('perfile-view', $op);
 	}
+    function GraficaDashboard(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+    	$this->layouts->profile('dashboardGrafica-view', $op);
+    }
 
+     function DashboardCartaIntencion(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+    	$this->layouts->profile('dashboarCartaIntencion-view', $op);
+    }
+    
+	function dashboardInmuebles(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+		$op['plazas']		          			=	$this->dashboard_model->trae_plazas();
+		$op['usu']		          			=	$this->dashboard_model->trae_usuarios();
+		
+    	$this->layouts->profile('dashboardinmuebles-view', $op);
+    }
+	
+	function formulario(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+		$op['inmueble']		          			=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
+		
+    	$this->layouts->profile('formulario-view', $op);
+    }
+    
 	function borrarProveedor($idProveedor)
 	{
 		$proveedor   = $this->uri->segment(3);

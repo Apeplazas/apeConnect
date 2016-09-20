@@ -6,6 +6,7 @@ class Proyectos extends Main_proyectos
 	public function __construct()
 	{
 		parent::__construct();
+		
 	}
 	
 	function verProyecto($proyecto)

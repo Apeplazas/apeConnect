@@ -9,13 +9,13 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 // echo $thisMonth;
 ?>
 
-<form id="busAvanDisplay">
+<form id="busAvanDisplay" class="mt10">
   <strong>Búsqueda por fecha</strong>
   <div id="firAvan">
   <fieldset>
     <span>
       <i><img src="<?=base_url()?>assets/graphics/svg/calendario.svg" width="14" alt="calendar"></i>
-      <label>Prospectos generados | De</label>
+      <label style="margin-left: 10px;">Prospectos generados | De</label>
       <input class="change" type="text" id="deFecPro" name="deFecPro" value="<?=$thisMonth?>">
     </span>
     <span>
