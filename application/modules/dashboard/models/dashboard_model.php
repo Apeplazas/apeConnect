@@ -334,8 +334,8 @@ class Dashboard_model extends CI_Model
 			count(p.usuarioID) as cuentaTotal     
 		FROM prospectos p
 		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
-		WHERE idrole='8' 
-		OR idrole='1'
+		WHERE (idrole='8' 
+		OR idrole='1')
 		AND p.fechaCreacion > '$fechaDe'
 		AND p.fechaCreacion < '$fechaA'
 		GROUP BY p.usuarioID

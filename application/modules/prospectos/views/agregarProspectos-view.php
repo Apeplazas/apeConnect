@@ -69,12 +69,10 @@
 					<td class="grayField"><label>Status</label></td>
 					<td>
 						<select class="selBig" name="statusProspecto">
-							<option value="No Contactado" selected>No Contactado</option>
-						  <option value="Intentando Contactar">Intentando Contactar</option>
-						  <option value="Contactar mas adelante">Contactar mas adelante</option>
-						  <option value="Contactado">Contactado</option>
-						  <option value="Muy Interesado">Muy Interesado</option>
-						  <option value="Prospecto Fallido">Prospecto Fallido</option>
+						  <option value="No Interesado">No Interesado</option>
+                          <option value="Contactado">Contactado</option>
+						  <option value="Interesado">Interesado</option>
+                          <option value="Muy Interesado">Muy Interesado</option>
 						</select>
 					</td>
 				</tr>
