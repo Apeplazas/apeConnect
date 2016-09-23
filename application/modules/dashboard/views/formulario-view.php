@@ -33,11 +33,7 @@
 				<td class="grayField"><strong><span class="obli">*</span>Nombre del inmueble</strong></td>
 				<td><input type="text" class="bigInp datePick" name="nombreInmueble" id="nombreInmueble" value="<?= $l->Nombre ?>" readonly="readonly"></td>
 				<td class="grayField"><strong><span class="obli">*</span>Código IATA de tu estado</strong></td>
-				<td><input class="bigInp datePick" type="text" name="codigo" id="codigo" value=""></td>
-                
-                 
-                
-                
+				<td><input class="bigInp datePick" type="text" name="codigo" id="codigo" value="<?=$l->claveCiudad; ?>"></td>
             
 			</tr>
              <tr>
@@ -637,20 +633,21 @@ alert ('ERROR DE MEDIDAS INMUEBLE / PISO(S)');
    
 <script>
 $('select#plazaPisos').on('change',function(){
+	$( ".pisos" ).remove();
 	var valor = $(this).val();
 	
 	if(valor==1){
-	document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
+	document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'></th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2 - Piso 1 )</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
 	}else if (valor==2){
-		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table>"
-		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 2</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisodos' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
+		document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table>"
+		document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'>Piso 2</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisodos' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
 	}else if (valor==3){
-		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table>"
-		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 2</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisodos' value='' ></td></tr></tbody></table>"
-		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 3</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisotres' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
+		document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table>"
+		document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'>Piso 2</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisodos' value='' ></td></tr></tbody></table>"
+		document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'>Piso 3</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisotres' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
 	}
 	else if (valor==4){
-		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table>"
+		document.getElementById("wrapListForm2").innerHTML+="<table class='pisos'><th colspan='4'>Piso 1</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisouno' value='' ></td></tr></tbody></table>"
 		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 2</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisodos' value='' ></td></tr></tbody></table>"
 		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 3</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisotres' value='' ></td></tr></tbody></table>"
 		document.getElementById("wrapListForm2").innerHTML+="<table><th colspan='4'>Piso 4</th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2)</strong></td><td><input class='bigInp datePick' type='text' id='pisocuatro' value='' ></td></tr></tbody></table><div id='uno'></div></br class='clear'>"
