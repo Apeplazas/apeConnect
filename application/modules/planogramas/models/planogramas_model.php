@@ -323,7 +323,7 @@ class Planogramas_model extends CI_Model
 	
 	function cargarInmuebles(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM BORRAR_vic_Inmueble order by Nombre asc");
+		$q = $this->db->query("SELECT * FROM BORRAR_vic_Inmueble where Nombre !='' order by Nombre asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

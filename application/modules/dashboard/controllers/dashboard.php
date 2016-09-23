@@ -138,7 +138,7 @@ function testmail(){
 	function formulario(){
     	$user = $this->session->userdata('usuario');
     	$op['user'] = $user;
-		$op['inmueble']		          			=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
+		$op['inmueble']	=	$this->dashboard_model->trae_inmueble($user['usuarioID']);
 		
     	$this->layouts->profile('formulario-view', $op);
     }
