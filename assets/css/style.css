@@ -24,7 +24,7 @@ strong, #forAjaTwo strong{font-weight:700;}
 .m10{margin:10px}
 .mb10{margin-bottom:10px}
 .ml270{margin-left:270px;}
-.mt10{margin-top:13px; display:block}
+.mt10{margin-top:13px}
 .svgIcon{margin:0 22px 0 19px; width:24px;}
 .barOut #navMenu li img{margin:4px 10px 0 16px; width:20px; max-height:19px}
 .barOut .In{border-bottom:1px solid #ccc;}
@@ -70,16 +70,7 @@ background: -ms-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4
 background: linear-gradient(to bottom, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007aff', endColorstr='#005ec4',GradientType=0 );
 border:1px solid #005ec4; color:#fff; font-size:12px; font-weight:700; text-transform:uppercase; padding:8px 32px 6px 32px; border-radius:4px; float:right; margin-top:10px;}
-.mainBottonSma{background: #007aff; /* Old browsers */
-background: -moz-linear-gradient(top, #007aff 15%, #007aff 15%, #0079f2 74%, #005ec4 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(15%,#007aff), color-stop(15%,#007aff), color-stop(74%,#0079f2), color-stop(100%,#005ec4)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* IE10+ */
-background: linear-gradient(to bottom, #007aff 15%,#007aff 15%,#0079f2 74%,#005ec4 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007aff', endColorstr='#005ec4',GradientType=0 );
-border:1px solid #005ec4; color:#fff; font-size:12px; font-weight:700; text-transform:uppercase; padding:8px 32px 6px 32px; border-radius:4px; float:right; margin-top:10px;}
-.mainBottonCenter{text-align:center; background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; width:180px; margin:20px auto; display:block}
+.mainBotton{text-align:center; background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; float:right;}
 .mainBottonSmaDes{background: #007aff; /* Old browsers */
 background: -moz-linear-gradient(top, #007aff 15%, #007aff 15%, #0079f2 74%, #005ec4 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(15%,#007aff), color-stop(15%,#007aff), color-stop(74%,#0079f2), color-stop(100%,#005ec4)); /* Chrome,Safari4+ */
@@ -98,6 +89,7 @@ background: -ms-linear-gradient(top, #c47d7d 0%,#c82e29 42%,#a80200 100%); /* IE
 background: linear-gradient(to bottom, #c47d7d 0%,#c82e29 42%,#a80200 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c47d7d', endColorstr='#a80200',GradientType=0 );}
 .mainBotton:active{background:#A80200}
+.mainBottonCenter{text-align:center; background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; width:180px; margin:20px auto; display:block}
 .f100{float:left; width:100%;}
 .wrapList{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:95px;}
 .wrapListLow{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:25px;}
@@ -165,7 +157,7 @@ header nav{float:right; height:65px!important;}
 .pisos a{color:#555; font-size:11px; border-right:1px solid #B7E3FF; border-left:1px solid #B7E3FF;}
 #asigPi{background:#eee; border-right:1px solid #B7E3FF;}
 #asigPi ul{float:left; border-right:1px solid #B7E3FF;}
-#asigPi li{float:left;} 
+#asigPi li{float:left;} #asigPi li a{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #B7E3FF; text-transform:uppercase; background:#f0f8ff}
 #asigPi li a:hover{background:#D8EDFF; color:#222}
 #tablaPlano tbody tr:hover{background-color:#eee}
 table tbody tr:hover{background-color:#fafafa}
@@ -174,9 +166,6 @@ table tbody tr:hover{background-color:#fafafa}
 #popupAct fieldset{float:left; width:100%; padding:0}
 #popupAct h2{font-size: 1.4em; text-transform: uppercase; font-weight: 700; float: left; width: 100%; text-align: center; color:#333}
 #popupAct p{float:left; width:100%; text-align:center; padding:10px 0; line-height:21px; font-size:1.2em}
-
-.VENCIDO{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #F68787; text-transform:uppercase; background:#F68787}
-.VIGENTE{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #B3FF99; text-transform:uppercase; background:#B3FF99}
 /*----------------Titulos ------------------*/
 #mainTit{padding:16px 20px 26px;}
 #mainTitPlano{padding:26px 15px;}
@@ -512,8 +501,7 @@ border-bottom-right-radius: 5px; }
 .Rtel{width:150px !important}
 .Rema{width:200px !important; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
 .fCr{white-space:nowrap;}
-.Rori{width:150px !important; t
-	ext-overflow:ellipsis; white-space:nowrap; overflow:hidden }
+.Rori{width:150px !important; text-overflow:ellipsis; white-space:nowrap; overflow:hidden }
 .sp{margin-right:5px; line-height:16px; font-style:normal}
 #commentC textarea{float: left; text-transform:uppercase; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
 #aqui{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px;}
@@ -559,6 +547,7 @@ border-bottom-right-radius: 5px; }
 #refData strong{text-transform:uppercase; font-size:1em; padding:6px 0 6px 6px!important; background:#eee}
 #c_rap{width: 100%;  padding: 6px; text-transform: uppercase; border:none}
 #msgRap{float:left; background:#c30; color:#fff; width: 100%; font-weight:bold; padding:6px; text-transform: uppercase}
+#folioAgenerar{color:#6495ED; float:left; width:100%; padding:13px}
 
 /*---------------- Botones ------------------*/
 
@@ -606,5 +595,4 @@ border-bottom-right-radius: 5px; }
 @media (min-width:1680px) {
 
 }
-
 
