@@ -190,7 +190,12 @@ class Prospectos extends MX_Controller {
 		$today = date('Y-m-d');
 		
 		$user = $this->session->userdata('usuario');
-		$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
+		
+		if($user['usuarioID'] == '198'){
+			$op['prospectos'] 	= $this->prospectos_model->cargarProspectosPlaza($user['plaza']);
+		}else{
+			$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
+		}
 
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')

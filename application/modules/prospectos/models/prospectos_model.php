@@ -147,6 +147,18 @@ class Prospectos_model extends CI_Model {
 		}
 		return $data;
 	}
+	
+	function cargarProspectosPlaza($plazaID){
+		$data = array();
+		$q = $this->db->query("SELECT * from prospectos where status !='borrado' order by id desc LIMIT 1000");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 
 	function validaEmail($email){
 		$data = array();
