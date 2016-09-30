@@ -2,12 +2,13 @@
 $status = $l->status;
 endforeach; ?>
 
+<? $user         = $this->session->userdata('usuario');?>
  
-<? if($status== "Intelisis"):?>
+<? if($user['idrole'] == '10'):?>
  
  
  <div id="popupAct">
-			<form id="formPlano" action="<?= base_url();?>dashboard/formulario" method="post" enctype="multipart/form-data">
+			<form id="formPlano" action="<?= base_url();?>planogramas/inmuebles" method="post" enctype="multipart/form-data">
 				<h2>Actualiza la información de tu plaza.</h2>
 				<p>Con la finalidad de mantener la información de nuestras plazas actualizada se te solicita completar la siguiente información</p>
 					<fieldset>
@@ -15,7 +16,7 @@ endforeach; ?>
 					</fieldset>
 			</form>
 			</div>
- <?endif?>
+ <? endif?>
  
 
 <?

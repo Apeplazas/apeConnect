@@ -4,7 +4,7 @@ html{height:100%;}
 body{font-family:Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased!important; line-height:1.54; color:#555;  height:100%; font-size:11px}
 img{color:#f4f4f2;}
 ol,ul,li{list-style:none; font-weight:lighter;}
-br{clear:both}
+clear, br{clear:both}
 blockquote,q{quotes:none;}
 blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0;}
 ins{text-decoration:none;}
@@ -13,7 +13,7 @@ table{border-collapse:collapse;border-spacing:0;}
 p{line-height:1.6em; font-weight:lighter;}
 a{text-decoration:none; color:#777; font-weight:400; cursor:pointer;}
 .submenu a:hover{color:#61A9FF;}
-button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr, #colPr{cursor:pointer}
+button, #choTip, .callId, #choTipEva, .cPointer, #choTipEvaCol, .tablaPreg tr, #colPr, #mp{cursor:pointer}
 strong, #forAjaTwo strong{font-weight:700;}
 .firsUp{text-transform:capitalize}
 .tcenter{text-align:center}
@@ -24,7 +24,7 @@ strong, #forAjaTwo strong{font-weight:700;}
 .m10{margin:10px}
 .mb10{margin-bottom:10px}
 .ml270{margin-left:270px;}
-.mt10{margin-top:13px; display:block}
+.mt10{margin-top:13px}
 .svgIcon{margin:0 22px 0 19px; width:24px;}
 .barOut #navMenu li img{margin:4px 10px 0 16px; width:20px; max-height:19px}
 .barOut .In{border-bottom:1px solid #ccc;}
@@ -32,7 +32,7 @@ h1, h2, h3, h4{font-family: 'Lato', sans-serif; font-weight:300; color:#777; fon
 .bckMark{background-color:#f0f8ff}
 a:hover{color:#6495ED}
 .alertTab{color:brown; font-weight:700}
-.ohid{overflow:hidden}
+.ohid{overflow-x:hidden}
 .alertClick{background:#F5F5DC}
 
 /*---------------- Cargador ------------------*/
@@ -40,7 +40,7 @@ a:hover{color:#6495ED}
 .no-js #loader {display:none; }
 .js #loader {display:block; position:absolute; left:100px; top:0; }
 .se-pre-con {position:fixed; left:0px; top:0px; width:100%; height:100%; z-index:99999999999; background:#fff;}
-
+#comenW b{margin-right:2px}
 /*---------------- Plantilla ------------------*/
 /*---------------- Botones ------------------*/
 .darkBottom{background:#007aff; border: 1px solid #007aff; padding:5px 20px; color:#fff; font-size:13px; text-transform:uppercase; font-weight:700; border-radius:4px; cursor:pointer}
@@ -89,6 +89,7 @@ background: -ms-linear-gradient(top, #c47d7d 0%,#c82e29 42%,#a80200 100%); /* IE
 background: linear-gradient(to bottom, #c47d7d 0%,#c82e29 42%,#a80200 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c47d7d', endColorstr='#a80200',GradientType=0 );}
 .mainBotton:active{background:#A80200}
+.mainBottonCenter{text-align:center; background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; width:180px; margin:20px auto; display:block}
 .f100{float:left; width:100%;}
 .wrapList{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:95px;}
 .wrapListLow{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:25px;}
@@ -130,14 +131,14 @@ header nav{float:right; height:65px!important;}
 .barOut #navMenu li{float:left; width:275px; padding:10px 5px 0 0; cursor:pointer}
 .barOut .main{float:left; width:260px; padding:13px 5px 0 0; cursor:pointer}
 #navMenu li img{float:left}
-#navMenu li strong, #navMenu li em{line-height:28px; padding:2px 0; float:left; font-size:14px; font-weight:200; cursor:pointer; font-style:normal; width:215px; border-bottom:1px solid #ccc;}
+#navMenu li strong, #navMenu li em{line-height:28px; padding:2px 0 2px 4px; text-transform: uppercase;  float:left; font-size:12px; font-weight:400; cursor:pointer; font-style:normal; width:215px; border-bottom:1px solid #ccc;}
 .bckMarkActive{background:#eee; box-shadow:inset 0px 1px 20px -7px #777; -webkit-box-shadow:inset 0px 1px 20px -7px #777; -moz-box-shadow:inset  0px 1px 20px -7px #777;}
 .bckMark em{border-bottom:1px solid #f0f8ff !important}
 .main:hover{background:#eee}
 #navMenu h1{float:left; width:100%; padding:10px 20px; background:#007aff; border-bottom:1px solid #ccc; font-size:20px; overflow:hidden; border-top:1px solid #c8c7cc; color:#fff; font-weight:400}
 .wrapClose{margin-left:260px;}
 #winRight{position:absolute; top:120px; right:-181px; display:none}
-#actions{position:absolute; min-height:52px; left:17px; top:17px; width:96%; border:1px solid #B7E3FF; padding:8px 0; background-color:#f0f8ff; border-radius:4px;}
+#actions{ position: absolute; min-height: 34px; top: 29px; margin-left: 22px; width:95.5%; border: 1px solid #B7E3FF; padding:7px 0 7px 0px; background-color: #f0f8ff; border-radius: 4px;}
 .barIn .submenu{position:absolute; font-size:14px; font-weight:300; top:-1px; left:69px; z-index:9999999; border:1px solid #ccc; width:265px; background:#fafafa;}
 .barOut .submenu{float:left; border-bottom:1px solid #ccc; background:url(../graphics/bckLineTree.png) 25px 18px repeat-y transparent;}
 .barOut .submenu li{padding:0 !important}
@@ -156,16 +157,17 @@ header nav{float:right; height:65px!important;}
 .pisos a{color:#555; font-size:11px; border-right:1px solid #B7E3FF; border-left:1px solid #B7E3FF;}
 #asigPi{background:#eee; border-right:1px solid #B7E3FF;}
 #asigPi ul{float:left; border-right:1px solid #B7E3FF;}
-#asigPi li{float:left;} 
+#asigPi li{float:left;} #asigPi li a{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #B7E3FF; text-transform:uppercase; background:#f0f8ff}
 #asigPi li a:hover{background:#D8EDFF; color:#222}
 #tablaPlano tbody tr:hover{background-color:#eee}
 table tbody tr:hover{background-color:#fafafa}
-
-
-.VENCIDO{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #F68787; text-transform:uppercase; background:#F68787}
-.VIGENTE{font-weight:700; color:#555; width:70px; text-align:center; border-left:1px solid #B3FF99; text-transform:uppercase; background:#B3FF99}
+#popupAct{z-index: 9999999999999; background: rgba(51, 51, 51, 0.8);  border: 1px solid #ccc; padding: 20px; top: 43px; box-shadow: 2px 2px 9px #ccc;  width: 100%; left:0; position: absolute; top: 0; height: 100%;}
+#popupAct form{background: #f6f9fc; position:absolute; margin-left:50%; width:500px; left:-250px; height:200px; padding:20px; top:20%; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; box-shadow: -4px 9px 40px #222; -moz-box-shadow: -4px 9px 40px #222; -webkit-box-shadow: -4px 9px 40px #222;}
+#popupAct fieldset{float:left; width:100%; padding:0}
+#popupAct h2{font-size: 1.4em; text-transform: uppercase; font-weight: 700; float: left; width: 100%; text-align: center; color:#333}
+#popupAct p{float:left; width:100%; text-align:center; padding:10px 0; line-height:21px; font-size:1.2em}
 /*----------------Titulos ------------------*/
-#mainTit{padding:26px 20px;}
+#mainTit{padding:16px 20px 26px;}
 #mainTitPlano{padding:26px 15px;}
 #mainTit img{float:left; width:34px; margin-right:10px}
 #mainTit h1, #mainTit h2, #mainTit h3, #mainTit h4{text-transform:uppercase}
@@ -200,7 +202,7 @@ box-shadow: inset 7px 10px 14px -14px rgba(0,0,0,0.75); }
 .addSmall:active, .addSmallClick:active{background:aliceblue;}
 .iconEdit img{width:16px; margin-top:2px}
 #wrapListPlano{height:640px}
-.wrapListForm{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:2px 20px 20px; width:96%; position:relative}
+.wrapListForm{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:2px 20px 20px; width:96%; position:relative;}
 .wrapForm{float:left; border:1px solid #ccc; background:#fafafa;border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin:20px 0; padding:2px 20px 20px; width:100%; position:relative}
 .wrapListFormThree{margin-left:17px; border:1px solid #eee; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px; margin-bottom:20px; padding:20px; width:96%; position:relative}
 .busquedaForm{margin-left:17px; width:96%; position:relative}
@@ -273,7 +275,7 @@ input[type=file]{padding-top:5px;}
 #loginForm p{float:left; width:360px; padding:0 20px}
 .inpLog{height:38px; font-size:13px; border:1px solid #ccc; background:#f9f9f9; padding:0 10px; width:340px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;}
 .submit input{cursor:pointer; background:#4F9CD4; border: 1px solid #2989d8; color:#fff; font-size:14px; font-weight: 700;
-    text-transform: uppercase;  padding: 12px 0; width:316px; border-radius:3px; -webkit-border-radius:3px; border-radius:3px; margin: 20px auto 0 auto;}
+    text-transform: uppercase;  padding: 12px 0; width:100%; border-radius:3px; -webkit-border-radius:3px; border-radius:3px; margin: 20px auto 0 auto;}
 .submit:hover input{background: #2989d8; /* Old browsers */
 background: -moz-linear-gradient(top, #2989d8 0%, #2989d8 93%, #7db9e8 100%, #7db9e8 101%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2989d8), color-stop(93%,#2989d8), color-stop(100%,#7db9e8), color-stop(101%,#7db9e8)); /* Chrome,Safari4+ */
@@ -284,6 +286,7 @@ background: linear-gradient(to bottom, #2989d8 0%,#2989d8 93%,#7db9e8 100%,#7db9
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#7db9e8',GradientType=0 ); }
 #mesLog{float:left; width:100%; margin:20px 0; font-size:16px; font-weight:300}
 #mesLog a{color:brown; font-weight:400}
+#aqui {float:left; width:60%; border: 1px solid #B7E3FF; margin:0 25px 25px;}
 
 /*---------------- pdf cartas intencion  ------------------*/
 .pdf-container{padding:20px 20px 0;font-size:10px;font-family:"Myriad Pro",arial,helvetica,sans-serif!important}
@@ -306,14 +309,14 @@ a.cerrar{line-height:1;font-size:1.5em;position:absolute;top:7%;right:2%;text-de
 a.cerrar:hover{color:#222;-webkit-transition:color 1s ease;-moz-transition:color 1s ease;transition:color 1s ease}
 #firma{float:left; width:100%; height:34px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; border:1px solid #ccc;}
 #hideTy{float:left; width:216px; height:63px; background:url(../graphics/firma.png); overflow:hidden; cursor:pointer}
-#hideTy input{display: block !important; width:216px !important; height:63px !important; opacity: 0 !important; overflow: hidden !important; cursor:pointer}
-#comenW{background-color:#eee; border:1px solid #ccc; border-radius:4px; padding:10px; float:left; width:100%; margin-top:10px}
+#hideTy input{display: block !important; width:216px !important; height:63px !important; opacity: 0 !important; overflow: hidden !important; cursor:pointer; text-transform:uppercase}
+#comenW{background-color:#eee; border:1px solid #ccc; border-radius:4px; padding:10px; float:left; width:100%; margin-top:10px; text-transform:uppercase}
 .panelLeft{float:right; background:url(../graphics/rArrows.png) 8px 22px no-repeat; height:64px !important; border:none; border-left:1px solid #ccc; text-indent:-999999px; width:30px;}
 .panelRight{float:right; background:url(../graphics/rArrows.png) 8px -153px no-repeat #007aff; height:64px !important; border:none; border-left:1px solid #ccc; text-indent:-999999px; width:30px;}
 .panelRight:hover{background:url(../graphics/rArrows.png) 8px -55px no-repeat #007aff;}
 .panelLeft:hover{background-color:#eee;}
 #triangle{background:url(../graphics/rArrows.png) center -31px no-repeat;     height:40px; float:left; max-width:100px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; font-style:normal}
-.msgAlert{float:left; padding:0 10px 5px;margin:0 0 10px 17px; font-weight: 400; text-transform:uppercase;}
+.msgAlert{float:left; padding:0 10px 5px;margin:17px 0 10px 17px; font-weight: 400; text-transform:uppercase;}
 .msgAlert img{float:left; margin-right:5px;}
 .msgAlert p{float:left; margin-top:5px; font-weight:700}
 #msgRecAgr{float:left; border:1px solid #ccc; width:100%; margin-top:10px; position:relative;}
@@ -500,7 +503,7 @@ border-bottom-right-radius: 5px; }
 .fCr{white-space:nowrap;}
 .Rori{width:150px !important; text-overflow:ellipsis; white-space:nowrap; overflow:hidden }
 .sp{margin-right:5px; line-height:16px; font-style:normal}
-#commentC textarea{float: left; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
+#commentC textarea{float: left; text-transform:uppercase; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
 #aqui{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px;}
 #ventasDash{float:left; width:100%}
 #ventasDash th{background:#f0f8ff !important; border-bottom:1px solid #B7E3FF; padding:6px; text-transform:uppercase}
@@ -517,7 +520,7 @@ border-bottom-right-radius: 5px; }
 #filVen select{border: 1px solid #ccc; background-color: #fff; height: 29px; text-transform: uppercase; float:left;}
 #canvas-holder{float:left; width:20%; text-align:center; border:1px solid #B7E3FF; padding:36px 20px 10px; position:relative}
 .titChart{position:absolute; width:100%; top: 0px; left: 0px; background-color: #f0f8ff; padding: 6px 0; text-transform: uppercase; border-bottom:1px solid #B7E3FF;}
-.eje{float:left; width:235px; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; border-right:1px solid #B7E3FF}
+.eje{float:left; width:100%; text-overflow:ellipsis; white-space: nowrap; overflow:hidden; border-right:1px solid #B7E3FF}
 #ventasDash tbody tr:hover{background:#f0f8ff !important}
 #ventasDash .tcenter{background:#fafafa;}
 #totVenPros{background:#f0f8ff !important; text-align:center}
@@ -527,7 +530,24 @@ border-bottom-right-radius: 5px; }
 #totMet span{font-weight: 700; text-transform: uppercase; padding: 3px 0; float: left; width: 100%; border-bottom: 1px solid #ccc;}
 #totMet p{float: left; width: 100%; text-align: center; font-size: 2.8em;}
 .redVen{color:#c30}
-
+#wrapDatos{float: left; width: 100%; border-top: 1px solid #ccc;  }
+#wrapDatos ul li{float:left; padding:8px 0; width:100%; border-bottom:1px solid #eee; text-transform:uppercase;}
+#wrapDatos ul li:hover{background-color:#fafafa;}
+#wrapDatos ul li span{float:left; width:170px; padding-left:20px; font-weight:700}
+#wrapDatos ul li em{font-style:normal}
+#wrapDatos input{border:0px; background:transparent; color:#007aff; font-weight:700; padding:0px; text-transform:uppercase}
+#creaInfo li{float: left; width: 100%; text-transform: uppercase; margin: 18px 0 0 0; background: #fafafa; padding:6px 10px; border: 1px solid #eee; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px;  font-size:.9em;}
+#creaInfo b{font-weight:bold; color:#777; display:block; margin:0 0 6px 0;}
+#creaInfo em{color:#007aff; font-style:normal}
+/*---------------- REFERENCIAS------------------*/
+#refData{float:left; border:1px solid #ccc;  margin:20px 0 6px 0; width:100%;}
+#referencias {border:1px solid #ccc}
+#referencias thead .grayField{font-weight:400; padding:4px 6px; text-transform:uppercase}
+#referencias tbody td{padding:4px 6px}
+#refData strong{text-transform:uppercase; font-size:1em; padding:6px 0 6px 6px!important; background:#eee}
+#c_rap{width: 100%;  padding: 6px; text-transform: uppercase; border:none}
+#msgRap{float:left; background:#c30; color:#fff; width: 100%; font-weight:bold; padding:6px; text-transform: uppercase}
+#folioAgenerar{color:#6495ED; float:left; width:100%; padding:13px}
 
 /*---------------- Botones ------------------*/
 
@@ -575,5 +595,4 @@ border-bottom-right-radius: 5px; }
 @media (min-width:1680px) {
 
 }
-
 
