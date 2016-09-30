@@ -18,6 +18,7 @@
 				<th><span class="Rori">Origen de Cliente</span></th>
 				<th>Estatus</th>
 				<th>Fecha Creación</th>
+                <th>Estatus de interés</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -37,6 +38,7 @@
 			  <th><a class="Rori" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= $p->origenCliente?></a></th>
 			  <th><a class="Rsta" href="<?=base_url()?>prospectos/usuarios/<?= $p->id;?>"><?= ucfirst($p->status)?></a></th>
 			  <th><?= $p->fechaCreacion?></th>
+              <th><a><?= $p->statusProspecto?></a></th>
 				<th><a class="editPros" href="<?=base_url()?>prospectos/editar/<?= $p->id;?>"><i class="iconEdit"><img src="<?=base_url()?>assets/graphics/svg/pencil.svg" alt="Editar"></i></a></th>
 				<th>
 					<a href="<?=base_url()?>prospectos/cotizar/<?= $p->id;?>"><span class="addSmallGray">Cotizar</span></a>

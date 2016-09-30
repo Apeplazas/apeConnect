@@ -31,14 +31,14 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 <? $vendedores   = $this->dashboard_model->cargaVendedores($thisMonth, $today);?>
 <? $gerentes   = $this->dashboard_model->cargaGerentesPlaza();?>
 
-<?$sumaA = 0;?>
-<?$sumaB = 0;?>
-<?$sumaC = 0;?>
-<?$sumaT = 0;?>
-<?$sumaD = 0;?>
-<?$sumaE = 0;?>
-<?$sumaF = 0;?>
-<?$sumaTotal = 0;?>
+<? $sumaA = 0;?>
+<? $sumaB = 0;?>
+<? $sumaC = 0;?>
+<? $sumaT = 0;?>
+<? $sumaD = 0;?>
+<? $sumaE = 0;?>
+<? $sumaF = 0;?>
+<? $sumaTotal = 0;?>
 <h3 id="mainTit">Dashboard Ventas</h3>
 <div class="wrapList">
 	
@@ -183,7 +183,6 @@ $('select#mostrar').on('change',function(){
           </div>
           
 		<? if (empty($totVen)):?>
-		Sin registros
 		<?else:?>
 		<ul id="totMet">
 			<li class="brightGray">

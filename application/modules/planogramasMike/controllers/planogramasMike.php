@@ -69,7 +69,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['planos'] = $this->planogramas_modelMike->cargarPlanogramas();
 		$op['plaza'] = $this->planogramas_modelMike->cargarPlaza();
@@ -82,7 +82,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		//$op['planos'] = $this->planogramas_modelMike->cargarPlanogramas();
 		//$op['plaza'] = $this->planogramas_modelMike->cargarPlaza();
@@ -164,7 +164,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['locales']        = $this->planogramas_modelMike->traerInfoPlano($planoId);
 		$op['texto']          = $this->planogramas_modelMike->cargarTexto($planoId);
@@ -181,7 +181,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['locales']        = $this->planogramas_modelMike->traerInfoPlano($planoId);
 		$op['texto']          = $this->planogramas_modelMike->cargarTexto($planoId);
@@ -202,7 +202,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['locales'] = $this->planogramas_modelMike->traerPlano($planoId);
 		$op['infoPlano']  = $this->planogramas_modelMike->cargarPlanogramasID($planoId);
@@ -218,7 +218,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/jquery-ui.css')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['locales']        = $this->planogramas_modelMike->traerPlano($planoId);
 		$op['infoPlano']      = $this->planogramas_modelMike->cargarPlanogramasID($planoId);
@@ -275,7 +275,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['locales'] = $this->planogramas_modelMike->traerPlano($planoId);
 		$op['infoPlano']  = $this->planogramas_modelMike->cargarPlanogramasID($planoId);
@@ -413,7 +413,7 @@ class PlanogramasMike extends MX_Controller
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
-					  ->add_include('assets/css/planogramas.css');
+					  ->add_include('assets/css/planogramasMike.css');
 
 		$op['locales']        = $this->planogramas_modelMike->traerRenovacionesPlano($planoId);
 		$op['texto']          = $this->planogramas_modelMike->cargarTexto($planoId);
