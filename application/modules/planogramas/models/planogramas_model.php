@@ -333,6 +333,18 @@ class Planogramas_model extends CI_Model
 		return $data;
 	}
 	
+	function cargarLocalesPlaza($plazaId){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM vic_local where Inmueble = '$plazaId' order by NombreCorto asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
 	function cargarPredios($intelisisInmueble, $grupo){
 		
 		$concat = '';
@@ -354,6 +366,20 @@ class Planogramas_model extends CI_Model
 			$q->free_result();
 		}
 		return $data;
+	}
+	
+	function traer_predios_por_plaza($plaza_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_predial where INMUEBLE_ID = '$plaza_id' order by NOMBRE_DE_PREDIO asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
 	}
 	
 }
