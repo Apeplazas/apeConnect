@@ -323,7 +323,7 @@ class Planogramas_model extends CI_Model
 	
 	function cargarInmuebles(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM BORRAR_vic_Inmueble where Nombre !='' order by Nombre asc");
+		$q = $this->db->query("SELECT * FROM borrar_vic_inmueble where Nombre !='' order by Nombre asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -333,25 +333,39 @@ class Planogramas_model extends CI_Model
 		return $data;
 	}
 	
-	function cargarPredios($intelisisInmueble, $grupo){
-		
-		$concat = '';
-		
-		if ($grupo == 'agrupar'){
-			$concat = 'group by i.inmuebleID';
-		}
+	function cargarPredios($intelisisInmueble){
 		
 		$data = array();
-		$q = $this->db->query("SELECT * FROM Inmuebles i 
-												LEFT JOIN predios p ON p.inmuebleID=i.inmuebleID
-												where i.inmuebleIntelisis='$intelisisInmueble'
-												$concat
-												");
+		$q = $this->db->query("SELECT * FROM Inmuebles where inmuebleIntelisis='$intelisisInmueble'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
 			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function trae_usuarios(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargarEncargados($intelisisInmueble){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM borrar_encargado_inmueble WHERE Inmueble='$intelisisInmueble'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
 		}
 		return $data;
 	}

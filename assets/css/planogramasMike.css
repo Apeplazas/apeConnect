@@ -1,0 +1,192 @@
+/*Venta de comentarios e info para planogramas*/
+#Layer1 {float: left; height: 530px; padding-bottom:20px; border:1px solid #ccc;}
+#winPlaza:hover{cursor:pointer}
+.grid{background: url(../graphics/bckGrid.png) 0 0 repeat;}
+#planoGrama{position:absolute; right:-50px; top:-85px; width:305px; background-color:#fff; border:1px solid #ccc; padding:70px 0 0 10px; z-index:9999; height:1300px;}
+
+#ventanamodal{position:absolute; right:45%; top:1%; width:26%; background-color:#fff; border:1px solid #ccc; padding:0px 0 0 8px; z-index:9999; height:40%}
+/*#modal1{position:absolute; right:24%; top:29%; width:15%; background-color:#fff; border:1px solid #ccc; padding:1px 0 0 7px; z-index:9999; height:20%}*/
+
+#planoGramaAsig{position:absolute; right:-97px; top:40px; width:320px; background-color:#F1F2F1; border:1px solid #ccc; padding:10px 10px 0 10px; z-index:9999; box-shadow: 0px 2px 16px #ccc; -moz-box-shadow: 0px 2px 16px #999; -webkit-box-shadow: 0px 2px 16px #999;}
+#plano, #planoCreacion{float:left; margin:0 20px 20px;}
+#planoGrama ul{float:left; width:100%;}
+#planoGramaAsig ul, #asigUl{float:left; width:100%; padding-bottom:10px;}
+#planoGrama ul li:hover{border:1px solid #e9e9e9; background-color:#e9e9e9}
+#planoGramaAsig ul li, #asigUl li{float:left; padding:5px 0 5px 18px; width:94%; border-bottom:1px dotted #ccc; font-weight:700; font-size:.8em; font-family:arial, helvetica; cursor:pointer; background: url(../graphics/sprite2.png) -456px -91px no-repeat #eee;}
+#planoGramaAsig ul li:hover, #asigUl li:hover{background: url(../graphics/sprite2.png) -456px -91px no-repeat bisque;}
+#planoGrama ul li{float:left; width:94%; font-size:.8em; font-weight:700; padding:4px 0 2px 20px; cursor:pointer; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
+.secTit{font-family:'Lato', sans-serif; ;width:100%; background-color:#163558;}
+.secTit em{font-style:normal; padding:6px 10px 5px; float:left; font-weight:400; font-size:15px; text-transform:uppercase; margin-bottom:4px}
+#addPlaza{position:absolute; z-index:999999; background:#f6f9fc; border:1px solid #ccc; padding-bottom:12px; top:43px; box-shadow:2px 2px 9px #ccc; width:300px; left:-10px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; display:none}
+#filtro{position:absolute; z-index:999999; background:#f6f9fc; border:1px solid #ccc; padding-bottom:12px; top:37px; box-shadow:2px 2px 9px #ccc; width:300px; left:145px; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; display:none}
+#addPlaza select, #filtro select{border:1px solid #ccc; -moz-appearance:inherit; padding:0 10px; -webkit-appearance:inherit; float:left; height:26px; text-transform:uppercase; margin:10px 0 0 0; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px; background:#fff}
+#asig{float:left; width:280px; z-index:999999; display:none; border:1px solid #ccc; background:#fafafa; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; padding:10px}
+#datos-cotizacion #cotizarLocal{padding:5px 10px}
+#asigInp{height:28px; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; border:1px solid #ccc; width:100%; margin:6px 0 0; padding:3px 15px; display:block}
+#statusLocal .field img{float:left; width:14px; margin-right:3px;}
+#statusLocal .field i{float:left; font-style:normal; font-weight:700; margin:1px 0 0 3px}
+#filtroTool{cursor:pointer; z-index:999999}
+#comentarios ul li{font-size:.9em; float:left; width:100%; padding:5px 0 4px; margin-bottom:6px; border-bottom:1px solid #ccc; margin-bottom:80px;}
+.rangos{float:left; margin-top:5px;}
+.rangos em{float:left; font-size:.7em; text-transform:uppercase; font-weight:700; font-style:normal; margin:2px 10px 0 4px;}
+#forma fieldset, #formPlano fieldset{float:left; width:100%; padding:0 10px}
+#formaRen fieldset{float:left; width:100%; padding:6px 0}
+#formaRen #enviarAsignar{padding:5px 10px}
+#formaRen .xtrSma{width:40px; float:left}
+#formaRen .inp{float:left; width:300px; padding:7px 10px; border:1px solid #ccc; margin-top:4px}
+#asig label, #formaRen label{float: left; width:98%; text-transform: uppercase; margin:2px 0 2px 4px; font-weight:700}
+#formPlano h2, #forma h2{font-size:14px; background-color: #fff; float:left; width:100%; padding:12px 18px 8px; font-weight:400; -webkit-border-top-left-radius:4px; -webkit-border-top-right-radius:4px; -moz-border-radius-topleft:4px; -moz-border-radius-topright:4px; border-top-left-radius:4px; border-top-right-radius: 4px; border-bottom:1px solid #ccc; text-transform:uppercase}
+#formPlano select, #statusVector form, #forma select{float:left; width:100%}
+#actTod fieldset{float:left; width:130px; margin-top:8px;}
+#actTod fieldset label{float:left; margin-right:5px; text-transform:uppercase; font-weight:700; width:90px; padding-top:3px;}
+#actTod fieldset input{float:left;}
+.topArrow{position:absolute; top:-19px; left:220px; z-index:9999}
+#infLocPlSt .field{float: left; width: 100%; text-transform: uppercase; font-size: .7em; padding-left: 10px; font-weight: bold; margin-top:10px}
+#infLocPl{float:left; margin-bottom:10px; width:100%}
+#infLocPl .fieldText, #datos-cotizacion .fieldText{float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+#perfilSes{float:left; padding:10px 7px 5px; font-weight:700; font-size:.8em}
+#infLocPl .fieldText span, #datos-cotizacion .fieldText span{font-weight: 700; margin-right: 10px; float: left; }
+ #datos-cotizacion .fieldText{float:left; width:100%; text-transform:uppercase; font-size:.7em; font-weight:bold; border-bottom: 1px solid #ccc; border-top:1px solid #fff; padding:7px 0 7px 8px;}
+#datos-cotizacion .fieldText em{float:left; width:50px; font-weight:700; font-family:helvetica, arial; }
+#infLocPl .fieldText em, #datos-cotizacion .fieldText em{font-style:normal; }
+#infLocPl .field{ margin-top:10px}
+#infLocPl img, #infLocPlSt img{float:left; width:15px}
+#infLocPl i, #infLocPlSt i, #statVer i{float:left; margin:3px 0 0 6px; font-weight:700; font-style:normal; }
+#statVer i{float:left; margin:1px 0 0 6px; font-weight:700; font-style:normal; }
+.topArrowfiltro{position:absolute; top:-15px; left:70px; z-index:9999}
+.topArrowP{position:absolute; top:-9px; left:32px; z-index:9999}
+.rnot{cursor:pointer; background: url(../graphics/sprite2.png) -458px 0px no-repeat transparent; width:13px; height:13px; text-indent:-99999px; float:left; text-indent:-99999px}
+.remove-cot{cursor:pointer; background: url(../graphics/sprite2.png) -43px -96px no-repeat transparent; width:13px; height:13px; text-indent:-99999px; float:left; text-indent:-99999px; width:20px; margin-left:5px}
+svg{width:805px; height:400px}
+.field{background-color: #f0f8ff; border: 1px solid #B7E3FF; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; text-transform:uppercase; float:left; width:284px; padding:6px 0 6px 10px; font-weight:700}
+.field em{float:left; margin-left: 5px; width:213px;}
+.select-wrapper-two {background: url(../graphics/sprite2.png) -375px -113px no-repeat #fff; display: block; position: relative; width: 32px; height:29px; cursor: pointer; border:1px solid #ccc}
+.select-wrapper-two:hover{background: url(../graphics/sprite2.png) -399px -113px no-repeat #e9e9e9; border:1px solid #999; box-shadow:1px 0px 3px 0px lightskyblue; -moz-box-shadow:1px 0px 3px 0px lightskyblue; -webkit-box-shadow:1px 0px 3px 0px lightskyblue;}
+.containerS_two{float:left; cursor:pointer}
+#image_src_two{ width:32px; height:29px; opacity: 0; filter: alpha(opacity=0);cursor: pointer;}
+#addFot{font-size:11px; text-transform:uppercase; font-weight:700; font-style:normal; color:#777; margin:16px 0 0 10px; float:left;}
+#canDel{border: 1px solid #78C1FF; background:#fff; padding:6px 20px; border-radius:4px; margin-left:10px; font-size:12px; font-weight:700; cursor:pointer;}
+.textMes{width:280px;}
+#delVector{position:absolute; background-color:#F1F2F1; border:1px solid #fff; box-shadow:0px 2px 16px #999; -webkit-box-shadow:0px 2px 16px #999; moz-box-shadow:0px 2px 16px #999;}
+#delVector{position: absolute; display:none; background-color:#f6f9fc; border: 1px solid #ccc; box-shadow: 0px 2px 16px #999; -webkit-box-shadow: 0px 2px 16px #999; text-align: center; width:425px; top: 120px; left: 200px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius: 5px; z-index: 99999; text-transform: uppercase;}
+#delVector form{float:left; width:100%; padding:13px 0}
+#delVector strong{float:left; background-color: #fff; width:100%; padding:13px 0 9px; font-weight: 400; font-size:12px; border-bottom:1px solid #ccc;}
+.borrado{fill:transparent; stroke:#c30; -webkit-border-top-left-radius: 4px;
+-webkit-border-top-right-radius: 4px; -moz-border-radius-topleft: 4px; -moz-border-radius-topright: 4px; border-top-left-radius: 4px; border-top-right-radius: 4px;}
+.areaPublica{fill:transparent; stroke:#eee; stroke-width:0.5px;}
+.Expirado{fill:yellow; stroke:#FFDC73; stroke-width:.5px;}
+.clean{fill:#fffaf0; stroke:#A02700; stroke-width:0.5px;}
+.bgray{fill:#eee; stroke:#ccc; stroke-width:-0.5px;}
+.bgrayAsig{fill:#eee; stroke:#ccc; stroke-width:-0.5px;}
+text.clean{font-size:.1px;}
+/*---PENDIENTE NEGRO0--- */
+.click{cursor:pointer; fill:#AC9C9C; stroke:#AC9C9C;}
+#panzoom {text-align: center;}
+#piFor{position:absolute; background:#eee; z-index:9999; padding:0px 1px 0px 8px; border:1px solid #ccc; border-radius:3px; height:29px !important; top:87px; left:715px;}
+#piFor h1{float:left; padding:7px 7px 0 0; text-transform:uppercase; font-size:11px; font-weight:400; height:28px; border-right:1px solid #ccc}
+#piFor fieldset{float:left; }
+#piFor select{background:#fff; border:1px solid #fff; border-radius:0px; -moz-border-radius:0px; font-size:11px; -webkit-border-radius:0px; float:left; height:27px !important; cursor:pointer; -webkit-appearance:none;  text-align:center; padding:1px 6px 0 10px;}
+.guardarPath:hover, #enviarAsignar:hover{background:#FA9B3C;}
+.acti{fill:#FAFAD2; stroke:#FAEE7B; cursor:pointer;}
+@-webkit-keyframes glow-blue { 0% { fill: hsl(131, 80%, 23%); } 100% { fill: hsl(131, 80%, 63%); }}
+@keyframes glow-blue {0% { fill: hsl(131, 80%, 23%); } 100% { fill: hsl(131, 80%, 63%); }}
+
+.bgray:hover{fill:lightblue;}
+path.selected, polygon.selected, polyline.selected, rect.selected { fill:#f0f8ff; stroke:cadetblue;}
+text .selected{color:#fff}
+.deshabilitado{fill:#E27150; stroke:#ECA39A; }
+text.selected {fill:brown;}
+.sinAsignar {fill:#ccc; stroke:#999; stroke-width:.5px;}
+.DESOCUPADO{fill:#B3FF99; stroke:#B2DE86; stroke-width:.5px;}
+
+.click habilitado{fill:#EEEEEE; stroke:#B2DE86; stroke-width:.5px;}
+.VIGENTE{fill:#B3FF99; stroke:#B2DE86; stroke-width:.5px;}
+.VENCIDO{fill:#F68787; stroke:#F68787; stroke-width:.5px;}
+.PENDIENTE{fill:#DDED74; stroke:#DDED74; stroke-width:.5px;}
+.seleccionado{fill:#93F3FF; stroke:#5CD9EA; stroke-width:.5px; }
+
+
+.texto {font-size: 1.2px; cursor: context-menu; fill:#574242; font:bold 90%;}
+.RENTADO {fill: #fdf8f2; stroke: #c30; stroke-width: .5px;}
+#toolbar li{float:left; position:relative}
+#actionsPlano{position:absolute; width:800px; height:34px; left:-4px; top:-30px; padding-top:11px}
+.wrapListPlano{float:left; width:100%; padding-bottom:10px; margin-top:48px}
+#infoCuenta{float:left; width:100%; padding:0 10px 10px}
+#statusVector em{font-style:normal; font-size:.9em}
+.ac_results {z-index:9999}
+.ac_results ul{background:#fff; border:1px solid #ccc; width:258px; z-index:99999}
+.ac_results ul li{float:left; width:99%; padding:6px 0 4px 10px; border-bottom:1px solid #ccc; cursor:pointer; font-weight:400}
+.ac_results ul li:hover{background-color: cornflowerblue;
+    color: #fff;}
+.ac_even{background-color:#fafafa; }
+.ac_results ul li strong{color:#659CEF}
+.actTool{background: url(../graphics/bckInnerShadow.png) -1px -1px no-repeat #999;}
+#planoAc{position:absolute; top:10px; height:35px !important; width:100%}
+#statVer{float:left; width:90%; padding:6px 0 6px 10px; margin-bottom:10px}
+#statVer img{float:left; margin-right:4px;}
+#statVer i{float:left; font-weight:400; font-style:normal; text-transform:uppercase;}
+.botRed{padding:5px 20px;}
+#planoCreacion .habilitado{fill:#ccc; stroke-width:.5px; stroke:#999;}
+.inf{position:absolute; left:529px; top:551px; z-index:99999;}
+.NoAsignado{fill:#e9e9e9; stroke:#ccc; stroke-width:0.5px;}
+#group-locales fieldset{float:left; width:100%; padding:3px 0; font-size:.7em; text-transform:uppercase;}
+#group-locales fieldset label{font-weight:700; float:left; width:120px; padding:3px 10px 0; text-align:right}
+#group-locales fieldset .smaInpRen{float:left; width:150px; border:1px solid #ccc; height:22px; padding:0 10px;}
+
+#enviarAsignar, #cotizarLocal{float: right; text-transform: uppercase; font-weight:700; margin:10px 0; border-radius:3px; cursor:pointer; background:#f08c39;
+  background-image: -webkit-linear-gradient(top, #f08c39, #f08c00);
+  background-image: -moz-linear-gradient(top, #f08c39, #f08c00);
+  background-image: -ms-linear-gradient(top, #f08c39, #f08c00);
+  background-image: -o-linear-gradient(top, #f08c39, #f08c00);
+  background-image: linear-gradient(to bottom, #f08c39, #f08c00);
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  text-shadow: 0px 0px 1px #595959;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0px;}
+.guardarPath{float:left; text-transform: uppercase; font-weight:700; margin:10px 0; border-radius:3px; cursor:pointer; background:#f08c39;
+  background-image: -webkit-linear-gradient(top, #f08c39, #f08c00);
+  background-image: -moz-linear-gradient(top, #f08c39, #f08c00);
+  background-image: -ms-linear-gradient(top, #f08c39, #f08c00);
+  background-image: -o-linear-gradient(top, #f08c39, #f08c00);
+  background-image: linear-gradient(to bottom, #f08c39, #f08c00);
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  text-shadow: 0px 0px 1px #595959;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 0px;}
+#path .reciAsi{fill: hsl(131, 70%, 23%); cursor:pointer;
+  -webkit-animation-name: glow-blue;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-direction: alternate;
+  animation-name: glow-blue;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  -moz-animation: none;}
+.content-box-blue {
+  background-color:#CCEEFF;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-green {
+  background-color:#0F9;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-red {
+  background-color:#F06B6B;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-orange {
+  background-color:#F0A373;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}
+  .content-box-yellow {
+  background-color:#EBED73;
+  border: 1px solid #afcde3;float: left; width: 100%; text-transform: uppercase; padding:3px 0 3px 8px; font-weight: bold;}

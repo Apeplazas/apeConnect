@@ -401,6 +401,7 @@ error_reporting(E_ALL);
 								->add_include('assets/css/planogramas.css');
 
 		$op['inmuebles'] = $this->planogramas_model->cargarInmuebles();
+		$op['usu']	=	$this->planogramas_model->trae_usuarios();
 		
 		$this->layouts->profile('listaInmuebles-vista',$op);
 	}
@@ -413,8 +414,9 @@ error_reporting(E_ALL);
 								->add_include('assets/css/planogramas.css');
 
 		$op['inmuebles'] = $this->planogramas_model->cargarInmuebles();
+		$op['usu']	=	$this->planogramas_model->trae_usuarios();
 		
-		$this->layouts->profile('predios-vista',$op);
+		$this->layouts->profile('listaInmueblesPredios-vista',$op);
 	}
 
 

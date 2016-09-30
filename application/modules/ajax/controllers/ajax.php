@@ -1397,7 +1397,7 @@ class Ajax extends MX_Controller {
 
 	public function eliminarLocalCotizacion(){
 
-		$id    = $_POST['id'];
+		$id    = 1;
 
 		$cotizacion = $this->session->userdata('cotizacion');
 		if(in_array($id, $cotizacion['locales'])){
@@ -1411,6 +1411,54 @@ class Ajax extends MX_Controller {
 
 	}
 //MIKEE
+	public function asignarInmueblePisosYEncargados(){
+		$id    	= $_POST['id'];
+		$foo    	= $_POST['usuarioID'];
+		$nombre	= $_POST['nombre'];
+		$clave	= $_POST['clave'];
+		$predio	= $_POST['predio'];
+		$piso	= $_POST['piso'];
+
+		
+			$update = array('claveCiudad' => $clave, 'nombre'=> $nombre);
+			$this->db->where('Inmueble', $id);
+			$this->db->update('borrar_vic_inmueble', $update);
+			
+			$query = $this->db->query("SELECT inmuebleIntelisis FROM inmuebles WHERE inmuebleIntelisis='$id'");
+			
+	
+			
+			if($query->result()){
+				$op = array('inmuebleNombre' => $nombre,'codigoIATA' => $clave, 'predios' => $predio, 'pisos' => $piso, 'inmuebleIntelisis' => $id);
+				$this->db->where('inmuebleIntelisis', $id);
+				$this->db->update('inmuebles', $op);
+			}else{
+				$op = array('inmuebleNombre' => $nombre,'codigoIATA' => $clave, 'predios' => $predio, 'pisos' => $piso, 'inmuebleIntelisis' => $id);
+				$this->db->insert('inmuebles', $op);
+			}
+			
+			
+			
+			
+			$data = array();
+			foreach($foo as $ids){
+
+				$data[] = array(
+				      'usuarioID' 		=> $ids,
+				      'Inmueble'	=> $id
+				);
+
+			}
+			$this->db->insert_batch('borrar_encargado_inmueble', $data);
+
+		
+
+		echo true;
+		exit;
+
+	}
+
+
 	public function agruparLocales(){
 
 		$ids    	= $_POST['id'];
@@ -1658,28 +1706,28 @@ class Ajax extends MX_Controller {
 	}
 	
 	public function predio(){
-		$inmueble = $_POST['inmuebleIntelisis'];
-		$predioNombre = $_POST['predioNombre'];
-		$nombreCalle = $_POST['nombreCalle'];
-		$numeroExt = $_POST['numeroExt'];
-		$numeroInterior = $_POST['numeroInterior'];
-		$superficieTerreno = $_POST['superficieTerreno'];
-		$codigoPostal = $_POST['codigoPostal'];
-		$numeroPiso = $_POST['numeroPiso'];
+		$bandera = 0;
+		$val = $_POST['val'];
+		$INMUEBLE_ID = $_POST['INMUEBLE_ID'];
+		$CALLE = $_POST['CALLE'];
+		$NUMERO_INTERIOR = $_POST['NUMERO_INTERIOR'];
+		$NUMERO_EXTERIOR = $_POST['NUMERO_EXTERIOR'];
+		$SUPERFICIE_TERRENO = $_POST['SUPERFICIE_TERRENO'];
+		$CODIGO_POSTAL = $_POST['CODIGO_POSTAL'];
 		
-		
+		for($i=0; $i<= $val; $i++){
+				
 		$op10 = array(
-				'inmuebleIntelisis' => $inmueble,
-				'predioNombre' => $predioNombre,
-				'nombreCalle' => $nombreCalle,
-				'numeroExt' => $numeroExt,
-				'numeroInterior' => $numeroInterior,
-				'superficieTerreno' => $superficieTerreno,
-				'codigoPostal' => $codigoPostal,
-				'numeroPiso' => $numeroPiso
+				'CALLE' => $CALLE,
+				'NUMERO_EXTERIOR' => $NUMERO_EXTERIOR,
+				'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
+				'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
+				'CODIGO_POSTAL' => $CODIGO_POSTAL
 			);
-			$this->db->insert('predios', $op10);
-
+			$this->db->update('layouts_predial', $op10);
+		}
+		
+		
 		echo true;
 		exit;
 
@@ -1776,6 +1824,7 @@ class Ajax extends MX_Controller {
 		echo json_encode($op);
 		
 	}
+	
 
 //----------------------------------------
 	function traeCiPorPlaza(){
