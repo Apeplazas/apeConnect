@@ -1706,8 +1706,8 @@ class Ajax extends MX_Controller {
 	}
 	
 	public function predio(){
-		$bandera = 0;
-		$val = $_POST['val'];
+		
+		$NOMBRE_DE_PREDIO = $_POST['NOMBRE_DE_PREDIO'];
 		$INMUEBLE_ID = $_POST['INMUEBLE_ID'];
 		$CALLE = $_POST['CALLE'];
 		$NUMERO_INTERIOR = $_POST['NUMERO_INTERIOR'];
@@ -1715,21 +1715,46 @@ class Ajax extends MX_Controller {
 		$SUPERFICIE_TERRENO = $_POST['SUPERFICIE_TERRENO'];
 		$CODIGO_POSTAL = $_POST['CODIGO_POSTAL'];
 		
-		for($i=0; $i<= $val; $i++){
-				
+		
+		if($NUMERO_EXTERIOR != ""){		
 		$op10 = array(
-				'CALLE' => $CALLE,
+				'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
+				'INMUEBLE_ID' => $INMUEBLE_ID,
+				'ESTATUS_DE_PREDIO' => 'ALTA',
+				'FECHA_INICIO' => '2009-01-01',
+				'CALLE' => $CALLE.'-',
 				'NUMERO_EXTERIOR' => $NUMERO_EXTERIOR,
 				'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
 				'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
-				'CODIGO_POSTAL' => $CODIGO_POSTAL
+				'CODIGO_POSTAL' => $CODIGO_POSTAL,
+				'CREATED_BY' => '-1',
+				'CREATION_DATE' => '2009-01-01'
 			);
-			$this->db->update('layouts_predial', $op10);
+			$this->db->insert('layouts_predial', $op10);
+			echo true;
+		exit;
+		}else{
+			$op10 = array(
+				'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
+				'INMUEBLE_ID' => $INMUEBLE_ID,
+				'ESTATUS_DE_PREDIO' => 'ALTA',
+				'FECHA_INICIO' => '2016-07-07',
+				'CALLE' => $CALLE.'-',
+				'NUMERO_EXTERIOR' => ',',
+				'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
+				'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
+				'CODIGO_POSTAL' => $CODIGO_POSTAL,
+				'CREATED_BY' => '-1',
+				'CREATION_DATE' => '2009-01-01'
+			);
+			$this->db->insert('layouts_predial', $op10);
+			echo true;
+		exit;
+			
 		}
 		
 		
-		echo true;
-		exit;
+		
 
 	}
 	

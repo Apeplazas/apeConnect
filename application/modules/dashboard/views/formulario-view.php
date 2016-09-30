@@ -1,6 +1,7 @@
 <? $predios = $this->dashboard_model->cargarNumeroDePredios($this->uri->segment(3));?>
     <? foreach($predios as $j):?>
 	<? $num= $j->predios?>
+    <? $nombre= $j->inmuebleNombre ?>
 	<? endforeach; ?>
 <? $cuenta = $this->dashboard_model->cuentaprediales($this->uri->segment(3));?>
 <? foreach($cuenta as $j):?>
@@ -51,7 +52,7 @@ var inicio = <?= $inicio?>;
       <? $postal= '';?>	
       <? $z=1;?>
 	<? foreach($datos as $m):?>
-      <? $id= $m->INMUEBLE_ID?>
+      
 	  
 	  <? $calle= $m->CALLE?>
       <? $interior= $m->NUMERO_INTERIOR?>
@@ -99,9 +100,10 @@ var inicio = <?= $inicio?>;
 
 <script>
 $('#guardar').click(function(){
-var INMUEBLE_ID= <?= $id?>;
-var val = <?= $num?>;
-var inicio = <?= $inicio?>;
+var INMUEBLE_ID= <?= $this->uri->segment(3); ?>;
+var val = <?= $num; ?>;
+var NOMBRE_DE_PREDIO = '<?= $nombre; ?>';
+var inicio = <?= $inicio; ?>;
 for(i=1;i<=val;i++){
 							
 							var CALLE = "";
@@ -118,8 +120,8 @@ for(i=1;i<=val;i++){
 							var CODIGO_POSTAL  =  $('#postal'+new Number(i)).val();
 							
 							$.post('<?=base_url()?>ajax/predio', {
-											fin : val,
-											val : inicio,
+											
+											NOMBRE_DE_PREDIO : NOMBRE_DE_PREDIO,
 											INMUEBLE_ID : INMUEBLE_ID,
 											CALLE : CALLE,
 											NUMERO_INTERIOR : NUMERO_INTERIOR,

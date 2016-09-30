@@ -119,7 +119,7 @@ class Dashboard_model extends CI_Model
 	
 	function cargarNumeroDePredios($Inmueble){
 		$data = array(); 
-		$q = $this->db->query("SELECT predios FROM inmuebles
+		$q = $this->db->query("SELECT predios, inmuebleNombre FROM inmuebles
 										where inmuebleIntelisis = '$Inmueble'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
