@@ -89,6 +89,7 @@ background: -ms-linear-gradient(top, #c47d7d 0%,#c82e29 42%,#a80200 100%); /* IE
 background: linear-gradient(to bottom, #c47d7d 0%,#c82e29 42%,#a80200 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c47d7d', endColorstr='#a80200',GradientType=0 );}
 .mainBotton:active{background:#A80200}
+.mainBottonCenter{text-align:center; background:#C82E29; border:1px solid #C82E29; color:#fff; font-size:13px; font-weight:700; text-transform:uppercase; padding:10px 32px 8px 32px; border-radius:4px; width:180px; margin:20px auto; display:block}
 .f100{float:left; width:100%;}
 .wrapList{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:95px;}
 .wrapListLow{background:#fff; border-bottom:1px solid #e9e9e9; border-top:1px solid #e9e9e9; padding-top:25px;}
@@ -160,6 +161,11 @@ header nav{float:right; height:65px!important;}
 #asigPi li a:hover{background:#D8EDFF; color:#222}
 #tablaPlano tbody tr:hover{background-color:#eee}
 table tbody tr:hover{background-color:#fafafa}
+#popupAct{z-index: 9999999999999; background: rgba(51, 51, 51, 0.8);  border: 1px solid #ccc; padding: 20px; top: 43px; box-shadow: 2px 2px 9px #ccc;  width: 100%; left:0; position: absolute; top: 0; height: 100%;}
+#popupAct form{background: #f6f9fc; position:absolute; margin-left:50%; width:500px; left:-250px; height:200px; padding:20px; top:20%; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; box-shadow: -4px 9px 40px #222; -moz-box-shadow: -4px 9px 40px #222; -webkit-box-shadow: -4px 9px 40px #222;}
+#popupAct fieldset{float:left; width:100%; padding:0}
+#popupAct h2{font-size: 1.4em; text-transform: uppercase; font-weight: 700; float: left; width: 100%; text-align: center; color:#333}
+#popupAct p{float:left; width:100%; text-align:center; padding:10px 0; line-height:21px; font-size:1.2em}
 /*----------------Titulos ------------------*/
 #mainTit{padding:16px 20px 26px;}
 #mainTitPlano{padding:26px 15px;}
@@ -269,7 +275,7 @@ input[type=file]{padding-top:5px;}
 #loginForm p{float:left; width:360px; padding:0 20px}
 .inpLog{height:38px; font-size:13px; border:1px solid #ccc; background:#f9f9f9; padding:0 10px; width:340px; border-radius:3px; -webkit-border-radius:3px; -moz-border-radius:3px;}
 .submit input{cursor:pointer; background:#4F9CD4; border: 1px solid #2989d8; color:#fff; font-size:14px; font-weight: 700;
-    text-transform: uppercase;  padding: 12px 0; width:316px; border-radius:3px; -webkit-border-radius:3px; border-radius:3px; margin: 20px auto 0 auto;}
+    text-transform: uppercase;  padding: 12px 0; width:100%; border-radius:3px; -webkit-border-radius:3px; border-radius:3px; margin: 20px auto 0 auto;}
 .submit:hover input{background: #2989d8; /* Old browsers */
 background: -moz-linear-gradient(top, #2989d8 0%, #2989d8 93%, #7db9e8 100%, #7db9e8 101%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2989d8), color-stop(93%,#2989d8), color-stop(100%,#7db9e8), color-stop(101%,#7db9e8)); /* Chrome,Safari4+ */
@@ -495,8 +501,7 @@ border-bottom-right-radius: 5px; }
 .Rtel{width:150px !important}
 .Rema{width:200px !important; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
 .fCr{white-space:nowrap;}
-.Rori{width:150px !important; t
-	ext-overflow:ellipsis; white-space:nowrap; overflow:hidden }
+.Rori{width:150px !important; text-overflow:ellipsis; white-space:nowrap; overflow:hidden }
 .sp{margin-right:5px; line-height:16px; font-style:normal}
 #commentC textarea{float: left; text-transform:uppercase; width:100%; margin: 20px 0 0; border: 1px solid #ccc; border-radius: 4px; padding: 10px; margin-bottom: 10px; height: 54px; background:#fafafa}
 #aqui{float:left; width:60%; border:1px solid #B7E3FF; margin:0 25px 25px;}
