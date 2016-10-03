@@ -146,6 +146,8 @@
     <? $datos = $this->dashboard_model->prediales($this->uri->segment(3));?>
       
       
+      
+      
 	  <? $calle= '';?>
       <? $interior= '';?>
       <? $exterior= ''; ?>
