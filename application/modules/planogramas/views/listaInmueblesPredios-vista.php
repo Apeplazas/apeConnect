@@ -1,8 +1,4 @@
-<html>
-<head>
-<link href="<?=base_url()?>assets/css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
-<script src="<?=base_url()?>assets/js/jquery.multi-select.js" type="text/javascript"></script>
-</head>
+
 <div id="mainTit">
 	<h3>Listado de Inmuebles</h3>
 </div>
@@ -91,4 +87,3 @@
 <style type="text/css" media="screen">
 	.inmueble .pl10{padding:6px 10px!important}
 </style>
-</html>

@@ -188,8 +188,6 @@ class Prospectos extends MX_Controller {
 		
 		$user = $this->session->userdata('usuario');
 		$today = date('Y-m-d');
-		
-		$user = $this->session->userdata('usuario');
 		$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
 
 		//Carga el javascript y CSS //

@@ -2106,5 +2106,65 @@ class Ajax extends MX_Controller {
 	function calificaCalificador(){
 		$this->load->view('formCalificaCalificador-view');
 	}
+	
+	
+	function cargarColoniasObras()
+	{
+		$val = $_POST['val'];
+		$idVal = $_POST['idVal'];
+		$sc = $this->db->query("select nombreColonia from estadosmexico where codigoCP ='$val' group by nombreColonia");
+
+		$lista_opciones = '<option value="0">Colonia</option>
+		';
+
+		foreach($sc->result() as $row){
+			$lista_opciones .= "<option value='".$row->nombreColonia."'>".$row->nombreColonia."</option>";
+		}
+		echo $lista_opciones;
+	}
+	
+	function cargarMunicipioObras()
+	{
+		$val = $_POST['val'];
+		$idVal = $_POST['idVal'];
+
+		$sc = $this->db->query("select nombreMunicipio from estadosmexico where codigoCP ='$val' group by nombreMunicipio");
+		
+		$lista_opciones ='';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones =  $row->nombreMunicipio;
+		}
+		echo $lista_opciones;
+	}
+	
+	function cargarEstadoObras()
+	{
+		$val = $_POST['val'];
+		$idVal = $_POST['idVal'];
+
+		$sc = $this->db->query("select nombreEstado from estadosmexico where codigoCP ='$val' group by nombreEstado");
+		$lista_opciones ='';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones =  $row->nombreEstado;
+		}
+
+		echo $lista_opciones;
+	}
+	
+	function cargarCiudadObras()
+	{
+		$val = $_POST['val'];
+		$idVal = $_POST['idVal'];
+		$sc = $this->db->query("select nombreCiudad from estadosmexico where codigoCP ='$val' group by nombreCiudad");
+		$lista_opciones ='';
+		
+		foreach($sc->result() as $row){
+			$lista_opciones =  $row->nombreCiudad;
+		}
+
+		echo $lista_opciones;
+	}
 
 }
