@@ -336,7 +336,7 @@ class Planogramas_model extends CI_Model
 	function cargarPredios($intelisisInmueble){
 		
 		$data = array();
-		$q = $this->db->query("SELECT * FROM Inmuebles where inmuebleIntelisis='$intelisisInmueble'");
+		$q = $this->db->query("SELECT * FROM inmuebles where inmuebleIntelisis='$intelisisInmueble'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

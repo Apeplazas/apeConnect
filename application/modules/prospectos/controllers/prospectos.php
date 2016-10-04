@@ -180,6 +180,10 @@ class Prospectos extends MX_Controller {
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('tempciri/tempciri_model');
 		
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
+		
 		
 	}
 
