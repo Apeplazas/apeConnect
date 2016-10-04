@@ -382,4 +382,18 @@ class Planogramas_model extends CI_Model
 		
 	}
 	
+	function traer_local_layout($intelisis_ref){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_local where INTELISIS_ID = '$intelisis_ref'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
 }

@@ -20,7 +20,7 @@
 				<th>Fecha Creación</th>
                 <th>Estatus de interés</th>
 				<th></th>
-				<th></th>
+				<!----<th></th>-->
 			</tr>
 		</thead>
 		<tbody>
@@ -40,9 +40,9 @@
 			  <th><?= $p->fechaCreacion?></th>
               <th><a><?= $p->statusProspecto?></a></th>
 				<th><a class="editPros" href="<?=base_url()?>prospectos/editar/<?= $p->id;?>"><i class="iconEdit"><img src="<?=base_url()?>assets/graphics/svg/pencil.svg" alt="Editar"></i></a></th>
-				<th>
+				<!----<th>
 					<a href="<?=base_url()?>prospectos/cotizar/<?= $p->id;?>"><span class="addSmallGray">Cotizar</span></a>
-				</th>
+				</th>-->
 				<? endforeach; ?>
 			</tr>
 		</tbody>
@@ -52,6 +52,7 @@
 $(document).ready(function() {
 	/// Llama al plugin de datatables
     $('#tablaproveed').dataTable();
+    "ordering": false
     /// Genera el even de cada lista
     $('.wrapListForm fieldset:even').addClass('evenBorder');
 } );

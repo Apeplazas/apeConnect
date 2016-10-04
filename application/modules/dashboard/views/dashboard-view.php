@@ -1,3 +1,20 @@
+<? $user         = $this->session->userdata('usuario');?>
+ 
+<? if($user['idrole'] == '10'):?>
+ 
+ 
+ <div id="popupAct">
+			<form id="formPlano" action="<?= base_url();?>planogramas/inmuebles" method="post" enctype="multipart/form-data">
+				<h2>Actualiza la información de tu plaza.</h2>
+				<p>Con la finalidad de mantener la información de nuestras plazas actualizada se te solicita completar la siguiente información</p>
+					<fieldset>
+						<input id="subPlan" class="mainBottonCenter" type="submit" class="lightBot fright" value="Enviar" />
+					</fieldset>
+			</form>
+			</div>
+ <? endif ?>
+
+
 <div id="mainTit">Dashboard</div>
 <div id="wrapDash">
 	<div id="barTop">
