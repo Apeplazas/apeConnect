@@ -1903,6 +1903,56 @@ class Ajax extends MX_Controller {
 		exit;
 
 	}
+	
+	function trae_pisos_por_predio(){
+
+		$predio_id		= $_POST['predio_id'];
+		$datos_pisos	= $this->prospectos_model->traer_pisos_por_predio($predio_id);
+		echo json_encode($datos_pisos);
+		exit;
+
+	}
+
+	function guardar_local_intelisis(){
+
+		$intelisis_ref = $_POST['intelisis_ref'];
+		
+		$tipo		= $_POST['tipo'];
+		$estatus	= $_POST['estatus'];
+		$predio		= $_POST['predio'];
+		$piso		= $_POST['piso'];
+		$medida		= $_POST['medida'];
+		$unidad		= $_POST['unidad'];
+
+		$local_layout = $this->planogramas_model->traer_local_layout($intelisis_ref);
+		
+		if(sizeof($local_layout) > 0){
+			$info = array(
+				'TIPO_DE_LOCAL'		=> $tipo,
+				'ESTATUS_LOCAL'		=> $estatus,
+				'PREDIO_ID'			=> $predio,
+				'PISO_ID'			=> $piso,
+				'AREA_RENTABLE'		=> $medida,
+				//'AREA_RENTABLE'		=> $unidad
+			);
+			$this->db->where('INTELISIS_ID', $intelisis_ref);
+			$this->db->update('layouts_local', $info);
+			
+		}else{
+			$info = array(
+				'TIPO_DE_LOCAL'		=> $tipo,
+				'ESTATUS_LOCAL'		=> $estatus,
+				'PREDIO_ID'			=> $predio,
+				'PISO_ID'			=> $piso,
+				'AREA_RENTABLE'		=> $medida,
+				'INTELISIS_ID'		=> $intelisis_ref,
+				//'AREA_RENTABLE'		=> $unidad
+			);
+			$this->db->insert('layouts_local', $info);
+		}
+		exit;
+		
+	}
 
 	function cancelarCi(){
 

@@ -701,6 +701,20 @@ class Prospectos_model extends CI_Model {
 		}
 		return $data;
 	}
+
+	function traer_pisos_por_predio($predio_id){
+
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_piso WHERE PREDIO_ID = '$predio_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+
+	}
 	
 
 

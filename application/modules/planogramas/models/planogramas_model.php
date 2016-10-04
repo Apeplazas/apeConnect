@@ -323,7 +323,7 @@ class Planogramas_model extends CI_Model
 	
 	function cargarInmuebles(){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM borrar_vic_inmueble where Nombre !='' order by Nombre asc");
+		$q = $this->db->query("SELECT * FROM BORRAR_vic_Inmueble where Nombre !='' order by Nombre asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -333,10 +333,32 @@ class Planogramas_model extends CI_Model
 		return $data;
 	}
 	
-	function cargarPredios($intelisisInmueble){
+	function cargarLocalesPlaza($plazaId){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM vic_local where Inmueble = '$plazaId' order by NombreCorto asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarPredios($intelisisInmueble, $grupo){
+		
+		$concat = '';
+		
+		if ($grupo == 'agrupar'){
+			$concat = 'group by i.inmuebleID';
+		}
 		
 		$data = array();
-		$q = $this->db->query("SELECT * FROM Inmuebles where inmuebleIntelisis='$intelisisInmueble'");
+		$q = $this->db->query("SELECT * FROM Inmuebles i 
+												LEFT JOIN predios p ON p.inmuebleID=i.inmuebleID
+												where i.inmuebleIntelisis='$intelisisInmueble'
+												$concat
+												");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -346,28 +368,32 @@ class Planogramas_model extends CI_Model
 		return $data;
 	}
 	
-	function trae_usuarios(){
-		$data = array(); 
-		$q = $this->db->query("SELECT * FROM usuarios");
+	function traer_predios_por_plaza($plaza_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_predial where INMUEBLE_ID = '$plaza_id' order by NOMBRE_DE_PREDIO asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
+		
 	}
 	
-	function cargarEncargados($intelisisInmueble){
-		$data = array(); 
-		$q = $this->db->query("SELECT * FROM borrar_encargado_inmueble WHERE Inmueble='$intelisisInmueble'");
+	function traer_local_layout($intelisis_ref){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_local where INTELISIS_ID = '$intelisis_ref'");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
 			}
-			$q->free_result();  	
+			$q->free_result();
 		}
 		return $data;
+		
 	}
 	
 }

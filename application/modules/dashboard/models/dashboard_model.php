@@ -91,45 +91,6 @@ class Dashboard_model extends CI_Model
 	}
 	
 	//MIKEE
-	
-	function prediales($prediales){
-		$data = array(); 
-		$q = $this->db->query("SELECT * FROM layouts_predial
-										where INMUEBLE_ID = '$prediales'");
-		if($q->num_rows() > 0) {
-			foreach($q->result() as $row){
-				$data[] = $row;
-			}
-			$q->free_result();  	
-		}
-		return $data;
-	}
-	function cuentaprediales($prediales){
-		$data = array(); 
-		$q = $this->db->query("SELECT count(*) as inicio FROM layouts_predial
-										where INMUEBLE_ID = '$prediales'");
-		if($q->num_rows() > 0) {
-			foreach($q->result() as $row){
-				$data[] = $row;
-			}
-			$q->free_result();  	
-		}
-		return $data;
-	}
-	
-	function cargarNumeroDePredios($Inmueble){
-		$data = array(); 
-		$q = $this->db->query("SELECT predios, inmuebleNombre FROM inmuebles
-										where inmuebleIntelisis = '$Inmueble'");
-		if($q->num_rows() > 0) {
-			foreach($q->result() as $row){
-				$data[] = $row;
-			}
-			$q->free_result();  	
-		}
-		return $data;
-	}
-	
 	function historial($historialID){
 		$data = array(); 
 		$q = $this->db->query("SELECT * FROM usuarios_accesos
@@ -372,8 +333,8 @@ class Dashboard_model extends CI_Model
 			count(p.usuarioID) as cuentaTotal     
 		FROM prospectos p
 		LEFT JOIN usuarios u ON u.usuarioID=p.usuarioID
-		WHERE (idrole='8' 
-		OR idrole='1')
+		WHERE idrole='8' 
+		OR idrole='1'
 		AND p.fechaCreacion > '$fechaDe'
 		AND p.fechaCreacion < '$fechaA'
 		GROUP BY p.usuarioID
