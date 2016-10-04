@@ -153,7 +153,7 @@ class Dashboard_model extends CI_Model
 			u.*, 
 			count(c.usuarioId) as total     
 		FROM usuarios u
-		LEFT JOIN tempora_ci c ON u.usuarioID=c.usuarioId
+		LEFT JOIN TEMPORA_CI c ON u.usuarioID=c.usuarioId
 		WHERE idrole='5'
 		GROUP BY u.usuarioID");
 		if($q->num_rows() > 0) {
