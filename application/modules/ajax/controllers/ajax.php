@@ -1706,7 +1706,8 @@ class Ajax extends MX_Controller {
 	}
 	
 	public function predio(){
-		
+
+		$PREDIO_ID = $_POST['PREDIO_ID'];		
 		$NOMBRE_DE_PREDIO = $_POST['NOMBRE_DE_PREDIO'];
 		$INMUEBLE_ID = $_POST['INMUEBLE_ID'];
 		$CALLE = $_POST['CALLE'];
@@ -1719,55 +1720,139 @@ class Ajax extends MX_Controller {
 		$ESTADO = $_POST['ESTADO'];
 		$CIUDAD = $_POST['CIUDAD'];
 		
+		$AREA_CONSTRUIDA = $_POST['vectoresData'];
+		explode(",",$AREA_CONSTRUIDA);
 		
+		if($PREDIO_ID == ''){
 		
-		if($NUMERO_EXTERIOR != ""){		
-		$op10 = array(
-				'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
-				'INMUEBLE_ID' => $INMUEBLE_ID,
-				'ESTATUS_DE_PREDIO' => 'ALTA',
-				'FECHA_INICIO' => '2009-01-01',
-				'CALLE' => $CALLE.'-',
-				'NUMERO_EXTERIOR' => $NUMERO_EXTERIOR,
-				'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
-				'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
-				'COLONIA' => $COLONIA,
-				'DELEGACION_MUNICIPIO' => $DELEGACION_MUNICIPIO,
-				'ESTADO' => $ESTADO,
-				'CIUDAD' => $CIUDAD,
-				'CODIGO_POSTAL' => $CODIGO_POSTAL,
-				'PAIS' => 'MEXICO',
-				'CREATED_BY' => '-1',
-				'CREATION_DATE' => '2009-01-01'
-			);
-			$this->db->insert('layouts_predial', $op10);
-			echo true;
-		exit;
+				if($NUMERO_EXTERIOR != ""){		
+				$op10 = array(
+						'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
+						'INMUEBLE_ID' => $INMUEBLE_ID,
+						'ESTATUS_DE_PREDIO' => 'ALTA',
+						'FECHA_INICIO' => '2009-01-01',
+						'CALLE' => $CALLE.'-',
+						'NUMERO_EXTERIOR' => $NUMERO_EXTERIOR,
+						'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
+						'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
+						'COLONIA' => $COLONIA,
+						'DELEGACION_MUNICIPIO' => $DELEGACION_MUNICIPIO,
+						'ESTADO' => $ESTADO,
+						'CIUDAD' => $CIUDAD,
+						'CODIGO_POSTAL' => $CODIGO_POSTAL,
+						'PAIS' => 'MEXICO',
+						'CREATED_BY' => '-1',
+						'CREATION_DATE' => '2009-01-01'
+					);
+					$this->db->insert('layouts_predial', $op10);
+					echo true;
+				exit;
+				}else{
+					$op10 = array(
+						'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
+						'INMUEBLE_ID' => $INMUEBLE_ID,
+						'ESTATUS_DE_PREDIO' => 'ALTA',
+						'FECHA_INICIO' => '2016-07-07',
+						'CALLE' => $CALLE.'-',
+						'NUMERO_EXTERIOR' => ',',
+						'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
+						'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
+						'COLONIA' => $COLONIA,
+						'DELEGACION_MUNICIPIO' => $DELEGACION_MUNICIPIO,
+						'ESTADO' => $ESTADO,
+						'CIUDAD' => $CIUDAD,
+						'CODIGO_POSTAL' => $CODIGO_POSTAL,
+						'PAIS' => 'MEXICO',
+						'CREATED_BY' => '-1',
+						'CREATION_DATE' => '2009-01-01'
+					);
+					$this->db->insert('layouts_predial', $op10);
+					echo true;
+				exit;
+					
+				}
 		}else{
-			$op10 = array(
-				'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
-				'INMUEBLE_ID' => $INMUEBLE_ID,
-				'ESTATUS_DE_PREDIO' => 'ALTA',
-				'FECHA_INICIO' => '2016-07-07',
-				'CALLE' => $CALLE.'-',
-				'NUMERO_EXTERIOR' => ',',
-				'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
-				'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
-				'COLONIA' => $COLONIA,
-				'DELEGACION_MUNICIPIO' => $DELEGACION_MUNICIPIO,
-				'ESTADO' => $ESTADO,
-				'CIUDAD' => $CIUDAD,
-				'CODIGO_POSTAL' => $CODIGO_POSTAL,
-				'PAIS' => 'MEXICO',
-				'CREATED_BY' => '-1',
-				'CREATION_DATE' => '2009-01-01'
-			);
-			$this->db->insert('layouts_predial', $op10);
-			echo true;
-		exit;
+			
+				if($NUMERO_EXTERIOR != ""){		
+				$op10 = array(
+						'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
+						'INMUEBLE_ID' => $INMUEBLE_ID,
+						'ESTATUS_DE_PREDIO' => 'ALTA',
+						'FECHA_INICIO' => '2009-01-01',
+						'CALLE' => $CALLE,
+						'NUMERO_EXTERIOR' => $NUMERO_EXTERIOR,
+						'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
+						'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
+						'CODIGO_POSTAL' => $CODIGO_POSTAL,
+						'PAIS' => 'MEXICO',
+						'CREATED_BY' => '-1',
+						'CREATION_DATE' => '2009-01-01'
+					);
+					$this->db->where('PREDIO_ID', $PREDIO_ID);
+					$this->db->update('layouts_predial', $op10);
+				
+				foreach($AREA_CONSTRUIDA as $ar){
+					foreach($ar as $a){
+					$actualizarDatos[] = array(
+						'INMUEBLE_ID' => $INMUEBLE_ID,
+						'PREDIO_ID' => $PREDIO_ID,
+						'ESTATUS_PISO' => 'ALTA',
+						'CATEGORIA_PISO' => 'PT',
+						'NIVEL_PISO' => $a['piso'],
+						'AREA_CONSTRUIDA' => $a['area'],
+						'CREATED_BY' => '-1',
+						'CREATION_DATE' => '2009-01-01'
+					);
+					}
+				}
+				
+				$this->db->insert_batch('layouts_piso', $actualizarDatos);	
+					
+					
+					echo true;
+				exit;
+				}else{
+					$op10 = array(
+						'NOMBRE_DE_PREDIO' => $NOMBRE_DE_PREDIO,
+						'INMUEBLE_ID' => $INMUEBLE_ID,
+						'ESTATUS_DE_PREDIO' => 'ALTA',
+						'FECHA_INICIO' => '2016-07-07',
+						'CALLE' => $CALLE,
+						'NUMERO_EXTERIOR' => ',',
+						'NUMERO_INTERIOR' => $NUMERO_INTERIOR,
+						'SUPERFICIE_TERRENO' => $SUPERFICIE_TERRENO,
+						'CODIGO_POSTAL' => $CODIGO_POSTAL,
+						'PAIS' => 'MEXICO',
+						'CREATED_BY' => '-1',
+						'CREATION_DATE' => '2009-01-01'
+					);
+					$this->db->where('PREDIO_ID', $PREDIO_ID);
+					$this->db->update('layouts_predial', $op10);
+					
+					foreach($AREA_CONSTRUIDA as $ar){
+						foreach($ar as $a){	
+						$actualizarDatos[] = array(
+							'INMUEBLE_ID' => $INMUEBLE_ID,
+							'PREDIO_ID' => $PREDIO_ID,
+							'ESTATUS_PISO' => 'ALTA',
+							'CATEGORIA_PISO' => 'PT',
+							'NIVEL_PISO' => $a['piso'],
+							'AREA_CONSTRUIDA' => $a['area'],
+							'CREATED_BY' => '-1',
+							'CREATION_DATE' => '2009-01-01'
+						);
+						}
+				}
+				
+				$this->db->insert_batch('layouts_piso', $actualizarDatos);	
+					
+					
+					echo true;
+				exit;
+					
+				}
 			
 		}
-		
 		
 		
 
@@ -1932,36 +2017,41 @@ class Ajax extends MX_Controller {
 
 		$intelisis_ref = $_POST['intelisis_ref'];
 		
+		$inmueble_id = $_POST['inmueble_id'];
+		$marca 		= $_POST['marca'];
 		$tipo		= $_POST['tipo'];
 		$estatus	= $_POST['estatus'];
 		$predio		= $_POST['predio'];
 		$piso		= $_POST['piso'];
 		$medida		= $_POST['medida'];
-		$unidad		= $_POST['unidad'];
+		$uso_local	= $_POST['uso_local'];
 
 		$local_layout = $this->planogramas_model->traer_local_layout($intelisis_ref);
-		
+
 		if(sizeof($local_layout) > 0){
 			$info = array(
+				'CATEGORIA_LOCAL'	=> $marca,
 				'TIPO_DE_LOCAL'		=> $tipo,
 				'ESTATUS_LOCAL'		=> $estatus,
 				'PREDIO_ID'			=> $predio,
 				'PISO_ID'			=> $piso,
 				'AREA_RENTABLE'		=> $medida,
-				//'AREA_RENTABLE'		=> $unidad
+				'USO_LOCAL'			=> $uso_local
 			);
 			$this->db->where('INTELISIS_ID', $intelisis_ref);
 			$this->db->update('layouts_local', $info);
 			
 		}else{
 			$info = array(
+				'CATEGORIA_LOCAL'	=> $marca,
+				'INMUEBLE_ID'		=> $inmueble_id,
 				'TIPO_DE_LOCAL'		=> $tipo,
 				'ESTATUS_LOCAL'		=> $estatus,
 				'PREDIO_ID'			=> $predio,
 				'PISO_ID'			=> $piso,
 				'AREA_RENTABLE'		=> $medida,
 				'INTELISIS_ID'		=> $intelisis_ref,
-				//'AREA_RENTABLE'		=> $unidad
+				'USO_LOCAL'			=> $uso_local
 			);
 			$this->db->insert('layouts_local', $info);
 		}

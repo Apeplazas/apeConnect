@@ -403,6 +403,7 @@ error_reporting(E_ALL);
 								->add_include('assets/css/planogramas.css');
 
 		$op['inmuebles'] = $this->planogramas_model->cargarInmuebles();
+		$op['usu']	=	$this->planogramas_model->trae_usuarios();
 		
 		$this->layouts->profile('listaInmuebles-vista',$op);
 	}
@@ -424,11 +425,14 @@ error_reporting(E_ALL);
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 								->add_include('assets/js/jquery.autocomplete.pack.js')
 								->add_include('assets/js/jquery.dataTables.min.js')
-								->add_include('assets/css/planogramas.css');
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
 
 		$op['inmuebles'] = $this->planogramas_model->cargarInmuebles();
+		$op['usu']	=	$this->planogramas_model->trae_usuarios();
 		
-		$this->layouts->profile('predios-vista',$op);
+		$this->layouts->profile('listaInmueblesPredios-vista',$op);
 	}
 
 
