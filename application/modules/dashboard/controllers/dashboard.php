@@ -14,9 +14,6 @@ class Dashboard extends MX_Controller
 		    date_default_timezone_set('America/Mexico_City');
 		}
 
-		if( ! ini_get('date.timezone') ){
-		    date_default_timezone_set('America/Mexico_City');
-		}
 	}
 
 	//verifica que la sesion esta inciada para poder dar acceso a modulo

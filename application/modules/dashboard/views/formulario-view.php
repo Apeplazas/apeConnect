@@ -7,7 +7,6 @@
 <? foreach($cuenta as $j):?>
 	<? $inicio= $j->inicio?>
 	<? endforeach; ?>
-	
 
 
 <!-- <form action="<?=base_url()?>evaluacionestwo/guardarCampaniaEvaluacion" method="post" id="guardarForm"> -->
@@ -31,9 +30,9 @@
     
     <div class="wrapListForm" id="uno">
 
-  <?php for($i=$inicio+1;$i<=$num;$i++):
-	  $cajas =0;
-  ?>
+  <?php for($i=$inicio+1;$i<=$num;$i++): ?>
+	<?  $cajas =0; ?>
+ 
 	  
   <table>
 	  <tbody>
@@ -84,9 +83,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td class='grayField'><strong><span class='obli'>*</span>Piso</strong></td>
+				<td class='grayField'><strong><span class='obli'>*</span>Pisos</strong></td>
 				<td>
-					<select class='selBig' id='selpiso<?=$i?>' required>
+					<select class='selBig' id='selpiso<?=$i?>'  title="No tiene los permisos para modificar este campo">
 						<option value=''>Seleccione un piso</option>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
@@ -113,9 +112,9 @@
 			 var val =  $(this).val();
 			 var idVal = <?=$i?>;
 			  
-			 	$.post(ajax_url+"cargarColoniasObras",{val:val, idVal:idVal},function(data){
+			 	$.post(ajax_url+'cargarColoniasObras',{val:val, idVal:idVal},function(data){
 				  sucess:
-				  	$("#colonia<?=$i?>").empty().append(data);
+				  	$('#colonia<?=$i?>').empty().append(data);
 				  	$("#colonia<?=$i?>").removeAttr("disabled");
 				});
 				
@@ -142,12 +141,14 @@
 			});	
   	</script>
   <?php $cajas=$cajas+1;?>
+        </div>
+
   <?php endfor;?>
     <? $datos = $this->dashboard_model->prediales($this->uri->segment(3));?>
       
       
       
-      
+      <? $id_predio='';?>
 	  <? $calle= '';?>
       <? $interior= '';?>
       <? $exterior= ''; ?>
@@ -156,7 +157,7 @@
       <? $z=1;?>
 	<? foreach($datos as $m):?>
       
-	  
+	  <? $id_predio= $m->PREDIO_ID;?>
 	  <? $calle= $m->CALLE?>
       <? $interior= $m->NUMERO_INTERIOR?>
       <? $exterior= $m->NUMERO_EXTERIOR?>
@@ -168,6 +169,7 @@
       <tr>
       	<td class='grayField'><strong><span class='obli'>*</span>Nombre de la calle</strong></td>
         <td><input class='bigInp datePick' type='text' id='calle<?= $z?>' value='<?= $calle?>' ></td>
+        <td><input class='bigInp datePick' type='text' id='id<?= $z?>' value='<?= $id_predio?>' hidden="hidden"></td>
       </tr>
       <tr>
       	<td class='grayField'><strong><span class='obli'>*</span># interior</strong></td>
@@ -187,16 +189,49 @@
       </tr>
       <tr>
       	<td class='grayField'><strong><span class='obli'>*</span>Piso</strong></td>
-        <td><select class='selBig' id='selpiso<?= $z?>' disabled="disabled" title="No tiene permisos para editar esta informacion"><option value=''>Seleccione un piso</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option></select></td>
+        <td>
+        <select class='selBig' id='selpiso<?= $z?>'  title="No tiene permisos para editar esta informacion">
+            <option value=''>Seleccione un piso</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+            <option value='9'>9</option>
+            <option value='10'>10</option>
+            <option value='11'>11</option>
+            <option value='12'>12</option>
+        </select>
+        </td>
       </tr>
-      <tbody>
+      </tbody>
       </table>
-      </br class='clear'>
 	  
+      
+
+   <script>
+$('#selpiso<?= $z?>').on('change',function(){
+	$( ".p" ).remove();
+var val = $('select#selpiso<?= $z?>').val();
+var valor = $(this).val();
+var cajas=1;
+  for(i=1;i<=valor;i++){
+  
+  document.getElementById("pis").innerHTML+=" <table class='p'><th colspan='4'></th><tbody><tr><td class='grayField'><strong><span class='obli'>*</span>Area construida (m2 - Piso "+new Number(i)+" Predio <?= $calle?>)</strong></td><td><input  class='bigInp datePick area<?= $z?>' type='text' name='area[]'  value='' ></td><td><input class='bigInp datePick idpiso<?= $id_predio?>' type='text' name='idpiso[]' value='<?= $id_predio?>' hidden='hidden'></td><td><select class='bigInp piso<?= $z?>' id='selpiso<?= $z?>'><option value='ST2'>ST2</option><option value='ST1'>ST1</option><option value='pb'>PB</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option></select></tr></tbody></table></br class='clear'>"
+  cajas=cajas+1	
+  }
+});
+</script>   
+      
 	  
 	<? $z++;?> 
 	<? endforeach; ?>
+    <div id="pis"> </div>
     </div>
+
     <input type="button" id="guardar" value="GUARDAR" class="mt10 mainBotton" >
     
 
@@ -208,38 +243,64 @@ var val = <?= $num; ?>;
 var NOMBRE_DE_PREDIO = '<?= $nombre; ?>';
 var inicio = <?= $inicio; ?>;
 for(i=1;i<=val;i++){
-							
+							var PREDIO_ID = "";
 							var CALLE = "";
 							var NUMERO_INTERIOR  = "";
 							var NUMERO_EXTERIOR  = "";
 							var SUPERFICIE_TERRENO  = "";
 							var CODIGO_POSTAL  = "";
+							var COLONIA = "";
+							var DELEGACION_MUNICIPIO = "";
+							var ESTADO = "";
+							var CIUDAD = "";
 							
 							
+							var PREDIO_ID  =  $('#id'+new Number(i)).val();
 							var CALLE  =  $('#calle'+new Number(i)).val();
 							var NUMERO_INTERIOR  =  $('#interior'+new Number(i)).val();
 							var NUMERO_EXTERIOR  =  $('#exterior'+new Number(i)).val();
 							var SUPERFICIE_TERRENO  =  $('#superficie'+new Number(i)).val();
 							var CODIGO_POSTAL  =  $('#postal'+new Number(i)).val();
+							var COLONIA = $('#colonia'+new Number(i)).val();
+							var DELEGACION_MUNICIPIO = $('#municipio'+new Number(i)).val();
+							var ESTADO = $('#estado'+new Number(i)).val();
+							var CIUDAD = $('#ciudad'+new Number(i)).val();
 							
-								
+							var vectoresData = {};
+							var m = {};
+							var piso = $('.piso'+new Number(i));
+							var area = $('.area'+new Number(i));
+							$.each(area, function(index,val){
+							m[index] = {};
+							m[index]['piso'] = $(piso[index]).val();
+							m[index]['area'] = $(val).val();
+							vectoresData[i] = m;
 							
-
+							});
 							
-							
+							console.log(vectoresData);
 							
 							$.post('<?=base_url()?>ajax/predio', {
-											
+								
+											vectoresData : vectoresData,
+											PREDIO_ID : PREDIO_ID,
 											NOMBRE_DE_PREDIO : NOMBRE_DE_PREDIO,
 											INMUEBLE_ID : INMUEBLE_ID,
 											CALLE : CALLE,
 											NUMERO_INTERIOR : NUMERO_INTERIOR,
 											NUMERO_EXTERIOR : NUMERO_EXTERIOR,
 											SUPERFICIE_TERRENO : SUPERFICIE_TERRENO,
-											CODIGO_POSTAL : CODIGO_POSTAL
+											CODIGO_POSTAL : CODIGO_POSTAL,
+											COLONIA : COLONIA,
+											DELEGACION_MUNICIPIO : DELEGACION_MUNICIPIO,
+											ESTADO : ESTADO,
+											CIUDAD : CIUDAD,
+											
+											
 							},'json');
+							alert('Datos actualizados');
 							
-						}
+}
 						
 });
 </script>

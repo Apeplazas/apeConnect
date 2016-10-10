@@ -1,5 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Prospectos extends MX_Controller {
 	
 	function testrap(){
@@ -7,19 +6,13 @@ class Prospectos extends MX_Controller {
 		$rap = $this->generar_rap("AZ00035SG00002L87","bancomer");
 		var_dump($rap);
 	}
-
 	public function generar_rap($rap = 'JP13H679',$banco = 'hsbc'){
-
 		if(!preg_match('/^[a-zA-Z0-9]*$/', $rap))
 			return false;
-
 		$chars = str_split($rap);
 		$chars = array_reverse($chars);
-
-
 		//if(sizeof($chars) > 19)
 			//return false;
-
 		$hsbc_valores = array(
 			'A'	=>	1,
 			'B' =>	2,
@@ -48,7 +41,6 @@ class Prospectos extends MX_Controller {
 			'Y'	=>	8,
 			'Z'	=>	9
 		);
-
 		$banorte_valores = array(
 			'A'	=>	2,
 			'B'	=>	2,
@@ -107,12 +99,9 @@ class Prospectos extends MX_Controller {
 			'Z' => 8
 			
 		);
-
 		$multiply 	= 2;
 		$sum		= 0;
-
 		foreach($chars as $char){
-
 			if(preg_match('/[A-Z]/', strtoupper($char)))
 				if($banco == 'hsbc')
 					$char = $hsbc_valores[strtoupper($char)];
@@ -120,10 +109,8 @@ class Prospectos extends MX_Controller {
 					$char = $banorte_valores[strtoupper($char)];
 				elseif($banco == 'bancomer')
 					$char = $bancomer_valores[strtoupper($char)];
-
 			$temp 	= ($char*$multiply>=10) ? floor($char*$multiply/10)+($char*$multiply-10) : $char*$multiply;
 			$sum	= $sum + $temp;
-
 			if($multiply == 2)
 				$multiply = 1;
 			else
@@ -140,39 +127,25 @@ class Prospectos extends MX_Controller {
 			$verifi	= (10-$res==10) ? 0 : 10-$res;
 			
 		}
-
 		return $rap.$verifi;
-
 	}
-
 	function generarReciboInterno(){
-
 		$op['usuario']	= $this->session->userdata('usuario');
 		$op['fecha']	= date('d/m/Y');
-
 		//Generamos recibo desde una carta de intencion
 		if($_POST['generador'] == 'cartIn'){
-
 			//$op['cartaIntDetalles'] = $this->data_model->cargarCargarCartaIntencion($_POST['cartInId']);
 			$op['cantidadPagada']	= $_POST['cantpago'];
 			$op['mecontrato']		= $_POST['mes'];
 			$op['contratoTiempo']	= $_POST['contratotiempo'];
 			$op['clienteDatos']		= $this->prospectos_model->cargarProspectoPerfil($_POST['clienteid']);
-
 		//Generamos Recibo desde cero
 		}elseif($_POST['generador'] == 'iniciar'){
-
-
-
 		}
-
 		$op['op']			= $op;
-
 		var_dump($_POST);
 		$this->layouts->pdf('reciboInterno-view',$op);
-
 	}
-
 	function prospectos()
 	{
 		parent::__construct();
@@ -180,43 +153,46 @@ class Prospectos extends MX_Controller {
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('tempciri/tempciri_model');
 		
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
+		
 		
 	}
-
 	function index()
 	{
 		
 		$user = $this->session->userdata('usuario');
 		$today = date('Y-m-d');
-		$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
-
+		
+		$user = $this->session->userdata('usuario');
+		
+		if($user['usuarioID'] == '198'){
+			$op['prospectos'] 	= $this->prospectos_model->cargarProspectosPlaza($user['plaza']);
+		}else{
+			$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
+		}
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		//Vista//
 		$this->layouts->profile('prospectos-view' ,$op);
 	}
-
 	function empresas(){
 		$user = $this->session->userdata('usuario');
 		$op['prospectos'] 	= $this->prospectos_model->cargarProspectosUsuario($user['usuarioID']);
-
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		//Vista//
 		$this->layouts->profile('empresas-view' ,$op);
 	}
-
 	function agregarComentario(){
 	 	//Informacion perfil General//
-
 		$prospectoID          = $this->input->post('prospectoID');
 		$conversacionId           = $this->input->post('conversacionId');
 	 	$user                 = $this->session->userdata('usuario');
@@ -224,12 +200,9 @@ class Prospectos extends MX_Controller {
 		$respuesta           = $this->input->post('respuesta');
 	
 		if(empty($conversacionId)){
-
 			if( $user['idrole'] == 4){
-
 				$jefeDirecto = $this->user_model->traerJefeDirecto( $user['numeroEmpleado']);
 				$idUsuarioDos = $jefeDirecto[0]->usuarioID;
-
 			}else{
 				$prospecto = $this->prospectos_model->cargarProspectoPerfil($prospectoID);
 				$idUsuarioDos = $prospecto[0]->usuarioID;	
@@ -240,69 +213,53 @@ class Prospectos extends MX_Controller {
 			'idConversacionTipo'	=> 6,
 			'idReferencia'          => $prospectoID
 			);
-
 			$this->db->insert('conversaciones', $var2);
 			$conversacionId = $this->db->insert_id();
-
 		}
 		//Genera Array y Inserta en la BD de asunto
-
 		$var = array(
 			'respuesta'      	=> $respuesta,
 			'usuarioId'			=> $usuarioID,
 			'idConversacion'		=> $conversacionId
 			);
-
 		$this->db->insert('conversacionesRespuestas', $var);
 		
 		redirect('prospectos/usuarios/'.$prospectoID);
 		
 	}
  
-
 	function agregar()
 	{
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 		$op['plazas']     = $this->data_model->cargaZonas();
 		$op['giros']      = $this->data_model->cargarGiros();
 		$op['vendedores'] = $this->data_model->cargarVendedores();
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
 					  ->add_include('assets/css/planogramas.css');
-
 		$op['origenCliente'] 	= $this->prospectos_model->origenCliente(); // Carga Origen del cliente
 		$op['estados'] 	= $this->data_model->estados(); // Carga Estados
-
 		$op['cadena']   = '';
-
 		//Vista//
 		$this->layouts->profile('agregarProspectos-view' ,$op);
 	}
-
 	function solicitarAlta($prospectoID)
 	{
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 		$op['plazas']     = $this->data_model->cargaZonas();
 		$op['giros']      = $this->data_model->cargarGiros();
 		$op['vendedores'] = $this->data_model->cargarVendedores();
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css');
-
 		$op['origenCliente'] 	= $this->prospectos_model->origenCliente(); // Carga Origen del cliente
 		$op['estados'] 	= $this->data_model->estados(); // Carga Estados
-
 		$op['cadena']   = '';
-
 		//Vista//
 		$this->layouts->profile('solicitarAlta-view' ,$op);
 	}
@@ -317,7 +274,6 @@ class Prospectos extends MX_Controller {
 							  ->add_include('assets/js/jquery.autocomplete.pack.js')
 							  ->add_include('assets/js/jquery.dataTables.min.js')
 							  ->add_include('assets/css/planogramas.css');
-
 		//Vista//
 		$this->layouts->profile('general-view' ,$op);
 	}
@@ -327,51 +283,38 @@ class Prospectos extends MX_Controller {
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 		$op['plazas']     = $this->data_model->cargaZonas();
 		$op['giros']      = $this->data_model->cargarGiros();
 		$op['vendedores'] = $this->data_model->cargarVendedores();
-
 		$id = $this->uri->segment(3);
 		$op['zonas']  = $this->prospectos_model->cargarZonasProspecto($id);
 		$op['girosSel']  = $this->prospectos_model->cargarGirosProspecto($id);
 		$op['perfil'] = $perfil = $this->prospectos_model->cargarProspectoPerfil($id);
 		$op['vendedor'] = $this->prospectos_model->cargarUsuariosID($perfil[0]->usuarioID);
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css');
-
 		$op['origenCliente'] 	= $this->prospectos_model->origenCliente(); // Carga Origen del cliente
 		$op['estados'] 	= $this->data_model->estados(); // Carga Estados
-
 		$op['cadena']   = '';
-
 		//Vista//
 		$this->layouts->profile('editarProspectos-view' ,$op);
 	}
-
 	function actualizar($prospectoID)
 	{
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 		$op['plazas']     = $this->data_model->cargaZonas();
 		$op['giros']      = $this->data_model->cargarGiros();
 		$op['vendedores'] = $this->data_model->cargarVendedores();
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/functions.js');
-
 		$op['origenCliente'] 	= $this->prospectos_model->origenCliente(); // Carga Origen del cliente
 		$op['estados'] 	= $this->data_model->estados(); // Carga Estados
-
-
 		//Vista//
 		$this->layouts->profile('actualizarProspectos-view' ,$op);
 	}
-
 	function guardarProspecto()
 	{
 		$user = $this->session->userdata('usuario');
@@ -503,9 +446,7 @@ class Prospectos extends MX_Controller {
 		}
 		
 		
-
 	}
-
 	function editarProspecto()
 	{
 		$user = $this->session->userdata('usuario');
@@ -531,7 +472,6 @@ class Prospectos extends MX_Controller {
 			$this->form_validation->set_rules('comentario' );
 			$this->form_validation->set_rules('fechaCierre' );
 			$this->form_validation->set_rules('origen', 'origen del Cliente', 'required');
-
 			$titulo           = $this->input->post('titulo');
 			$primerNombre     = $this->input->post('primerNombre');
 			$segundoNombre    = $this->input->post('segundoNombre');
@@ -556,32 +496,26 @@ class Prospectos extends MX_Controller {
 			$fechaCierre      = $this->input->post('fechaCierre');
 			$plaza            = $_POST['plaza'];
 			$prospectoID  	  = $this->uri->segment(3);
-
 			if ($this->form_validation->run($this) == FALSE)
 			{
 				//Optimizacion y conexion de tags para SEO//
 				$opt = $this->uri->segment(1);
 				$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 				$op['plazas']     = $this->data_model->cargaZonas();
 				$op['giros']      = $this->data_model->cargarGiros();
 				$op['vendedores'] = $this->data_model->cargarVendedores();
-
 				//Carga el javascript para jquery//
 				$this->layouts->add_include('assets/js/jquery-ui.js')
 							  ->add_include('assets/css/jquery-datepicker.css');
-
 				$op['origenCliente'] = $this->prospectos_model->origenCliente(); // Carga Origen del cliente
 				$op['estados']       = $this->data_model->estados(); // Carga Estados
 				$op['cadena']        = $plaza;
-
 				//Vista//
 				$this->layouts->profile('agregarProspectos-view' ,$op);
 			}
 			else
 			{
 				$user = $this->session->userdata('usuario');
-
 				$info = array(
 						'titulo'          => $titulo,
 						'pnombre'         => $primerNombre,
@@ -606,25 +540,20 @@ class Prospectos extends MX_Controller {
 						 );
 				$this->db->where('id', $prospectoID);
 				$this->db->update('prospectos', $info);
-
 				redirect('prospectos');
 			}
 		}
 	}
-
 	function gracias()
 	{
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/functions.js');
-
 		//Vista//
 		$this->layouts->index('gracias-view' ,$op);
 	}
-
 	function usuarios($prospectoID)
 	{
 		$user = $this->session->userdata('usuario');
@@ -633,7 +562,6 @@ class Prospectos extends MX_Controller {
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
 		$id = $this->uri->segment(3);
-
 		$op['zonas']      	= $this->prospectos_model->cargarZonasProspecto($id);
 		$op['giros']      	= $this->prospectos_model->cargarGirosProspecto($id);
 		$op['perfil']     	= $perfil = $this->prospectos_model->cargarProspectoPerfil($id);
@@ -641,12 +569,10 @@ class Prospectos extends MX_Controller {
 		$op['plazas']     	= $this->data_model->cargaZonas();
 		$op['comentario'] 	= $this->data_model->traeconversacion($prospectoID, 6);
 		$op['referencias'] 	= $this->prospectos_model->trae_referencias($prospectoID);
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
 					  ->add_include('assets/css/planogramas.css');
-
 		//Vista//
 		$this->layouts->profile('perfil-view' ,$op);
 	}
@@ -656,19 +582,15 @@ class Prospectos extends MX_Controller {
 		//Optimizacion y conexion de tags para SEO//
 		$opt = $this->uri->segment(1);
 		$op['opt'] = $this->data_model->cargarOptimizacion($opt);
-
 		$op['plazas']     = $this->data_model->trae_plazas();
-
 		//Carga el javascript para jquery//
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/jquery-datepicker.css')
 					  ->add_include('assets/css/planogramas.css');
-
 		//Vista//
 		$this->layouts->profile('generar_referencia-view' ,$op);
 		
 	}
-
 	function guardar_referencia_bancaria(){
 	
 		$user = $this->session->userdata('usuario');
@@ -694,9 +616,7 @@ class Prospectos extends MX_Controller {
 			$date				= date('dmHisY');
 			
 			$datos_plaza = $this->tempciri_model->traerDatosPLaza($plaza_id);
-
 			$rap = $this->generar_rap($temp_plaza_id.$temp_prospecto_id.$date,$datos_plaza[0]->banco);
-
 			$dat = array(
 				'rap'		=> $rap,
 				'plaza_id'	=> $plaza_id,
@@ -719,44 +639,33 @@ class Prospectos extends MX_Controller {
 		}
 		
 	} 
-
 	function borrar($prospectoID, $status){
-
 	$user = $this->session->userdata('usuario');
-
 	$perfil = $this->prospectos_model->cargarProspectoPerfil($prospectoID);
 		if ($perfil[0]->usuarioID == $user['usuarioID']){
 			$data = array(
 	    	    'status' => $status
 				);
-
 			$this->db->where('id', $prospectoID);
 			$this->db->update('prospectos', $data);
-
 			redirect('prospectos');
 		}
-
 		else{
 			redirect('ayuda/statusProspecto');
 		}
-
 	}
-
 	function cotizar($prospectoID){
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		$this->load->model('planogramas/planogramas_model');
 		$op['planos']		= $this->planogramas_model->cargarPlanogramas();
 		$op['plaza']		= $this->planogramas_model->cargarPlaza();
-
 		$nombre       = $this->input->post('nombre');
 		$prospectoID  = $this->input->post('prospectoID');
 		$tipo         = $this->input->post('tipo');
-
 		if ($tipo == 'nuevaCotizacion'){
 			$data['cotizacion'] = array(
 		            'nombre' 		=> $nombre,
@@ -766,20 +675,15 @@ class Prospectos extends MX_Controller {
 	      //guardamos los datos en la sesion
 	      $this->session->set_userdata($data);
 		}
-
 		$this->layouts->profile('listaPlanogramas-vista.php', $op);
 	}
-
 	function cotizarLocal($planoId){
-
 		$cotizacion = $this->session->userdata('cotizacion');
-
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		// Carga modelos planogramas
 		$this->load->model('planogramas/planogramas_model');
 		$op['locales']    	= $this->planogramas_model->traerInfoPlano($planoId);
@@ -787,22 +691,15 @@ class Prospectos extends MX_Controller {
 		$op['infoPlano']  	= $this->planogramas_model->cargarPlanogramasID($planoId);
 		$op['areaPublica']  = $this->planogramas_model->traerAreaPublica($planoId);
 		$op['cotizacion']	= $cotizacion;
-
 		$this->layouts->profile('seleccion-cotizar-local',$op);
-
 	}
-
 	function finalizarCotizacion(){
-
 		$cotizacion   = $this->session->userdata('cotizacion');
 		$cotizacionID = $this->uri->segment(3);
-
 		if (sizeof($cotizacion['locales']) > 0){
-
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/css/planogramas.css');
-
 			// Carga modelos planogramas
 			$cotizacion = $this->session->userdata('cotizacion');
 			foreach($cotizacion['locales'] as $locales){
@@ -810,16 +707,13 @@ class Prospectos extends MX_Controller {
 				$local 	= $this->data_model->buscarSeleccionVicLocal($vector[0]->localID,$vector[0]->id);
 				$data[] = $local[0];
 			}
-
 			$cotizacion['locales'] = $data;
 			$op['cotizacion'] = $cotizacion;
-
 			$this->layouts->profile('finalizar-cotizacion',$op);
 		}
 		elseif($cotizacionID){
 			$user = $this->session->userdata('usuario');
 			$op['validada'] = $validada    = $this->prospectos_model->validaCotizacionUsuario($cotizacionID, $user['usuarioID']);
-
 			if(date('Y-m-d') <= $validada[0]->vigencia){
 				$op['locales'] = $this->prospectos_model->cargaLocalesCotizacion($cotizacionID);
 				$this->layouts->profile('cotizacionPdf-view' ,$op);
@@ -831,41 +725,32 @@ class Prospectos extends MX_Controller {
 			redirect('prospectos');
 		}
 	}
-
 	function enviarCotizacion(){
-
 		$ids    		= $_POST['ids'];
 		$prospectoId	= $_POST['prospectoId'];
 		$data	= array();
 		$i 		= 1;
-
 		foreach($ids as $id){
 			$vector = $this->data_model->buscarVector($id);
 			$local 	= $this->data_model->buscarSeleccionVicLocal($vector[0]->localID,$id);
 			$data[] = array($i,1,$local[0]->Nombre,$local[0]->precioLocal,$local[0]->precioLocal,0,$local[0]->precioLocal,16,$local[0]->precioLocal*.16,$local[0]->precioLocal*1.16);
 			++$i;
-
 		}
-
 		$prospecto = $this->prospectos_model->cargarProspectoPerfil($prospectoId);
 		/*
 		$header = array('Pos', 'Cantidad', 'Concepto', 'Listado de precios','Sub total','Descueno','Precio sin iva','Impuesto (%)','Impuesto (MXN)','Total');
-
 		$pdf = $this->load->library('pdf');
 		$pdf->AddPage();
 		$pdf->SetFont('Arial','B',14);
 		$pdf->FancyTable($header,$data);
 		$pdf->Output("cotizacion.pdf","F");
 		*/
-
 		$op['locales'] = $data;
-
 		$this->load->helper(array('dompdf', 'file'));
 	    // page info here, db calls, etc.
 	    $html = $this->load->view('pdf-view', $op, true);
 	    $data = pdf_create($html, '', false);
 	    write_file(DIRPDF.'name.pdf', $data);
-
 		$this->load->library('email');
 		$this->email->set_newline("\r\n");
 		$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
@@ -883,15 +768,12 @@ class Prospectos extends MX_Controller {
 				');
 		$this->email->attach(DIRPDF.'name.pdf');
 		$this->email->send();
-
 		// Carga modelos planogramas
 		$cotizacion = $this->session->userdata('cotizacion');
 		$user = $this->session->userdata('usuario');
-
 		//Genera la vigencia de la cotizacion
 		$hoy = date('Y-m-d H:i:s');
 		$vigencia = date('Y-m-d H:i:s', strtotime($hoy . ' + 14 day'));
-
 		$cot = array(
 			'prospectoID'	=> $cotizacion['prospectoID'],
 			'folio'			=> $this->db->insert_id(),
@@ -900,7 +782,6 @@ class Prospectos extends MX_Controller {
 			'usuarioID'		=> $user['usuarioID']
 		);
 		$this->db->insert('prospectoCotizacion', $cot);
-
 		$ultimoID = $this->db->insert_id();
 		$folio = str_pad($ultimoID, 6,"0", STR_PAD_LEFT);
 		$data = array(
@@ -908,53 +789,37 @@ class Prospectos extends MX_Controller {
             );
 		$this->db->where('cotizacionID', $ultimoID);
 		$this->db->update('prospectoCotizacion', $data);
-
-
 		foreach($cotizacion['locales'] as $locales){
 			$vector = $this->data_model->buscarVector($locales);
 			$local 	= $this->data_model->buscarSeleccionVicLocal($vector[0]->localID,$vector[0]->id);
-
 			$contInfo = array(
 				'localPrecio'	=> $local[0]->precioLocal,
 				'claveLocal'   	=> $local[0]->local,
 				'nombreLocal'   => $local[0]->Nombre,
 				'cotizacionID'	=> $ultimoID
 			);
-
 			$this->db->insert('localesProspectosCotizacion', $contInfo);
 		}
-
-
-
         $this->session->unset_userdata('cotizacion');
-
 		redirect('prospectos/cotizaciones');
-
 	}
-
 	function cotizaciones(){
-
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		$user = $this->session->userdata('usuario');
 		$prospectoID = $this->uri->segment(3);
 		$op['prospectosCotiza'] = $this->prospectos_model->cargarListaCotizaciones($user['usuarioID'], $prospectoID);
-
 		//Vista//
 		$this->layouts->profile('cotizaciones-view' ,$op);
 	}
-
 	function borrarSessionCotizacion(){
 		$this->session->unset_userdata('cotizacion');
 		redirect('prospectos');
 	}
-
 	function localesCotizadosProspectos(){
-
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
@@ -962,18 +827,13 @@ class Prospectos extends MX_Controller {
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/js/jquery.steps.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		$user = $this->session->userdata('usuario');
 		$prospectoID = $this->uri->segment(3);
-
 		$op['perfil'] 	= $perfil = $this->prospectos_model->cargarProspectoPerfil($prospectoID);
 		$op['cotizaciones'] = $this->prospectos_model->cargaLocalesCotizadosProspectos($prospectoID);
-
 		$this->layouts->profile('localesCotizadosProspectos-view' ,$op);
 	}
-
 	function generarRecibo(){
-
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
 					  ->add_include('assets/js/jquery.autocomplete.pack.js')
@@ -981,15 +841,11 @@ class Prospectos extends MX_Controller {
 					  ->add_include('assets/js/jquery.dataTables.min.js')
 					  ->add_include('assets/js/jquery.steps.js')
 					  ->add_include('assets/css/planogramas.css');
-
 		$user = $this->session->userdata('usuario');
 		$prospectoID = $this->uri->segment(3);
-
 		$op['perfil'] 			= $perfil= $this->prospectos_model->cargarProspectoPerfil($prospectoID);
 		$op['cartasIntencion'] 	= $this->prospectos_model->cargarCartasIntencion($prospectoID);
 		$op['cotizaciones'] 	= $this->prospectos_model->cargaLocalesCotizadosProspectos($prospectoID);
-
 		$this->layouts->profile('generarRecibo-view' ,$op);
 	}
-
 }

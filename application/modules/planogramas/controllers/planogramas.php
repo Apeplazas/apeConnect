@@ -66,7 +66,9 @@ error_reporting(E_ALL);
 		$this->user_model->checkuser();
 		$this->load->model('user_model');
 		$this->load->model('planogramas_model');
-		
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 		
 	}
 
@@ -404,6 +406,20 @@ error_reporting(E_ALL);
 		$op['usu']	=	$this->planogramas_model->trae_usuarios();
 		
 		$this->layouts->profile('listaInmuebles-vista',$op);
+	}
+	
+	function locales($plazaId){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
+
+		$op['locales'] = $this->planogramas_model->cargarLocalesPlaza($plazaId);
+		
+		$this->layouts->profile('locales-vista',$op);
 	}
 	
 	function predios(){

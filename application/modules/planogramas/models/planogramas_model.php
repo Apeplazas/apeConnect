@@ -333,10 +333,9 @@ class Planogramas_model extends CI_Model
 		return $data;
 	}
 	
-	function cargarPredios($intelisisInmueble){
-		
+	function cargarLocalesPlaza($plazaId){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM Inmuebles where inmuebleIntelisis='$intelisisInmueble'");
+		$q = $this->db->query("SELECT * FROM vic_local where Inmueble = '$plazaId' AND Estatus != 'BAJA' order by NombreCorto asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -344,6 +343,61 @@ class Planogramas_model extends CI_Model
 			$q->free_result();
 		}
 		return $data;
+	}
+	
+	function cargarPredios($intelisisInmueble){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM inmuebles where inmuebleIntelisis='$intelisisInmueble'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+
+	function traer_predios_por_plaza($plaza_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_predial where INMUEBLE_ID = '$plaza_id' order by NOMBRE_DE_PREDIO asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
+	function traer_piso($piso_id){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_piso where PISO_ID = '$piso_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+
+	function traer_local_layout($intelisis_ref){
+		
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_local where INTELISIS_ID = '$intelisis_ref'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
 	}
 	
 	function trae_usuarios(){
