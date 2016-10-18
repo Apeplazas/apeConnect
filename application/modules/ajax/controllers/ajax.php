@@ -2059,6 +2059,32 @@ class Ajax extends MX_Controller {
 		
 	}
 
+	function guardar_local_estatus_intelisis(){
+
+		$intelisis_ref = $_POST['intelisis_ref'];
+		
+		$estatus	= $_POST['estatus'];
+
+		$local_layout = $this->planogramas_model->traer_local_estatus($intelisis_ref);
+
+		if(sizeof($local_layout) > 0){
+			$info = array(
+				'ESTATUS'		=> $estatus
+			);
+			$this->db->where('INTELISIS_ID', $intelisis_ref);
+			$this->db->update('layouts_estatus_local', $info);
+			
+		}else{
+			$info = array(
+				'ESTATUS'		=> $estatus,
+				'INTELISIS_ID'	=> $intelisis_ref,
+			);
+			$this->db->insert('layouts_estatus_local', $info);
+		}
+		exit;
+		
+	}
+
 	function cancelarCi(){
 
 		$ciId = $_POST['ciId'];

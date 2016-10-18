@@ -54,6 +54,31 @@ error_reporting(E_ALL);
 
 	}
 
+	function test_cfdi(){
+
+		$dom = new DOMDocument('1.0','utf-8');
+        $dom->load("C:\Users\bcarrera\Downloads\PLC020415UL9_LNCR_7633.xml");
+        
+		foreach ($dom->getElementsByTagName('*') as $elemento) {
+        	$name = str_replace('cfdi:','',$elemento->nodeName);
+			echo "Attribute '$name------------------------<br />";
+         	foreach ($elemento->attributes as $attr) {
+				$name = $attr->nodeName;
+				$value = $attr->nodeValue;
+				echo "Attribute '$name' :: '$value'<br />";
+			}
+		}
+		
+		$op = array();
+		$this->layouts->loadpdf('factura', $op,'pdf_print', true);
+		/*
+		$html = $this->layouts->loadpdf('factura', $op,'pdf_print', true);
+		$data = pdf_create($html, '', false);
+		write_file(DIRPDF.'CI_'.$cartaIntId.'.pdf', $data);
+		 */
+		
+	}
+
 	function simulacion_clientes(){
 		
 		
@@ -418,6 +443,18 @@ error_reporting(E_ALL);
 		$op['locales'] = $this->planogramas_model->cargarLocalesPlaza($plazaId);
 		
 		$this->layouts->profile('locales-vista',$op);
+	}
+	
+	function locales_estatus($plazaId){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css');
+
+		$op['locales'] = $this->planogramas_model->cargarLocalesEstatusPlaza($plazaId);
+		
+		$this->layouts->profile('locales_estatus-vista',$op);
 	}
 	
 	function predios(){
