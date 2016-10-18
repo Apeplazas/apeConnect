@@ -2063,13 +2063,15 @@ class Ajax extends MX_Controller {
 
 		$intelisis_ref = $_POST['intelisis_ref'];
 		
-		$estatus	= $_POST['estatus'];
+		$estatus		= $_POST['estatus'];
+		$motivo_baja	= $_POST['motivo_baja'];
 
 		$local_layout = $this->planogramas_model->traer_local_estatus($intelisis_ref);
 
 		if(sizeof($local_layout) > 0){
 			$info = array(
-				'ESTATUS'		=> $estatus
+				'ESTATUS'		=> $estatus,
+				'COMENTARIO'	=> $motivo_baja
 			);
 			$this->db->where('INTELISIS_ID', $intelisis_ref);
 			$this->db->update('layouts_estatus_local', $info);
@@ -2078,6 +2080,7 @@ class Ajax extends MX_Controller {
 			$info = array(
 				'ESTATUS'		=> $estatus,
 				'INTELISIS_ID'	=> $intelisis_ref,
+				'COMENTARIO'	=> $motivo_baja
 			);
 			$this->db->insert('layouts_estatus_local', $info);
 		}
