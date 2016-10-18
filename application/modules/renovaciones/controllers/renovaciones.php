@@ -11,6 +11,9 @@ class Renovaciones extends MX_Controller
 		$this->load->model('planogramas/planogramas_model');
 		$this->load->model('renovaciones_model');
 		$user = $this->session->userdata('usuario');
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 	}
 	
 	function index(){

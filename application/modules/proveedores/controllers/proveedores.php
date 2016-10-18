@@ -10,7 +10,9 @@ class Proveedores extends MX_Controller
 		$this->load->model('admin_model');
 		$this->load->model('user_model');
 		$this->load->model('proyectos/proyecto_model');
-		
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 		
 		
 	}	

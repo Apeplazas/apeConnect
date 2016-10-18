@@ -8,7 +8,9 @@ class evaluacionestwo extends MX_Controller {
 		$this->user_model->checkuser();
 		$this->load->model('prospectos/prospectos_model');
 		$this->load->model('evaluacionestwo/evaluacionestwo_model');
-		
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 		
 	}
 

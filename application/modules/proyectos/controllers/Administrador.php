@@ -6,6 +6,9 @@ class Proyectos extends Main_proyectos
 	public function __construct()
 	{
 		parent::__construct();
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 		
 	}
 	

@@ -7,6 +7,9 @@ class rh extends MX_Controller{
 		parent::__construct();
 		$this->user_model->checkuser();
 		$this->load->model('rh_model');
+		if( ! ini_get('date.timezone') ){
+		    date_default_timezone_set('America/Mexico_City');
+		}
 	}
 	
 	function index()
