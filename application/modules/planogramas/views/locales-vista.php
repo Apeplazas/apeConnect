@@ -182,6 +182,8 @@
 
 			var $this = $(this);
 			var predio_id = $(this).val();
+			var piso = $this.parent().next().children('.piso');
+			piso.empty();
 			$.ajax({
 				data : {'predio_id':predio_id},
 				dataType : 'json',
@@ -191,9 +193,6 @@
 				if($.isEmptyObject(response)){
 						alert("Ocurrio un error, intentelo de nuevo");
 					}else{
-						var piso = $this.parent().next().children('.piso');
-						console.log(piso.val());
-						piso.empty();
 					    
 					    $.each(response,function(index,val){
 							$option = $("<option></option>")

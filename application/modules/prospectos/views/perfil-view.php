@@ -14,7 +14,6 @@
 			<span>Agregar Comentario</span>
 		</a>
 		<?endif?>
-		<? if ($usuarioSesion['usuarioID'] == '2' || $usuarioSesion['usuarioID'] == '1'):?>
 			<a href="<?=base_url()?>prospectos/localesCotizadosProspectos/<?= $this->uri->segment(3)?>" title="Ingresar Apartados" class="addSmall">
 				<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/apartado.svg" alt="Ingresar Apartado"></i>
 				<span>Ingresar Apartado</span>
@@ -46,7 +45,6 @@
 			</a>
 			<?endif?>
 		
-		<?endif;?>
 		<!-- Alta de usuarios solo por gerentes de plaza <a href="<?=base_url()?>prospectos/solicitarAlta/<?= $this->uri->segment(3)?>" title="Agregar Contactos" class="addSmall"><i class="iconPlus">Agregar</i>Solicitar alta</a>-->
 
 
