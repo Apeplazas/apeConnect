@@ -225,6 +225,30 @@ class Planogramas_model extends CI_Model
 		}
 		return $data;
 	}
+	
+	function cargarPisosPredioPlaza($predio_id,$inmueble_id){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_piso WHERE INMUEBLE_ID='$inmueble_id' and PREDIO_ID='$predio_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarPisosPlaza($predio_id){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_piso WHERE PREDIO_ID='$predio_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
 
 	function cargarPisosArray($plaza){
 		$data = array();
@@ -336,6 +360,43 @@ class Planogramas_model extends CI_Model
 	function cargarLocalesPlaza($plazaId){
 		$data = array();
 		$q = $this->db->query("SELECT * FROM vic_local where Inmueble = '$plazaId' AND Estatus != 'BAJA' order by NombreCorto asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarLocalesPisoPredio($piso_id,$predio_id){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_local where PISO_ID = '$piso_id' AND PREDIO_ID = '$predio_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarLocalesPiso($piso_id){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_local where PISO_ID = '$piso_id'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarPrediosPlaza($plazaId){
+		$plazaId = (int)$plazaId;
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_predial where INMUEBLE_ID = '$plazaId' order by CALLE asc");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;

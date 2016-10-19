@@ -433,6 +433,18 @@ error_reporting(E_ALL);
 		$this->layouts->profile('listaInmuebles-vista',$op);
 	}
 	
+	function plaza_detalle($plazaId){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css');
+
+		$op['predios'] = $this->planogramas_model->cargarPrediosPlaza($plazaId);
+		
+		$this->layouts->profile('plaza_detalle-vista',$op);
+	}
+	
 	function locales($plazaId){
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
