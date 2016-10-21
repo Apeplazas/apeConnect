@@ -27,7 +27,7 @@
 				?>
 				<div class="holder">
 					<div class="details_local <?=$class_local;?>" title="<?= $row->Local;?>">
-						<?php echo $row->NombreCorto;?>
+						<?php echo $row->NombreCorto;?> 
 					</div>	
 					<div class="form_local none">
 						<span class="cerrarpop" style="float:right; cursor:pointer"><img width="18" src="<?=base_url()?>assets/graphics/cerrar.png"/></span>

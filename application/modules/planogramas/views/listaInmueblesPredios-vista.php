@@ -73,6 +73,7 @@
 					</th>
                     <th>
 	                    <a href="<?=base_url()?>planogramas/locales/<?= sprintf("%03d",$row->Inmueble);?>">locales</a>
+	                    <a href="<?=base_url()?>planogramas/locales_estatusM/<?= sprintf("%03d",$row->Inmueble);?>">Verificacion</a>
                     	<a href="<?=base_url()?>dashboard/formulario/<?= $row->Inmueble;?>"><img src="<?=base_url()?>assets/graphics/actualizar.png" id="<?= $row->Inmueble;?>"/></a>
                     </th>
 				</tr>

@@ -447,6 +447,20 @@ class Planogramas_model extends CI_Model
 		
 	}
 	
+	function traer_estatus_local($intelisis_ref){
+		
+		$data = array();
+		$q = $this->db->query("SELECT ESTATUS, COMENTARIO FROM layouts_estatus_local where INTELISIS_ID = '$intelisis_ref'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+		
+	}
+	
 	function traer_piso($piso_id){
 		
 		$data = array();

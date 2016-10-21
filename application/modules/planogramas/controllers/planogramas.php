@@ -469,6 +469,18 @@ error_reporting(E_ALL);
 		$this->layouts->profile('locales_estatus-vista',$op);
 	}
 	
+	function locales_estatusM($plazaId){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css');
+
+		$op['locales'] = $this->planogramas_model->cargarLocalesEstatusPlaza($plazaId);
+		
+		$this->layouts->profile('locales_estatus-vistaM',$op);
+	}
+	
 	function predios(){
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
