@@ -48,10 +48,22 @@ $thisMonth = date('Y-m-d',strtotime('first day of this month')) ;
 			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Prospecto"></i>
 			<span>Agregar Usuarios Prospectos</span>
 		</a>
-        <a href="<?=base_url()?>dashboard/dashboardInmuebles" title="Agregar Contactos" class="addSmall">
+        <a href="<?=base_url()?>dashboard/dashboardProspectos" title="Ver prospectos" class="addSmall">
+			<i class="iconPlus" ><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" ></i>
+			<span >Ver prospectos</span>
+		</a>
+        <? if(($user['idrole'] == '9' and $user['email']=='brodriguez@apeplazas.com') | ($user['idrole'] == '1')):?>
+        <a href="<?=base_url()?>dashboard/dashboardInmuebles" title="Agregar encargado plaza" class="addSmall">
 			<i class="iconPlus" ><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" ></i>
 			<span >Agregar encargado plaza</span>
 		</a>
+        
+        <a href="<?=base_url()?>dashboard/dashboardVendedores" title="Agregar vendedores" class="addSmall">
+			<i class="iconPlus" ><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" ></i>
+			<span >Agregar vendedores</span>
+		</a>
+         <? endif?>
+         
 	</div>
    
 <div class="wrapListLow">

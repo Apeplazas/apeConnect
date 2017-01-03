@@ -184,4 +184,23 @@ function testmail(){
 		redirect('');
 	}
 
+
+	function dashboardVendedores(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+		$op['plazas']		          			=	$this->dashboard_model->trae_plazas();
+		$op['usu']		          			=	$this->dashboard_model->trae_usuarios();
+		
+    	$this->layouts->profile('dashboardVendedores', $op);
+    }
+	
+	function dashboardProspectos(){
+    	$user = $this->session->userdata('usuario');
+    	$op['user'] = $user;
+		$op['vendedores']		          			=	$this->dashboard_model->vendedores();
+		$op['gerentesVentas']		          			=	$this->dashboard_model->trae_gerentesVentas();
+		$op['gerentesPlazas']		          			=	$this->dashboard_model->trae_gerentesPlazas();
+		
+    	$this->layouts->profile('dashboardProspectos', $op);
+    }
 }

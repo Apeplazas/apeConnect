@@ -1,24 +1,24 @@
-<h3 id="mainTit">Dashboard Ventas</h3>
-<div id="actions" style="top: 160px;">
-		<a href="<?=base_url()?>administrador/verUsuarioPros" title="Agregar Contactos" class="addSmall">
-			<i class="iconPlus"><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" alt="Agregar Prospecto"></i>
-			<span>Agregar Usuarios Prospectos</span>
-		</a>
-        <a href="<?=base_url()?>dashboard/dashboardInmuebles" title="Agregar Contactos" class="addSmall">
-			<i class="iconPlus" ><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" ></i>
-			<span >Agregar encargado plaza</span>
-		</a>
-	</div><br><br><br><br><br><br><br><br>
+<h3 id="mainTit">Edición de gerentes de plaza</h3>
 
-		<div id="aqui" > 
+<div class="wrapList">
+<div id="actions">
+		<? if(($user['idrole'] == '9' and $user['email']=='brodriguez@apeplazas.com') | ($user['idrole'] == '1')):?>
+        <a href="<?=base_url()?>dashboard/dashboardVendedores" title="Agregar vendedores" class="addSmall">
+			<i class="iconPlus" ><img src="<?=base_url()?>assets/graphics/svg/plusCircle.svg" ></i>
+			<span >Agregar vendedores</span>
+		</a>
+         <? endif?>
+        <br class="clear">
+	</div><br>
+		<div id="tab2" > 
            <table id="ventasDash">
 				<tbody>
 					<tr>
-						<th class="tcenter">PLAZAS</th>
-						<th class="tcenter">NOMBRE</th>
-						<th class="tcenter">CORREO</th>
-						<th class="tcenter"></th>
-                        <th class="tcenter"></th>
+						<th >PLAZAS</th>
+						<th >NOMBRE</th>
+						<th >CORREO</th>
+						<th ></th>
+                        <th ></th>
 						
 					</tr>
 				
@@ -54,6 +54,7 @@
 										Inmueble : Inmueble
 						},'json');
 						alert('Asignacion exitosa');
+						window.location.reload();
 						}
 					});
 					</script>
@@ -65,7 +66,7 @@
 										Inmueble : Inmueble
 						},'json');
 						alert('Inmueble desasignado');
-						
+						window.location.reload();
 					});
 					</script>
                      
@@ -75,5 +76,6 @@
           </table>
 		<br class="clear">
 	</div>
+ </div>
 
 

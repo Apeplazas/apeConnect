@@ -456,5 +456,57 @@ class Dashboard_model extends CI_Model
 		return $data;
    }
    
+   function vendedores(){
+		$data = array(); 
+		$q = $this->db->query("SELECT 
+			usuarioID , nombreCompleto, email, status 
+		FROM usuarios
+		WHERE idrole='8'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function trae_gerentesVentas(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios WHERE idrole='9'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+   
+   function trae_gerentesPlazas(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM usuarios WHERE idrole='5'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function prospectosvendedores($usuario){
+		$data = array(); 
+		$q = $this->db->query("SELECT * 
+		FROM prospectos
+		WHERE usuarioID='$usuario'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
 
 }

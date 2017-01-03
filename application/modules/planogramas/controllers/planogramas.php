@@ -79,18 +79,13 @@ error_reporting(E_ALL);
 		
 	}
 
-	function simulacion_clientes(){
-		
-		
-		
-	} 
-
 	public function __construct()
 	{
 		parent::__construct();
 		$this->user_model->checkuser();
 		$this->load->model('user_model');
 		$this->load->model('planogramas_model');
+		$this->load->model('extracciones/extracciones_model');
 		if( ! ini_get('date.timezone') ){
 		    date_default_timezone_set('America/Mexico_City');
 		}
@@ -433,17 +428,22 @@ error_reporting(E_ALL);
 		$this->layouts->profile('listaInmuebles-vista',$op);
 	}
 	
-	function plaza_detalle($plazaId){
+	function plaza_detalle(){
+  
+		$inmueble_id = isset($_POST['plaza_id']) ? $_POST['plaza_id'] : 1; 
+		
 		//Carga el javascript y CSS //
 		$this->layouts->add_include('assets/js/jquery-ui.js')
-								->add_include('assets/js/jquery.autocomplete.pack.js')
-								->add_include('assets/js/jquery.dataTables.min.js')
-								->add_include('assets/css/planogramas.css');
-
-		$op['predios'] = $this->planogramas_model->cargarPrediosPlaza($plazaId);
+			  ->add_include('assets/js/jquery.autocomplete.pack.js')
+			  ->add_include('assets/js/jquery.dataTables.min.js')
+			  ->add_include('assets/css/planogramas.css');
+	  
+		$op['inmueble_id'] = $inmueble_id;
+		$op['inmuebles']  = $this->planogramas_model->cargarInmuebles();
+		$op['predios']  = $this->planogramas_model->cargarPrediosPlaza($inmueble_id);
 		
 		$this->layouts->profile('plaza_detalle-vista',$op);
-	}
+ }
 	
 	function locales($plazaId){
 		//Carga el javascript y CSS //
@@ -455,6 +455,18 @@ error_reporting(E_ALL);
 		$op['locales'] = $this->planogramas_model->cargarLocalesPlaza($plazaId);
 		
 		$this->layouts->profile('locales-vista',$op);
+	}
+	
+	function locales_faltantes($plazaId){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css');
+
+		$op['locales'] = $this->planogramas_model->cargarLocalesPlazaFaltantes($plazaId);
+		
+		$this->layouts->profile('locales-faltantes-vista',$op);
 	}
 	
 	function locales_estatus($plazaId){
@@ -495,6 +507,119 @@ error_reporting(E_ALL);
 		
 		$this->layouts->profile('listaInmueblesPredios-vista',$op);
 	}
+	
+	function caida_inmuebles(){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
+		$op['inmuebles'] = $this->planogramas_model->caida_inmuebles();
 
+		$this->layouts->profile('inmuebles_caida_de_datos',$op);
+	}
+	
+	function caida_predios(){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
+								
+		$op['predios'] = $this->planogramas_model->cargarPrediosLayouts();
+
+		$this->layouts->profile('predios-caida',$op);
+	
+	}
+
+	function caida_piso(){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
+								
+		$op['pisos'] = $this->planogramas_model->cargarPisosLayouts();
+
+		$this->layouts->profile('pisos-caida',$op);
+	
+	}
+	
+	function caida_locales(){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
+								
+		$op['locales']				= $this->planogramas_model->cargarLocasLayouts();
+
+		$this->layouts->profile('pisos-locales',$op);
+	
+	}
+
+	function caida_locales_sin_contrato(){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css')
+								->add_include('assets/css/multi-select.css')
+								->add_include('assets/js/jquery.multi-select.js');
+								
+		$op['locales']				= $this->planogramas_model->cargarLocasSinContratosLayouts();
+
+		$this->layouts->profile('pisos-locales',$op);
+	
+	}
+	
+	function comparadorEstatus($plazaId){
+		//Carga el javascript y CSS //
+		$this->layouts->add_include('assets/js/jquery-ui.js')
+								->add_include('assets/js/jquery.autocomplete.pack.js')
+								->add_include('assets/js/jquery.dataTables.min.js')
+								->add_include('assets/css/planogramas.css');
+
+		$op['locales'] = $this->planogramas_model->cargarLocalesPlaza($plazaId);
+		
+		$this->layouts->profile('comparador-vista',$op);
+	}
+	
+	function notificar_nuevos_locales(){
+
+		$locales_nuevos = $this->planogramas_model->cargarLocalesPlazaNuevos();
+		if(sizeof($locales_nuevos > 0)){
+			foreach($locales_nuevos as $nuevo){
+				if(!empty($nuevo->email)){
+					$this->load->library('email');
+					$this->email->set_newline("\r\n");
+					$this->email->from('contacto@apeplazas.com', 'APE Plazas Especializadas');
+					$this->email->to($nuevo->email);
+					$this->email->subject('Asignar nuevos locales');		
+					$this->email->message('
+						<html>
+							<head>
+								<title>Locales Nuevos</title>
+							</head>
+							<body>
+								<p>Buen día</p>
+								<p>Se he detectado que hay nuevos locales pendientes para asignar su estatus, por favor ingrese a <a href="http://www.apeplazas.com/apeConnect/planogramas/locales/' . $nuevo->Inmueble . '">ApeConnect</a> y actualice los locales en rojo.</p>
+							</body>
+						</html>
+					');
+					$this->email->send();	
+				}
+			}
+		}
+		
+	}
 
 }

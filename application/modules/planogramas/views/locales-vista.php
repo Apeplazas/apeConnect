@@ -22,12 +22,36 @@
 				$id 			= (int)$row->Inmueble;
 				$predios 		= $this->planogramas_model->traer_predios_por_plaza($inmueble_id);
 				$local_layout 	= $this->planogramas_model->traer_local_layout($row->Local);
-				$class_local 	= (sizeof($local_layout) > 0) ? 'listo' : '';
+				$local_estatus 	= $this->planogramas_model->traer_local_estatus($row->Local);
+				if(sizeof($local_layout) > 0)
+					$class_local 	= 'listo';
+				elseif(sizeof($local_estatus) > 0)
+					$class_local 	= 'baja-listo';
+				else
+					 $class_local 	= '';
 				$piso_nombre 	= isset($local_layout[0]->PISO_ID) ? $this->planogramas_model->traer_piso($local_layout[0]->PISO_ID) : '';
 				?>
 				<div class="holder">
-					<div class="details_local <?=$class_local;?>" title="<?= $row->Local;?>">
+					<? $status = $this->planogramas_model->llocales($row->Local)?>
+					
+					<div class="details_local <?=$class_local;?> <? foreach($status as $s):?><?if($s->ESTATUS_LOCAL != $row->NUEVO_ESTATUS):?>red<?endif?><? endforeach; ?>" title="<?= $row->Local;?>">
 						<?php echo $row->NombreCorto;?> 
+						 <? $comentarios = $this->planogramas_model->comentariosGerentes($row->Local)?>
+						 <? $contrato = $this->planogramas_model->consultaContrato($row->Local);?>
+						 <? foreach($status as $s):?>
+						<br> Local ID : <?= $row->Local;?><br>
+						 <br>GERENTE DICE: <?= $s->ESTATUS_LOCAL;?><br>
+						 
+						 <? endforeach; ?>
+						 <br> Local ID : <?= $row->Local;?><br>
+						 <? foreach($comentarios as $c):?>
+						 
+						 <br>Gerente dice:<?= $c->ESTATUS;?>
+						 <br><?= $c->COMENTARIO;?>
+						 
+						 <? endforeach; ?>
+						 <br>Intelisis dice : <?= $row->NUEVO_ESTATUS;?>
+						 <br><br>Contrato: ( <? foreach($contrato as $c):?> <?= $c->MovID;?> <? endforeach; ?> )
 					</div>	
 					<div class="form_local none">
 						<span class="cerrarpop" style="float:right; cursor:pointer"><img width="18" src="<?=base_url()?>assets/graphics/cerrar.png"/></span>

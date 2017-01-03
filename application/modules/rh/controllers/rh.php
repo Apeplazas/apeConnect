@@ -37,13 +37,12 @@ class rh extends MX_Controller{
 	
 	public function test(){
 		
+	}
+	
+	function editUser(){
+		
+		
 		
 	}
 	
-	function editUser($userID){
-		
-		
-		
-	}
-	
-}
+} ?>

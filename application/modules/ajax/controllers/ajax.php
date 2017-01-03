@@ -1950,6 +1950,88 @@ class Ajax extends MX_Controller {
 		
 	}
 	
+	function desactivarVendedor()
+	{
+		$status       	= $_POST['status'];
+		$usuarioID       	= $_POST['usuarioID'];
+
+		$update = array('status' => $status);
+		$this->db->where('usuarioID', $usuarioID);
+		$this->db->update('usuarios', $update);
+
+		echo json_encode($op);
+	}
+	
+	function activarVendedor()
+	{
+		$status       	= $_POST['status'];
+		$usuarioID       	= $_POST['usuarioID'];
+
+		$update = array('status' => $status);
+		$this->db->where('usuarioID', $usuarioID);
+		$this->db->update('usuarios', $update);
+
+		echo json_encode($op);
+	}
+	
+	function altaUsuario()
+	{
+		$nombreCompleto       	= $_POST['nombreCompleto'];
+		$email       	= $_POST['email'];
+		$numeroEmpleado       	= $_POST['numeroEmpleado'];
+		$puesto       	= $_POST['puesto'];
+		$idrole       	= $_POST['idrole'];
+
+		$update = array('nombreCompleto' => $nombreCompleto, 
+						'puesto' => $puesto, 
+						'email' => $email, 
+						'contrasenia' => '12345', 
+						'registroNuevo' => 'si', 
+						'idrole' => $idrole,
+						'numeroEmpleado' => $numeroEmpleado,
+						'status' => 'Activado');
+		$this->db->insert('usuarios', $update);
+
+		echo json_encode($op);
+	}
+	
+	
+	function pro(){
+		$value = $_POST['value'];
+		$query = $this->db->query("SELECT * FROM prospectos WHERE usuarioID='$value'");
+
+
+		foreach($query->result() as $row){
+			$data = "
+			<div id='tab2' >
+		 
+			   <table id='ventasDash'>
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<th>NOMBRE</th>
+							<th>CORREO</th>
+							<th>ESTATUS</th>
+							
+						</tr>
+					
+					<? foreach($prosporvende as $l):?>
+					
+						<tr>
+							<td ><?= $l->usuarioID ?></td>
+							<td ><?= $l->pnombre ?><?= $l->snombre ?><?= $l->apellidop ?><?= $l->apellidom ?></td>
+							<td ><?= $l->correo ?></td>
+							
+						 
+					<? endforeach; ?>
+					<tbody>
+			  </table>
+			</div>";
+		}
+
+		echo json_encode($data);
+	}
+	
 
 //----------------------------------------
 	function traeCiPorPlaza(){
@@ -2055,6 +2137,22 @@ class Ajax extends MX_Controller {
 			);
 			$this->db->insert('layouts_local', $info);
 		}
+		exit;
+		
+	}
+
+	function guardar_local_diferencias_intelisis(){
+
+		$intelisis_ref = $_POST['intelisis_ref'];
+		$estatus	= $_POST['estatus'];
+
+		$local_layout = $this->planogramas_model->traer_local_layout($intelisis_ref);
+
+		$info = array(
+			'ESTATUS_LOCAL'		=> $estatus
+		);
+		$this->db->where('INTELISIS_ID', $intelisis_ref);
+		$this->db->update('layouts_local', $info);
 		exit;
 		
 	}

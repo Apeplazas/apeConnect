@@ -359,7 +359,58 @@ class Planogramas_model extends CI_Model
 	
 	function cargarLocalesPlaza($plazaId){
 		$data = array();
-		$q = $this->db->query("SELECT * FROM vic_local where Inmueble = '$plazaId' AND Estatus != 'BAJA' order by NombreCorto asc");
+		$q = $this->db->query("SELECT *, CASE v.Estatus 
+													WHEN 'BLOQUEADO' THEN 'CONFINADO'
+													WHEN 'DESOCUPADO' THEN 'DISPONIBLE'
+													ELSE v.Estatus
+													END as NUEVO_ESTATUS
+													FROM vic_local v
+													LEFT JOIN layouts_local l ON v.Local=l.INTELISIS_ID
+													where v.Inmueble = '$plazaId'
+													and v.Estatus != 'BAJA'
+													order by v.NombreCorto asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarLocalesPlazaFaltantes($plazaId){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM vic_local_faltantes where Inmueble = '$plazaId' order by NombreCorto asc");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function cargarLocalesPlazaNuevos(){
+		$data = array();
+		$q = $this->db->query("SELECT l.*,u.email FROM vic_local l
+			LEFT JOIN inmuebles i ON i.inmuebleIntelisis = CAST(l.Inmueble AS UNSIGNED)
+			LEFT JOIN TEMPORA_PLAZA p ON p.nomenclatura = i.codigoIATA
+			LEFT JOIN usuarios u ON u.usuarioID = p.gerente
+			WHERE l.Estatus != 'BAJA'
+			AND CAST(l.Inmueble AS UNSIGNED) IN (49,
+					23,
+        			33,
+        			9,
+        			13,
+        			6,
+        			16,
+        			21,
+        			35,
+					34)
+			AND l.`Local` NOT IN (SELECT l.INTELISIS_ID FROM layouts_local l
+			UNION ALL
+			SELECT e.INTELISIS_ID FROM layouts_estatus_local e)
+			GROUP BY l.Inmueble");
 		if($q->num_rows() > 0) {
 			foreach($q->result() as $row){
 				$data[] = $row;
@@ -523,6 +574,213 @@ class Planogramas_model extends CI_Model
 				$data[] = $row;
 			}
 			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargarPrediosLayouts(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM layouts_predial lp 
+												LEFT JOIN inmuebles i ON i.inmuebleIntelisis=lp.INMUEBLE_ID 
+												");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargarPisosLayouts(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM layouts_piso p
+												JOIN layouts_predial r on p.PREDIO_ID=r.PREDIO_ID
+												ORDER BY idCorrecto");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargarLocasLayouts(){
+		$data = array(); 
+		$q = $this->db->query("
+		SELECT 
+				L.INMUEBLE_ID AS INMUEBLE_ID,
+				R.ID_PREDIOS AS PREDIO_ID,
+				P.idCorrecto AS PISO_ID,
+				V.NombreCorto AS NUMERO,
+				L.AREA_RENTABLE AS AREA_RENTABLE,
+				L.TIPO_DE_LOCAL AS TIPO_DE_LOCAL,
+				L.CATEGORIA_LOCAL AS CATEGORIA_LOCAL,
+				L.ESTATUS_LOCAL AS ESTATUS_LOCAL,
+				L.FECHA_INICIO_LOCAL AS FECHA_INICIO_LOCAL,
+				L.USO_LOCAL AS USO_LOCAL,
+				L.INTELISIS_ID AS INTELISIS_ID
+		FROM layouts_local L
+			JOIN vic_local V ON V.Local=L.INTELISIS_ID
+			JOIN layouts_piso P ON P.PISO_ID=L.PISO_ID 
+			JOIN layouts_predial R ON R.PREDIO_ID=L.PREDIO_ID 
+			WHERE ( L.INMUEBLE_ID='49'
+								OR  L.INMUEBLE_ID='23'
+								OR  L.INMUEBLE_ID='33'
+								OR  L.INMUEBLE_ID='9'
+								OR  L.INMUEBLE_ID='13'
+								OR  L.INMUEBLE_ID='6'
+								OR  L.INMUEBLE_ID='16'
+								OR  L.INMUEBLE_ID='21'
+								OR  L.INMUEBLE_ID='35'
+								OR  L.INMUEBLE_ID='34')
+			AND L.ESTATUS_LOCAL != 'BAJA'
+			AND V.Estatus != 'NULL'
+		");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargarLocasSinContratosLayouts(){
+		$data = array(); 
+		$q = $this->db->query("SELECT * FROM layouts_local l
+			LEFT JOIN borrarContratos b ON b.`LOCAL` = l.INTELISIS_ID
+			WHERE b.CLIENTE IS NULL");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function cargarCategoriasPisos($inmuebleID, $pisoID){
+		$data = array(); 
+		$q = $this->db->query("select * from layouts_local ll 
+												where ll.INMUEBLE_ID='$inmuebleID' 
+												and ll.PISO_ID='$pisoID'
+												GROUP BY ll.CATEGORIA_LOCAL");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();  	
+		}
+		return $data;
+	}
+	
+	function caida_inmuebles(){
+		$data = array();
+		$q = $this->db->query("SELECT
+									i.codigoIATA as 'codigoIATA',
+									i.inmuebleNombre as 'inmuebleNombre',
+									i.inmuebleIntelisis as 'inmuebleIntelisis',
+									a.Estatus as 'Estatus',
+									a.Estatus as 'Estatus',
+									e.ApeApex as 'RazonSocial',
+									e.No_cuenta as 'No_cuenta',
+									e.Clave_Servicio as 'Clave_Servicio',
+									a.DiasPago as 'DiasPago',
+									e.CuentaContable as 'CuentaContable'
+								FROM inmuebles i
+								LEFT JOIN borrar_vic_inmueble a ON a.Inmueble=i.inmuebleIntelisis
+								LEFT JOIN borrarInmueblesExtractor e ON e.Inmueble=i.inmuebleIntelisis
+								WHERE a.Inmueble=i.inmuebleIntelisis
+								");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+		
+	function sumaPisos($pisoID){
+		$data = array();
+		$q = $this->db->query("SELECT ROUND(SUM(AREA_RENTABLE),2) as suma FROM layouts_local where PISO_ID='$pisoID' AND ESTATUS_LOCAL != 'BAJA'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}	
+	
+	function comparaciones($intelisisID){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_local where INTELISIS_ID = '$intelisisID'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}	
+	
+	function comentariosGerentes($intelisisID){
+		$data = array();
+		$q = $this->db->query("SELECT * FROM layouts_estatus_local where INTELISIS_ID = '$intelisisID'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}	
+	
+	function llocales($intelisisID){
+		$data = array();
+		$q = $this->db->query("SELECT ESTATUS_LOCAL FROM layouts_local WHERE INTELISIS_ID = '$intelisisID'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}	
+	
+	
+	function contratos($Local){
+		$data = array();
+		$q = $this->db->query("
+		SELECT MovID FROM intelisis_vic_condicion iv 
+		JOIN intelisis_contrato ic ON ic.ID=iv.IDContrato
+		where iv.Local='$Local'
+		");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
+		}
+		return $data;
+	}
+	
+	function consultaContrato($INTELISIS_ID){
+		$data = array();
+		$q = $this->db->query("
+		SELECT MovID from intelisis_vic_condicion i
+		LEFT JOIN intelisis_contrato c ON i.IDContrato=c.id
+		WHERE i.Local='$INTELISIS_ID'
+		and i.Estatus='Activa'
+		and i.articulo = 'REN'");
+		if($q->num_rows() > 0) {
+			foreach($q->result() as $row){
+				$data[] = $row;
+			}
+			$q->free_result();
 		}
 		return $data;
 	}

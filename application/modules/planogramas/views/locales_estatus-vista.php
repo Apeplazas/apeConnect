@@ -24,8 +24,10 @@
 				$class_local 	= (sizeof($local_estatus) > 0) ? 'listo' : '';
 				?>
 				<div class="holder">
-					<div class="details_local <?=$class_local;?>" title="<?= $row->Local;?>">
+					<div class="details_localThree <?=$class_local;?>" title="<?= $row->Local;?>">
 						<?php echo $row->NombreCorto;?>
+						<?=$local_estatus[0]->ESTATUS?>
+						<?=$local_estatus[0]->INTELISIS_ID?>
 					</div>	
 					<div class="form_local none">
 						<span class="cerrarpop" style="float:right; cursor:pointer"><img width="18" src="<?=base_url()?>assets/graphics/cerrar.png"/></span>
@@ -70,7 +72,7 @@
 <script>
 	$(document).ready(function(){
 		
-		$('.details_local').click(function(e){
+		$('.details_localThree').click(function(e){
 			
 			if ($(this).siblings('.form_local').hasClass("none")) {
 				$('.form_local').addClass("none");
